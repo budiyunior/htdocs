@@ -2,7 +2,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('admin') ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,8 +13,8 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+      <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">">
+        <a class="nav-link" href="<?php echo site_url('admin') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -36,8 +36,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <a class="collapse-item" href="<?php echo site_url('buttons') ?>">Buttons</a>
+            <a class="collapse-item" href="<?php echo site_url('cards') ?>">Cards</a>
           </div>
         </div>
       </li>
@@ -51,10 +51,10 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-color' ? 'active': '' ?>" href="<?php echo site_url('utilities-color') ?>">Colors</a>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-border' ? 'active': '' ?>" href="<?php echo site_url('utilities-border') ?>">Borders</a>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-animaton' ? 'active': '' ?>" href="<?php echo site_url('utilities-animation') ?>">Animations</a>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-other' ? 'active': '' ?>" href="<?php echo site_url('utilities-other') ?>">Other</a>
           </div>
         </div>
       </li>
@@ -76,27 +76,27 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <a class="collapse-item" href="<?php echo site_url('login') ?>">Login</a>
+            <a class="collapse-item" href="<?php echo site_url('register') ?>">Register</a>
+            <a class="collapse-item" href="<?php echo site_url('forgot-password') ?>">Forgot Password</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <a class="collapse-item" href="<?php echo site_url('404') ?>">404 Page</a>
+            <a class="collapse-item" href="<?php echo site_url('blank') ?>">Blank Page</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+      <li class="nav-item <?php echo $this->uri->segment(2) == 'charts' ? 'active': '' ?>">
+        <a class="nav-link" href="<?php echo site_url('charts') ?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?php echo site_url('tables') ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>
