@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Scoreboard</string>
+    <string name="button_score_a">Score+1</string>
+    <string name="button_score_b">Score+1</string>
+    <string name="button_reset">Reset</string>
+    <string name="score_a">0</string>
+    <string name="score_b">0</string>
+</resources>
