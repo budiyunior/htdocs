@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DcDcDc"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/score_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="150dp"
+        android:textSize="100sp"
+        android:textColor="#000000"
+        android:text="@string/score_a"
+        />
+
+    <TextView
+        android:id="@+id/score_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="100sp"
+        android:textColor="#000000"
+        android:text="@string/score_b"
+        />
+
+    <Button
+        android:id="@+id/button_score_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="300dp"
+        android:textSize="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="tambah_A"
+        android:text="@string/button_score_a" />
+
+    <Button
+        android:id="@+id/button_score_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:onClick="tambahB"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/button_score_b"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/reset"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="100dp"
+        android:onClick="reset"
+        android:textSize="30dp"
+        android:text="@string/button_reset"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/barca" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/madrid" />
+
+</RelativeLayout>
