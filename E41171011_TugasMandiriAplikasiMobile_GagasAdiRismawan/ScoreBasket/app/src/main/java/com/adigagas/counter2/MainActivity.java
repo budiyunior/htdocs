@@ -1,4 +1,4 @@
-package com.adigagas.scorebasket;
+package com.adigagas.counter2;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;

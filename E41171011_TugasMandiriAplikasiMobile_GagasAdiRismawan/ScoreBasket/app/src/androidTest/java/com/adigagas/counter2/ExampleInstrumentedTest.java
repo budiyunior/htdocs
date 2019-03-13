@@ -1,4 +1,4 @@
-package com.adigagas.scorebasket;
+package com.adigagas.counter2;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.adigagas.scorebasket", appContext.getPackageName());
+        assertEquals("com.adigagas.counter2", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.adigagas.scorebasket;
+package com.adigagas.counter2;
 
 import org.junit.Test;
 
