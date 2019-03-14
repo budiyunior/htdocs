@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">secore</string>
+    <string name="reset">reset</string>
+    <string name="kurang">kurang</string>
+    <string name="tambah">tambah</string>
+    <string name="team_b">team b</string>
+    <string name="_0">0</string>
+    <string name="team_a">team a</string>
+    <string name="action_settings">setting</string>
+</resources>
