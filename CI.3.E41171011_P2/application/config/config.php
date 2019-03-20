@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/CI.3.E41171011_P2';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
