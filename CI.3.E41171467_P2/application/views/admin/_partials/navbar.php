@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-success static-top">
+<nav class="navbar navbar-expand navbar-dark bg-info static-top">
 
     <a class="navbar-brand mr-1" href="<?php echo site_url('admin') ?>"><?php echo SITE_NAME ?></a>
 
