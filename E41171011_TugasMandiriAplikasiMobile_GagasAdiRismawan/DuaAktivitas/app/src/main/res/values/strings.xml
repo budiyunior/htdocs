@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DuaAktivitascopy</string>
+    <string name="activity2_name">Second Activity</string>
+
+    <!-- Message header text (in second activity) [CHAR LIMIT=30]-->
+    <string name="text_header">Pesan Telah Diterima</string>
+
+    <!-- Button label in main activity [CHAR LIMIT=10]-->
+    <string name="button_main">Kirim</string>
+
+    <!-- Hint for message edit text in main activity [CHAR LIMIT=30]-->
+    <string name="editText_main">Masukan Pesan </string>
+
+    <!-- Button label in second activity [CHAR LIMIT=10]-->
+    <string name="button_second">Balas</string>
+
+    <!-- Hint for reply edit text in second activity [CHAR LIMIT=30]-->
+    <string name="editText_second">Masukan Balasan Disini</string>
+
+    <!-- Reply header text in main activity [CHAR LIMIT=30]-->
+    <string name="text_header_reply">Balasan Diterima</string>
+</resources>
