@@ -2,33 +2,28 @@
 
 class Product_model extends CI_Model
 {
-    private $_table = "kemeja";
+    private $_table = "product";
 
-    public $idkemeja;
-    public $nama_kemeja;
-    public $ukuran_kemeja;
-    public $idmerk;
-    public $stok;
+    public $product_id;
+    public $name;
+    public $price;
     public $image = "default.jpg";
+    public $description;
 
     public function rules()
     {
         return [
-            ['field' => 'nama_kemeja',
-            'label' => 'NamaKemeja',
+            ['field' => 'name',
+            'label' => 'Name',
             'rules' => 'required'],
 
-            ['field' => 'ukuran_kemeja',
-            'label' => 'UkuranKemeja',
-            'rules' => 'required'],
+            ['field' => 'price',
+            'label' => 'Price',
+            'rules' => 'numeric'],
             
-            ['field' => 'idmerk',
-            'label' => 'Merk',
-            'rules' => 'numeric'],
-
-            ['field' => 'stok',
-            'label' => 'Stok',
-            'rules' => 'numeric'],
+            ['field' => 'description',
+            'label' => 'Description',
+            'rules' => 'required']
         ];
     }
 
@@ -39,33 +34,31 @@ class Product_model extends CI_Model
     
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["idkemeja" => $id])->row();
+        return $this->db->get_where($this->_table, ["product_id" => $id])->row();
     }
 
     public function save()
     {
         $post = $this->input->post();
-        $this->idkemeja = uniqid();
-        $this->nama_kemeja = $post["nama_kemeja"];
-        $this->ukuran_kemeja = $post["ukuran_kemeja"];
-        $this->idmerk = $post["idmerk"];
-        $this->stok = $post["stok"];
+        $this->product_id = uniqid();
+        $this->name = $post["name"];
+        $this->price = $post["price"];
+        $this->description = $post["description"];
         $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->idkemeja = $post["id"];
-        $this->nama_kemeja = $post["nama_kemeja"];
-        $this->ukuran_kemeja = $post["ukuran_kemeja"];
-        $this->idmerk = $post["idmerk"];
-        $this->stok = $post["stok"];
-        $this->db->update($this->_table, $this, array('idkemeja' => $post['id']));
+        $this->product_id = $post["id"];
+        $this->name = $post["name"];
+        $this->price = $post["price"];
+        $this->description = $post["description"];
+        $this->db->update($this->_table, $this, array('product_id' => $post['id']));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("idkemeja" => $id));
+        return $this->db->delete($this->_table, array("product_id" => $id));
     }
 }
