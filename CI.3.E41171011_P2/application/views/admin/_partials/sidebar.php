@@ -101,6 +101,13 @@
           <span>Tables</span></a>
       </li>
 
+      <!-- Nav Item - Product -->
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('admin/product') ?>">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Product</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

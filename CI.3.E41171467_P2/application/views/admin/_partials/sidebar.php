@@ -24,7 +24,7 @@
             <span>Users</span></a>
             </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="href="<?php echo site_url('admin/Login') ?>">Login</a>
+        <a class="dropdown-item" href="<?php echo site_url('admin/login') ?>">Login</a>
           <a class="dropdown-item" href="">Register</a>
           <a class="dropdown-item" href="">Forgot Password</a>
         </div>

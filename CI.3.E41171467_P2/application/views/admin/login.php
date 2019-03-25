@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <?php $this->load->view("admin/_partials/head.php") ?>
+
 </head>
 
 <body class="bg-dark">
@@ -36,16 +37,23 @@
           <a class="btn btn-primary btn-block" href="index.html">Login</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="<?= site_url("register") ?>">Register an Account</a>
-          <a class="d-block small" href="<?= site_url("forgot") ?>">Forgot Password?</a>
+          <a class="d-block small mt-3" href="register.html">Register an Account</a>
+          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
         </div>
       </div>
     </div>
   </div>
+  </div>
+		<!-- /.container-fluid -->
 
-  <!-- Bootstrap core JavaScript-->
-  <?php $this->load->view("admin/_partials/js.php") ?>
+		<!-- Sticky Footer -->
+		<?php $this->load->view("admin/_partials/footer.php") ?>
 
+	</div>
+
+  <?php $this->load->view("admin/_partials/scrolltop.php") ?>
+<?php $this->load->view("admin/_partials/modal.php") ?>
+<?php $this->load->view("admin/_partials/js.php") ?>
 </body>
 
 </html>
