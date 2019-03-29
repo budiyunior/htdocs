@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DuaAktivitascopy</string>
+    <string name="app_name">DuaAktivitas</string>
     <string name="activity2_name">Second Activity</string>
 
     <!-- Message header text (in second activity) [CHAR LIMIT=30]-->
