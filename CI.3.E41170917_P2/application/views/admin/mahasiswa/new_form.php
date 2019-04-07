@@ -45,7 +45,6 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group">
                                 <label for="jeniskelamin">Jenis Kelamin*</label>
                                 <input class="form-control <?php echo form_error('jeniskelamin') ? 'is-invalid' : '' ?>" type="text" name="jeniskelamin" min="0" placeholder="jeniskelamin" />
