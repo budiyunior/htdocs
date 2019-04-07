@@ -80,7 +80,12 @@
     <?php $this->load->view("admin/_partials/modal.php") ?>
 
     <?php $this->load->view("admin/_partials/js.php") ?>
-
+    <script>
+        function deleteConfirm(url) {
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        }
+    </script>
 </body>
 
 </html> 

@@ -15,20 +15,24 @@
 
             <div class="container-fluid">
 
-
                 <?php if ($this->session->flashdata('success')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?php echo $this->session->flashdata('success'); ?>
                 </div>
                 <?php endif; ?>
 
+                <!-- Card  -->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <a href="<?php echo site_url('admin/mahasiswa/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+                        <a href="<?php echo site_url('admin/mahasiswa/') ?>"><i class="fas fa-arrow-left"></i>
+                            Back</a>
                     </div>
                     <div class="card-body">
 
                         <form action="<?php base_url('admin/mahasiswa/add') ?>" method="post" enctype="multipart/form-data">
+
+
+
                             <div class="form-group">
                                 <label for="NIM">NIM*</label>
                                 <input class="form-control <?php echo form_error('NIM') ? 'is-invalid' : '' ?>" type="text" name="NIM" placeholder="NIM" />
@@ -38,23 +42,23 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">Nama*</label>
-                                <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" min="0" placeholder="nama" />
+                                <label for="nama">nama</label>
+                                <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="nama" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('nama') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="jeniskelamin">Jenis Kelamin*</label>
-                                <input class="form-control <?php echo form_error('jeniskelamin') ? 'is-invalid' : '' ?>" type="text" name="jeniskelamin" min="0" placeholder="jeniskelamin" />
+                                <label for="jeniskelamin">jeniskelamin</label>
+                                <input class="form-control <?php echo form_error('jeniskelamin') ? 'is-invalid' : '' ?>" type="text" name="jeniskelamin" placeholder="jeniskelamin" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('jeniskelamin') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="alamat">Alamat*</label>
+                                <label for="alamat">alamat*</label>
                                 <textarea class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" name="alamat" placeholder="alamat"></textarea>
                                 <div class="invalid-feedback">
                                     <?php echo form_error('alamat') ?>
