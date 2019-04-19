@@ -21,4 +21,6 @@
 		
 		mysqli_close($con);
 	}
+
+	//gagas adi
 ?>
