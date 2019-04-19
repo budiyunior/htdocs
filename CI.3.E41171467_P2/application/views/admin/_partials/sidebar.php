@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
     <li class="nav-item <?php echo $this->uri->segment(2) == '' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo site_url('admin') ?>">
+        <a class="nav-link" href="<?php echo site_url('admin/overview') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Overview</span>
         </a>
@@ -24,9 +24,9 @@
             <span>Users</span></a>
             </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="<?php echo site_url('admin/login') ?>">Login</a>
-          <a class="dropdown-item" href="">Register</a>
-          <a class="dropdown-item" href="">Forgot Password</a>
+        <a class="dropdown-item" href="">Biodata</a>
+          <a class="dropdown-item" href="">Arsip Penting</a>
+          <a class="dropdown-item" href="">Portofolio</a>
         </div>
     </li>
     <li class="nav-item">

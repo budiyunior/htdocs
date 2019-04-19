@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Product_model extends CI_Model
+class Mahasiswa_model extends CI_Model
 {
     private $_table = "mahasiswa"; //nama tabel
     //nama kolom di tabel
