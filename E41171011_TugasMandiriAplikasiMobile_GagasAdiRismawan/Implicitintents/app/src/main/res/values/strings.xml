@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ImplicitIntents</string>
+    <string	name="edittext_uri">https://www.instagram.com/adi_gagas/</string>
+    <string	name="button_uri">Open	Website</string>
+    <string	name="edittext_loc">Alun Alun Bondowoso</string>
+    <string	name="button_loc">Open	Location</string>
+    <string	name="edittext_share">Hai guys</string>
+    <string	name="button_share">Share	This	Text</string>
+    <string name="edittext_asda">http://www.google.com</string>
+</resources>

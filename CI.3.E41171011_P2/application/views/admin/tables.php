@@ -43,22 +43,24 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Images</th>
+                      <th>ID Kemeja</th>
+                      <th>Nama Kemeja</th>
+                      <th>Ukuran</th>
+                      <th>Merk</th>
+                      <th>Stok</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Images</th>
+                      <th>ID Kemeja</th>
+                      <th>Nama Kemeja</th>
+                      <th>Ukuran</th>
+                      <th>Merk</th>
+                      <th>Stok</th>
+                      <th>Action</th>
                     </tr>
                   </tfoot>
                   <tbody>
