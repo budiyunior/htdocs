@@ -85,6 +85,7 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Constants for Site
@@ -92,4 +93,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 
-define('SITE_NAME', 'CI3.E41170891_P2');
+define('SITE_NAME', 'CI.3.E41170891_P2');

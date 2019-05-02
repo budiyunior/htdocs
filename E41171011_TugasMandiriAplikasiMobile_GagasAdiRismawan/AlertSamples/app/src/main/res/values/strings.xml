@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Alert Sample</string>
+    <string name="tap_test">Tap untuk melihat alert:</string>
+    <string name="alert_button">Alert</string>
+    <string name="alert_message">Tap OK untuk melanjutkan, atau Cancel untuk berhenti:</string>
+    <string name="alert_title">Perhatian</string>
+    <string name="pressed_ok">Tombol OK ditekan</string>
+    <string name="pressed_cancel">Tombol Cancel ditekan</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+</resources>
