@@ -16,9 +16,9 @@
             <div class="container-fluid">
 
                 <?php if ($this->session->flashdata('success')) : ?>
-                <div class="alert alert-success" role="alert">
-                    <?php echo $this->session->flashdata('success'); ?>
-                </div>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo $this->session->flashdata('success'); ?>
+                    </div>
                 <?php endif; ?>
 
                 <!-- Card  -->
@@ -51,6 +51,7 @@
 
                             <div class="form-group">
                                 <label for="jeniskelamin">jeniskelamin</label>
+
                                 <input class="form-control <?php echo form_error('jeniskelamin') ? 'is-invalid' : '' ?>" type="text" name="jeniskelamin" placeholder="jeniskelamin" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('jeniskelamin') ?>
@@ -94,4 +95,4 @@
 
 </body>
 
-</html> 
+</html>
