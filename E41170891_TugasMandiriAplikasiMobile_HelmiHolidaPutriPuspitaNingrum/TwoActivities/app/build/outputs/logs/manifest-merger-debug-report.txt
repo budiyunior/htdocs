@@ -1,0 +1,79 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:15:1-40:12
+	package
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:16:5-48
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:15:11-69
+	android:versionCode
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+application
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:18:5-38:19
+MERGED from [com.android.support:appcompat-v7:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.0\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.0\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:21:9-41
+	android:supportsRtl
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:22:9-35
+	android:allowBackup
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:19:9-35
+	android:icon
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:20:9-43
+	android:theme
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:23:9-40
+activity#com.example.android.twoactivities.MainActivity
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:24:9-29:20
+	android:name
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:24:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:25:13-28:29
+action#android.intent.action.MAIN
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:27:27-74
+activity#com.example.android.twoactivities.SecondActivity
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:30:9-37:20
+	android:label
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:32:13-51
+	android:parentActivityName
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:33:13-55
+	android:name
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:31:13-43
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:34:13-36:82
+	android:value
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:36:17-79
+	android:name
+		ADDED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml:35:17-63
+uses-sdk
+INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.0\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.0\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:21:5-23:54
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:24.1.0] D:\Helmione\android-fundamentals-master\TwoActivities\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.0\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Helmione\android-fundamentals-master\TwoActivities\app\src\main\AndroidManifest.xml
