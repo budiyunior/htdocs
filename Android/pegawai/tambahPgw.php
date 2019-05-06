@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sal = $_POST['salary']; //no_hp
 
 	//Pembuatan Syntax SQL
-	$sql = "INSERT INTO tb_pulsa (nama_operator,nominal,no_hp) VALUES ('$name','$desg','$sal')";
+	$sql = "INSERT INTO transaksi (nama_operator,nominal,no_hp) VALUES ('$name','$desg','$sal')";
 
 	//Import File Koneksi database
 	require_once('koneksi.php');

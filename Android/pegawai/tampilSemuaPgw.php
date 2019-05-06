@@ -11,7 +11,7 @@
 require_once('koneksi.php');
 
 //Membuat SQL Query
-$sql = "SELECT * FROM tb_pulsa";
+$sql = "SELECT * FROM transaksi";
 
 //Mendapatkan Hasil
 $r = mysqli_query($con, $sql);
@@ -24,7 +24,9 @@ while ($row = mysqli_fetch_array($r)) {
 	//Memasukkan Nama dan ID kedalam Array Kosong yang telah dibuat
 	array_push($result, array(
 		"id" => $row['id'],
-		"name" => $row['nama_operator']
+		"name" => $row['nama_operator'],
+		"desg" => $row['nominal'],
+		"salary" => $row['no_hp']
 	));
 }
 

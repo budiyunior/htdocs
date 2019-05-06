@@ -14,7 +14,7 @@ $id = $_GET['id'];
 require_once('koneksi.php');
 
 //Membuat SQL Query dengan pegawai yang ditentukan secara spesifik sesuai ID
-$sql = "SELECT * FROM tb_pulsa WHERE id=$id";
+$sql = "SELECT * FROM transaksi WHERE id=$id";
 
 //Mendapatkan Hasil
 $r = mysqli_query($con, $sql);
