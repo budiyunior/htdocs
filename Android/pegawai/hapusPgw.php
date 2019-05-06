@@ -14,15 +14,14 @@
  require_once('koneksi.php');
 
  //Membuat SQL Query
- $sql = "DELETE FROM tb_pegawai WHERE id=$id;";
+ $sql = "DELETE FROM tb_pulsa WHERE id=$id;";
 
 
  //Menghapus Nilai pada Database
  if(mysqli_query($con,$sql)){
- echo 'Berhasil Menghapus Pegawai';
+ echo 'Berhasil Menghapus Data Pulsa';
  }else{
- echo 'Gagal Menghapus Pegawai';
+ echo 'Gagal Menghapus Data Pulsa';
  }
 
  mysqli_close($con);
- ?>

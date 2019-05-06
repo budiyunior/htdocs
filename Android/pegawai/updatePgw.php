@@ -17,7 +17,7 @@
 		require_once('koneksi.php');
 
 		//Membuat SQL Query
-		$sql = "UPDATE tb_pegawai SET nama = '$name', posisi = '$desg', gajih = '$sal' WHERE id = $id;";
+		$sql = "UPDATE tb_pulsa SET nama_operator = '$name', nominal = '$desg', no_hp = '$sal' WHERE id = $id;";
 
 		//Meng-update Database
 		if(mysqli_query($con,$sql)){
@@ -28,4 +28,3 @@
 
 		mysqli_close($con);
 	}
-?>
