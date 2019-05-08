@@ -44,7 +44,7 @@ class Client_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->id_pengguna = uniqid();
+        $this->id_pengguna = "USR".uniqid();
         $this->nama_pengguna = $post["nama_pengguna"];
         $this->id_otoritas = $post["id_otoritas"];
         $this->username = $post["username"];
