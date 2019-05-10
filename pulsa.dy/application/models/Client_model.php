@@ -60,7 +60,7 @@ class Client_model extends CI_Model
         $this->id_otoritas = $post["id_otoritas"];
         $this->username = $post["username"];
         $this->password = $post["password"];
-        $this->db->update($this->_table, $this, array('product_id' => $post['id_pengguna']));
+        $this->db->update($this->_table, $this, array('id_pengguna' => $post['id_pengguna']));
     }
 
     public function delete($id)

@@ -30,9 +30,21 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <div class="d-sm-flex align-items-center justify-content-between mb-3">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+
+            <div class="row mb-4">
+                <!-- Project Card Example -->
+                
+                <div class="card-body">
+                    <h4 class="small "> <i class="fas fa-clipboard-list fa-2x"> <span class=" font-weight-light"> Traget Pencapaian</span></i> <span class="float-right font-weight-bold">1457 / 1457</span></h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
             </div>
 
             <!-- Content Row -->
@@ -50,7 +62,7 @@
                         <div class="col-auto">
                             <a href="">
                                 <!-- tombol tambah saldo -->
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                             </a>
                         </div>
                         </div>
@@ -89,12 +101,13 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">1890</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                         </div>
                         </div>
                     </div>
                     </div>
                 </div>
+
             
             </div>
 
