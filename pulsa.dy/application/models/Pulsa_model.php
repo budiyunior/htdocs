@@ -23,8 +23,7 @@ class Pulsa_model extends CI_Model
             
             ['field' => 'nominal',
             'label' => 'nominal',
-            'rules' => 'numeric'],
-        ];
+            'rules' => 'numeric'],        ];
     }
 
     public function getAll()
@@ -39,7 +38,7 @@ class Pulsa_model extends CI_Model
 
     public function save()
     {  
-        $ip = "192.168.7.13";
+        $ip = "192.168.1.13";
         $port = "8989";
 
         //ping server SMSGateway
