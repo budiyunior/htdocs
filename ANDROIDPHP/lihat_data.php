@@ -9,7 +9,9 @@ $ray = array();
 
 while ($row = mysqli_fetch_array($sql)) {
     array_push($ray, array(
-        "id_mhs" => $row['id']
+        "id_mhs" => $row['id'],
+        "nama_mhs" => $row['nama'],
+        "kelas_mhs" => $row['kelas']
     ));
 }
 
