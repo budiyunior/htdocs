@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">pulsa</string>
+    <string name="buttom_trans">Trans Baru</string>
+    <string name="id_transaksi">ID Transaksi</string>
+    <string name="tgl_trans">TGL Transaksi</string>
+    <string name="no_hp">No Hp</string>
+    <string name="date_button">Date</string>
+    <string name="time_button">Time</string>
+    <string name="date_picker">datePicker</string>
+    <string name="time_picker">timePicker</string>
+    <string name="date">"Date: "</string>
+    <string name="time">"Time: "</string>
+    <string name="notif_message">Click OK bila ingin tambah transaksi bila tidak klik cencel:</string>
+    <string name="alert_title">pesan</string>
+    <string name="pressed_ok">Pressed OK</string>
+    <string name="pressed_cancel">Pressed Cancel</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string-array name="android_dropdown_arrays">
+    <item>Pilih operator</item>
+    <item>TELKOMSEL</item>
+    <item>XL AXITA</item>
+    <item>INDOSAT</item>
+    <item>3</item>
+</string-array>
+    <string-array name="android_dropdown_arrays1">
+        <item>Pilih nominal</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>25000</item>
+        <item>50000</item>
+        <item>100000</item>
+    </string-array>
+</resources>
