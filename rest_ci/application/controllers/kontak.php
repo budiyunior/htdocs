@@ -1,22 +1,19 @@
 <?php
 
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . '/libraries/REST_Controller.php';
 use Restserver\Libraries\REST_Controller;
 
-class Kontak extends REST_Controller
-{
+class Kontak extends REST_Controller {
 
-    function __construct($config = 'rest')
-    {
+    function __construct($config = 'rest') {
         parent::__construct($config);
         $this->load->database();
     }
 
     //Menampilkan data kontak
-    function index_get()
-    {
+    function index_get() {
         $id = $this->get('id');
         if ($id == '') {
             $kontak = $this->db->get('telepon')->result();
@@ -28,13 +25,11 @@ class Kontak extends REST_Controller
     }
 
     //Mengirim atau menambah data kontak baru
-    function index_post()
-    {
+    function index_post() {
         $data = array(
-            'id'           => $this->post('id'),
-            'nama'          => $this->post('nama'),
-            'nomor'    => $this->post('nomor')
-        );
+                    'id'           => $this->post('id'),
+                    'nama'          => $this->post('nama'),
+                    'nomor'    => $this->post('nomor'));
         $insert = $this->db->insert('telepon', $data);
         if ($insert) {
             $this->response($data, 200);
@@ -44,14 +39,12 @@ class Kontak extends REST_Controller
     }
 
     //Memperbarui data kontak yang telah ada
-    function index_put()
-    {
+    function index_put() {
         $id = $this->put('id');
         $data = array(
-            'id'       => $this->put('id'),
-            'nama'          => $this->put('nama'),
-            'nomor'    => $this->put('nomor')
-        );
+                    'id'       => $this->put('id'),
+                    'nama'          => $this->put('nama'),
+                    'nomor'    => $this->put('nomor'));
         $this->db->where('id', $id);
         $update = $this->db->update('telepon', $data);
         if ($update) {
@@ -62,8 +55,7 @@ class Kontak extends REST_Controller
     }
 
     //Menghapus salah satu data kontak
-    function index_delete()
-    {
+    function index_delete() {
         $id = $this->delete('id');
         $this->db->where('id', $id);
         $delete = $this->db->delete('telepon');
@@ -74,3 +66,5 @@ class Kontak extends REST_Controller
         }
     }
 }
+
+?>
