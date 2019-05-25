@@ -24,6 +24,7 @@ public class InsertActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
+
         edtNama = (EditText) findViewById(R.id.edtNama);
         edtNomor = (EditText) findViewById(R.id.edtNomor);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);

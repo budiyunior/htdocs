@@ -24,9 +24,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
-    Button btIns;
-    Button filterjenisbaju;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button btIns;
+    private Button filterjenisbaju;
     ApiInterface mApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -44,19 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         btIns = (Button) findViewById(R.id.btIns);
-        btIns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InsertActivity.class));
-            }
-        });
         filterjenisbaju = (Button) findViewById(R.id.filterjenisbaju);
-        filterjenisbaju.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Mahasiswa.class));
-            }
-        });
+        btIns.setOnClickListener(this);
+        filterjenisbaju.setOnClickListener(this);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -96,5 +87,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v == btIns){
+            startActivity(new Intent(this,InsertActivity.class));
+        }
 
+        if(v == filterjenisbaju){
+            startActivity(new Intent(this,MahasiswaActivity.class));
+        }
+    }
 }
