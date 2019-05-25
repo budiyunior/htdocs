@@ -91,4 +91,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 
-define('SITE_NAME', 'Costum Outfit');
+define('SITE_NAME', 'Costum Shirt');
