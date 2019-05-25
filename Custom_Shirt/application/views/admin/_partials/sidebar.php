@@ -19,8 +19,22 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        TABLE CRUD
+        Menu Utama
       </div>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Pengguna</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Pengguna</h6>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'list' ? 'active': '' ?>" href="<?php echo site_url('admin/pengguna') ?>">Pegawai</a>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'list' ? 'active': '' ?>" href="#">Pelanggan</a>
+          </div>
+        </div>
+      </li>
 
       <!-- Nav Item - CRUD Pengguna -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'list' ? 'active': '' ?>">
@@ -30,7 +44,7 @@
         </a>
       </li>
 
-       <!-- Nav Item - CRUD Item -->
+      <!-- Nav Item - CRUD Item -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
       <a class="nav-link" href="<?php echo site_url('admin') ?>">
           <i class="fas fa-fw fa-folder"></i>
@@ -38,8 +52,8 @@
         </a>
       </li>
 
-     <!-- Divider -->
-     <hr class="sidebar-divider">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -54,7 +68,7 @@
         </a>
       </li>
 
-       <!-- Nav Item - Transaksi list pemesanan -->
+      <!-- Nav Item - Transaksi list pemesanan -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
       <a class="nav-link" href="<?php echo site_url('admin') ?>">
           <i class="fas fa-fw fa-table"></i>
@@ -62,8 +76,8 @@
         </a>
       </li>
 
-       <!-- Divider -->
-       <hr class="sidebar-divider">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
