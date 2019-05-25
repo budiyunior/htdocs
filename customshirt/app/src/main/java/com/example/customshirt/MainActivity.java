@@ -26,6 +26,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     Button btIns;
+    Button filterjenisbaju;
     ApiInterface mApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -41,11 +42,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         btIns = (Button) findViewById(R.id.btIns);
         btIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, InsertActivity.class));
+            }
+        });
+        filterjenisbaju = (Button) findViewById(R.id.filterjenisbaju);
+        filterjenisbaju.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Mahasiswa.class));
             }
         });
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -86,4 +95,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

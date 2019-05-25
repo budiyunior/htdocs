@@ -49,7 +49,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
-                android:text="Jenis Baju" />
+                android:text="Jenis Baju"/>
 
             <Button
                 android:id="@+id/filterjeniskain"

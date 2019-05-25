@@ -29,5 +29,5 @@ public interface ApiInterface {
     Call<PostPutDelKontak> deleteKontak(@Field("id") String id);
 
     @GET("mahasiswa")
-    Call<GetMahasiswa> getMahaiswa();
+    Call<GetMahasiswa> getMahasiswa();
 }
