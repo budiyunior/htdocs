@@ -66,3 +66,4 @@ $route['utilities-color'] = 'admin/utilitiescolor';
 $route['utilities-border'] = 'admin/utilitiesborder';
 $route['utilities-animation'] = 'admin/utilitiesanimation';
 $route['utilities-other'] = 'admin/utilitiesother';
+$route['pengguna'] = 'admin/pengguna';

@@ -23,7 +23,7 @@
       </div>
 
       <!-- Nav Item - CRUD Pengguna -->
-      <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
+      <li class="nav-item <?php echo $this->uri->segment(2) == 'pengguna' ? 'active': '' ?>">
         <a class="nav-link" href="<?php echo site_url('admin') ?>">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pengguna</span>
@@ -64,7 +64,7 @@
 
        <!-- Divider -->
        <hr class="sidebar-divider">
-       
+
       <!-- Heading -->
       <div class="sidebar-heading">
         TABLE LAPORAN
