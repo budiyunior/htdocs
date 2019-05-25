@@ -1,6 +1,7 @@
 package com.example.customshirt.Rest;
 
 import com.example.customshirt.Model.GetKontak;
+import com.example.customshirt.Model.mahasiswa.GetMahasiswa;
 import com.example.customshirt.Model.PostPutDelKontak;
 
 import retrofit2.Call;
@@ -26,4 +27,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "kontak_android", hasBody = true)
     Call<PostPutDelKontak> deleteKontak(@Field("id") String id);
+
+    @GET("mahasiswa")
+    Call<GetMahasiswa> getMahaiswa();
 }
