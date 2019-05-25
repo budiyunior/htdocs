@@ -38,6 +38,9 @@
         </a>
       </li>
 
+     <!-- Divider -->
+     <hr class="sidebar-divider">
+
       <!-- Heading -->
       <div class="sidebar-heading">
         TABLE TRANSAKSI
@@ -46,7 +49,7 @@
       <!-- Nav Item - Transaksi konfirmasi pembayaran -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
       <a class="nav-link" href="<?php echo site_url('admin') ?>">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-fw fa-table"></i>
           <span>Konfirmasi Pembayaran</span>
         </a>
       </li>
@@ -54,20 +57,23 @@
        <!-- Nav Item - Transaksi list pemesanan -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
       <a class="nav-link" href="<?php echo site_url('admin') ?>">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-fw fa-table"></i>
           <span>List Pemesanan</span>
         </a>
       </li>
 
+       <!-- Divider -->
+       <hr class="sidebar-divider">
+       
       <!-- Heading -->
       <div class="sidebar-heading">
         TABLE LAPORAN
       </div>
 
-      <!-- Nav Item - TLaporan penjualan -->
+      <!-- Nav Item - TLaporan -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
       <a class="nav-link" href="<?php echo site_url('admin') ?>">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-fw fa-wrench"></i>
           <span>Laporan Penjualan</span>
         </a>
       </li>
