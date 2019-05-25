@@ -55,7 +55,7 @@ class Pengguna extends CI_Controller
         if (!isset($id_pengguna)) show_404();
         
         if ($this->pengguna_model->delete($id_pengguna)) {
-            redirect(site_url('admin/ppengguna'));
+            redirect(site_url('admin/pengguna'));
         }
     }
 }

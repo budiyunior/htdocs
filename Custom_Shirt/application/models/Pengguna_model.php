@@ -44,7 +44,7 @@ class Pengguna_model extends CI_Model
         $this->tanggal_lahir = $post["tanggal_lahir"];
         $this->id_akses = $post["id_akses"];
         $this->email = $post["email"];
-        $this->password = $post["password"];
+        $this->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $this->nomor_telp = $post["nomor_telp"];
         $this->db->insert($this->_table, $this);
     }
@@ -62,9 +62,8 @@ class Pengguna_model extends CI_Model
         $this->db->update($this->_table, $this, array('id_pengguna' => $post['id_pengguna']));
     }
 
-    public function delete($id)
+    public function delete($id_pengguna)
     {
-        $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("id_pengguna" => $id_pengguna));
     }
 
