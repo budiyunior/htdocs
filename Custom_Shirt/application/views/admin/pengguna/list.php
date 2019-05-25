@@ -30,13 +30,13 @@
 			<div class="container-fluid">
 
 				<!-- Page Heading -->
-				<h1 class="h3 mb-2 text-gray-800">Product</h1>
-				<p class="mb-4">Product is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+				<h1 class="h3 mb-2 text-gray-800">Pengguna</h1>
+				
 
 				<!-- DataTales Example -->
 					<div class="card mb-3">
 						<div class="card-header">
-							<a href="<?php echo site_url('admin/product/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+							<a href="<?php echo site_url('admin/pengguna/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
 						</div>
 						<div class="card-body">
 
@@ -44,30 +44,44 @@
 								<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Price</th>
-											<th>Photo</th>
-											<th>Description</th>
+											<th>ID Pengguna</th>
+											<th>Nama Pengguna</th>
+											<th>Tanggal Lahir</th>
+											<th>ID Akses</th>
+											<th>Email</th>
+											<th>Password</th>
+											<th>Nomor Telp</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<?php foreach ($product as $product): ?>
+										<?php foreach ($pengguna as $pengguna): ?>
 										<tr>
+											<td>
+												<?php echo $pengguna->id_pengguna ?>
+											</td>
 											<td width="150">
-												<?php echo $product->name ?>
+												<?php echo $pengguna->nama_pengguna ?>
 											</td>
 											<td>
-												Rp. <?php echo $product->price ?>
+												<?php echo $pengguna->tanggal_lahir ?>
 											</td>
 											<td>
-												<img src="<?php echo base_url('upload/product/'.$product->image) ?>" width="64" />
+												<?php echo $pengguna->id_akses ?>
 											</td>
-											<td class="small">
-												<?php echo substr($product->description, 0, 120) ?>...</td>
+											<td>
+												<?php echo $pengguna->email ?>
+											</td>
+											<td>
+												<?php echo $pengguna->password ?>
+											</td>
+											<td>
+												<?php echo $pengguna->nomor_telp ?>
+											</td>
+		
 											<td width="250">
-												<a href="<?php echo site_url('admin/product/edit/'.$product->product_id) ?>"class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/'.$product->product_id) ?>')"href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+												<a href="<?php echo site_url('admin/pengguna/edit/'.$pengguna->id_pengguna) ?>"class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/pengguna/delete/'.$pengguna->id_pengguna) ?>')"href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 										<?php endforeach; ?>
