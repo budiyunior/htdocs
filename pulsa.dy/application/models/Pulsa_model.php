@@ -38,7 +38,7 @@ class Pulsa_model extends CI_Model
 
     public function save()
     {  
-        $ip = "192.168.1.13";
+        $ip = "192.168.43.58";
         $port = "8989";
 
         //ping server SMSGateway
@@ -62,9 +62,10 @@ class Pulsa_model extends CI_Model
             $this->session->set_flashdata('danger', 'Transaksi Gagal');
         };
 
+        $kode = "SELL-".uniqid(15);
         //masukkan ke database
         $post = $this->input->post();
-        $this->kode_trans = "SELL-".uniqid(15);
+        $this->kode_trans = $kode;
         $this->nama_plg = $post["nama_plg"];
         $this->nomor = $post["nomor"];
         $this->nominal = $post["nominal"];
@@ -72,7 +73,7 @@ class Pulsa_model extends CI_Model
         $this->db->insert($this->_table, $this);
         
         //membuat JSON nomor dan pesan
-        $data = array("no" => $post["nomor"], "pesan" => "Terimakasih kepada plg Yth. ".$post["nama_plg"].". Pulsa senilai Rp. ".$post["nominal"]." telah berhasil diisikan ke nomor Anda. Pulsa.dy **via web**");
+        $data = array("no" => $post["nomor"], "pesan" => "Terimakasih kepada plg Yth. ".$post["nama_plg"].", Pulsa senilai Rp. ".$post["nominal"]." telah berhasil diisikan ke nomor Anda dengan kode ".$kode." **Pulsa.dy via web**");
         $data_string = json_encode($data);  
 
         //cek apakah jika transaksi BERHASIL maka akan mengirim JSON data ke SMSGateway Server
