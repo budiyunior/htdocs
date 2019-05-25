@@ -23,8 +23,8 @@
       </div>
 
       <!-- Nav Item - CRUD Pengguna -->
-      <li class="nav-item <?php echo $this->uri->segment(2) == 'pengguna' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo site_url('admin') ?>">
+      <li class="nav-item <?php echo $this->uri->segment(2) == 'list' ? 'active': '' ?>">
+        <a class="nav-link" href="<?php echo site_url('admin/pengguna') ?>">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pengguna</span>
         </a>
