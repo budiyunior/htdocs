@@ -40,14 +40,13 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>ID Transaksi</th>
 										<th>ID Pengguna</th>
-										<th>Tanggal Transaksi</th>
-										<th>Total Harga</th>
-										<th>Total Berat</th>
-                                        <th>ID Alamat Kirim</th>
-                                        <th>ID Pengiriman</th>
-                                        <th>Total Pembayaran</th>
+										<th>Nama Pengguna</th>
+										<th>Tanggal Lahir</th>
+										<th>ID Akses</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Nomor Telp</th>
 									</tr>
 								</thead>
 								
