@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/buttontrans"
+        android:layout_width="130dp"
+        android:layout_height="37dp"
+        android:text="@string/buttom_trans"
+        android:onClick="onClickShowAlert" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:text="@string/id_transaksi" />
+
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+         />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tgl_trans" />
+
+    <RelativeLayout
+        android:layout_width="365dp"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/button_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_top_margin"
+            android:onClick="showDatePickerDialog"
+            android:text="@string/date_button" />
+
+        <Button
+            android:id="@+id/button_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/button_date"
+            android:layout_marginTop="@dimen/button_top_margin"
+            android:layout_toRightOf="@id/button_date"
+            android:onClick="showTimePickerDialog"
+            android:text="@string/time_button" />
+
+    </RelativeLayout>
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView2"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:text="AutoCompleteTextView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:text="@string/no_hp" />
+
+    <EditText
+        android:id="@+id/editTextnohp"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="phone" />
+
+
+    <Spinner
+        android:id="@+id/spinneroperator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2ecc71"
+        android:entries="@array/android_dropdown_arrays"
+        android:padding="5dp" />
+
+
+    <Spinner
+        android:id="@+id/spinnernominal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2ecc71"
+        android:entries="@array/android_dropdown_arrays1"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="AutoCompleteTextView" />
+
+</LinearLayout>
