@@ -44,7 +44,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pengguna:</h6>
             <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-color' ? 'active': '' ?>" href="<?php echo site_url('admin/pegawai/index') ?>">Pegawai</a>
-            <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-border' ? 'active': '' ?>" href="#">Pelanggan</a>
+            <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-border' ? 'active': '' ?>" href="<?php echo site_url('admin/pelanggan/index') ?>">Pelanggan</a>
           </div>
         </div>
       </li>

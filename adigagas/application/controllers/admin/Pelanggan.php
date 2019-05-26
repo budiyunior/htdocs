@@ -33,7 +33,7 @@ class Pelanggan extends CI_Controller
 
     public function edit($id_pelanggan = null)
     {
-        if (!isset($id_pelanggan)) redirect('admin/pelanggan');
+        if (!isset($id_pengguna)) redirect('admin/pelanggan');
        
         $pelanggan= $this->pelanggan_model;
         $validation = $this->form_validation;
@@ -44,15 +44,15 @@ class Pelanggan extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["pelanggan"] = $pelanggan->getById($id_pelanggan);
+        $data["pelanggan"] = $pelanggan->getById($id_pengguna);
         if (!$data["pelanggan"]) show_404();
         
         $this->load->view("admin/pelanggan/edit_form", $data);
     }
 
-    public function delete($id_pelanggan=null)
+    public function delete($id_pengguna=null)
     {
-        if (!isset($id_pelanggan)) show_404();
+        if (!isset($id_pengguna)) show_404();
         
         if ($this->pelanggan_model->delete($id_pengguna)) {
             redirect(site_url('admin/pelanggan'));
