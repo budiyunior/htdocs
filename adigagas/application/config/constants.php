@@ -91,4 +91,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 
-define('SITE_NAME', 'CI.3.E41171011_P2');
+define('SITE_NAME', 'adigagas');
