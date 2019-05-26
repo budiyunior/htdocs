@@ -26,13 +26,13 @@
 									<div class="text-center">
 										<h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
 									</div>
-									<form class="user">
+									<form action="<?php echo base_url('index.php/Login/auth');?>" method="post">
 										<div class="form-group">
-											<input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"
+											<input type="email" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"
 											 placeholder="Enter Email Address...">
 										</div>
 										<div class="form-group">
-											<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+											<input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
 										</div>
 										<div class="form-group">
 											<div class="custom-control custom-checkbox small">
@@ -40,9 +40,8 @@
 												<label class="custom-control-label" for="customCheck">Remember Me</label>
 											</div>
 										</div>
-										<a href="<?php echo site_url('admin') ?>" class="btn btn-primary btn-user btn-block">
-											Login
-										</a>
+										<td><input type="submit" class="btn btn-primary btn-user btn-block" value="Login"></td>
+								
 										<hr>
 										<a href="#" class="btn btn-google btn-user btn-block">
 											<i class="fab fa-google fa-fw"></i> Login with Google
