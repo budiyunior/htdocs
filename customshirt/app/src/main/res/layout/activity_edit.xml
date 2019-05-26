@@ -30,14 +30,14 @@
         android:layout_below="@id/tvNama"
         android:textSize="20sp"/>
     <EditText
-        android:id="@+id/edtId"
+        android:id="@+id/edtId_jenis_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Id"
         android:layout_toRightOf="@+id/tvId"
         android:layout_alignBaseline="@+id/tvId"/>
     <EditText
-        android:id="@+id/edtNama"
+        android:id="@+id/edtNama_jenis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Nama"

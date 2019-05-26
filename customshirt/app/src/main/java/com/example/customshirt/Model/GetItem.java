@@ -2,12 +2,14 @@ package com.example.customshirt.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 
-public class PostPutDelKontak {
+
+public class GetItem {
     @SerializedName("status")
     String status;
     @SerializedName("result")
-    Kontak mKontak;
+    List<Item> listDataItem;
     @SerializedName("message")
     String message;
     public String getStatus() {
@@ -22,11 +24,10 @@ public class PostPutDelKontak {
     public void setMessage(String message) {
         this.message = message;
     }
-    public Kontak getKontak() {
-        return mKontak;
+    public List<Item> getListDataItem() {
+        return listDataItem;
     }
-    public void setKontak(Kontak Kontak) {
-        mKontak = Kontak;
+    public void setListDataItem(List<Item> listDataItem) {
+        this.listDataItem = listDataItem;
     }
-
 }

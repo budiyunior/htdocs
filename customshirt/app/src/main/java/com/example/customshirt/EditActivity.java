@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.customshirt.Model.PostPutDelKontak;
+import com.example.customshirt.Model.PostPutDelItem;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 
@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditActivity extends AppCompatActivity {
-    EditText edtId, edtNama, edtNomor;
+    EditText edtId_jenis_item, edtNama_jenis;
     Button btUpdate, btDelete, btBack;
     ApiInterface mApiInterface;
 
@@ -25,33 +25,30 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        edtId = (EditText) findViewById(R.id.edtId);
-        edtNama = (EditText) findViewById(R.id.edtNama);
-        edtNomor = (EditText) findViewById(R.id.edtNomor);
+        edtId_jenis_item = (EditText) findViewById(R.id.edtId_jenis_item);
+        edtNama_jenis = (EditText) findViewById(R.id.edtNama_jenis);
         Intent mIntent = getIntent();
-        edtId.setText(mIntent.getStringExtra("Id"));
-        edtId.setTag(edtId.getKeyListener());
-        edtId.setKeyListener(null);
-        edtNama.setText(mIntent.getStringExtra("Nama"));
-        edtNomor.setText(mIntent.getStringExtra("Nomor"));
+        edtId_jenis_item.setText(mIntent.getStringExtra("Id"));
+        edtId_jenis_item.setTag(edtId_jenis_item.getKeyListener());
+        edtId_jenis_item.setKeyListener(null);
+        edtNama_jenis.setText(mIntent.getStringExtra("Nama"));
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         btUpdate = (Button) findViewById(R.id.btUpdate2);
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<PostPutDelKontak> updateKontakCall = mApiInterface.putKontak(
-                        edtId.getText().toString(),
-                        edtNama.getText().toString(),
-                        edtNomor.getText().toString());
-                updateKontakCall.enqueue(new Callback<PostPutDelKontak>() {
+                Call<PostPutDelItem> updateItemCall = mApiInterface.putItem(
+                        edtId_jenis_item.getText().toString(),
+                        edtNama_jenis.getText().toString());
+                updateItemCall.enqueue(new Callback<PostPutDelItem>() {
                     @Override
-                    public void onResponse(Call<PostPutDelKontak> call, Response<PostPutDelKontak> response) {
+                    public void onResponse(Call<PostPutDelItem> call, Response<PostPutDelItem> response) {
                         MainActivity.ma.refresh();
                         finish();
                     }
 
                     @Override
-                    public void onFailure(Call<PostPutDelKontak> call, Throwable t) {
+                    public void onFailure(Call<PostPutDelItem> call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                     }
                 });
@@ -61,17 +58,17 @@ public class EditActivity extends AppCompatActivity {
         btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtId.getText().toString().trim().isEmpty()==false){
-                    Call<PostPutDelKontak> deleteKontak = mApiInterface.deleteKontak(edtId.getText().toString());
-                    deleteKontak.enqueue(new Callback<PostPutDelKontak>() {
+                if (edtId_jenis_item.getText().toString().trim().isEmpty()==false){
+                    Call<PostPutDelItem> deleteItem = mApiInterface.deleteItem(edtId_jenis_item.getText().toString());
+                    deleteItem.enqueue(new Callback<PostPutDelItem>() {
                         @Override
-                        public void onResponse(Call<PostPutDelKontak> call, Response<PostPutDelKontak> response) {
+                        public void onResponse(Call<PostPutDelItem> call, Response<PostPutDelItem> response) {
                             MainActivity.ma.refresh();
                             finish();
                         }
 
                         @Override
-                        public void onFailure(Call<PostPutDelKontak> call, Throwable t) {
+                        public void onFailure(Call<PostPutDelItem> call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                         }
                     });

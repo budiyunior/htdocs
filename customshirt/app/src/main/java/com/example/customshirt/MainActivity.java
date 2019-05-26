@@ -8,11 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.example.customshirt.Adapter.KontakAdapter;
-import com.example.customshirt.Model.GetKontak;
-import com.example.customshirt.Model.Kontak;
+import com.example.customshirt.Adapter.ItemAdapter;
+import com.example.customshirt.Model.GetItem;
+import com.example.customshirt.Model.Item;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 import com.synnapps.carouselview.CarouselView;
@@ -68,20 +67,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
     public void refresh() {
-        Call<GetKontak> kontakCall = mApiInterface.getKontak();
-        kontakCall.enqueue(new Callback<GetKontak>() {
+        Call<GetItem> kontakCall = mApiInterface.getKontak();
+        kontakCall.enqueue(new Callback<GetItem>() {
             @Override
-            public void onResponse(Call<GetKontak> call, Response<GetKontak>
+            public void onResponse(Call<GetItem> call, Response<GetItem>
                     response) {
-                List<Kontak> KontakList = response.body().getListDataKontak();
-                Log.d("Retrofit Get", "Jumlah data Kontak: " +
-                        String.valueOf(KontakList.size()));
-                mAdapter = new KontakAdapter(KontakList);
+                List<Item> itemList = response.body().getListDataKontak();
+                Log.d("Retrofit Get", "Jumlah data Item: " +
+                        String.valueOf(itemList.size()));
+                mAdapter = new ItemAdapter(itemList);
                 mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onFailure(Call<GetKontak> call, Throwable t) {
+            public void onFailure(Call<GetItem> call, Throwable t) {
                 Log.e("Retrofit Get", t.toString());
             }
         });
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(v == filterjenisbaju){
-            startActivity(new Intent(this,MahasiswaActivity.class));
+            startActivity(new Intent(this,InsertActivity.class));
         }
     }
 }

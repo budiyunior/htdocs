@@ -1,8 +1,7 @@
 package com.example.customshirt.Rest;
 
-import com.example.customshirt.Model.GetKontak;
-import com.example.customshirt.Model.mahasiswa.GetMahasiswa;
-import com.example.customshirt.Model.PostPutDelKontak;
+import com.example.customshirt.Model.GetItem;
+import com.example.customshirt.Model.PostPutDelItem;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -13,21 +12,20 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public interface ApiInterface {
-    @GET("kontak_android")
-    Call<GetKontak> getKontak();
+    @GET("api/jenis_item")
+    Call<GetItem> getItem();
     @FormUrlEncoded
-    @POST("kontak_android")
-    Call<PostPutDelKontak> postKontak(@Field("nama") String nama,
-                                      @Field("nomor") String nomor);
-    @FormUrlEncoded
-    @PUT("kontak_android")
-    Call<PostPutDelKontak> putKontak(@Field("id") String id,
-                                     @Field("nama") String nama,
-                                     @Field("nomor") String nomor);
-    @FormUrlEncoded
-    @HTTP(method = "DELETE", path = "kontak_android", hasBody = true)
-    Call<PostPutDelKontak> deleteKontak(@Field("id") String id);
+    @POST("api/jenis_item")
+    Call<PostPutDelItem> postItem(@Field("nama_jenis") String nama_jenis);
 
-    @GET("mahasiswa")
-    Call<GetMahasiswa> getMahasiswa();
+    @FormUrlEncoded
+    @PUT("api/jenis_item")
+    Call<PostPutDelItem> putItem(@Field("id") String id_jenis_item,
+                                  @Field("nama") String nama_jenis);
+
+    @FormUrlEncoded
+    @HTTP(method = "DELETE", path = "item", hasBody = true)
+    Call<PostPutDelItem> deleteItem(@Field("id_jenis_item") String id_jenis_item);
+
+
 }
