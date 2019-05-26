@@ -29,7 +29,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Item:</h6>
             <a class="collapse-item" href="#">Item</a>
-            <a class="collapse-item" href="#">Jenis Item</a>
+            <a class="collapse-item" href="<?php echo site_url('admin/jenisitem/index') ?>">Jenis Item</a>
           </div>
         </div>
       </li>
