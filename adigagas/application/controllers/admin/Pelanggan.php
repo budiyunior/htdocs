@@ -31,7 +31,7 @@ class Pelanggan extends CI_Controller
         $this->load->view("admin/pelanggan/new_form");
     }
 
-    public function edit($id_pelanggan = null)
+    public function edit($id_pengguna = null)
     {
         if (!isset($id_pengguna)) redirect('admin/pelanggan');
        
