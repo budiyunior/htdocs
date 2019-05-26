@@ -30,13 +30,13 @@
 			<div class="container-fluid">
 
 				<!-- Page Heading -->
-				<h1 class="h3 mb-2 text-gray-800">Data Pengguna</h1>
+				<h1 class="h3 mb-2 text-gray-800">Data Pegawai</h1>
 				
 
 				<!-- DataTales Example -->
 					<div class="card mb-3">
 						<div class="card-header">
-							<a href="<?php echo site_url('admin/pengguna/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
+							<a href="<?php echo site_url('admin/pegawai/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
 						</div>
 						<div class="card-body">
 
@@ -55,33 +55,33 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php foreach ($pengguna as $pengguna): ?>
+										<?php foreach ($pegawai as $pegawai): ?>
 										<tr>
 											<td>
-												<?php echo $pengguna->id_pengguna ?>
+												<?php echo $pegawai->id_pengguna ?>
 											</td>
 											<td width="150">
-												<?php echo $pengguna->nama_pengguna ?>
+												<?php echo $pegawai->nama_pengguna ?>
 											</td>
 											<td>
-												<?php echo $pengguna->tanggal_lahir ?>
+												<?php echo $pegawai->tanggal_lahir ?>
 											</td>
 											<td>
-												<?php echo $pengguna->id_akses ?>
+												<?php echo $pegawai->id_akses ?>
 											</td>
 											<td>
-												<?php echo $pengguna->email ?>
+												<?php echo $pegawai->email ?>
 											</td>
 											<td>
-												<?php echo $pengguna->password ?>
+												<?php echo $pegawai->password ?>
 											</td>
 											<td>
-												<?php echo $pengguna->nomor_telp ?>
+												<?php echo $pegawai->nomor_telp ?>
 											</td>
 		
 											<td width="250">
-												<a href="<?php echo site_url('admin/pengguna/edit/'.$pengguna->id_pengguna) ?>"class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/pengguna/delete/'.$pengguna->id_pengguna) ?>')"href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+												<a href="<?php echo site_url('admin/pegawai/edit/'.$pegawai->id_pengguna) ?>"class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/pegawai/delete/'.$pegawai->id_pengguna) ?>')"href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 										<?php endforeach; ?>

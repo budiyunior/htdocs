@@ -12,6 +12,7 @@
 
 <!-- Custom styles for this template-->
 <!-- <link href="../css/sb-admin-2.min.css" rel="stylesheet"> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <!-- Bootstrap core CSS-->
 <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -25,3 +26,5 @@
 
 <!-- Custom styles for this template-->
 <link href="<?php echo base_url('css/sb-admin-2.css') ?>" rel="stylesheet">
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />

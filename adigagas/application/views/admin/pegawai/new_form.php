@@ -36,17 +36,17 @@
         <?php endif; ?>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tambah Data Pengguna</h1>
+          <h1 class="h3 mb-2 text-gray-800">Tambah Data Pegawai</h1>
           
 
           <!-- add form -->
           <div class="card mb-3">
             <div class="card-header">
-                <a href="<?php echo site_url('admin/pengguna/') ?>"><i class="fas fa-arrow-left"></i>Kembali</a>
+                <a href="<?php echo site_url('admin/pegawai/') ?>"><i class="fas fa-arrow-left"></i>Kembali</a>
             </div>
             <div class="card-body">
 
-                <form action="<?php base_url('admin/product/add') ?>" method="post" enctype="multipart/form-data" >
+                <form action="<?php base_url('admin/pegawai/add') ?>" method="post" enctype="multipart/form-data" >
 
                     <div class="form-group">
                         <label for="nama_pengguna">Nama Pengguna</label>
@@ -58,7 +58,7 @@
 
                     <div class="form-group">
                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                        <input class="form-control <?php echo form_error('tanggal_lahir') ? 'is-invalid':'' ?>"type="text" name="tanggal_lahir" placeholder="Tanggal Lahir" />
+                        <input class="form-control <?php echo form_error('tanggal_lahir') ? 'is-invalid':'' ?>"type="date" name="tanggal_lahir" placeholder="Tanggal Lahir" />
                         <div class="invalid-feedback">
                             <?php echo form_error('tanggal_lahir') ?>
                         </div>
