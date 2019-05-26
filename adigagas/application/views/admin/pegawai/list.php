@@ -49,7 +49,6 @@
 											<th>Tanggal Lahir</th>
 											<th>ID Akses</th>
 											<th>Email</th>
-											<th>Password</th>
 											<th>Nomor Telp</th>
 											<th>Action</th>
 										</tr>
@@ -71,9 +70,6 @@
 											</td>
 											<td>
 												<?php echo $pegawai->email ?>
-											</td>
-											<td>
-												<?php echo $pegawai->password ?>
 											</td>
 											<td>
 												<?php echo $pegawai->nomor_telp ?>
