@@ -26,6 +26,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button filterjenisbaju;
+    private Button filterjeniskain;
     ApiInterface mApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -44,8 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         filterjenisbaju = (Button) findViewById(R.id.filterjenisbaju);
-
         filterjenisbaju.setOnClickListener(this);
+        filterjeniskain = (Button) findViewById(R.id.filterjeniskain);
+        filterjeniskain.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(this);
@@ -89,8 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-//        if(v == filterjenisbaju){
-//            startActivity(new Intent(this,InsertActivity.class));
-//        }
+        if(v == filterjenisbaju){
+            startActivity(new Intent(this,LoginActivity.class));
+        }
+        if(v == filterjeniskain){
+            startActivity(new Intent(this,RegisterActivity.class));
+        }
     }
 }

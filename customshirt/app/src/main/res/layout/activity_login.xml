@@ -16,7 +16,6 @@
             android:id="@+id/logo"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignTop="@+id/null"
             android:layout_gravity="center"
             android:background="@drawable/logo_fix" />
 
@@ -95,9 +94,8 @@
         android:layout_height="72dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="1dp"
-        android:orientation="horizontal">
-        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
     </LinearLayout>
 
 
