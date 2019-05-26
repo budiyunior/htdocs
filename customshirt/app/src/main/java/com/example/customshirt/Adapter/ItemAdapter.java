@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.customshirt.EditActivity;
-import com.example.customshirt.Model.Kontak;
+import com.example.customshirt.Model.Item;
 import com.example.customshirt.R;
 
 import java.util.List;
 
 
-public class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.MyViewHolder>{
-    List<Kontak> mKontakList;
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
+    List<Item> mItemList;
 
-    public KontakAdapter(List <Kontak> KontakList) {
-        mKontakList = KontakList;
+    public ItemAdapter(List <Item> ItemList) {
+        mItemList = ItemList;
     }
 
     @Override
@@ -30,16 +30,14 @@ public class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder (MyViewHolder holder,final int position){
-        holder.mTextViewId.setText("Id = " + mKontakList.get(position).getId());
-        holder.mTextViewNama.setText("Nama = " + mKontakList.get(position).getNama());
-        holder.mTextViewNomor.setText("Nomor = " + mKontakList.get(position).getNomor());
+        holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_jenis_item());
+        holder.mTextViewNama.setText("Nama = " + mItemList.get(position).getNama_jenis());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(view.getContext(), EditActivity.class);
-                mIntent.putExtra("Id", mKontakList.get(position).getId());
-                mIntent.putExtra("Nama", mKontakList.get(position).getNama());
-                mIntent.putExtra("Nomor", mKontakList.get(position).getNomor());
+                mIntent.putExtra("Id", mItemList.get(position).getId_jenis_item());
+                mIntent.putExtra("Nama", mItemList.get(position).getNama_jenis());
                 view.getContext().startActivity(mIntent);
             }
         });
@@ -47,17 +45,16 @@ public class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.MyViewHold
 
     @Override
     public int getItemCount () {
-        return mKontakList.size();
+        return mItemList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewId, mTextViewNama, mTextViewNomor;
+        public TextView mTextViewId, mTextViewNama;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
-            mTextViewNomor = (TextView) itemView.findViewById(R.id.tvNomor);
         }
     }
 }
