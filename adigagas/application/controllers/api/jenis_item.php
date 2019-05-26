@@ -4,6 +4,8 @@ defined('BASEPATH') or exit('NO direct script access aloowed');
 require APPPATH . '/libraries/REST_Controller.php';
 use Restserver\Libraries\REST_Controller;
 
+require APPPATH . 'libraries/Format.php';
+
 class Jenis_item extends REST_Controller
 {
 
@@ -21,15 +23,20 @@ class Jenis_item extends REST_Controller
     // }
     function index_get()
     {
-        $id_jenis_item = $this->get('id_jenis_item');
-        if ($id_jenis_item == '') {
-            $jenis_item = $this->db->get('jenis_item')->result();
-        } else {
-            $this->db->where('id_jenis_item', $id_jenis_item);
-            $jenis_item = $this->db->get('jenis_item')->result();
-        }
-        $this->response($jenis_item, 200);
+        $jenis_item = $this->db->get('jenis_item')->result();
+        $this->response(array("result" => $jenis_item, 200));
     }
+    // function index_get()
+    // {
+    //     $id_jenis_item = $this->get('id_jenis_item');
+    //     if ($id_jenis_item == '') {
+    //         $jenis_item = $this->db->get('jenis_item')->result();
+    //     } else {
+    //         $this->db->where('id_jenis_item', $id_jenis_item);
+    //         $jenis_item = $this->db->get('jenis_item')->result();
+    //     }
+    //     $this->response($jenis_item, 200);
+    // }
 
 
     // function index_post()

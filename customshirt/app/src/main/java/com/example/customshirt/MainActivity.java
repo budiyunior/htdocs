@@ -24,7 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button btIns;
+
     private Button filterjenisbaju;
     ApiInterface mApiInterface;
     private RecyclerView mRecyclerView;
@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
 
-        btIns = (Button) findViewById(R.id.btIns);
+
         filterjenisbaju = (Button) findViewById(R.id.filterjenisbaju);
-        btIns.setOnClickListener(this);
+
         filterjenisbaju.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -88,12 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v == btIns){
-            startActivity(new Intent(this,InsertActivity.class));
-        }
 
-        if(v == filterjenisbaju){
-            startActivity(new Intent(this,InsertActivity.class));
-        }
+//        if(v == filterjenisbaju){
+//            startActivity(new Intent(this,InsertActivity.class));
+//        }
     }
 }

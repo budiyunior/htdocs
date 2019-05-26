@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.customshirt.EditActivity;
+//import com.example.customshirt.EditActivity;
 import com.example.customshirt.Model.Item;
 import com.example.customshirt.R;
 
@@ -32,15 +32,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
     public void onBindViewHolder (MyViewHolder holder,final int position){
         holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_jenis_item());
         holder.mTextViewNama.setText("Nama = " + mItemList.get(position).getNama_jenis());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mIntent = new Intent(view.getContext(), EditActivity.class);
-                mIntent.putExtra("Id", mItemList.get(position).getId_jenis_item());
-                mIntent.putExtra("Nama", mItemList.get(position).getNama_jenis());
-                view.getContext().startActivity(mIntent);
-            }
-        });
     }
 
     @Override
