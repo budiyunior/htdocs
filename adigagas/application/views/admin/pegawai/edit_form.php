@@ -36,59 +36,84 @@
             <?php endif; ?>
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Edit Product</h1>
-            <p class="mb-4">Edit Product is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+            <h1 class="h3 mb-2 text-gray-800">Edit Data Pegawai</h1>
+           
 
             <!-- add form -->
             <div class="card mb-3">
                 <div class="card-header">
 
-                    <a href="<?php echo site_url('admin/product/') ?>"><i class="fas fa-arrow-left"></i>
+                    <a href="<?php echo site_url('admin/pegawai/') ?>"><i class="fas fa-arrow-left"></i>
                         Back</a>
                 </div>
                 <div class="card-body">
 
-                    <form action="<?php base_url('admin/product/edit') ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php base_url('admin/pegawai/edit') ?>" method="post" enctype="multipart/form-data">
 
-                        <input type="hidden" name="id" value="<?php echo $product->product_id?>" />
+                        <input type="hidden" name="id_pengguna" value="<?php echo $pegawai->id_pengguna?>" />
 
                         <div class="form-group">
-                            <label for="name">Name*</label>
-                            <input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-                                type="text" name="name" placeholder="Product name" value="<?php echo $product->name ?>" />
+                            <label for="nama_pengguna">Nama Pengguna</label>
+                            <input class="form-control <?php echo form_error('nama_pengguna') ? 'is-invalid':'' ?>"
+                                type="text" name="nama_pengguna" placeholder="Nama Pengguna" value="<?php echo $pegawai->nama_pengguna ?>" />
                             <div class="invalid-feedback">
-                                <?php echo form_error('name') ?>
+                                <?php echo form_error('nama_pengguna') ?>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="price">Price</label>
-                            <input class="form-control <?php echo form_error('price') ? 'is-invalid':'' ?>"
-                                type="number" name="price" min="0" placeholder="Product price" value="<?php echo $product->price ?>" />
+                            <label for="tanggal_lahir">Tanggal Lahir</label>
+                            <input class="form-control <?php echo form_error('tanggal_lahir') ? 'is-invalid':'' ?>"
+                                type="date" name="tanggal_lahir" placeholder="" value="<?php echo $pegawai->tanggal_lahir ?>" />
                             <div class="invalid-feedback">
-                                <?php echo form_error('price') ?>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="name">Photo</label>
-                            <input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
-                                type="file" name="image" />
-                            <input type="hidden" name="old_image" value="<?php echo $product->image ?>" />
-                            <div class="invalid-feedback">
-                                <?php echo form_error('image') ?>
+                                <?php echo form_error('tanggal_lahir') ?>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Description*</label>
-                            <textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
-                                name="description" placeholder="Product description..."><?php echo $product->description ?></textarea>
-                            <div class="invalid-feedback">
-                                <?php echo form_error('description') ?>
-                            </div>
+                        <label for="id_akses">ID Akses</label><br>
+                        <select class="form-control" <?php echo form_error('id_akses') ? 'is-invalid':'' ?> name ="id_akses" id ="id_akses" value="<?php echo $pegawai->id_akses ?>"  required>
+                        <option value="">--Pilih ID Akses--</option>
+                          <?php
+                          $servername = "localhost";
+                          $database = "custom_shirt";
+                          $username = "root";
+                          $password = "";
+                          $conn = mysqli_connect($servername, $username, $password, $database);
+                          $sql_akses = mysqli_query($conn, "SELECT * FROM hak_akses WHERE id_akses != 'ctm'") or die (mysqli_error($conn));
+                          while($data_akses = mysqli_fetch_array($sql_akses)){
+                            echo '<option value="'.$data_akses['id_akses'].'">'.$data_akses['nama_akses'].'</option>';
+                          }
+                          ?></select>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('id_akses') ?>
                         </div>
+                         </div>
+
+                         <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>"type="text" name="email" placeholder="" readonly value="<?php echo $pegawai->email ?>" maxlength ="13" />
+                        <div class="invalid-feedback">
+                            <?php echo form_error('email') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"type="text" name="password" placeholder="" readonly value="<?php echo $pegawai->password ?>" maxlength ="13" />
+                        <div class="invalid-feedback">
+                            <?php echo form_error('password') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomor_telp">Nomor Telp</label>
+                        <input class="form-control <?php echo form_error('nomor_telp') ? 'is-invalid':'' ?>"type="text" name="nomor_telp" placeholder="" value="<?php echo $pegawai->nomor_telp ?>" maxlength ="13"/>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('nomor_telp') ?>
+                        </div>
+                    </div>
+                       
 
                         <input class="btn btn-success" type="submit" name="btn" value="Save" />
                     </form>
