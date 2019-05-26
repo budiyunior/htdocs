@@ -36,9 +36,8 @@
             <?php endif; ?>
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Edit jenisitem</h1>
-            <p class="mb-4">Edit jenisitem is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
+            <h1 class="h3 mb-2 text-gray-800">Edit Jenis Item</h1>
+            
             <!-- add form -->
             <div class="card mb-3">
                 <div class="card-header">
@@ -50,14 +49,21 @@
 
                     <form action="<?php base_url('admin/jenisitem/edit') ?>" method="post" enctype="multipart/form-data">
 
-                        <input type="hidden" name="id" value="<?php echo $jenisitem->jenisitem_id?>" />
+                        <input type="hidden" name="id" value="<?php echo $jenisitem->id_jenis_item?>" />
 
                         <div class="form-group">
-                            <label for="name">Name*</label>
-                            <input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-                                type="text" name="name" placeholder="jenisitem name" value="<?php echo $jenisitem->name ?>" />
+                            <label for="id">Jenis Jenis*</label>
+                            <input class="form-control <?php echo form_error('id') ? 'is-invalid':'' ?>"
+                                type="text" id="id" placeholder="jenisitem id" value="<?php echo $jenisitem->id_jenis_item ?>" disabled />
                             <div class="invalid-feedback">
-                                <?php echo form_error('name') ?>
+                                <?php echo form_error('id') ?>
+                            </div>
+
+                            <label for="nama_jenis">Nama Jenis*</label>
+                            <input class="form-control disabled <?php echo form_error('nama_jenis') ? 'is-invalid':'' ?>"
+                                type="text" name="nama_jenis" placeholder="jenisitem nama_jenis" value="<?php echo $jenisitem->nama_jenis ?>" />
+                            <div class="invalid-feedback">
+                                <?php echo form_error('nama_jenis') ?>
                             </div>
                         </div>
 

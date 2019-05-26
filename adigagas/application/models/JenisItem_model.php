@@ -10,10 +10,6 @@ class JenisItem_model extends CI_Model
     public function rules()
     {
         return [
-            ['field' => 'id_jenis_item',
-            'label' => 'id_jenis_item',
-            'rules' => 'required'],
-
             ['field' => 'nama_jenis',
             'label' => 'nama_jenis',
             'rules' => 'required']
@@ -34,7 +30,7 @@ class JenisItem_model extends CI_Model
     {
         $post = $this->input->post();
         $this->id_jenis_item = $post["id"];
-        $this->name = $post["name"];
+        $this->nama_jenis = $post["nama_jenis"];
         $this->db->insert($this->_table, $this);
     }
 
@@ -42,13 +38,12 @@ class JenisItem_model extends CI_Model
     {
         $post = $this->input->post();
         $this->id_jenis_item = $post["id"];
-        $this->name = $post["name"];
+        $this->nama_jenis = $post["nama_jenis"];
         $this->db->update($this->_table, $this, array('id_jenis_item' => $post['id']));
     }
 
     public function delete($id)
     {
-        $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("id_jenis_item" => $id));
     }
 
