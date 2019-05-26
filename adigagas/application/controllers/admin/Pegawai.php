@@ -35,7 +35,7 @@ class Pegawai extends CI_Controller
     {
         if (!isset($id_pengguna)) redirect('admin/pegawai');
        
-        $pegawai= $this->pegawai;
+        $pegawai= $this->pegawai_model;
         $validation = $this->form_validation;
         $validation->set_rules($pegawai->rules());
 
