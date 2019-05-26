@@ -23,7 +23,7 @@
         android:layout_below="@id/tvNama"
         android:textSize="20sp"/>
     <EditText
-        android:id="@+id/edtNama"
+        android:id="@+id/edtNama_jenis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Nama"

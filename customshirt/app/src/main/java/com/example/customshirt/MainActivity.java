@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
     public void refresh() {
-        Call<GetItem> kontakCall = mApiInterface.getKontak();
-        kontakCall.enqueue(new Callback<GetItem>() {
+        Call<GetItem> ItemCall = mApiInterface.getItem();
+        ItemCall.enqueue(new Callback<GetItem>() {
             @Override
             public void onResponse(Call<GetItem> call, Response<GetItem>
                     response) {
-                List<Item> itemList = response.body().getListDataKontak();
+                List<Item> itemList = response.body().getListDataItem();
                 Log.d("Retrofit Get", "Jumlah data Item: " +
                         String.valueOf(itemList.size()));
                 mAdapter = new ItemAdapter(itemList);

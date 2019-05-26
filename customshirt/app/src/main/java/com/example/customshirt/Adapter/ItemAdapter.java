@@ -30,14 +30,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder (MyViewHolder holder,final int position){
-        holder.mTextViewId.setText("Id = " + mItemList.get(position).getId());
-        holder.mTextViewNama.setText("Nama = " + mItemList.get(position).getNama());
+        holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_jenis_item());
+        holder.mTextViewNama.setText("Nama = " + mItemList.get(position).getNama_jenis());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(view.getContext(), EditActivity.class);
-                mIntent.putExtra("Id", mItemList.get(position).getId());
-                mIntent.putExtra("Nama", mItemList.get(position).getNama());
+                mIntent.putExtra("Id", mItemList.get(position).getId_jenis_item());
+                mIntent.putExtra("Nama", mItemList.get(position).getNama_jenis());
                 view.getContext().startActivity(mIntent);
             }
         });

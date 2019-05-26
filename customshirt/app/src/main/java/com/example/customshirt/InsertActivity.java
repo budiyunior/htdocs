@@ -31,8 +31,8 @@ public class InsertActivity extends AppCompatActivity {
         btInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<PostPutDelItem> postKontakCall = mApiInterface.postKontak(edtNama.getText().toString(), edtNomor.getText().toString());
-                postKontakCall.enqueue(new Callback<PostPutDelItem>() {
+                Call<PostPutDelItem> postItemCall = mApiInterface.postItem(edtNama_jenis_item.getText().toString());
+                postItemCall.enqueue(new Callback<PostPutDelItem>() {
                     @Override
                     public void onResponse(Call<PostPutDelItem> call, Response<PostPutDelItem> response) {
                         MainActivity.ma.refresh();
