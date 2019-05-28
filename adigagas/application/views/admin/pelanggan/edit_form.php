@@ -100,7 +100,7 @@
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"type="text" name="password" placeholder="" readonly value="<?php echo $pelanggan->password ?>" maxlength ="13" />
+                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"type="password" name="password" placeholder="" readonly value="<?php echo $pelanggan->password ?>" maxlength ="13" />
                         <div class="invalid-feedback">
                             <?php echo form_error('password') ?>
                         </div>

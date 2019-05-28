@@ -30,8 +30,7 @@ class Pelanggan_model extends CI_Model
     
     public function getById($id)
     {
-        $sql = "SELECT * FROM pengguna WHERE $id_akses LIKE '%$ctm%'";
-        return $this->db->get_where($this->_table, ["id_pengguna" => $sql])->row();
+        return $this->db->get_where($this->_table, ["id_pengguna" => $id])->row();
     }
 
     public function save()
