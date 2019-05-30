@@ -21,13 +21,13 @@ class Login extends CI_Controller {
 		$cek_admin=$this->login_model->auth_admin($username,$password);
 	 
 		if($cek_admin->num_rows() > 0){ 
-			    redirect('admin/overview');
+			    redirect('admin/pegawai');
 	 
 	 
 		}else{ 
 			    $cek_kasir=$this->login_model->auth_kasir($username,$password);
 			    if($cek_kasir->num_rows() > 0){
-				   redirect('admin/pegawai');
+				   redirect('admin/overview');
 			    }else{  
 				    $url=base_url();
 				    echo $this->session->set_flashdata('msg','Username Atau Password Salah');
