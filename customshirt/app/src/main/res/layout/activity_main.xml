@@ -94,14 +94,5 @@
 
 </ScrollView>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemTextColor="#FAF5F5"
-        android:layout_marginBottom="0dp"
-        android:background="#0F0E0E"
-        app:menu="@menu/bottom_nav_menu" />
 </RelativeLayout>
     <!--</RelativeLayout>-->

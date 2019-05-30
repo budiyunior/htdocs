@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Menu" />
-    <item android:title="Notifikasi" />
-    <item android:title="Keranjang" />
-    <item android:title="Akun" />
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home" />
+    <item
+        android:id="@+id/bottom_notif"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Notifikasi" />
+    <item
+        android:id="@+id/bottom_keranjang"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"
+        android:title="Keranjang" />
+    <item
+        android:id="@+id/bottom_akun"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Akun" />
 </menu>
