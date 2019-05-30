@@ -2,6 +2,7 @@ package com.example.customshirt;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         filterjeniskain.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new GridLayoutManager(this,2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         ma=this;
