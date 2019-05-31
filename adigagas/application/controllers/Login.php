@@ -25,12 +25,16 @@ class Login extends CI_Controller
 
 		if ($user) {
 			if (password_verify($password, $user['password'])) {
-				$data = [
+				$datas = [
 					'email' => $user['email'],
 					'id_akses' => $user['id_akses']
 				];
-				$this->session->set_userdata($data);
-				redirect('user');
+				$this->session->set_userdata($datas);
+				if ($user['id_akses'] == 'adm') {
+					redirect('admin/pegawai');
+				} else {
+					redirect('admin/overview');
+				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
 				redirect('login');

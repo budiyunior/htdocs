@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class JenisItem extends CI_Controller
 {
@@ -13,6 +13,10 @@ class JenisItem extends CI_Controller
 
     public function index()
     {
+        $datas['pengguna'] = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view("admin/_partials/spesialtop.php", $datas);
+
         $data["jenisitem"] = $this->jenisitem_model->getAll();
         $this->load->view("admin/jenisitem/list", $data);
     }
@@ -27,8 +31,10 @@ class JenisItem extends CI_Controller
             $jenisitem->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
+        $datas['pengguna'] = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')])->row_array();
 
-        $this->load->view("admin/jenisitem/new_form");
+        $this->load->view("admin/jenisitem/new_form", $datas);
     }
 
     public function edit($id = null)
@@ -45,14 +51,18 @@ class JenisItem extends CI_Controller
 
         $data["jenisitem"] = $jenisitem->getById($id);
         if (!$data["jenisitem"]) show_404();
-        
+
+        $datas['pengguna'] = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view("admin/_partials/spesialtop.php", $datas);
+
         $this->load->view("admin/jenisitem/edit_form", $data);
     }
 
-    public function delete($id=null)
+    public function delete($id = null)
     {
         if (!isset($id)) show_404();
-        
+
         if ($this->jenisitem_model->delete($id)) {
             redirect(site_url('admin/jenisitem'));
         }

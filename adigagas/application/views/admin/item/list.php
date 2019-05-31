@@ -32,8 +32,8 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">Product</h1>
 					<p class="mb-4">Product is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-					
-					
+
+
 					<div class="row">
 						<div class="col-xl-6">
 							<div class="card mb-3">
@@ -54,24 +54,24 @@
 												</tr>
 											</thead>
 											<tbody>
-												<?php foreach ($product as $product): ?>
-												<tr>
-													<td width="150">
-														<?php echo $product->name ?>
-													</td>
-													<td>
-														Rp. <?php echo $product->price ?>
-													</td>
-													<td>
-														<img src="<?php echo base_url('upload/product/'.$product->image) ?>" width="64" />
-													</td>
-													<td class="small">
-														<?php echo substr($product->description, 0, 120) ?>...</td>
-													<td width="250">
-														<a href="<?php echo site_url('admin/product/edit/'.$product->product_id) ?>"class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-														<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/'.$product->product_id) ?>')"href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-													</td>
-												</tr>
+												<?php foreach ($product as $product) : ?>
+													<tr>
+														<td width="150">
+															<?php echo $product->name ?>
+														</td>
+														<td>
+															Rp. <?php echo $product->price ?>
+														</td>
+														<td>
+															<img src="<?php echo base_url('upload/product/' . $product->image) ?>" width="64" />
+														</td>
+														<td class="small">
+															<?php echo substr($product->description, 0, 120) ?>...</td>
+														<td width="250">
+															<a href="<?php echo site_url('admin/product/edit/' . $product->product_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+															<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/' . $product->product_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+														</td>
+													</tr>
 												<?php endforeach; ?>
 
 											</tbody>
@@ -100,24 +100,24 @@
 												</tr>
 											</thead>
 											<tbody>
-												<?php foreach ($product as $product): ?>
-												<tr>
-													<td width="150">
-														<?php echo $product->name ?>
-													</td>
-													<td>
-														Rp. <?php echo $product->price ?>
-													</td>
-													<td>
-														<img src="<?php echo base_url('upload/product/'.$product->image) ?>" width="64" />
-													</td>
-													<td class="small">
-														<?php echo substr($product->description, 0, 120) ?>...</td>
-													<td width="250">
-														<a href="<?php echo site_url('admin/product/edit/'.$product->product_id) ?>"class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-														<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/'.$product->product_id) ?>')"href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-													</td>
-												</tr>
+												<?php foreach ($product as $product) : ?>
+													<tr>
+														<td width="150">
+															<?php echo $product->name ?>
+														</td>
+														<td>
+															Rp. <?php echo $product->price ?>
+														</td>
+														<td>
+															<img src="<?php echo base_url('upload/product/' . $product->image) ?>" width="64" />
+														</td>
+														<td class="small">
+															<?php echo substr($product->description, 0, 120) ?>...</td>
+														<td width="250">
+															<a href="<?php echo site_url('admin/product/edit/' . $product->product_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+															<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/' . $product->product_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+														</td>
+													</tr>
 												<?php endforeach; ?>
 
 											</tbody>
@@ -128,10 +128,10 @@
 						</div>
 					</div>
 					<!-- DataTales Example -->
-						
+
 
 				</div>
-					<!-- /.container-fluid -->
+				<!-- /.container-fluid -->
 
 			</div>
 			<!-- End of Main Content -->
@@ -155,9 +155,9 @@
 	<!-- JavaScript-->
 	<?php $this->load->view("admin/_partials/js.php") ?>
 	<script>
-		function deleteConfirm(url){
-		$('#btn-delete').attr('href', url);
-		$('#deleteModal').modal();
+		function deleteConfirm(url) {
+			$('#btn-delete').attr('href', url);
+			$('#deleteModal').modal();
 		}
 	</script>
 
