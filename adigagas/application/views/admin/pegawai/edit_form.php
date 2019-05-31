@@ -17,8 +17,10 @@
 
 
     <!-- add form -->
-    <div class="card mb-3">
-        <div class="card-header">
+    <div class="row">
+            <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header">
 
             <a href="<?php echo site_url('admin/pegawai/') ?>"><i class="fas fa-arrow-left"></i>
                 Back</a>
@@ -97,7 +99,8 @@
         </div>
         <!-- end add form -->
 
-
+</div>
+</div>
     </div>
     <!-- /.container-fluid -->
 

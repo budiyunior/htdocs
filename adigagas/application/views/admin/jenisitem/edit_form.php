@@ -16,8 +16,10 @@
     <h1 class="h3 mb-2 text-gray-800">Edit Jenis Item</h1>
 
     <!-- add form -->
-    <div class="card mb-3">
-        <div class="card-header">
+    <div class="row">
+            <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header">
 
             <a href="<?php echo site_url('admin/jenisitem/') ?>"><i class="fas fa-arrow-left"></i>
                 Back</a>
@@ -51,7 +53,8 @@
 
     </div>
     <!-- /.container-fluid -->
-
+</div>
+</div>
 </div>
 <!-- End of Main Content -->
 
