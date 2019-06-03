@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this,LoginActivity.class));
         }
         if(v == filterjeniskain){
-            startActivity(new Intent(this,RegisterActivity.class));
+            startActivity(new Intent(this,ButtonNav.class));
         }
     }
 }

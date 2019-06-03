@@ -5,10 +5,88 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/carouselView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:fillColor="#F8F8F8"
+                    app:pageColor="#00000000"
+                    app:radius="3dp"
+                    app:slideInterval="3000"
+                    app:strokeColor="#00777777"
+                    app:strokeWidth="5dp" />
+
+                <LinearLayout
+                    android:id="@+id/filterbutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="200dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    tools:context=".MainActivity">
+
+                    <Button
+                        android:id="@+id/filterjenisbaju"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:text="Jenis Baju" />
+
+                    <Button
+                        android:id="@+id/filterjeniskain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:text="Jenis Kain" />
+                </LinearLayout>
+
+                <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/GridLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/filterbutton"
+                    android:columnCount="2"
+                    android:orientation="horizontal"
+                    android:rowCount="2">
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:scrollbars="vertical">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </GridLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
 </FrameLayout>

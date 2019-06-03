@@ -27,12 +27,8 @@ public class ButtonNav extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_nav);
 
-
-
-
         mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
         mMainNav = (BottomNavigationView) findViewById(R.id.bottom_nav);
-
         homeFragment = new HomeFragment();
         notifFragment = new NotifFragment();
         keranjangFragment = new KeranjangFragment();
@@ -46,7 +42,7 @@ public class ButtonNav extends AppCompatActivity {
 
                     case  R.id.bottom_home :
                         mMainNav.setItemBackgroundResource(R.color.colorPrimary);
-                        setFragment (homeFragment);
+                        setFragment(homeFragment);
                         return true;
 
                     case  R.id.bottom_notif :

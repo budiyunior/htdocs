@@ -6,7 +6,7 @@ use Restserver\Libraries\REST_Controller;
 
 require APPPATH . 'libraries/Format.php';
 
-class Jenis_item extends REST_Controller
+class Item extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -23,8 +23,8 @@ class Jenis_item extends REST_Controller
     // }
     function index_get()
     {
-        $jenis_item = $this->db->get('jenis_item')->result();
-        $this->response(array("result" => $jenis_item, 200));
+        $item = $this->db->get('item')->result();
+        $this->response(array("result" => $item, 200));
     }
     // function index_get()
     // {

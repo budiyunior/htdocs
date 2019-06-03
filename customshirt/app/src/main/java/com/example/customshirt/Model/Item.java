@@ -1,35 +1,69 @@
 package com.example.customshirt.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 
-public class Item {
-    @SerializedName("id_jenis_item")
-    private String id_jenis_item;
-    @SerializedName("nama_jenis")
-    private String nama_jenis;
+public class Item  {
+    @SerializedName("id_item")
+    private String id_item;
+    @SerializedName("nama_item")
+    private String nama_item;
+    @SerializedName("harga_satuan")
+    private String harga_satuan;
+    @SerializedName("berat_satuan")
+    private String berat_satuan;
+    @SerializedName("deskripsi")
+    private String deskripsi;
 
 
-
-    public Item(String id_jenis_item, String nama_jenis) {
-        this.id_jenis_item = id_jenis_item;
-        this.nama_jenis = nama_jenis;
+    public Item(String id_item, String nama_item) {
+        this.id_item = id_item;
+        this.nama_item = nama_item;
+        this.harga_satuan = harga_satuan;
+        this.berat_satuan = berat_satuan;
+        this.deskripsi = deskripsi;
     }
 
-    public String getId_jenis_item() {
-        return id_jenis_item;
+    public String getId_item() {
+        return id_item;
     }
 
-    public void setId_jenis_item(String id_jenis_item) {
-        this.id_jenis_item = id_jenis_item;
+    public void setId_item(String id_item) {
+        this.id_item = id_item;
     }
 
-    public String getNama_jenis() {
-        return nama_jenis;
+    public String getNama_item() {
+        return nama_item;
     }
 
-    public void setNama_jenis(String nama_jenis) {
-        this.nama_jenis = nama_jenis;
+    public void setNama_item(String nama_item) {
+        this.nama_item = nama_item;
     }
 
+    public String getHarga_satuan() {
+        return harga_satuan;
+    }
+
+    public void setHarga_satuan(String harga_satuan) {
+        this.harga_satuan = harga_satuan;
+    }
+
+    public String getBerat_satuan() {
+        return berat_satuan;
+    }
+
+    public void setBerat_satuan(String berat_satuan) {
+        this.berat_satuan = berat_satuan;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
 }

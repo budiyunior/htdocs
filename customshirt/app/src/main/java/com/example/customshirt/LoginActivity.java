@@ -12,6 +12,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private Button login;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

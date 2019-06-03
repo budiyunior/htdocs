@@ -1,8 +1,8 @@
 package com.example.customshirt.Model;
 
-import com.google.gson.annotations.SerializedName;
+        import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+        import java.util.List;
 
 
 public class GetItem {

@@ -8,44 +8,58 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 //import com.example.customshirt.EditActivity;
+import com.example.customshirt.DetailItem;
 import com.example.customshirt.Model.Item;
 import com.example.customshirt.R;
 
 import java.util.List;
 
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
     List<Item> mItemList;
 
-    public ItemAdapter(List <Item> ItemList) {
+    public ItemAdapter(List<Item> ItemList) {
         mItemList = ItemList;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder (ViewGroup parent,int viewType){
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         MyViewHolder mViewHolder = new MyViewHolder(mView);
         return mViewHolder;
     }
 
     @Override
-    public void onBindViewHolder (MyViewHolder holder,final int position){
-        holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_jenis_item());
-        holder.mTextViewNama.setText("Nama = " + mItemList.get(position).getNama_jenis());
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        //holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_item());
+        holder.mTextViewNama.setText(mItemList.get(position).getNama_item());
+        holder.mTextViewHarga.setText("Rp." + mItemList.get(position).getHarga_satuan());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(view.getContext(), DetailItem.class);
+                mIntent.putExtra("Nama", mItemList.get(position).getNama_item());
+                mIntent.putExtra("Harga","Rp." + mItemList.get(position).getHarga_satuan());
+                mIntent.putExtra("Deskripsi", mItemList.get(position).getDeskripsi());
+                view.getContext().startActivity(mIntent);
+            }
+        });
+
     }
 
     @Override
-    public int getItemCount () {
+    public int getItemCount() {
         return mItemList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewId, mTextViewNama;
+        public TextView mTextViewId, mTextViewNama, mTextViewHarga;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
+//            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
+            mTextViewHarga = (TextView) itemView.findViewById(R.id.tvHarga);
         }
     }
 }
