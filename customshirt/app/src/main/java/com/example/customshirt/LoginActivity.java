@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button login;
+    private Button btn_login;
     private EditText txt_username;
     private EditText txt_password;
 
@@ -42,17 +42,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        login = (Button) findViewById(R.id.btn_login);
-        login.setOnClickListener(this);
+        btn_login = (Button) findViewById(R.id.btn_login);
+        btn_login.setOnClickListener(this);
 
         mContext=this;
 
     }
 
 
-    public boolean validate_login(){
-        return !validate.cek(txt_username) && !validate.cek(txt_password);
-    }
+//    public boolean validate_login(){
+//        return (!validate.cek(txt_username)&&!validate.cek(txt_password)) ? true : false;
+//    }
 
 
     public void onClick(View view) {
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
 
             case R.id.btn_login:
-                if (validate_login())
+//                if (validate_login())
                     login();
                 break;
         }

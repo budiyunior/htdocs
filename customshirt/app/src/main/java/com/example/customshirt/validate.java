@@ -13,7 +13,7 @@ public class validate {
 
     public static boolean cek(EditText et) {
             View focusView = null;
-            Boolean cancel=false;
+            boolean cancel=false;
             if (TextUtils.isEmpty(et.getText().toString().trim())) {
                 et.setError("Inputan Harus Di Isi");
                 focusView = et;
@@ -29,7 +29,7 @@ public class validate {
 
     public static boolean cekPassword(EditText et, String Password, String ConfirmPassword){
         View focusView = null;
-        Boolean cancel=false;
+        boolean cancel=false;
         if (!Password.equals(ConfirmPassword)) {
             et.setError("Password tidak sama");
             focusView = et;
