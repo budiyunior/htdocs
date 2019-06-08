@@ -1,12 +1,15 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Product extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('login');
+        }
         $this->load->model("product_model");
         $this->load->library('form_validation');
     }
@@ -34,7 +37,7 @@ class Product extends CI_Controller
     public function edit($id = null)
     {
         if (!isset($id)) redirect('admin/product');
-       
+
         $product = $this->product_model;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
@@ -46,14 +49,14 @@ class Product extends CI_Controller
 
         $data["product"] = $product->getById($id);
         if (!$data["product"]) show_404();
-        
+
         $this->load->view("admin/product/edit_form", $data);
     }
 
-    public function delete($id=null)
+    public function delete($id = null)
     {
         if (!isset($id)) show_404();
-        
+
         if ($this->product_model->delete($id)) {
             redirect(site_url('admin/product'));
         }

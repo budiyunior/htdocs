@@ -41,14 +41,14 @@
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="..." class="card-img" alt="...">
+                                        <img src="https://banner2.kisspng.com/20180401/dbq/kisspng-user-profile-computer-icons-profile-5ac09245049c32.0935523415225697970189.jpg" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?= $pengguna['nama_pengguna']; ?></h5>
-                                            <p class="card-text"><?= $pengguna['email']; ?></p>
-                                            <p class="card-text"><small class="text-muted"><?= $pengguna['tanggal_lahir']; ?></small></p>
-                                            <p class="card-text"><small class="text-muted"><?= $pengguna['nomor_telp']; ?></small></p>
+                                            <h5 class="card-title">Nama: <?= $pengguna['nama_pengguna']; ?></h5>
+                                            <p class="card-text">Email: <?= $pengguna['email']; ?></p>
+                                            <p class="card-text">Tanggal Lahir: <small class="text-muted"><?= $pengguna['tanggal_lahir']; ?></small></p>
+                                            <p class="card-text">Nomer Telepon: <small class="text-muted"><?= $pengguna['nomor_telp']; ?></small></p>
                                         </div>
                                     </div>
                                 </div>
