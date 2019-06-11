@@ -31,7 +31,7 @@ class User extends REST_Controller
 	}
 
 
-	function index_get($group_user = null, $id_pengguna = null)
+	function index_get($id_akses = null, $id_pengguna = null)
 	{
 
 		#Set response API if Success
@@ -44,7 +44,8 @@ class User extends REST_Controller
 		if (!empty($this->get('id_pengguna')))
 			$id_pengguna = $this->get('id_pengguna');
 
-
+		if (!empty($this->get('id_akses')))
+			$id_akses = $this->get('id_akses');
 
 
 
@@ -88,8 +89,9 @@ class User extends REST_Controller
 			'nama_pengguna' => $this->post('nama_pengguna'),
 			'email' => $this->post('email'),
 			'tanggal_lahir' => $this->post('tanggal_lahir'),
+			'is_akses' => $this->post('id_akses'),
 			'nomor_telp' => $this->post('nomor_telp'),
-			'PASSWORD' => md5($this->post('PASSWORD'))
+			'password' => md5($this->post('password'))
 
 		);
 
@@ -121,19 +123,19 @@ class User extends REST_Controller
 		// }
 
 		#Check if insert user_data Success
-		if ($this->m_users->insert($user_data)) {
+		// if ($this->m_users->insert($user_data)) {
 
-			#If success
-			$this->response($response['SUCCESS'], REST_Controller::HTTP_CREATED);
-		} else {
-			#Remove image user
-			if ($user_data['PHOTO'] != null) {
-				$this->remove_image($user_data['PHOTO']);
-			}
+		// 	#If success
+		// 	$this->response($response['SUCCESS'], REST_Controller::HTTP_CREATED);
+		// } else {
+		// 	#Remove image user
+		// 	if ($user_data['PHOTO'] != null) {
+		// 		$this->remove_image($user_data['PHOTO']);
+		// 	}
 
-			#If fail
-			$this->response($response['FAIL'], REST_Controller::HTTP_FORBIDDEN);
-		}
+		// 	#If fail
+		// 	$this->response($response['FAIL'], REST_Controller::HTTP_FORBIDDEN);
+		// }
 	}
 
 	// function index_delete($id_pengguna=null){
