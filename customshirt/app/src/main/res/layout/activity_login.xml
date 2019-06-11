@@ -45,27 +45,48 @@
             android:layout_marginTop="30dip"
             android:text="@string/welcome_login"
             android:textSize="16dip" />
-
-        <EditText
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+        <customfonts.MyEditText
             android:id="@+id/txt_username"
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:hint="@string/username"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:paddingLeft="10dp"
+            android:hint="Username"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:drawablePadding="10dp"
+            android:textSize="13dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp">
 
-        <EditText
+        <customfonts.MyEditText
             android:id="@+id/txt_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:hint="@string/password"
-            android:password="true"
-            android:singleLine="true" />
-
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:paddingLeft="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorBlack"
+            android:textColor="@color/colorBlack"
+            android:textSize="13dp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
         <Button
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
