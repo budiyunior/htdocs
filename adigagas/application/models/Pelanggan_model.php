@@ -33,6 +33,12 @@ class Pelanggan_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_pengguna" => $id])->row();
     }
 
+    public function getUserId()
+    {
+        $query=$this->db->query("SELECT * FROM pengguna WHERE id_akses ='ctm'");
+        return $query->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();

@@ -20,7 +20,13 @@ class Pelanggan extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["pelanggan"] = $this->pelanggan_model->getAll();
+        $data["pelanggan"] = $this->pelanggan_model->getUserId();
+        $this->load->view("admin/pelanggan/list", $data);
+    }
+
+    public function userid()
+    {
+        $data["pelanggan"] = $this->pelanggan_model->getUserId();
         $this->load->view("admin/pelanggan/list", $data);
     }
 

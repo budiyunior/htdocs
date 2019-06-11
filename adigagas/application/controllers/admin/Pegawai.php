@@ -20,7 +20,7 @@ class Pegawai extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["pegawai"] = $this->pegawai_model->getAll();
+        $data["pegawai"] = $this->pegawai_model->getUserId();
         $this->load->view("admin/pegawai/list", $data);
     }
 
