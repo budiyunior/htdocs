@@ -7,9 +7,9 @@ class Pegawai extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('email')) {
+        /* if (!$this->session->userdata('email')) {
             redirect('login');
-        }
+        } */
         $this->load->model("pegawai_model");
         $this->load->library('form_validation');
     }
