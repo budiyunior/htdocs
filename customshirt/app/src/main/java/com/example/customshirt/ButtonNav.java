@@ -46,17 +46,17 @@ public class ButtonNav extends AppCompatActivity {
                         return true;
 
                     case  R.id.bottom_notif :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
                         setFragment (notifFragment);
                         return true;
 
                     case  R.id.bottom_keranjang :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryLight);
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
                         setFragment (keranjangFragment);
                         return true;
 
                     case  R.id.bottom_akun :
-                        mMainNav.setItemBackgroundResource(R.color.colorAccent);
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
                         setFragment (akunFragment);
                         return true;
 
@@ -67,7 +67,7 @@ public class ButtonNav extends AppCompatActivity {
 
             private void setFragment(Fragment fragment) {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.bottom_nav, fragment);
+                fragmentTransaction.replace(R.id.main_frame, fragment);
                 fragmentTransaction.commit();
             }
         });
