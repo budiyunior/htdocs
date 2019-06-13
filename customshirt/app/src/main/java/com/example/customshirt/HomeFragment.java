@@ -111,8 +111,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         if(v == filterjenisbaju){
-            Intent loginActivity = new Intent(getActivity(), LoginActivity.class);
-            startActivity(loginActivity);
+            Intent DetailItemFragment = new Intent(getActivity(), DetailItemFragment.class);
+            startActivity(DetailItemFragment);
         }
         if(v == filterjeniskain){
             Intent loginActivity = new Intent(getActivity(), MainActivity.class);
