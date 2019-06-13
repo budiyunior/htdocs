@@ -36,7 +36,7 @@ class Auth extends REST_Controller
 		$response['FAIL'] = array('status' => FALSE, 'message' => 'fail get data', 'data' => null);
 
 
-		$data_user = $this->m_auth->get_user_by_emai($this->post('email'), md5($this->post('password')));
+		$data_user = $this->m_auth->get_user_by_email($this->post('email'), md5($this->post('password')));
 		// $data_user=$this->m_auth->get_user_by_emai('admin@gmail.com',md5('admin'));
 		// var_dump($this->post('EMAIL'),$this->post('PASSWORD')); die();
 		if ($data_user) {

@@ -8,6 +8,7 @@
     android:layout_margin="@dimen/activity_horizontal_margin"
     card_view:cardElevation="3dp"
     card_view:cardUseCompatPadding="true"
+
     card_view:layout_gravity="center">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,7 +21,7 @@
 
 
         <ImageView
-            android:id="@+id/person_photo"
+            android:id="@+id/item"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/tvNama"
@@ -47,8 +48,8 @@
             android:layout_below="@id/person_photo"
             android:layout_gravity="left"
             android:hint="Nama"
-            android:textSize="15sp"
             android:textColor="@color/colorBlack"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -58,8 +59,8 @@
             android:layout_below="@id/tvNama"
             android:layout_gravity="left"
             android:hint="Nomor"
-            android:textSize="15sp"
             android:textColor="@color/colorBlack"
+            android:textSize="15sp"
             android:textStyle="bold" />
     </LinearLayout>
 
