@@ -4,6 +4,7 @@ package com.example.customshirt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -55,6 +56,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Beranda");
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
        View myFragmentView = inflater.inflate(R.layout.fragment_home, container, false);
 
         hf=this;
@@ -69,6 +73,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         refresh();
+
+
 
 
 
@@ -109,7 +115,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+  
         if(v == filterjenisbaju){
             Intent DetailItemFragment = new Intent(getActivity(), DetailItemFragment.class);
             startActivity(DetailItemFragment);
@@ -119,5 +125,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             startActivity(loginActivity);
         }
     }
+
+
 
 }

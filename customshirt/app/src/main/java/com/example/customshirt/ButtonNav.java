@@ -34,6 +34,10 @@ public class ButtonNav extends AppCompatActivity {
         keranjangFragment = new KeranjangFragment();
         akunFragment = new AkunFragment();
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame, new HomeFragment())
+                .commit();
+
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
