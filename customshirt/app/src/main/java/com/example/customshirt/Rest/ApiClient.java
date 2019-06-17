@@ -8,7 +8,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ApiClient {
-    public static final String BASE_URL = "http://192.168.1.6/adigagas/index.php/";
+    public static final String BASE_URL = "http://192.168.43.153/adigagas/index.php/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

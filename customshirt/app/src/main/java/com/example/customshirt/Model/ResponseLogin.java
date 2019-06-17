@@ -8,22 +8,27 @@ import com.google.gson.annotations.SerializedName;
  */
 public class ResponseLogin {
     @SerializedName("status")
-    @Expose
-    private Boolean status;
+    String status;
+
 
     @SerializedName("message")
-    @Expose
-    private String message;
+    String message;
 
-    @SerializedName("data")
-    @Expose
-    private User data = null;
+    @SerializedName("email")
+    String email;
 
-    public Boolean getStatus() {
+    @SerializedName("password")
+    String password;
+
+
+    @SerializedName("id_pengguna")
+    String id_pengguna;
+
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -35,11 +40,27 @@ public class ResponseLogin {
         this.message = message;
     }
 
-    public User getData() {
-        return data;
+    public String getEmail() {
+        return email;
     }
 
-    public void setData(User data) {
-        this.data = data;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getId_pengguna() {
+        return id_pengguna;
+    }
+
+    public void setId_pengguna(String id_pengguna) {
+        this.id_pengguna = id_pengguna;
+    }
+
 }

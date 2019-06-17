@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
 
         if(v == splashbutton){
-            startActivity(new Intent(SplashActivity.this,ButtonNav.class));
+            startActivity(new Intent(SplashActivity.this,LoginActivity.class));
         }
     }
 }

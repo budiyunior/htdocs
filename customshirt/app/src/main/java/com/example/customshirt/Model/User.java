@@ -5,6 +5,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
+    public User(Integer id_pengguna, String nama_pengguna, String tanggal_lahir, String id_akses, String email, String nomor_telp, String password) {
+        this.id_pengguna = id_pengguna;
+        this.nama_pengguna = nama_pengguna;
+        this.tanggal_lahir = tanggal_lahir;
+        this.id_akses = id_akses;
+        this.email = email;
+        this.nomor_telp = nomor_telp;
+        this.password = password;
+    }
+
     @SerializedName("id_pengguna")
     @Expose
     private Integer id_pengguna;
