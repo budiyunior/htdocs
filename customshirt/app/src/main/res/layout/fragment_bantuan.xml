@@ -1,12 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".BantuanFragment"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context=".BantuanFragment">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/infotitle">
+
+        <ImageView
+            android:id="@+id/iconbantuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_info_outline_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="1dp"
+                android:layout_toRightOf="@+id/iconbantuan"
+                android:text="Tentang Custom Shirt"
+                android:textColor="@color/colorBlack"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <View
+            android:id="@+id/View1"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_below="@id/infotitle"
+            android:background="#448AFF" />
+<LinearLayout
+    android:id="@+id/layout_info"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/View1"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/headinfo1"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="@string/faqheadinfo1"/>
+
+    <TextView
+        android:id="@+id/bodyinfo1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorBlack"
+        android:text="@string/faqbodyinfo1"/>
+
+    <TextView
+        android:id="@+id/headinfo2"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="@string/faqheadinfo2"/>
+
+    <TextView
+        android:id="@+id/bodyinfo2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorBlack"
+        android:text="@string/faqbodyinfo2"/>
+
+    <TextView
+        android:id="@+id/headinfo3"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="@string/faqheadinfo3"/>
+
+    <TextView
+        android:id="@+id/bodyinfo3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorBlack"
+        android:text="@string/faqbodyinfo3"/>
+
+</LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_info"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:id="@+id/pesantitle">
+
+            <ImageView
+                android:id="@+id/iconpesan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_shopping_cart_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pemesanan"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorBlack"
+                android:layout_toRightOf="@+id/iconpesan"/>
+        </RelativeLayout>
+        <View
+            android:id="@+id/View2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_below="@id/pesantitle"
+            android:background="#448AFF" />
+        <LinearLayout
+            android:id="@+id/layout_pesan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/View2"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/headpesan1"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="@string/faqheadpesan1"/>
+
+            <TextView
+                android:id="@+id/bodypesan1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:text="@string/faqbodypesan1"/>
+
+            <TextView
+                android:id="@+id/headpesan2"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="@string/faqheadpesan2"/>
+
+            <TextView
+                android:id="@+id/bodypesan2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:text="@string/faqbodypesan2"/>
+
+            <TextView
+                android:id="@+id/headpesan3"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="@string/faqheadpesan3"/>
+
+            <TextView
+                android:id="@+id/bodypesan3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:text="@string/faqbodypesan3"/>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_pesan"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:id="@+id/kaostitle">
+
+            <ImageView
+                android:id="@+id/iconkaos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_accessibility_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="1dp"
+                android:layout_toRightOf="@+id/iconkaos"
+                android:text="Tentang Kaos"
+                android:textColor="@color/colorBlack"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <View
+            android:id="@+id/View3"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_below="@id/kaostitle"
+            android:background="#448AFF" />
+        <LinearLayout
+            android:id="@+id/layout_kaos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/View3"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/headkaos1"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="@string/faqheadkaos1"/>
+
+            <TextView
+                android:id="@+id/bodykaos1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:text="@string/faqbodykaos1"/>
+
+            <TextView
+                android:id="@+id/headkaos2"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="@string/faqheadkaos2"/>
+
+            <TextView
+                android:id="@+id/bodykaos2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:text="@string/faqbodykaos2"/>
 
 
 
-
-</RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

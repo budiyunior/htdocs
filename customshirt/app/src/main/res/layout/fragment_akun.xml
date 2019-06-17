@@ -84,7 +84,8 @@
                 android:padding="20dp"
                 android:text="Design Saya" />
 
-            <TextView
+            <Button
+                android:id="@+id/btn_bantuan"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

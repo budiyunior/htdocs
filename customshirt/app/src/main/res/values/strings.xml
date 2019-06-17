@@ -9,7 +9,65 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <string name="faqheadinfo1">
+        Apa itu Custom Shirt?
+    </string>
+    <string name="faqbodyinfo1">
+        Custom Shirt adalah sebuah aplikasi yang menyediakan layanan cetak custom khusus kaos
+    </string>
+    <string name="faqheadinfo2">
+        Saya punya gambar sendiri, bagaimana caranya agar dapat dicetak di berbagai media?
+    </string>
+    <string name="faqbodyinfo2">
+    Anda dapat mendownload desain di bagian produk. Kemudian anda dapat mendesain sesuai keinginan anda. Upload desain yang sudah anda buat pada bagian produk.
+    </string>
+    <string name="faqheadinfo3">
+Saya masih kebingungan, dapatkah Anda membantu saya?
+
+    </string>
+    <string name="faqbodyinfo3">
+Dengan senang hati, Customer Support kami siap melayani dan membantu Anda.
+    </string>
+    <string name="faqheadpesan1">
+Apakah boleh memesan hanya 1 buah barang ?
+
+    </string>
+    <string name="faqbodypesan1">
+Tentu bisa. Tidak ada minimum pemesanan di situs kami. Pesan satu barang pun akan kami layani dan kami kirim ke seluruh daerah di Indonesia.
+
+    </string>
+
+    <string name="faqheadpesan2">
+Apakah semua barang ready stock ?
+
+    </string>
+    <string name="faqbodypesan2">
+Kami adalah toko online yang menggunakan sistem printing on-demand (barang dicetak setelah ada pesanan), jadi semua barang selalu ready stock.
+
+    </string>
+    <string name="faqheadpesan3">
+Apakah harga bisa kurang ?
+
+    </string>
+    <string name="faqbodypesan3">
+Harga yang tertera di website kami adalah Harga Pas dan mohon maaf tidak bisa kurang lagi.
+
+    </string>
+    <string name="faqheadkaos1">
+Bagaimana kualitas kaosnya ?
+    </string>
+    <string name="faqbodykaos1">
+Kami menyediakan berbagai tipe kaos, antara lain kaos Premium standar Distro Bandung dan Kaos merek Gildan®. Untuk kaos premium standar Distro Bandung, kami menggunakan bahan kaos 100% Premium Cotton Combed 24S yang adem dan nyaman dipakai. Kaos jenis ini banyak digunakan oleh distro-distro terkenal. Kaos Gildan® adalah kaos standar impor yang tidak perlu diragukan lagi kualitasnya. Setiap kaos telah melewati proses quality control yang ketat sehingga mutu dan kualitas kaos terjamin.
+
+    </string>
+    <string name="faqheadkaos2">
+Bagaimana teknik printing yang digunakan?
+    </string>
+    <string name="faqbodykaos2">
+Kami menggunakan teknologi digital printing terkini, yaitu Direct To Garment (DTG) dengan jaminan kualitas terbaik.
+
+    </string>
 </resources>
