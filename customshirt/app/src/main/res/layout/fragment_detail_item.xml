@@ -194,7 +194,6 @@
                 android:hint="Deskripsi"
                 android:textColor="@color/colorBlack"
                 android:textSize="15dp" />
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

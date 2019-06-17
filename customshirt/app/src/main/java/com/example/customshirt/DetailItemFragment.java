@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -35,11 +36,14 @@ private Spinner spinnerJumlah;
         tvHarga = myFragmentView.findViewById(R.id.tvHarga);
         tvDeskripsi = myFragmentView.findViewById(R.id.tvDeskripsi);
 //        Intent mIntent = getIntent();
-//
-//
+
 //        tvNama.setText(mIntent.getStringExtra("Nama"));
 //        tvHarga.setText(mIntent.getStringExtra("Harga"));
 //        tvDeskripsi.setText(mIntent.getStringExtra("Deskripsi"));
+
+//        Spinner spinnerjumlah = (Spinner)findViewById(R.id.spinnerJumlah);
+//        ArrayAdapter<String> spinnerCountShoesArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.jumlah));
+//        spinnerjumlah.setAdapter(spinnerCountShoesArrayAdapter);
 
         return myFragmentView;
     }
