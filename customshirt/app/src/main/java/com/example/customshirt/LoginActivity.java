@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     SharedPreferences sharedPreferences;
     private Button btn_login;
+    private Button btn_register;
+
     private MyEditText txt_username;
     private MyEditText txt_password;
     ApiInterface mApiInterface;
@@ -47,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
+        btn_register = (Button) findViewById(R.id.btn_register);
+        btn_register.setOnClickListener(this);
         txt_username = (MyEditText) findViewById(R.id.txt_username);
         txt_password = (MyEditText) findViewById(R.id.txt_password);
         mContext = this;
@@ -56,9 +60,9 @@ String id = sharedPreferences.getString("id","0");
     }
 
 
-    public boolean validate_login() {
-        return !validate.cek(txt_username) && !validate.cek(txt_password);
-    }
+//    public boolean validate_login() {
+//        return !validate.cek(txt_username) && !validate.cek(txt_password);
+//    }
 
 
     public void onClick(View v) {
@@ -78,9 +82,9 @@ String id = sharedPreferences.getString("id","0");
                     String id = response.body().getId_pengguna();
                     String email = response.body().getEmail();
                     if (TextUtils.isEmpty(id)) {
-                        Toast.makeText(LoginActivity.this, "SALAH Login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(LoginActivity.this, "sukes Login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login Sukses", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -95,9 +99,14 @@ String id = sharedPreferences.getString("id","0");
                 public void onFailure(Call<ResponseLogin> call, Throwable t) {
                     pDialog.dismiss();
                     Log.e("gagal", "gagal" + t);
-                    Toast.makeText(LoginActivity.this, "SALAH Login", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Koneksi Gagal", Toast.LENGTH_LONG).show();
                 }
             });
+        }
+        if(v == btn_register){
+            Intent intent = new Intent(LoginActivity.this,ButtonNav.class);
+            startActivity(intent);
+
         }
     }
 

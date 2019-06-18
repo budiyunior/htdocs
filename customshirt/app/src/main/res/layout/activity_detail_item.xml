@@ -151,7 +151,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="#448AFF" />
-
+            <Button
+                android:id="@+id/btn_masukcart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masukan Kranjang"/>
 
             <TextView
                 android:id="@+id/tvInfoProduk"
