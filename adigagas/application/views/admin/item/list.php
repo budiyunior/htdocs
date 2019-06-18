@@ -1,165 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Load View head, sidebar, dan navbar ada di Controler gaess -->
+<!-- Tepatnya di _partials/spesialtop -->
+<!-- saya pisah biar nama yang login tercantum di navabr gaes -->
 
-<head>
+<!-- End of Topbar -->
 
-	<?php $this->load->view("admin/_partials/head.php") ?>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-</head>
-
-<body id="page-top">
-
-	<!-- Page Wrapper -->
-	<div id="wrapper">
-
-		<!-- Sidebar -->
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
-		<!-- End of Sidebar -->
-
-		<!-- Content Wrapper -->
-		<div id="content-wrapper" class="d-flex flex-column">
-
-			<!-- Main Content -->
-			<div id="content">
-
-				<!-- Topbar -->
-				<?php $this->load->view("admin/_partials/navbar.php") ?>
-				<!-- End of Topbar -->
-
-				<!-- Begin Page Content -->
-				<div class="container-fluid">
-
-					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Product</h1>
-					<p class="mb-4">Product is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800"> Item</h1>
 
 
-					<div class="row">
-						<div class="col-xl-6">
-							<div class="card mb-3">
-								<div class="card-header">
-									<a href="<?php echo site_url('admin/product/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-								</div>
-								<div class="card-body">
-
-									<div class="table-responsive">
-										<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Price</th>
-													<th>Photo</th>
-													<th>Description</th>
-													<th>Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php foreach ($product as $product) : ?>
-													<tr>
-														<td width="150">
-															<?php echo $product->name ?>
-														</td>
-														<td>
-															Rp. <?php echo $product->price ?>
-														</td>
-														<td>
-															<img src="<?php echo base_url('upload/product/' . $product->image) ?>" width="64" />
-														</td>
-														<td class="small">
-															<?php echo substr($product->description, 0, 120) ?>...</td>
-														<td width="250">
-															<a href="<?php echo site_url('admin/product/edit/' . $product->product_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-															<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/' . $product->product_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-														</td>
-													</tr>
-												<?php endforeach; ?>
-
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-6">
-							<div class="card mb-3">
-								<div class="card-header">
-									<a href="<?php echo site_url('admin/product/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-								</div>
-								<div class="card-body">
-
-									<div class="table-responsive">
-										<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Price</th>
-													<th>Photo</th>
-													<th>Description</th>
-													<th>Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php foreach ($product as $product) : ?>
-													<tr>
-														<td width="150">
-															<?php echo $product->name ?>
-														</td>
-														<td>
-															Rp. <?php echo $product->price ?>
-														</td>
-														<td>
-															<img src="<?php echo base_url('upload/product/' . $product->image) ?>" width="64" />
-														</td>
-														<td class="small">
-															<?php echo substr($product->description, 0, 120) ?>...</td>
-														<td width="250">
-															<a href="<?php echo site_url('admin/product/edit/' . $product->product_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-															<a onclick="deleteConfirm('<?php echo site_url('admin/product/delete/' . $product->product_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-														</td>
-													</tr>
-												<?php endforeach; ?>
-
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- DataTales Example -->
-
-
-				</div>
-				<!-- /.container-fluid -->
-
-			</div>
-			<!-- End of Main Content -->
-
-			<!-- Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
-			<!-- End of Footer -->
-
+	<!-- DataTales Example -->
+	<div class="card mb-3">
+		<div class="card-header">
+			<a href="<?php echo site_url('admin/item/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
 		</div>
-		<!-- End of Content Wrapper -->
+		<div class="card-body">
 
+			<div class="table-responsive">
+				<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>ID Item</th>
+							<th>ID Pengguna</th>
+							<th>Nama Item</th>
+							<th>ID Jenis Item</th>
+							<th>Harga Satuan</th>
+							<th>Berat Satuan</th>
+							<th>Deskripsi</th>
+
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($item as $item) : ?>
+							<tr>
+								<td>
+									<?php echo $item->id_item ?>
+								</td>
+								<td>
+									<?php echo $item->id_pengguna ?>
+								</td>
+								<td>
+									<?php echo $item->nama_item ?>
+								</td>
+								<td>
+									<?php echo $item->id_jenis_item ?>
+								</td>
+								<td>
+									<?php echo $item->harga_satuan ?>
+								</td>
+								<td>
+									<?php echo $item->berat_satuan ?>
+								</td>
+								<td>
+									<?php echo $item->deskripsi ?>
+								</td>
+								<td width="250">
+									<a href="<?php echo site_url('admin/item/edit/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+									<a onclick="deleteConfirm('<?php echo site_url('admin/item/delete/' . $item->id_item) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-	<!-- End of Page Wrapper -->
 
-	<!-- Scroll to Top Button-->
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+</div>
+<!-- /.container-fluid -->
 
-	<!-- Logout Modal-->
-	<?php $this->load->view("admin/_partials/modal.php") ?>
+</div>
+<!-- End of Main Content -->
 
-	<!-- JavaScript-->
-	<?php $this->load->view("admin/_partials/js.php") ?>
-	<script>
-		function deleteConfirm(url) {
-			$('#btn-delete').attr('href', url);
-			$('#deleteModal').modal();
-		}
-	</script>
+<!-- Footer -->
+<?php $this->load->view("admin/_partials/footer.php") ?>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+
+<!-- Logout Modal-->
+<?php $this->load->view("admin/_partials/modal.php") ?>
+
+<!-- JavaScript-->
+<?php $this->load->view("admin/_partials/js.php") ?>
+<script>
+	function deleteConfirm(url) {
+		$('#btn-delete').attr('href', url);
+		$('#deleteModal').modal();
+	}
+</script>
 
 </body>
 

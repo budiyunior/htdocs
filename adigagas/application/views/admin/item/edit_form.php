@@ -1,126 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Load View head, sidebar, dan navbar ada di Controler gaess -->
+<!-- Tepatnya di _partials/spesialtop -->
+<!-- saya pisah biar nama yang login tercantum di navabr gaes -->
+<!-- End of Topbar -->
 
-<head>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-    <?php $this->load->view("admin/_partials/head.php") ?>
+    <?php if ($this->session->flashdata('success')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $this->session->flashdata('success'); ?>
+        </div>
+    <?php endif; ?>
 
-</head>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Edit Data Item</h1>
 
-<body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-    <!-- Sidebar -->
-    <?php $this->load->view("admin/_partials/sidebar.php") ?>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-        <!-- Main Content -->
-        <div id="content">
-
-            <!-- Topbar -->
-            <?php $this->load->view("admin/_partials/navbar.php") ?>
-            <!-- End of Topbar -->
-
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-
-            <?php if ($this->session->flashdata('success')): ?>
-                <div class="alert alert-success" role="alert">
-                    <?php echo $this->session->flashdata('success'); ?>
-                </div>
-            <?php endif; ?>
-
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Edit Product</h1>
-            <p class="mb-4">Edit Product is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
-            <!-- add form -->
+    <!-- add form -->
+    <div class="row">
+            <div class="col-lg-6">
             <div class="card mb-3">
                 <div class="card-header">
 
-                    <a href="<?php echo site_url('admin/product/') ?>"><i class="fas fa-arrow-left"></i>
-                        Back</a>
+            <a href="<?php echo site_url('admin/item/') ?>"><i class="fas fa-arrow-left"></i>
+                Back</a>
+        </div>
+        <div class="card-body">
+
+            <form action="<?php base_url('admin/item/edit') ?>" method="post" enctype="multipart/form-data">
+
+                <input type="hidden" name="id_item" value="<?php echo $item->id_item ?>" />
+
+                <div class="form-group">
+                    <label for="id_pengguna">ID Pengguna</label>
+                    <select class="form-control" <?php echo form_error('id_pengguna') ? 'is-invalid' : '' ?> name="id_pengguna" id="id_pengguna" value="<?php echo $item->id_pengguna ?>" required>
+                        <option value="">--Pilih ID Pengguna--</option>
+                        <?php
+                        $servername = "localhost";
+                        $database = "custom_shirt";
+                        $username = "root";
+                        $password = "";
+                        $conn = mysqli_connect($servername, $username, $password, $database);
+                        $sql_pengguna = mysqli_query($conn, "SELECT * FROM pengguna WHERE id_pengguna") or die(mysqli_error($conn));
+                        while ($data_pengguna = mysqli_fetch_array($sql_pengguna)) {
+                            echo '<option value="' . $data_pengguna['id_pengguna'] . '">' . $data_pengguna['nama_pengguna'] . '</option>';
+                        }
+                        ?>
+                    </select>                    
+                    <div class="invalid-feedback">
+                        <?php echo form_error('id_pengguna') ?>
+                    </div>
                 </div>
-                <div class="card-body">
 
-                    <form action="<?php base_url('admin/product/edit') ?>" method="post" enctype="multipart/form-data">
-
-                        <input type="hidden" name="id" value="<?php echo $product->product_id?>" />
-
-                        <div class="form-group">
-                            <label for="name">Name*</label>
-                            <input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-                                type="text" name="name" placeholder="Product name" value="<?php echo $product->name ?>" />
-                            <div class="invalid-feedback">
-                                <?php echo form_error('name') ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="price">Price</label>
-                            <input class="form-control <?php echo form_error('price') ? 'is-invalid':'' ?>"
-                                type="number" name="price" min="0" placeholder="Product price" value="<?php echo $product->price ?>" />
-                            <div class="invalid-feedback">
-                                <?php echo form_error('price') ?>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="name">Photo</label>
-                            <input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
-                                type="file" name="image" />
-                            <input type="hidden" name="old_image" value="<?php echo $product->image ?>" />
-                            <div class="invalid-feedback">
-                                <?php echo form_error('image') ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="name">Description*</label>
-                            <textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
-                                name="description" placeholder="Product description..."><?php echo $product->description ?></textarea>
-                            <div class="invalid-feedback">
-                                <?php echo form_error('description') ?>
-                            </div>
-                        </div>
-
-                        <input class="btn btn-success" type="submit" name="btn" value="Save" />
-                    </form>
-
+                <div class="form-group">
+                    <label for="nama_item">Nama Item</label>
+                    <input class="form-control <?php echo form_error('nama_item') ? 'is-invalid' : '' ?>" type="text" name="nama_item" placeholder="" readonly value="<?php echo $item->nama_item ?>" maxlength="13" />
+                    <div class="invalid-feedback">
+                        <?php echo form_error('nama_item') ?>
+                    </div>
                 </div>
-            <!-- end add form -->
-                
 
-            </div>
-            <!-- /.container-fluid -->
+                <div class="form-group">
+                    <label for="id_jenis_item">ID Jenis Item</label><br>
+                    <select class="form-control" <?php echo form_error('id_jenis_akses') ? 'is-invalid' : '' ?> name="id" id="id_jenis_akses" value="<?php echo $item->id_jenis_item ?>" required>
+                        <option value="">--Pilih ID Jenis Item--</option>
+                        <?php
+                        $servername = "localhost";
+                        $database = "custom_shirt";
+                        $username = "root";
+                        $password = "";
+                        $conn = mysqli_connect($servername, $username, $password, $database);
+                        $sql_akses = mysqli_query($conn, "SELECT * FROM jenis_item WHERE id_jenis_item") or die(mysqli_error($conn));
+                        while ($data_akses = mysqli_fetch_array($sql_akses)) {
+                            echo '<option value="' . $data_akses['id_jenis_item'] . '">' . $data_akses['nama_jenis'] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <div class="invalid-feedback">
+                        <?php echo form_error('id_jenis_item') ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="harga_satuan">Harga Satuan</label>
+                    <input class="form-control <?php echo form_error('harga_satuan') ? 'is-invalid' : '' ?>" type="text" name="harga_satuan" placeholder="" readonly value="<?php echo $item->harga_satuan ?>" maxlength="13" />
+                    <div class="invalid-feedback">
+                        <?php echo form_error('harga_satuan') ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="berat_satuan">Berat Satuan</label>
+                    <input class="form-control <?php echo form_error('berat_satuan') ? 'is-invalid' : '' ?>" type="" name="berat_satuan" placeholder="" readonly value="<?php echo $item->berat_satuan ?>" maxlength="13" />
+                    <div class="invalid-feedback">
+                        <?php echo form_error('berat_satuan') ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi</label>
+                    <input class="form-control <?php echo form_error('deskripsi') ? 'is-invalid' : '' ?>" type="text" name="deskripsi" placeholder="" value="<?php echo $item->deskripsi ?>" maxlength="13" />
+                    <div class="invalid-feedback">
+                        <?php echo form_error('deskripsi') ?>
+                    </div>
+                </div>
+
+
+                <input class="btn btn-success" type="submit" name="btn" value="Save" />
+            </form>
 
         </div>
-        <!-- End of Main Content -->
+        <!-- end add form -->
 
-        <!-- Footer -->
-        <?php $this->load->view("admin/_partials/footer.php") ?>
-        <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
+</div>
+</div>
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- /.container-fluid -->
 
-    <!-- Scroll to Top Button-->
-    <?php $this->load->view("admin/_partials/scrolltop.php") ?>
+</div>
+<!-- End of Main Content -->
 
-    <!-- Logout Modal-->
-    <?php $this->load->view("admin/_partials/modal.php") ?>
+<!-- Footer -->
+<?php $this->load->view("admin/_partials/footer.php") ?>
+<!-- End of Footer -->
 
-    <!-- JavaScript-->
-    <?php $this->load->view("admin/_partials/js.php") ?>
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+
+<!-- Logout Modal-->
+<?php $this->load->view("admin/_partials/modal.php") ?>
+
+<!-- JavaScript-->
+<?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
 
