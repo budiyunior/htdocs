@@ -28,6 +28,7 @@
 							<th>ID Akses</th>
 							<th>Email</th>
 							<th>Nomor Telp</th>
+							<th>Foto</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -51,6 +52,9 @@
 								</td>
 								<td>
 									<?php echo $pegawai->nomor_telp ?>
+								</td>
+								<td>
+									<?php echo $pegawai->foto ?>
 								</td>
 
 								<td width="250">

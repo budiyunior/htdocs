@@ -41,7 +41,7 @@
                         $username = "root";
                         $password = "";
                         $conn = mysqli_connect($servername, $username, $password, $database);
-                        $sql_pengguna = mysqli_query($conn, "SELECT * FROM pengguna WHERE id_pengguna") or die(mysqli_error($conn));
+                        $sql_pengguna = mysqli_query($conn, "SELECT * FROM pengguna") or die(mysqli_error($conn));
                         while ($data_pengguna = mysqli_fetch_array($sql_pengguna)) {
                             echo '<option value="' . $data_pengguna['id_pengguna'] . '">' . $data_pengguna['nama_pengguna'] . '</option>';
                         }
@@ -54,7 +54,7 @@
 
                 <div class="form-group">
                     <label for="nama_item">Nama Item</label>
-                    <input class="form-control <?php echo form_error('nama_item') ? 'is-invalid' : '' ?>" type="text" name="nama_item" placeholder="" readonly value="<?php echo $item->nama_item ?>" maxlength="13" />
+                    <input class="form-control <?php echo form_error('nama_item') ? 'is-invalid' : '' ?>" type="text" name="nama_item" placeholder="" value="<?php echo $item->nama_item ?>" maxlength="13" />
                     <div class="invalid-feedback">
                         <?php echo form_error('nama_item') ?>
                     </div>
@@ -70,7 +70,7 @@
                         $username = "root";
                         $password = "";
                         $conn = mysqli_connect($servername, $username, $password, $database);
-                        $sql_akses = mysqli_query($conn, "SELECT * FROM jenis_item WHERE id_jenis_item") or die(mysqli_error($conn));
+                        $sql_akses = mysqli_query($conn, "SELECT * FROM jenis_item") or die(mysqli_error($conn));
                         while ($data_akses = mysqli_fetch_array($sql_akses)) {
                             echo '<option value="' . $data_akses['id_jenis_item'] . '">' . $data_akses['nama_jenis'] . '</option>';
                         }
@@ -83,7 +83,7 @@
 
                 <div class="form-group">
                     <label for="harga_satuan">Harga Satuan</label>
-                    <input class="form-control <?php echo form_error('harga_satuan') ? 'is-invalid' : '' ?>" type="text" name="harga_satuan" placeholder="" readonly value="<?php echo $item->harga_satuan ?>" maxlength="13" />
+                    <input class="form-control <?php echo form_error('harga_satuan') ? 'is-invalid' : '' ?>" type="text" name="harga_satuan" placeholder="" value="<?php echo $item->harga_satuan ?>" maxlength="13" />
                     <div class="invalid-feedback">
                         <?php echo form_error('harga_satuan') ?>
                     </div>
@@ -91,7 +91,7 @@
 
                 <div class="form-group">
                     <label for="berat_satuan">Berat Satuan</label>
-                    <input class="form-control <?php echo form_error('berat_satuan') ? 'is-invalid' : '' ?>" type="" name="berat_satuan" placeholder="" readonly value="<?php echo $item->berat_satuan ?>" maxlength="13" />
+                    <input class="form-control <?php echo form_error('berat_satuan') ? 'is-invalid' : '' ?>" type="text" name="berat_satuan" placeholder="" value="<?php echo $item->berat_satuan ?>" maxlength="13" />
                     <div class="invalid-feedback">
                         <?php echo form_error('berat_satuan') ?>
                     </div>

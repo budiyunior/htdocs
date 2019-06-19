@@ -53,6 +53,7 @@ class Item_model extends CI_Model
         $this->nama_item = $post["nama_item"];
         $this->id_jenis_item = $post["id"];
         $this->harga_satuan = $post["harga_satuan"];
+        $this->berat_satuan = $post["berat_satuan"];
         $this->deskripsi = $post["deskripsi"];
         $this->db->update($this->_table, $this, array('id_item' => $post['id_item']));
     }
