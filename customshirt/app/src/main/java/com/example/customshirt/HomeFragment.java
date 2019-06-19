@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private Button filterjenisbaju;
     private Button filterjeniskain;
+    private Button btn_search;
     ApiInterface mApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -66,6 +67,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         filterjenisbaju.setOnClickListener(this);
         filterjeniskain = (Button) myFragmentView.findViewById(R.id.filterjeniskain);
         filterjeniskain.setOnClickListener(this);
+        btn_search = (Button) myFragmentView.findViewById(R.id.btn_search);
+        btn_search.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) myFragmentView.findViewById(R.id.recyclerView);
         mLayoutManager = new GridLayoutManager(getActivity(),2);
@@ -122,6 +125,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         if(v == filterjeniskain){
             Intent loginActivity = new Intent(getActivity(), MainActivity.class);
             startActivity(loginActivity);
+
+        }
+        if(v == btn_search){
+            Intent searchActivity = new Intent(getActivity(), SearchActivity.class);
+            startActivity(searchActivity);
         }
     }
 

@@ -80,7 +80,7 @@
             android:background="#00000000"
             android:paddingLeft="10dp"
             android:hint="Password"
-
+            android:singleLine="true"
             android:inputType="textPassword"
             android:textColorHint="@color/colorBlack"
             android:textColor="@color/colorBlack"

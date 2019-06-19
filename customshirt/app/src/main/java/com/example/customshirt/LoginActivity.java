@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -55,8 +57,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txt_password = (MyEditText) findViewById(R.id.txt_password);
         mContext = this;
 
-        sharedPreferences = LoginActivity.this.getSharedPreferences("remember",Context.MODE_PRIVATE);
-String id = sharedPreferences.getString("id","0");
+        sharedPreferences = LoginActivity.this.getSharedPreferences("remember", Context.MODE_PRIVATE);
+        String id = sharedPreferences.getString("id", "0");
     }
 
 
@@ -92,9 +94,10 @@ String id = sharedPreferences.getString("id","0");
                         editor.putString("email", email);
                         editor.apply();
                         startActivity(intent);
-                        Log.e("Berhasil", "berhasil"+id+ email);
+                        Log.e("Berhasil", "berhasil" + id + email);
                     }
                 }
+
                 @Override
                 public void onFailure(Call<ResponseLogin> call, Throwable t) {
                     pDialog.dismiss();
@@ -103,21 +106,21 @@ String id = sharedPreferences.getString("id","0");
                 }
             });
         }
-        if(v == btn_register){
-            Intent intent = new Intent(LoginActivity.this,ButtonNav.class);
+        if (v == btn_register) {
+            Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
             startActivity(intent);
 
         }
     }
 
-    private void setPreference(User us) {
-        Prefs.putInt(Spref.getId_pengguna(), us.getId_pengguna());
-        Prefs.putString(Spref.getNama_pengguna(), us.getNama_pengguna());
-        Prefs.putString(Spref.getId_akses(), us.getId_akses());
-        Prefs.putString(Spref.getEmail(), us.getEmail());
-        Prefs.putString(Spref.getNomor_telp(), us.getNomor_telp());
-        Prefs.putString(Spref.getPassword(), us.getPassword().toString());
-        Prefs.putString(Spref.getTanggal_lahir(), us.getTanggal_lahir());
-
-    }
+//    private void setPreference(User us) {
+//        Prefs.putInt(Spref.getId_pengguna(), us.getId_pengguna());
+//        Prefs.putString(Spref.getNama_pengguna(), us.getNama_pengguna());
+//        Prefs.putString(Spref.getId_akses(), us.getId_akses());
+//        Prefs.putString(Spref.getEmail(), us.getEmail());
+//        Prefs.putString(Spref.getNomor_telp(), us.getNomor_telp());
+//        Prefs.putString(Spref.getPassword(), us.getPassword().toString());
+//        Prefs.putString(Spref.getTanggal_lahir(), us.getTanggal_lahir());
+//
+//    }
 }

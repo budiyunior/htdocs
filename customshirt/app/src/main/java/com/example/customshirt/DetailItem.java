@@ -1,6 +1,8 @@
 package com.example.customshirt;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +13,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
     TextView tvNama, tvHarga, tvDeskripsi;
 
-
+    private KeranjangFragment keranjangFragment;
     private Button btn_masukcart;
 
     @Override
@@ -22,14 +24,24 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         tvNama = findViewById(R.id.tvNama);
         tvHarga = findViewById(R.id.tvHarga);
         tvDeskripsi = findViewById(R.id.tvDeskripsi);
-        btn_masukcart = (Button) findViewById(R.id.btn_masukcart);
-        btn_masukcart.setOnClickListener(this);
+
         Intent mIntent = getIntent();
 
 
         tvNama.setText(mIntent.getStringExtra("Nama"));
         tvHarga.setText(mIntent.getStringExtra("Harga"));
         tvDeskripsi.setText(mIntent.getStringExtra("Deskripsi"));
+
+        btn_masukcart = (Button) findViewById(R.id.btn_masukcart);
+        btn_masukcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                KeranjangFragment keranjangFragment = new KeranjangFragment();
+                fm.beginTransaction().replace(R.id.main_frame,keranjangFragment).commit();
+            }
+        });
+
 
 
 
@@ -38,9 +50,8 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
 
-        if(v == btn_masukcart){
 
-        }
+
     }
 
 

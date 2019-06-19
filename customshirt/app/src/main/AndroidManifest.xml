@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".SearchActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashScreenStyle">
@@ -28,7 +29,7 @@
         <activity
             android:name=".ButtonNav"
             android:label="Beranda" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
     </application>

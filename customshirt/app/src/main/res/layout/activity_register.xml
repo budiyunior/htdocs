@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:hint="Username"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:singleLine="true" />
 
@@ -59,16 +59,10 @@
             android:layout_margin="10dp"
             android:hint="Password"
             android:password="true"
+            android:inputType="textPassword"
             android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/txt_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:hint="Comfirmation Password"
-            android:password="true" />
+
 
         <Button
             android:id="@+id/btn_register"

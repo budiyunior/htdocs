@@ -57,17 +57,16 @@
                         android:layout_margin="10dp"
                         android:text="Jenis Kain" />
 
-                    <ImageView
-                        android:id="@+id/Buttonsearch"
+                    <Button
+                        android:id="@+id/btn_search"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-
-                        android:src="@android:drawable/ic_search_category_default" />
+                        android:background="@android:drawable/ic_search_category_default" />
                 </LinearLayout>
 
                 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/GridLayout1"
+                    android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/filterbutton"
@@ -77,6 +76,7 @@
 
 
                     <android.support.v7.widget.RecyclerView
+
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

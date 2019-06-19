@@ -1,15 +1,16 @@
 package com.example.customshirt.Model;
 
+import android.content.SyncInfo;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    public User(Integer id_pengguna, String nama_pengguna, String tanggal_lahir, String id_akses, String email, String nomor_telp, String password) {
+    public User(String  id_pengguna, String nama_pengguna, String tanggal_lahir, String id_akses, String email, String nomor_telp, String password) {
         this.id_pengguna = id_pengguna;
         this.nama_pengguna = nama_pengguna;
         this.tanggal_lahir = tanggal_lahir;
-        this.id_akses = id_akses;
         this.email = email;
         this.nomor_telp = nomor_telp;
         this.password = password;
@@ -17,7 +18,7 @@ public class User {
 
     @SerializedName("id_pengguna")
     @Expose
-    private Integer id_pengguna;
+    private String id_pengguna;
 
     @SerializedName("nama_pengguna")
     @Expose
@@ -26,10 +27,6 @@ public class User {
     @SerializedName("tanggal_lahir")
     @Expose
     private String tanggal_lahir;
-
-    @SerializedName("id_akses")
-    @Expose
-    private String id_akses;
 
     @SerializedName("email")
     @Expose
@@ -43,11 +40,11 @@ public class User {
     @Expose
     private String password;
 
-    public Integer getId_pengguna() {
+    public String getId_pengguna() {
         return id_pengguna;
     }
 
-    public void setId_pengguna(Integer id_pengguna) {
+    public void setId_pengguna(String id_pengguna) {
         this.id_pengguna = id_pengguna;
     }
 
@@ -65,14 +62,6 @@ public class User {
 
     public void setTanggal_lahir(String tanggal_lahir) {
         this.tanggal_lahir = tanggal_lahir;
-    }
-
-    public String getId_akses() {
-        return id_akses;
-    }
-
-    public void setId_akses(String id_akses) {
-        this.id_akses = id_akses;
     }
 
     public String getEmail() {

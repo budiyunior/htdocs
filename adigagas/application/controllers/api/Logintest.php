@@ -24,7 +24,7 @@ class Logintest extends REST_Controller
     // }
     function index_get()
     {
-        $result = $this->m_login->cek_login($username, $password);
+        $result = $this->m_login->cek_login($email, $password);
         if ($result) {
             $this->response(array('status' => 'oke', 'id' => $result['id'], $result, 200));
         } else {
