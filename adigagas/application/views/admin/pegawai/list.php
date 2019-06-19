@@ -54,7 +54,7 @@
 									<?php echo $pegawai->nomor_telp ?>
 								</td>
 								<td>
-									<?php echo $pegawai->foto ?>
+									<img src="<?php echo base_url('upload/profil/'.$pegawai->foto) ?>" width="64" />
 								</td>
 
 								<td width="250">

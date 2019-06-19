@@ -67,7 +67,7 @@ class Pegawai_model extends CI_Model
         $this->email = $post["email"];
         $this->password = $post["password"];
         $this->nomor_telp = $post["nomor_telp"];
-        if (!empty($_FILES["foto"]["foto"])) {
+        if (!empty($_FILES["foto"]["name"])) {
             $this->foto = $this->_uploadImage();
         }else{
             $this->foto = $post["old_image"];
