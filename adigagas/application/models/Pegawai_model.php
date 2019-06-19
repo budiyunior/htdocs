@@ -77,7 +77,7 @@ class Pegawai_model extends CI_Model
 
     public function delete($id_pengguna)
     {
-        $this->_deleteImage($id);
+        $this->_deleteImage($id_pengguna);
         return $this->db->delete($this->_table, array("id_pengguna" => $id_pengguna));
     }
 
@@ -100,9 +100,9 @@ class Pegawai_model extends CI_Model
     print_r($this->upload->display_errors());
 }
 
-    private function _deleteImage($id)
+    private function _deleteImage($id_pengguna)
 {
-    $pegawai = $this->getById($id);
+    $pegawai = $this->getById($id_pengguna);
     if ($pegawai->foto != "01.jpg") {
 	    $filename = explode(".", $pegawai->foto)[0];
 		return array_map('unlink', glob(FCPATH."upload/profil/$filename.*"));
