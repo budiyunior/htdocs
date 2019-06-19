@@ -92,6 +92,15 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+					<label for="foto">Foto</label>
+					<input class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>" type="file" name="foto" />
+					<input type="hidden" name="old_image" value="<?php echo $pelanggan->foto ?>" />
+					<div class="invalid-feedback">
+						<?php echo form_error('foto') ?>
+					</div>
+				</div>
+
 
                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
             </form>

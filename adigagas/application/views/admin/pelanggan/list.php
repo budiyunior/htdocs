@@ -27,6 +27,7 @@
 							<th>ID Akses</th>
 							<th>Email</th>
 							<th>Nomor Telp</th>
+							<th>Foto</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -50,6 +51,9 @@
 								</td>
 								<td>
 									<?php echo $pelanggan->nomor_telp ?>
+								</td>
+								<td>
+									<img src="<?php echo base_url('upload/profil/'.$pelanggan->foto) ?>" width="64" />
 								</td>
 
 								<td width="250">
