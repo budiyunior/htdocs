@@ -25,16 +25,17 @@ public interface ApiInterface {
     Call<GetItem> getItem();
 
     @FormUrlEncoded
-    @POST("kontak")
-    Call<PostPutDelUser> postUser(@Field("id_pengguna") String id_pengguna,
+    @POST("api/users")
+    Call<PostPutDelUser> postUser(
                                   @Field("nama_pengguna") String nama_pengguna,
+                                  @Field("id_akses") String id_akses,
                                   @Field("tanggal_lahir") String tanggal_lahir,
                                   @Field("email") String email,
                                   @Field("password") String password,
                                   @Field("nomor_telp") String nomor_telp);
 
     @FormUrlEncoded
-    @PUT("kontak")
+    @PUT("api/users")
     Call<PostPutDelUser> putUser(@Field("id_pengguna") String id_pengguna,
                                  @Field("nama_pengguna") String nama_pengguna,
                                  @Field("tanggal_lahir") String tanggal_lahir,

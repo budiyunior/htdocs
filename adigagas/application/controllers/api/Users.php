@@ -35,7 +35,7 @@ class Users extends REST_Controller
             'nama_pengguna'          => $this->post('nama_pengguna'),
             'tanggal_lahir'    => $this->post('tanggal_lahir'),
             'email'    => $this->post('email'),
-            'id_akses'    => ('ctm'),
+            'id_akses'    => $this->post('id_akses'),
             'password'    => $this->post('password'),
             'nomor_telp'    => $this->post('nomor_telp')
         );

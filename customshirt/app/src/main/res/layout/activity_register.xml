@@ -27,9 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
+            android:singleLine="true"
             android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            android:autofillHints="Email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/txt_username"
@@ -38,7 +39,8 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:hint="Username"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
+            android:autofillHints="Username"
             android:singleLine="true" />
 
         <EditText
@@ -48,7 +50,8 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:hint="Nohp"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
+            android:autofillHints="Nohp"
             android:singleLine="true" />
 
         <EditText
@@ -58,8 +61,8 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:hint="Password"
-            android:password="true"
             android:inputType="textPassword"
+            android:autofillHints="Password"
             android:singleLine="true" />
 
 

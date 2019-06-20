@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     SharedPreferences sharedPreferences;
     private Button btn_login;
     private Button btn_register;
+    private Button btn_nologin;
 
     private MyEditText txt_username;
     private MyEditText txt_password;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Context mContext;
 
     //declate variable
-    private User userData;
+
     private ProgressDialog pDialog;
 
     @Override
@@ -51,6 +52,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
+        btn_nologin = (Button) findViewById(R.id.btn_nologin);
+        btn_nologin.setOnClickListener(this);
         btn_register = (Button) findViewById(R.id.btn_register);
         btn_register.setOnClickListener(this);
         txt_username = (MyEditText) findViewById(R.id.txt_username);
@@ -82,7 +85,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
                     pDialog.dismiss();
                     String id = response.body().getId_pengguna();
+                    String nama_pengguna = response.body().getNama_pengguna();
+                    String tanggal_lahir = response.body().getTanggal_lahir();
                     String email = response.body().getEmail();
+                    String password = response.body().getPassword();
+                    String nomor_telp = response.body().getNomor_telp();
+
                     if (TextUtils.isEmpty(id)) {
                         Toast.makeText(LoginActivity.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
                     } else {
@@ -90,8 +98,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("id", id);
+                        editor.putString("id_pengguna", id);
+                        editor.putString("email", nama_pengguna);
+                        editor.putString("tanggal_lahir", tanggal_lahir);
                         editor.putString("email", email);
+                        editor.putString("password", password);
+                        editor.putString("nomor_telp", nomor_telp);
+
                         editor.apply();
                         startActivity(intent);
                         Log.e("Berhasil", "berhasil" + id + email);
@@ -107,6 +120,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             });
         }
         if (v == btn_register) {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+
+        }
+        if (v == btn_nologin) {
             Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
             startActivity(intent);
 

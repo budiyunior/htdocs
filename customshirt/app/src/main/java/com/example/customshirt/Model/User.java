@@ -10,6 +10,7 @@ public class User {
     public User(String  id_pengguna, String nama_pengguna, String tanggal_lahir, String id_akses, String email, String nomor_telp, String password) {
         this.id_pengguna = id_pengguna;
         this.nama_pengguna = nama_pengguna;
+        this.id_akses = id_akses;
         this.tanggal_lahir = tanggal_lahir;
         this.email = email;
         this.nomor_telp = nomor_telp;
@@ -23,6 +24,10 @@ public class User {
     @SerializedName("nama_pengguna")
     @Expose
     private String nama_pengguna;
+
+    @SerializedName("id_akses")
+    @Expose
+    private String id_akses;
 
     @SerializedName("tanggal_lahir")
     @Expose
@@ -86,5 +91,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getId_akses() {
+        return id_akses;
+    }
+
+    public void setId_akses(String id_akses) {
+        this.id_akses = id_akses;
     }
 }

@@ -58,7 +58,7 @@
             android:layout_height="50dp"
             android:background="#00000000"
             android:paddingLeft="10dp"
-            android:hint="Username"
+            android:hint="Email"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             android:drawablePadding="10dp"
@@ -107,6 +107,16 @@
             android:layout_marginBottom="15dp"
             android:background="#00555555"
             android:text="@string/register"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_nologin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:background="#00555555"
+            android:text="nologin"
             android:textStyle="bold" />
 
     </LinearLayout>

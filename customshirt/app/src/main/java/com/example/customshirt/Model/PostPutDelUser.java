@@ -4,17 +4,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class PostPutDelUser {
     @SerializedName("status")
-    String status;
+    Boolean status;
     @SerializedName("result")
     User mUser;
     @SerializedName("message")
     String message;
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

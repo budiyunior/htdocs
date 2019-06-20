@@ -13,6 +13,8 @@ import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,25 +40,41 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
     }
-
     @Override
     public void onClick(View v) {
-//        if (v == btn_register) {
-//            Call<PostPutDelUser> postUserCall = mApiInterface.postUser(txt_username.getText().toString(),
-//                    txt_email.getText().toString(), txt_nohp.getText().toString(),txt_password.getText().toString());
+        if (v == btn_register) {
+            Call<PostPutDelUser> postUserCall = mApiInterface.postUser(txt_username.getText().toString(),null,null,
+                    txt_email.getText().toString(),txt_password.getText().toString(), txt_nohp.getText().toString());
 //            postUserCall.enqueue(new Callback<PostPutDelUser>() {
 //                @Override
-//                public void onResponse(Call<PostPutDelKontak> call, Response<PostPutDelKontak> response) {
-//                    MainActivity.ma.refresh();
-//                    finish();
+//                public void onResponse(Call<PostPutDelUser> call, Response<PostPutDelUser> response) {
+//
+////                    Toast.makeText(getApplicationContext(), "Register Sukses", Toast.LENGTH_SHORT).show();
+////                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+////                    startActivity(intent);
+//                    Toast.makeText(RegisterActivity.this, "Login Sukses", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(RegisterActivity.this, ButtonNav.class);
 //                }
 //
 //                @Override
-//                public void onFailure(Call<PostPutDelKontak> call, Throwable t) {
-//                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+//                public void onFailure(Call<PostPutDelUser> call, Throwable t) {
+//                    Toast.makeText(getApplicationContext(), "Koneksi Bermasalah", Toast.LENGTH_LONG).show();
 //                }
 //            });
-//        }
+            postUserCall.enqueue(new Callback<PostPutDelUser>() {
+                @Override
+                public void onResponse(Call<PostPutDelUser> call, Response<PostPutDelUser> response) {
+                    Toast.makeText(RegisterActivity.this, "Login Sukses", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegisterActivity.this, ButtonNav.class);
+                    finish();
+                }
+
+                @Override
+                public void onFailure(Call<PostPutDelUser> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
         if (v == btn_login) {
             Intent intent = new Intent(RegisterActivity.this, ButtonNav.class);
             startActivity(intent);
