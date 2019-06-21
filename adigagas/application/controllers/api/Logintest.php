@@ -49,12 +49,12 @@ class Logintest extends REST_Controller
         }*/
         if ($cek) {
             $output['id_pengguna'] = $cek['id_pengguna'];
-            $output['nama_pengguna'] = $cek['nama_pengguna'];
-            $output['tanggal'] = $cek['tanggal'];
-            $output['id_akses'] = $cek['id_akses'];
+            // $output['nama_pengguna'] = $cek['nama_pengguna'];
+            // $output['tanggal'] = $cek['tanggal'];
+            // $output['id_akses'] = $cek['id_akses'];
             $output['email'] = $email;
-            $output['password'] = $cek['password'];
-            $output['nomor_telp'] = $cek['nomor_telp'];
+            // $output['password'] = $cek['password'];
+            // $output['nomor_telp'] = $cek['nomor_telp'];
 
             $this->response($output, 200);
         } else {
