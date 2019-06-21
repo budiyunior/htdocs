@@ -38,12 +38,12 @@
           <!-- Page Heading -->
 
           <div class="input-group-append">
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tambah" type="button">
+                <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#tambah">
                     <i class="fas fa-plus fa-sm"></i>
                 </button>
             </div> <br>
 
-          <h1 class="h3 mb-2 text-gray-800">Tambah Item</h1>
+          <h1 class="h3 mb-2 text-gray-800">Tambah Data Item</h1>
 
           <!-- add form -->
           <div class="row">
@@ -145,15 +145,21 @@
               <div class="modal-dialog">
                  <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"></button>
-                        <h4 class="modal-title">Tambah Gambar</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
                     </div>
                     <form method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label class="control-label" for="nm_brg">Nama Barang</label>
+                                <label class="control-label" for="gambar">Gambar Item</label>
+                                <input type="file" name="gambar" class="form-control" id="gambar" required>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                          <button type ="reset" class="btn btn-danger">Cancel</button>
+                          <button type ="submit" class="btn btn-success" name="tambah" value="Simpan">Simpan</button>
+                        </div>
+                    </form>
                   </div>
               </div>
           </div>         
