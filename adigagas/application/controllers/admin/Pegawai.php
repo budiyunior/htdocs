@@ -20,8 +20,24 @@ class Pegawai extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["pegawai"] = $this->pegawai_model->getUserId();
-        $this->load->view("admin/pegawai/list", $data);
+
+        $email = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')]);
+        $id_akses = $this->db->get_where('pengguna', ['id_akses' =>
+        $this->session->userdata('id_akses')]);
+        $cek_id_akses = $this->pegawai_model->cek_akses($email, $id_akses);
+        if ($cek_id_akses == 1) {
+            redirect('admin/profil');
+        } else {
+            $data["pegawai"] = $this->pegawai_model->getUserId();
+            $this->load->view("admin/pegawai/list", $data);
+        }
+        // if ($datas['pengguna'] == 'ctm') {
+        //     redirect('admin/profil');
+        // } else {
+        //     $data["pegawai"] = $this->pegawai_model->getUserId();
+        //     $this->load->view("admin/pegawai/list", $data);
+        // }
     }
 
     public function add()

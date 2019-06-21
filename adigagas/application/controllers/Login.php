@@ -30,10 +30,13 @@ class Login extends CI_Controller
 					'id_akses' => $user['id_akses']
 				];
 				$this->session->set_userdata($datas);
+				if ($user['id_akses'] == 'su') {
+					redirect('admin/pegawai');
+				}
 				if ($user['id_akses'] == 'adm') {
 					redirect('admin/pegawai');
 				} else {
-					redirect('admin/overview');
+					redirect('admin/profil');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');

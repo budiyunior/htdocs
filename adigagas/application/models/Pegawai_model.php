@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pegawai_model extends CI_Model
 {
@@ -17,10 +17,12 @@ class Pegawai_model extends CI_Model
     {
         return [
 
-            ['field' => 'nama_pengguna',
-            'label' => 'nama_pengguna',
-            'rules' => 'required'],
-            
+            [
+                'field' => 'nama_pengguna',
+                'label' => 'nama_pengguna',
+                'rules' => 'required'
+            ],
+
         ];
     }
 
@@ -28,7 +30,7 @@ class Pegawai_model extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
-    
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id_pengguna" => $id])->row();
@@ -36,15 +38,26 @@ class Pegawai_model extends CI_Model
 
     public function getUserId()
     {
-        $query=$this->db->query("SELECT * FROM pengguna WHERE id_akses !='ctm'");
+        $query = $this->db->query("SELECT * FROM pengguna WHERE id_akses !='ctm'");
         return $query->result();
+    }
+
+    public function cek_akses($email, $id_akses)
+    {
+
+        $periksa = $this->db->get_where('pengguna', array('id_akses' => ('ctm')));
+        if ($periksa->num_rows() > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public function save()
     {
         $post = $this->input->post();
-        if(isset($_POST['id_akses'])){
-            $id_pengguna=$_POST['id_akses'];
+        if (isset($_POST['id_akses'])) {
+            $id_pengguna = $_POST['id_akses'];
         }
         $this->id_pengguna = uniqid($id_pengguna);
         $this->nama_pengguna = $post["nama_pengguna"];
@@ -53,7 +66,7 @@ class Pegawai_model extends CI_Model
         $this->email = $post["email"];
         $this->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $this->nomor_telp = $post["nomor_telp"];
-        $this->foto = $this-> _uploadImage();
+        $this->foto = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -69,7 +82,7 @@ class Pegawai_model extends CI_Model
         $this->nomor_telp = $post["nomor_telp"];
         if (!empty($_FILES["foto"]["name"])) {
             $this->foto = $this->_uploadImage();
-        }else{
+        } else {
             $this->foto = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_pengguna' => $post['id_pengguna']));
@@ -82,31 +95,30 @@ class Pegawai_model extends CI_Model
     }
 
     private function _uploadImage()
-{
-    $config['upload_path']          = './upload/profil/';
-    $config['allowed_types']        = 'gif|jpg|png';
-    $config['file_name']            = $this->id_pengguna;
-    $config['overwrite']			= true;
-    $config['max_size']             = 1024; // 1MB
-    // $config['max_width']            = 1024;
-    // $config['max_height']           = 768;
+    {
+        $config['upload_path']          = './upload/profil/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']            = $this->id_pengguna;
+        $config['overwrite']            = true;
+        $config['max_size']             = 1024; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
 
-    $this->load->library('upload', $config);
+        $this->load->library('upload', $config);
 
-    if ($this->upload->do_upload('foto')) {
-        return $this->upload->data("file_name");
+        if ($this->upload->do_upload('foto')) {
+            return $this->upload->data("file_name");
+        }
+
+        print_r($this->upload->display_errors());
     }
-    
-    print_r($this->upload->display_errors());
-}
 
     private function _deleteImage($id_pengguna)
-{
-    $pegawai = $this->getById($id_pengguna);
-    if ($pegawai->foto != "01.jpg") {
-	    $filename = explode(".", $pegawai->foto)[0];
-		return array_map('unlink', glob(FCPATH."upload/profil/$filename.*"));
+    {
+        $pegawai = $this->getById($id_pengguna);
+        if ($pegawai->foto != "01.jpg") {
+            $filename = explode(".", $pegawai->foto)[0];
+            return array_map('unlink', glob(FCPATH . "upload/profil/$filename.*"));
+        }
     }
-}
-
 }
