@@ -45,7 +45,8 @@ class Pegawai_model extends CI_Model
     public function cek_akses($email, $id_akses)
     {
 
-        $periksa = $this->db->get_where('pengguna', array('id_akses' => ('ctm')));
+        $periksa = $this->db->get_where('pengguna', array('email' =>
+        $this->session->userdata('email'), 'id_akses' => ('ctm')));
         if ($periksa->num_rows() > 0) {
             return 1;
         } else {
