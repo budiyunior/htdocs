@@ -28,6 +28,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <?= $this->session->flashdata('message'); ?>
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">My Profil</h1>
@@ -49,6 +50,9 @@
                                             <p class="card-text">Email: <?= $pengguna['email']; ?></p>
                                             <p class="card-text">Tanggal Lahir: <small class="text-muted"><?= $pengguna['tanggal_lahir']; ?></small></p>
                                             <p class="card-text">Nomer Telepon: <small class="text-muted"><?= $pengguna['nomor_telp']; ?></small></p>
+                                            <div class="card-header">
+                                                <a href="<?php echo site_url('admin/profil/edit/' . $pengguna['id_pengguna']) ?>"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

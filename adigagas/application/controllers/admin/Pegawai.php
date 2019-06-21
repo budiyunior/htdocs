@@ -27,17 +27,12 @@ class Pegawai extends CI_Controller
         $this->session->userdata('id_akses')]);
         $cek_id_akses = $this->pegawai_model->cek_akses($email, $id_akses);
         if ($cek_id_akses == 1) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Menu Pegawai Hanya Bisa Diakses Oleh ADMINISTRATOR</div>');
             redirect('admin/profil');
         } else {
             $data["pegawai"] = $this->pegawai_model->getUserId();
             $this->load->view("admin/pegawai/list", $data);
         }
-        // if ($datas['pengguna'] == 'ctm') {
-        //     redirect('admin/profil');
-        // } else {
-        //     $data["pegawai"] = $this->pegawai_model->getUserId();
-        //     $this->load->view("admin/pegawai/list", $data);
-        // }
     }
 
     public function add()

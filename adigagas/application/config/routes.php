@@ -53,6 +53,7 @@ $route['default_controller'] = 'login';
 $route['login'] = 'login';
 $route['overview'] = 'Overview';
 $route['profil'] = 'admin/Profil';
+$route['edit_profil'] = 'admin/Editprofil';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
