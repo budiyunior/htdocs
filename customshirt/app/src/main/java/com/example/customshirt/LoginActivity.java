@@ -85,11 +85,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
                     pDialog.dismiss();
                     String id = response.body().getId_pengguna();
-                    String nama_pengguna = response.body().getNama_pengguna();
-                    String tanggal_lahir = response.body().getTanggal_lahir();
+//                    String nama_pengguna = response.body().getNama_pengguna();
+//                    String tanggal_lahir = response.body().getTanggal_lahir();
                     String email = response.body().getEmail();
                     String password = response.body().getPassword();
-                    String nomor_telp = response.body().getNomor_telp();
+//                    String nomor_telp = response.body().getNomor_telp();
 
                     if (TextUtils.isEmpty(id)) {
                         Toast.makeText(LoginActivity.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
@@ -99,11 +99,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("id_pengguna", id);
-                        editor.putString("email", nama_pengguna);
-                        editor.putString("tanggal_lahir", tanggal_lahir);
+//                        editor.putString("email", nama_pengguna);
+//                        editor.putString("tanggal_lahir", tanggal_lahir);
                         editor.putString("email", email);
                         editor.putString("password", password);
-                        editor.putString("nomor_telp", nomor_telp);
+//                        editor.putString("nomor_telp", nomor_telp);
 
                         editor.apply();
                         startActivity(intent);
