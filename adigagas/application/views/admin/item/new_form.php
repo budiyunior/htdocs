@@ -36,8 +36,14 @@
         <?php endif; ?>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tambah Data Item</h1>
-          
+
+          <div class="input-group-append">
+                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tambah" type="button">
+                    <i class="fas fa-plus fa-sm"></i>
+                </button>
+            </div> <br>
+
+          <h1 class="h3 mb-2 text-gray-800">Tambah Item</h1>
 
           <!-- add form -->
           <div class="row">
@@ -134,6 +140,24 @@
                 </form>
             </div>
         </div>
+
+            <div id="tambah" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Tambah Gambar</h4>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="control-label" for="nm_brg">Nama Barang</label>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+          </div>         
+
           <!-- end add form -->
 			
 

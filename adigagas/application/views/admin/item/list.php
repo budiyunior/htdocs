@@ -14,7 +14,7 @@
 	<!-- DataTales Example -->
 	<div class="card mb-3">
 		<div class="card-header">
-			<a href="<?php echo site_url('admin/item/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
+			<a href="<?php echo site_url('admin/item/add') ?>"><i class="fas fa-plus"></i> Tambah Item</a>	
 		</div>
 		<div class="card-body">
 
@@ -63,7 +63,6 @@
 								</td>
 							</tr>
 						<?php endforeach; ?>
-
 					</tbody>
 				</table>
 			</div>
@@ -72,6 +71,8 @@
 
 </div>
 <!-- /.container-fluid -->
+<div class="container-fluid">
+
 
 </div>
 <!-- End of Main Content -->
