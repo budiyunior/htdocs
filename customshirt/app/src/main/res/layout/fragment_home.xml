@@ -59,7 +59,7 @@
 
                     <Button
                         android:id="@+id/btn_search"
-                        android:layout_width="wrap_content"
+                        android:layout_width="48dp"
                         android:layout_height="wrap_content"
                         android:background="@android:drawable/ic_search_category_default" />
                 </LinearLayout>
