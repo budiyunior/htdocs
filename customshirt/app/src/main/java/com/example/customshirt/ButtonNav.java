@@ -45,22 +45,23 @@ public class ButtonNav extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case  R.id.bottom_home :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
+
                         setFragment(homeFragment);
                         return true;
 
                     case  R.id.bottom_notif :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment (notifFragment);
                         return true;
 
                     case  R.id.bottom_keranjang :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment (keranjangFragment);
                         return true;
 
                     case  R.id.bottom_akun :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment (akunFragment);
                         return true;
 

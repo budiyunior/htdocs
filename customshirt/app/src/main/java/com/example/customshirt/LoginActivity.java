@@ -85,29 +85,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
                     pDialog.dismiss();
                     String id = response.body().getId_pengguna();
-//                    String nama_pengguna = response.body().getNama_pengguna();
-//                    String tanggal_lahir = response.body().getTanggal_lahir();
                     String email = response.body().getEmail();
-                    String password = response.body().getPassword();
-//                    String nomor_telp = response.body().getNomor_telp();
-
                     if (TextUtils.isEmpty(id)) {
-                        Toast.makeText(LoginActivity.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "SALAH Login", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Login Sukses", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "sukes Login", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("id_pengguna", id);
-//                        editor.putString("email", nama_pengguna);
-//                        editor.putString("tanggal_lahir", tanggal_lahir);
+                        editor.putString("id", id);
                         editor.putString("email", email);
-                        editor.putString("password", password);
-//                        editor.putString("nomor_telp", nomor_telp);
-
                         editor.apply();
                         startActivity(intent);
-                        Log.e("Berhasil", "berhasil" + id + email);
+                        Log.e("Berhasil", "berhasil"+id+ email);
                     }
                 }
 

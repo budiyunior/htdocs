@@ -23,21 +23,6 @@ public class ResponseLogin {
     String id_pengguna;
 
 
-//    @SerializedName("nama_pengguna")
-//    @Expose
-//    String nama_pengguna;
-//
-//
-//    @SerializedName("tanggal_lahir")
-//    @Expose
-//    String tanggal_lahir;
-//
-//
-//    @SerializedName("nomor_telp")
-//    @Expose
-//    String nomor_telp;
-
-
     public String getStatus() {
         return status;
     }
@@ -77,29 +62,4 @@ public class ResponseLogin {
     public void setId_pengguna(String id_pengguna) {
         this.id_pengguna = id_pengguna;
     }
-
-//    public String getNama_pengguna() {
-//        return nama_pengguna;
-//    }
-//
-//    public void setNama_pengguna(String nama_pengguna) {
-//        this.nama_pengguna = nama_pengguna;
-//    }
-//
-//
-//    public String getTanggal_lahir() {
-//        return tanggal_lahir;
-//    }
-//
-//    public void setTanggal_lahir(String tanggal_lahir) {
-//        this.tanggal_lahir = tanggal_lahir;
-//    }
-//
-//    public String getNomor_telp() {
-//        return nomor_telp;
-//    }
-//
-//    public void setNomor_telp(String nomor_telp) {
-//        this.nomor_telp = nomor_telp;
-//    }
 }
