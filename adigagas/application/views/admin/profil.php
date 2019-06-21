@@ -41,7 +41,7 @@
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="https://banner2.kisspng.com/20180401/dbq/kisspng-user-profile-computer-icons-profile-5ac09245049c32.0935523415225697970189.jpg" class="card-img" alt="...">
+                                        <img src="<?php echo base_url('upload/profil/') . $pengguna['foto']; ?>" class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
