@@ -27,6 +27,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
     private Button btn_profil;
+    private Button btn_cs;
 
     SharedPreferences sharedPreferences;
     private TextView user_profile_name;
@@ -48,6 +49,9 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         btn_profil = (Button) myFragmentView.findViewById(R.id.btn_profil);
         btn_profil.setOnClickListener(this);
         Button btn_bantuan=(Button) myFragmentView.findViewById(R.id.btn_bantuan);
+
+        btn_cs = (Button) myFragmentView.findViewById(R.id.btn_cs);
+        btn_cs.setOnClickListener(this);
 
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
 
@@ -74,6 +78,18 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         if (v == btn_profil) {
             Intent ProfileActivity = new Intent(getActivity(), ProfileActivity.class);
             startActivity(ProfileActivity);
+        };
+
+        if (v == btn_cs){
+            String pesanbantuan = "Hi Admin, Saya perlu bantuan!";
+
+            Intent kirimWA = new Intent(Intent.ACTION_SEND);
+            kirimWA.setType("text/plain");
+            kirimWA.putExtra(Intent.EXTRA_TEXT, pesanbantuan);
+            kirimWA.putExtra("jid", "6285230737515" + "@s.whatsapp.net");
+            kirimWA.setPackage("com.whatsapp");
+
+            startActivity(kirimWA);
         }
     }
 }

@@ -96,6 +96,12 @@
                 android:padding="20dp"
                 android:text="Bantuan" />
 
+            <Button
+                android:id="@+id/btn_cs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customer Service" />
+
 
         </LinearLayout>
     </RelativeLayout>
