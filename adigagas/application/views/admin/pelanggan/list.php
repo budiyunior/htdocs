@@ -24,7 +24,7 @@
 							<th>ID Pengguna</th>
 							<th>Nama Pengguna</th>
 							<th>Tanggal Lahir</th>
-							<th>ID Akses</th>
+
 							<th>Email</th>
 							<th>Nomor Telp</th>
 							<th>Foto</th>
@@ -43,9 +43,7 @@
 								<td>
 									<?php echo $pelanggan->tanggal_lahir ?>
 								</td>
-								<td>
-									<?php echo $pelanggan->id_akses ?>
-								</td>
+
 								<td>
 									<?php echo $pelanggan->email ?>
 								</td>
@@ -53,7 +51,7 @@
 									<?php echo $pelanggan->nomor_telp ?>
 								</td>
 								<td>
-									<img src="<?php echo base_url('upload/profil/'.$pelanggan->foto) ?>" width="64" />
+									<img src="<?php echo base_url('upload/profil/' . $pelanggan->foto) ?>" width="64" />
 								</td>
 
 								<td width="250">
