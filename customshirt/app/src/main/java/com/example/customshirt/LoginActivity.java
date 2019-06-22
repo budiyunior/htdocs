@@ -1,27 +1,20 @@
 package com.example.customshirt;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.customshirt.Model.ResponseLogin;
-import com.example.customshirt.Model.User;
+import com.example.customshirt.Model.User.ResponseLogin;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
-import com.pixplicity.easyprefs.library.Prefs;
-import com.example.customshirt.Spref;
 
 import customfonts.MyEditText;
 import retrofit2.Call;
@@ -70,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //    }
 
 
+
     public void onClick(View v) {
         if (v == btn_login) {
             pDialog = new ProgressDialog(this);
@@ -84,20 +78,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
                     pDialog.dismiss();
-                    String id = response.body().getId_pengguna();
+                    String id_pengguna = response.body().getId_pengguna();
                     String email = response.body().getEmail();
-                    if (TextUtils.isEmpty(id)) {
-                        Toast.makeText(LoginActivity.this, "SALAH Login", Toast.LENGTH_SHORT).show();
+                    String nama_pengguna = response.body().getNama_pengguna();
+                    String id_akses = response.body().getId_akses();
+                    String tanggal_lahir = response.body().getTanggal_lahir();
+                    String nomor_telp = response.body().getNomor_telp();
+                    String password = response.body().getPassword();
+                    if (TextUtils.isEmpty(id_pengguna)) {
+                        Toast.makeText(LoginActivity.this, "Username atau Password Salah", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(LoginActivity.this, "sukes Login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Berhasil  Login", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
-
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("id", id);
+                        editor.putString("id_pengguna", id_pengguna);
+                        editor.putString("nama_pengguna", nama_pengguna);
                         editor.putString("email", email);
+                        editor.putString("tanggal_lahir", tanggal_lahir);
+                        editor.putString("id_akses", id_akses);
+                        editor.putString("nomor_telp", nomor_telp);
+                        editor.putString("password", password);
                         editor.apply();
                         startActivity(intent);
-                        Log.e("Berhasil", "berhasil"+id+ email);
+                        Log.e("Berhasil", "berhasil"+id_pengguna+nama_pengguna+email+tanggal_lahir+id_akses+nomor_telp+password);
                     }
                 }
 

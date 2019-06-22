@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 //import com.example.customshirt.EditActivity;
 import com.example.customshirt.DetailItem;
-import com.example.customshirt.Model.Item;
+import com.example.customshirt.Model.Item.Item;
 import com.example.customshirt.R;
 
 import java.util.List;

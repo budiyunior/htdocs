@@ -1,4 +1,4 @@
-package com.example.customshirt.Model;
+package com.example.customshirt.Model.User;
 
 import android.content.SyncInfo;
 
@@ -7,15 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    public User(String  id_pengguna, String nama_pengguna, String tanggal_lahir, String id_akses, String email, String nomor_telp, String password) {
-        this.id_pengguna = id_pengguna;
-        this.nama_pengguna = nama_pengguna;
-        this.id_akses = id_akses;
-        this.tanggal_lahir = tanggal_lahir;
-        this.email = email;
-        this.nomor_telp = nomor_telp;
-        this.password = password;
-    }
+
 
     @SerializedName("id_pengguna")
     @Expose
@@ -44,6 +36,17 @@ public class User {
     @SerializedName("password")
     @Expose
     private String password;
+
+
+    public User(String  id_pengguna, String nama_pengguna, String tanggal_lahir, String id_akses, String email, String nomor_telp, String password) {
+        this.id_pengguna = id_pengguna;
+        this.nama_pengguna = nama_pengguna;
+        this.id_akses = id_akses;
+        this.tanggal_lahir = tanggal_lahir;
+        this.email = email;
+        this.nomor_telp = nomor_telp;
+        this.password = password;
+    }
 
     public String getId_pengguna() {
         return id_pengguna;

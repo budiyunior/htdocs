@@ -62,7 +62,7 @@
                     android:textSize="@dimen/text0" />
 
                 <TextView
-                    android:id="@+id/tv_warna"
+                    android:id="@+id/txt_nama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_nama_id"

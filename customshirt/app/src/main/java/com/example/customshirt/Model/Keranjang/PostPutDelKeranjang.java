@@ -1,33 +1,36 @@
-package com.example.customshirt.Model;
+package com.example.customshirt.Model.Keranjang;
 
-        import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
 
-        import java.util.List;
-
-
-public class GetItem {
+public class PostPutDelKeranjang {
     @SerializedName("status")
     String status;
     @SerializedName("result")
-    List<Item> listDataItem;
+    Keranjang mKeranjang;
     @SerializedName("message")
     String message;
+
     public String getStatus() {
         return status;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Keranjang getmKeranjang() {
+        return mKeranjang;
+    }
+
+    public void setmKeranjang(Keranjang mKeranjang) {
+        this.mKeranjang = mKeranjang;
+    }
+
     public String getMessage() {
         return message;
     }
+
     public void setMessage(String message) {
         this.message = message;
-    }
-    public List<Item> getListDataItem() {
-        return listDataItem;
-    }
-    public void setListDataItem(List<Item> listDataItem) {
-        this.listDataItem = listDataItem;
     }
 }

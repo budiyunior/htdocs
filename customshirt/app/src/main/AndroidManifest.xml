@@ -30,8 +30,10 @@
             android:name=".ButtonNav"
             android:label="Beranda" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity"
+            android:theme="@style/SplashScreenStyle"/>
+        <activity android:name=".RegisterActivity"
+            android:theme="@style/SplashScreenStyle"/>
     </application>
 
 </manifest>

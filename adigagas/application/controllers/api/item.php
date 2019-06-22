@@ -26,6 +26,22 @@ class Item extends REST_Controller
         $item = $this->db->get('item')->result();
         $this->response(array("result" => $item, 200));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // function index_get()
     // {
     //     $id_jenis_item = $this->get('id_jenis_item');

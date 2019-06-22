@@ -33,14 +33,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         tvDeskripsi.setText(mIntent.getStringExtra("Deskripsi"));
 
         btn_masukcart = (Button) findViewById(R.id.btn_masukcart);
-        btn_masukcart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
-                KeranjangFragment keranjangFragment = new KeranjangFragment();
-                fm.beginTransaction().replace(R.id.main_frame,keranjangFragment).commit();
-            }
-        });
+        btn_masukcart.setOnClickListener(this);
 
 
 

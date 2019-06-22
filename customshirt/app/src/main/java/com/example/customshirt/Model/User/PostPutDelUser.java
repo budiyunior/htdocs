@@ -1,4 +1,4 @@
-package com.example.customshirt.Model;
+package com.example.customshirt.Model.User;
 
 import com.google.gson.annotations.SerializedName;
 
