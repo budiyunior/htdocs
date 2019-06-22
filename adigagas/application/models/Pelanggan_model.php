@@ -38,7 +38,7 @@ class Pelanggan_model extends CI_Model
 
     public function getUserId()
     {
-        $query = $this->db->query("SELECT * FROM pengguna WHERE id_akses ='ctm'");
+        $query = $this->db->query("SELECT * FROM list_pengguna WHERE id_akses ='ctm'");
         return $query->result();
     }
 
