@@ -46,7 +46,7 @@ class Pegawai_model extends CI_Model
     {
 
         $periksa = $this->db->get_where('pengguna', array('email' =>
-        $this->session->userdata('email'), 'id_akses' => ('ctm')));
+        $this->session->userdata('email'), 'id_akses' => ('adm')));
         if ($periksa->num_rows() > 0) {
             return 1;
         } else {

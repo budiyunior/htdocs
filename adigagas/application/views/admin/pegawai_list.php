@@ -13,31 +13,26 @@
 
 	<!-- DataTales Example -->
 	<div class="card mb-3">
-		<div class="card-header">
-			<a href="<?php echo site_url('admin/pegawai/add') ?>"><i class="fas fa-plus"></i> Tambah Baru</a>
-		</div>
+
 		<div class="card-body">
 
 			<div class="table-responsive">
 				<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
-							<th>ID Pengguna</th>
+
 							<th>Nama Pengguna</th>
 							<th>Tanggal Lahir</th>
 							<th>ID Akses</th>
 							<th>Email</th>
 							<th>Nomor Telp</th>
 							<th>Foto</th>
-							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($pegawai as $pegawai) : ?>
 							<tr>
-								<td>
-									<?php echo $pegawai->id_pengguna ?>
-								</td>
+
 								<td width="150">
 									<?php echo $pegawai->nama_pengguna ?>
 								</td>
@@ -57,10 +52,7 @@
 									<img src="<?php echo base_url('upload/profil/' . $pegawai->foto) ?>" width="64" />
 								</td>
 
-								<td width="250">
-									<a href="<?php echo site_url('admin/pegawai/edit/' . $pegawai->id_pengguna) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-									<a onclick="deleteConfirm('<?php echo site_url('admin/pegawai/delete/' . $pegawai->id_pengguna) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-								</td>
+
 							</tr>
 						<?php endforeach; ?>
 
