@@ -36,7 +36,11 @@ class Login extends CI_Controller
 				if ($user['id_akses'] == 'adm') {
 					redirect('admin/pegawai');
 				} else {
-					redirect('admin/profil');
+					$this->session->unset_userdata('email');
+					$this->session->unset_userdata('id_akses');
+
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
+					redirect('login');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
