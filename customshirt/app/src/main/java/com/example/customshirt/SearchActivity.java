@@ -11,8 +11,10 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import com.example.customshirt.Adapter.ItemAdapter;
@@ -60,6 +62,7 @@ public class SearchActivity extends AppCompatActivity {
                 List<Item> itemList = response.body().getListDataItem();
                 Log.d("Retrofit Get", "Jumlah data Item: " +
                         String.valueOf(itemList.size()));
+                progressBar.setVisibility(View.GONE);
                 mAdapter = new ItemAdapter(itemList);
                 mRecyclerView.setAdapter(mAdapter);
             }
@@ -67,6 +70,8 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<GetItem> call, Throwable t) {
                 Log.e("Retrofit Get", t.toString());
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(SearchActivity.this, "Error\n"+t.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }
