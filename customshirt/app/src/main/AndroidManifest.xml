@@ -18,10 +18,11 @@
             android:label="@string/title_activity_pengiriman"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchActivity"
+            android:theme="@style/NoActionBar"/>
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashScreenStyle">
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,9 +36,9 @@
             android:label="Beranda" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity"
-            android:theme="@style/SplashScreenStyle"/>
+            android:theme="@style/NoActionBar"/>
         <activity android:name=".RegisterActivity"
-            android:theme="@style/SplashScreenStyle"/>
+            android:theme="@style/NoActionBar"/>
     </application>
 
 </manifest>
