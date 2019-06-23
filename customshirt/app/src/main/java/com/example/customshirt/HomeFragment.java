@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     CarouselView carouselView;
 
-    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3};
+    int[] sampleImages = {R.drawable.promo_banner_1, R.drawable.promo_banner_2};
 
     public HomeFragment() {
         // Required empty public constructor

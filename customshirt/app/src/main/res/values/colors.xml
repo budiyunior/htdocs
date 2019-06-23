@@ -10,4 +10,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorAccent">#4CAF50</color>
     <color name="colorGrey">#A9A9A9</color>
+    <color name="colorLight">#F0F0F0</color>
 </resources>
