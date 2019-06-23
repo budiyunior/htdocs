@@ -6,7 +6,7 @@ use Restserver\Libraries\REST_Controller;
 
 require APPPATH . 'libraries/Format.php';
 
-class cart extends REST_Controller
+class Cart extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -22,12 +22,14 @@ class cart extends REST_Controller
         $this->response(array("result" => $cart, 200));
     }
 
-    function index_post() {
+    function index_post()
+    {
         $data = array(
-                    'id_cart'           => $this->post('id_cart'),
-                    'id_pengguna'          => $this->post('id_pengguna'),
-                    'total_harga'    => $this->post('total_harga'),
-                    'total_berat' => $this->post('total_berat'));
+            'id_cart'           => $this->post('id_cart'),
+            'id_pengguna'          => $this->post('id_pengguna'),
+            'total_harga'    => $this->post('total_harga'),
+            'total_berat' => $this->post('total_berat')
+        );
         $insert = $this->db->insert('cart', $data);
         if ($insert) {
             $this->response($data, 200);
@@ -36,14 +38,16 @@ class cart extends REST_Controller
         }
     }
 
-    function index_put() {
+    function index_put()
+    {
         $id_cart = $this->put('id_cart');
         $data = array(
             'id_cart'           => $this->post('id_cart'),
             'id_pengguna'          => $this->post('id_pengguna'),
             'total_harga'    => $this->post('total_harga'),
-            'total_berat' => $this->post('total_berat'));
-       
+            'total_berat' => $this->post('total_berat')
+        );
+
         $this->db->where('id_cart', $id_cart);
         $update = $this->db->update('cart', $data);
         if ($update) {
@@ -53,7 +57,8 @@ class cart extends REST_Controller
         }
     }
 
-    function index_delete() {
+    function index_delete()
+    {
         $id_cart = $this->delete('id_cart');
         $this->db->where('id_cart', $id_cart);
         $delete = $this->db->delete('cart');
@@ -63,18 +68,4 @@ class cart extends REST_Controller
             $this->response(array('status' => 'fail', 502));
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

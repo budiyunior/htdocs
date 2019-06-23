@@ -5,44 +5,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class DesainPengguna {
 
-    @SerializedName("id_desain")
-    @Expose
-    private String id_desain;
 
     @SerializedName("id_pengguna")
-    @Expose
     private String id_pengguna;
 
     @SerializedName("id_item")
-    @Expose
     private String id_item;
 
     @SerializedName("nama_desain")
-    @Expose
     private String nama_desain;
 
     @SerializedName("ukuran_shirt")
-    @Expose
     private String ukuran_shirt;
 
     @SerializedName("gambar")
-    @Expose
     private String gambar;
 
     @SerializedName("berat_satuan")
-    @Expose
     private String berat_satuan;
 
     @SerializedName("harga_satuan")
-    @Expose
     private String harga_satuan;
 
     public DesainPengguna(){}
 
-    public DesainPengguna(String id_desain, String id_pengguna,
+    public DesainPengguna(String id_pengguna,
                           String id_item, String nama_desain, String ukuran_shirt,
                           String gambar, String berat_satuan, String harga_satuan) {
-        this.id_desain = id_desain;
+
         this.id_pengguna = id_pengguna;
         this.id_item = id_item;
         this.nama_desain = nama_desain;
@@ -52,13 +42,7 @@ public class DesainPengguna {
         this.harga_satuan = harga_satuan;
     }
 
-    public String getId_desain() {
-        return id_desain;
-    }
 
-    public void setId_desain(String id_desain) {
-        this.id_desain = id_desain;
-    }
 
     public String getId_pengguna() {
         return id_pengguna;

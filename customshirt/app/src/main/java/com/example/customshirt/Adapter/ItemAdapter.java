@@ -13,6 +13,7 @@ import com.example.customshirt.Model.Item.Item;
 import com.example.customshirt.R;
 
 import java.util.List;
+import java.util.UUID;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
@@ -38,8 +39,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(view.getContext(), DetailItem.class);
+                mIntent.putExtra("Id_item", mItemList.get(position).getId_item());
                 mIntent.putExtra("Nama", mItemList.get(position).getNama_item());
+                mIntent.putExtra("Jenis_item", mItemList.get(position).getId_jenis_item());
                 mIntent.putExtra("Harga","Rp." + mItemList.get(position).getHarga_satuan());
+                mIntent.putExtra("Berat", mItemList.get(position).getBerat_satuan()+"Kg" );
                 mIntent.putExtra("Deskripsi", mItemList.get(position).getDeskripsi());
                 view.getContext().startActivity(mIntent);
             }

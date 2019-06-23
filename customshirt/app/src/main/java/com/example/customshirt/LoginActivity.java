@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btn_login;
     private Button btn_register;
     private Button btn_nologin;
+    private Button btn_desain;
 
     private MyEditText txt_username;
     private MyEditText txt_password;
@@ -50,6 +51,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btn_nologin.setOnClickListener(this);
         btn_register = (Button) findViewById(R.id.btn_register);
         btn_register.setOnClickListener(this);
+        btn_desain = (Button) findViewById(R.id.btn_desain);
+        btn_desain.setOnClickListener(this);
         txt_username = (MyEditText) findViewById(R.id.txt_username);
         txt_password = (MyEditText) findViewById(R.id.txt_password);
 //        mContext = this;
@@ -138,6 +141,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if (v == btn_nologin) {
             Intent intent = new Intent(LoginActivity.this, ButtonNav.class);
+            startActivity(intent);
+
+        }
+        if (v == btn_desain) {
+            Intent intent = new Intent(LoginActivity.this, TestInputDesain.class);
             startActivity(intent);
 
         }

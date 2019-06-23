@@ -17,6 +17,8 @@ import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 
+import java.util.UUID;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,6 +27,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
     TextView tvNama, tvHarga, tvDeskripsi;
     SharedPreferences sharedPreferences;
+
 
 
     private KeranjangFragment keranjangFragment;
@@ -43,9 +46,22 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
         Intent mIntent = getIntent();
 
+        Bundle bd = mIntent.getExtras();
+
+
+
         tvNama.setText(mIntent.getStringExtra("Nama"));
         tvHarga.setText(mIntent.getStringExtra("Harga"));
         tvDeskripsi.setText(mIntent.getStringExtra("Deskripsi"));
+//        String id_item = (String) bd.get("Id_item");
+        if(bd != null)
+        {
+            String id_item = (String) bd.get("Id_item");
+            String getName = (String) bd.get("name");
+            Log.e("Berhasil", "berhasil"+id_item);
+//            txtView.setText(getName);
+        }
+//        String id_item = (String) bd.get("Id_item");
 
 
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -60,51 +76,44 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
         btn_masukcart = (Button) findViewById(R.id.btn_masukcart);
         btn_masukcart.setOnClickListener(this);
-
+        String uniqueID = UUID.randomUUID().toString();
     }
 
     public void PostDesain() {
-//        spref = new Spref(this);
-//        final String id_pengguna = spref.getSP_id_pengguna();
-//        sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
-//        String id_pengguna =sharedPreferences.getString("id_pengguna","0");
-//        String nama_pengguna=sharedPreferences.getString("nama_pengguna","2");
-//        Call<PostPutDelDesainPengguna> postDesainPengguna = mApiInterface.postDesainPengguna(tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString());
-//        postDesainPengguna.enqueue(new Callback<PostPutDelDesainPengguna>() {
-//            @Override
-//            public void onResponse(Call<PostPutDelDesainPengguna> call, Response<PostPutDelDesainPengguna> response) {
-//                Toast.makeText(getApplicationContext(), "Berhasil ditambahkan", Toast.LENGTH_LONG).show();
-//                Log.e("Berhasil", "berhasil");
-//
-////                finish();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<PostPutDelDesainPengguna> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-//            }
-//        });
+        spref = new Spref(this);
+        String id_pengguna = spref.getSP_id_pengguna();
+        sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
+        String uniqueID = UUID.randomUUID().toString();
+        Intent mIntent = getIntent();
+        Bundle bd = mIntent.getExtras();
+        String id_item = (String) bd.get("Id_item");
+
+
+        Call<PostPutDelDesainPengguna> postDesain = mApiInterface.postDesainPengguna(UUID.randomUUID().toString(),id_pengguna,
+                id_item,tvNama.getText().toString(),
+                tvHarga.getText().toString(),tvDeskripsi.getText().toString(),
+                tvHarga.getText().toString(),tvHarga.getText().toString());
+        postDesain.enqueue(new Callback<PostPutDelDesainPengguna>() {
+            @Override
+            public void onResponse(Call<PostPutDelDesainPengguna> call, Response<PostPutDelDesainPengguna> response) {
+                Toast.makeText(getApplicationContext(), "Berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Log.e("Berhasil", "berhasil");
+
+//                finish();
+            }
+
+            @Override
+            public void onFailure(Call<PostPutDelDesainPengguna> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 
     @Override
     public void onClick(View v) {
         if (v == btn_masukcart){
-            Call<PostPutDelDesainPengguna> postDesainPengguna = mApiInterface.postDesainPengguna(tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString(),tvHarga.getText().toString());
-            postDesainPengguna.enqueue(new Callback<PostPutDelDesainPengguna>() {
-                @Override
-                public void onResponse(Call<PostPutDelDesainPengguna> call, Response<PostPutDelDesainPengguna> response) {
-                    Toast.makeText(getApplicationContext(), "Berhasil ditambahkan", Toast.LENGTH_LONG).show();
-                    Log.e("Berhasil", "berhasil");
-
-//                finish();
-                }
-
-                @Override
-                public void onFailure(Call<PostPutDelDesainPengguna> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-                }
-            });
+           PostDesain();
         }
 
 
