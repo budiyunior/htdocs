@@ -31,8 +31,8 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     @Override
     public void onBindViewHolder(KeranjangAdapter.MyViewHolder holder, final int position) {
         //holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_item());
-        holder.mTextViewWarna.setText(mKeranjangList.get(position).getId_cart());
-        holder.mTextViewHarga.setText("Rp." + mKeranjangList.get(position).getId_item());
+//        holder.mTextViewWarna.setText(mKeranjangList.get(position).getId_cart());
+//        holder.mTextViewHarga.setText("Rp." + mKeranjangList.get(position).getId_item());
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -43,7 +43,6 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
 //                view.getContext().startActivity(mIntent);
 //            }
 //        });
-
     }
 
     @Override
@@ -58,9 +57,10 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
             super(keranjangView);
 //            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
 //            mTextViewNama = (TextView) itemView.findViewById(R.id.tv_nama_item);
-            mTextViewWarna = (TextView) keranjangView.findViewById(R.id.txt_warna);
-            mTextViewUkuran = (TextView) keranjangView.findViewById(R.id.txt_ukuran);
-            mTextViewHarga = (TextView) keranjangView.findViewById(R.id.txt_harga);
+//            mTextViewWarna = (TextView) keranjangView.findViewById(R.id.txt_warna);
+//            mTextViewWarna = (TextView) keranjangView.findViewById(R.id.txt_warna);
+//            mTextViewUkuran = (TextView) keranjangView.findViewById(R.id.txt_ukuran);
+//            mTextViewHarga = (TextView) keranjangView.findViewById(R.id.txt_harga);
         }
     }
 }

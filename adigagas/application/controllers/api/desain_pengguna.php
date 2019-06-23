@@ -25,19 +25,17 @@ class Desain_pengguna extends REST_Controller
     function index_get()
     {
 
-        $item = $this->db->get('cart')->result();
-        $this->response(array("result" => $item, 200));
+        $desain = $this->db->get('desain_pengguna')->result();
+        $this->response(array("result" => $desain, 200));
 
-
-
-        $id_cart = $this->get('id_cart');
-        if ($id_cart == '') {
-            $keranjang = $this->db->get('cart')->result();
-        } else {
-            $this->db->where('id_cart', $id_cart);
-            $keranjang = $this->db->get('cart')->result();
-        }
-        $this->response($keranjang, 200);
+        // $id_cart = $this->get('id_cart');
+        // if ($id_cart == '') {
+        //     $keranjang = $this->db->get('cart')->result();
+        // } else {
+        //     $this->db->where('id_cart', $id_cart);
+        //     $keranjang = $this->db->get('cart')->result();
+        // }
+        // $this->response($keranjang, 200);
 
         // $id = $this->get('id');
         // if ($id == '') {
@@ -69,8 +67,8 @@ class Desain_pengguna extends REST_Controller
             $output['id_item'] = $cek['id_item'];
             $output['nama_desain'] = $cek['nama_desain'];
             $output['ukuran_shirt'] = $cek['ukuran_shirt'];
-            $output['gambar'] = $cek['nama_desain'];
-            $output['berat'] = $cek['nama_desain'];
+            $output['gambar'] = $cek['gambar'];
+            $output['berat_satuan'] = $cek['berat_satuan'];
             $output['harga_satuan'] = $cek['harga_satuan'];
             $this->response($output, 200);
         } else {

@@ -48,14 +48,14 @@ class Keranjang extends REST_Controller
     }
     function index_post()
     {
-        $id_cart = $this->input->post('id_cart');
+        $id_pengguna = $this->input->post('id_pengguna');
 
         // $where = array(
-        //     'id_cart' => $id_cart
+        //     'id_pengguna' => $id_pengguna
         // );
 
         // $cek=$this->m_login->cek_login_biasa($username,$password)->num_rows();
-        $cek = $this->m_keranjang->cek_keranjang($id_cart);
+        $cek = $this->m_keranjang->cek_keranjang($id_pengguna);
 
         // echo $cek;
         /* if ($cek) {
@@ -63,12 +63,13 @@ class Keranjang extends REST_Controller
         }*/
         if ($cek) {
             $output['id_item'] = $cek['id_item'];
-            $output['id_pengguna'] = $cek['id_pengguna'];
+
+            $output['id_pengguna'] = $id_pengguna;
 
             // $output['nama_pengguna'] = $cek['nama_pengguna'];
             // $output['tanggal_lahir'] = $cek['tanggal_lahir'];
             // $output['id_akses'] = $cek['id_akses'];
-            $output['id_cart'] = $id_cart;
+            // $output['id_cart'] = $id_cart;
             // $output['password'] = $password;
             // $output['nomor_telp'] = $cek['nomor_telp'];
 

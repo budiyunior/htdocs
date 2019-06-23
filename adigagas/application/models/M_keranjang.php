@@ -6,10 +6,10 @@ class M_keranjang extends CI_Model
         parent::__construct();
     }
 
-    function  cek_keranjang($id_cart)
+    function  cek_keranjang($id_pengguna)
     {
-        $this->db->where('id_cart', $id_cart);
-        $data = $this->db->get('cart')->row_array();
+        $this->db->where('id_pengguna', $id_pengguna);
+        $data = $this->db->get('keranjang')->row_array();
         return $data;
     }
 }
