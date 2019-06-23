@@ -32,8 +32,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private MyEditText txt_username;
     private MyEditText txt_password;
     ApiInterface mApiInterface;
-    private Context mContext;
+    Context mContext;
 
+    Spref spref;
     //declate variable
 
     private ProgressDialog pDialog;
@@ -51,8 +52,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btn_register.setOnClickListener(this);
         txt_username = (MyEditText) findViewById(R.id.txt_username);
         txt_password = (MyEditText) findViewById(R.id.txt_password);
-        mContext = this;
+//        mContext = this;
 
+        spref = new Spref(LoginActivity.this);
+
+//        if (spref.getSP_Sukses_Login()){
+//            startActivity(new Intent(LoginActivity.this, ButtonNav.class)
+//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+//        }
+//
         sharedPreferences = LoginActivity.this.getSharedPreferences("remember", Context.MODE_PRIVATE);
         String id = sharedPreferences.getString("id", "0");
     }
@@ -101,6 +110,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         editor.apply();
                         startActivity(intent);
                         Log.e("Berhasil", "berhasil"+id_pengguna+nama_pengguna+email+tanggal_lahir+id_akses+nomor_telp+password);
+
+                        spref.saveSPString(spref.SP_id_pengguna, id_pengguna);
+                        spref.saveSPString(spref.SP_nama_pengguna, nama_pengguna);
+                        spref.saveSPString(spref.SP_email, email);
+                        spref.saveSPString(spref.SP_tanggal_lahir, tanggal_lahir);
+                        spref.saveSPString(spref.SP_id_akses, id_akses);
+                        spref.saveSPString(spref.SP_nomor_telp, nomor_telp);
+
+                        spref.saveSPBoolean(spref.SP_Sukses_Login, true);
+
                     }
                 }
 

@@ -1,46 +1,73 @@
 package com.example.customshirt;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 public class Spref {
-    private static String id_pengguna="id_pengguna";
-    private static String nama_pengguna="nama_pengguna";
-    private static String email="email";
-    private static String tanggal_lahir="tanggal_lahir";
-    private static String password="password";
-    private static String id_akses="id_akses";
+    public static final String SP_id_pengguna="spid_pengguna";
+    public static final String SP_nama_pengguna="spnama_pengguna";
+    public static final String SP_email="spemail";
+    public static final String SP_tanggal_lahir="sptanggal_lahir";
+    public static final String SP_password="sppassword";
+    public static final String SP_id_akses="spid_akses";
+    public static final String SP_nomor_telp="spnomor_telp";
+    public static final String SP_id_cart="spid_cart";
 
 
+    public static final String SP_Sukses_Login = "spSuksesLogin";
 
-    public static String getId_pengguna() {
-        return id_pengguna;
+    SharedPreferences sp;
+    SharedPreferences.Editor spEditor;
+
+    public Spref(Context context){
+        sp = context.getSharedPreferences(SP_id_pengguna, Context.MODE_PRIVATE);
+        spEditor = sp.edit();
     }
 
-    public static String getNama_pengguna() {
-        return nama_pengguna;
+    public void saveSPString(String keySP, String value){
+        spEditor.putString(keySP, value);
+        spEditor.commit();
     }
 
-    public static String getEmail() {
-        return email;
+    public void saveSPInt(String keySP, int value){
+        spEditor.putInt(keySP, value);
+        spEditor.commit();
     }
 
-    public static String getTanggal_lahir() {
-        return tanggal_lahir;
+    public void saveSPBoolean(String keySP, boolean value){
+        spEditor.putBoolean(keySP, value);
+        spEditor.commit();
     }
 
-    public static String getPassword() {
-        return password;
-    }
-    public static void setPassword(String password) {
-        Spref.password = password;
+    public  String getSP_id_pengguna() {
+        return sp.getString(SP_id_pengguna,"");
     }
 
-    public static String getId_akses() {
-        return id_akses;
+    public  String getSP_nama_pengguna() {
+        return SP_nama_pengguna;
     }
 
-    public static String getNomor_telp() {
-        return nomor_telp;
+    public String getSP_email() {
+        return sp.getString(SP_email,"");
     }
 
-    private static String nomor_telp="nomor_telp";
+    public  String getSP_tanggal_lahir() {
+        return sp.getString(SP_tanggal_lahir,"");
+    }
 
+    public  String getSP_password() {
+        return sp.getString(SP_password,"");
+    }
+
+    public  String getSP_id_akses() {
+        return sp.getString(SP_id_akses,"");
+    }
+
+    public String getSP_id_cart() {
+        return sp.getString(SP_id_cart,"");
+    }
+
+    public Boolean getSP_Sukses_Login() {
+        return sp.getBoolean(SP_Sukses_Login,false);
+    }
 }

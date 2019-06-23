@@ -8,7 +8,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ApiClient {
-    public static final String BASE_URL = "http://192.168.1.22/adigagas/index.php/";
+    public static final String BASE_URL = "http://192.168.1.13/adigagas/index.php/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
@@ -21,15 +21,16 @@ public class ApiClient {
         return retrofit;
     }
 
-    public static ApiInterface getApi() {
-        //Builder Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        ApiInterface apiService = retrofit.create(ApiInterface.class);
-
-        return apiService;
-    }
+//    public static ApiInterface getApi() {
+//        //Builder Retrofit
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        ApiInterface apiService = retrofit.create(ApiInterface.class);
+//
+//        return apiService;
+//    }
 }
