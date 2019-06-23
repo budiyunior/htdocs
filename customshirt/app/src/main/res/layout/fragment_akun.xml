@@ -48,7 +48,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/profile_layout"
-            android:layout_marginTop="5dp"
+            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <Button
@@ -62,39 +62,48 @@
                 android:padding="20dp"
                 android:text="Profil" />
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+            <Button
+                android:id="@+id/btn_pesanansaya"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Pesanan Saya" />
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:background="@drawable/btn_myorder" />
+
+            <Button
+                android:id="@+id/btn_alamatsaya"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Design Saya" />
+                android:background="@drawable/btn_myaddress" />
+
+            <Button
+                android:id="@+id/btn_ubahpassword"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_pwchange" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/text_color" />
 
             <Button
                 android:id="@+id/btn_bantuan"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Bantuan" />
+                android:background="@drawable/btn_help"/>
+
+            <Button
+                android:id="@+id/btn_cs"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_cs"/>
 
 
         </LinearLayout>

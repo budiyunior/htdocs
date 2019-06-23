@@ -6,10 +6,9 @@
         <item name="colorPrimary">@color/colorWhite</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
-
     </style>
 
-    <style name="SplashScreenStyle" parent="Theme.AppCompat.NoActionBar"></style>
+    <style name="NoActionBar" parent="Theme.AppCompat.NoActionBar"></style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

@@ -6,13 +6,17 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home" />
     <item
-        android:id="@+id/bottom_notif"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Notifikasi" />
+        android:id="@+id/bottom_desainku"
+        android:icon="@drawable/ic_shirt_vector"
+        android:title="Desain Ku" />
     <item
         android:id="@+id/bottom_keranjang"
         android:icon="@drawable/ic_shopping_cart_black_24dp"
         android:title="Keranjang" />
+    <item
+        android:id="@+id/bottom_notif"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Notifikasi" />
     <item
         android:id="@+id/bottom_akun"
         android:icon="@drawable/ic_person_black_24dp"
