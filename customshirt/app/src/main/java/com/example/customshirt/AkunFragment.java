@@ -4,6 +4,7 @@ package com.example.customshirt;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -81,15 +82,13 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         };
 
         if (v == btn_cs){
-            String pesanbantuan = "Hi Admin, Saya perlu bantuan!";
+            String pesan = "Hi Admin, Saya butuh bantuan!";
+            String nomor = "6282232961301";
+            String kirimWA = "https://wa.me/"+nomor+"?text="+pesan;
 
-            Intent kirimWA = new Intent(Intent.ACTION_SEND);
-            kirimWA.setType("text/plain");
-            kirimWA.putExtra(Intent.EXTRA_TEXT, pesanbantuan);
-            kirimWA.putExtra("jid", "6285230737515" + "@s.whatsapp.net");
-            kirimWA.setPackage("com.whatsapp");
-
-            startActivity(kirimWA);
+            Intent i = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(kirimWA));
+            startActivity(i);
         }
     }
 }
