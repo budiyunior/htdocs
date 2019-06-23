@@ -27,7 +27,8 @@ class cart extends REST_Controller
                     'id_cart'           => $this->post('id_cart'),
                     'id_pengguna'          => $this->post('id_pengguna'),
                     'total_harga'    => $this->post('total_harga'),
-                    'total_berat' => $this->post('total_berat'));
+                    'total_berat' => $this->post('total_berat')
+                );
         $insert = $this->db->insert('cart', $data);
         if ($insert) {
             $this->response($data, 200);
