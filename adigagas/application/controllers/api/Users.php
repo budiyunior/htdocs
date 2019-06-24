@@ -31,7 +31,7 @@ class Users extends REST_Controller
     {
         $data = array(
 
-            'id_pengguna'           => $this->id_pengguna = uniqid($id_pengguna),
+            'id_pengguna'           => $this->post('id_pengguna'),
             'nama_pengguna'          => $this->post('nama_pengguna'),
             'tanggal_lahir'    => $this->post('tanggal_lahir'),
             'email'    => $this->post('email'),

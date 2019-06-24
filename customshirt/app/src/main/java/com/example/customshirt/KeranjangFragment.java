@@ -57,30 +57,30 @@ public class KeranjangFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-//        refresh();
+        refresh();
 
         return myFragmentView;
     }
 
-//    public void refresh() {
-//        Call<GetKeranjang> KeranjangCall = mApiInterface.getKeranjang();
-//        KeranjangCall.enqueue(new Callback<GetKeranjang>() {
-//            @Override
-//            public void onResponse(Call<GetKeranjang> call, Response<GetKeranjang>
-//                    response) {
-//                List<Keranjang> keranjangList = response.body().getListDataKeranjang();
-//                Log.d("Retrofit Get", "Jumlah data Keranjang: " +
-//                        String.valueOf(keranjangList.size()));
-//                mAdapter = new KeranjangAdapter(keranjangList);
-//                mRecyclerView.setAdapter(mAdapter);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GetKeranjang> call, Throwable t) {
-//                Log.e("Retrofit Get", t.toString());
-//            }
-//        });
+    public void refresh() {
+        Call<GetKeranjang> KeranjangCall = mApiInterface.getKeranjang();
+        KeranjangCall.enqueue(new Callback<GetKeranjang>() {
+            @Override
+            public void onResponse(Call<GetKeranjang> call, Response<GetKeranjang>
+                    response) {
+                List<Keranjang> keranjangList = response.body().getListDataKeranjang();
+                Log.d("Retrofit Get", "Jumlah data Keranjang: " +
+                        String.valueOf(keranjangList.size()));
+                mAdapter = new KeranjangAdapter(keranjangList);
+                mRecyclerView.setAdapter(mAdapter);
+            }
 
-//    }
+            @Override
+            public void onFailure(Call<GetKeranjang> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
+
+    }
 
 }

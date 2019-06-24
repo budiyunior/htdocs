@@ -29,7 +29,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("api/users")
-    Call<PostPutDelUser> postUser(
+    Call<PostPutDelUser> postUser(@Field("id_pengguna") String id_pengguna,
             @Field("nama_pengguna") String nama_pengguna,
             @Field("id_akses") String id_akses,
             @Field("tanggal_lahir") String tanggal_lahir,
