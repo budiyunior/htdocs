@@ -25,7 +25,7 @@ class Keranjang extends REST_Controller
     function index_get()
     {
 
-        $item = $this->db->get('cart')->result();
+        $item = $this->db->get('keranjang')->result();
         $this->response(array("result" => $item, 200));
 
         // $id_cart = $this->get('id_cart');
@@ -63,6 +63,9 @@ class Keranjang extends REST_Controller
         }*/
         if ($cek) {
             $output['id_item'] = $cek['id_item'];
+            $output['id_cart'] = $cek['id_cart'];
+            $output['total_harga'] = $cek['total_harga'];
+            $output['total_berat'] = $cek['total_berat'];
 
             $output['id_pengguna'] = $id_pengguna;
 

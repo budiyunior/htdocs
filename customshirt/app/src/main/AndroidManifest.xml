@@ -13,8 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
+<<<<<<< HEAD
         <activity android:name=".AlamatActivity"></activity>
         <activity android:name=".PengirimanActivity" />
+=======
+        <activity android:name=".TestInputDesain"></activity>
+        <activity
+            android:name=".Pengiriman"
+            android:label="@string/title_activity_pengiriman"
+            android:theme="@style/AppTheme.NoActionBar" />
+>>>>>>> 00c54d9e7c6c18a905e0f3d5f8780c748fa2bc59
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".SearchActivity"
@@ -33,6 +41,10 @@
         <activity
             android:name=".ButtonNav"
             android:label="Beranda" />
+<<<<<<< HEAD
+=======
+        <activity android:name=".MainActivity" />
+>>>>>>> 00c54d9e7c6c18a905e0f3d5f8780c748fa2bc59
         <activity
             android:name=".LoginActivity"
             android:theme="@style/NoActionBar" />

@@ -109,6 +109,16 @@
             android:text="no login"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/btn_desain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/btn_light"
+            android:text="testdesain"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
 

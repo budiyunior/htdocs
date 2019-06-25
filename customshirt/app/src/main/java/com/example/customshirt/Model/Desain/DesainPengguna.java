@@ -1,34 +1,38 @@
-package com.example.customshirt.Model.Keranjang;
+package com.example.customshirt.Model.Desain;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Keranjang {
-    @SerializedName("id_desain")
-    private String id_desain;
+public class DesainPengguna {
+
+
     @SerializedName("id_pengguna")
     private String id_pengguna;
+
     @SerializedName("id_item")
     private String id_item;
+
     @SerializedName("nama_desain")
     private String nama_desain;
-    @SerializedName("ukuran shirt")
+
+    @SerializedName("ukuran_shirt")
     private String ukuran_shirt;
+
     @SerializedName("gambar")
     private String gambar;
+
     @SerializedName("berat_satuan")
     private String berat_satuan;
+
     @SerializedName("harga_satuan")
     private String harga_satuan;
-    @SerializedName("total_berat")
-    private String total_berat;
-    @SerializedName("total_harga")
-    private String total_harga;
 
-    public Keranjang(){}
+    public DesainPengguna(){}
 
-    public Keranjang(String id_desain, String id_pengguna,
-                     String id_item, String nama_desain, String ukuran_shirt, String gambar, String berat_satuan, String harga_satuan,String total_berat, String total_harga) {
-        this.id_desain = id_desain;
+    public DesainPengguna(String id_pengguna,
+                          String id_item, String nama_desain, String ukuran_shirt,
+                          String gambar, String berat_satuan, String harga_satuan) {
+
         this.id_pengguna = id_pengguna;
         this.id_item = id_item;
         this.nama_desain = nama_desain;
@@ -36,18 +40,9 @@ public class Keranjang {
         this.gambar = gambar;
         this.berat_satuan = berat_satuan;
         this.harga_satuan = harga_satuan;
-        this.total_berat = total_berat;
-        this.total_harga = total_harga;
     }
 
 
-    public String getId_desain() {
-        return id_desain;
-    }
-
-    public void setId_desain(String id_desain) {
-        this.id_desain = id_desain;
-    }
 
     public String getId_pengguna() {
         return id_pengguna;
@@ -103,21 +98,5 @@ public class Keranjang {
 
     public void setHarga_satuan(String harga_satuan) {
         this.harga_satuan = harga_satuan;
-    }
-
-    public String getTotal_berat() {
-        return total_berat;
-    }
-
-    public void setTotal_berat(String total_berat) {
-        this.total_berat = total_berat;
-    }
-
-    public String getTotal_harga() {
-        return total_harga;
-    }
-
-    public void setTotal_harga(String total_harga) {
-        this.total_harga = total_harga;
     }
 }

@@ -29,9 +29,9 @@ class Desain_postputdel extends REST_Controller
             'id_item'          => $this->post('id_item'),
             'nama_desain'          => $this->post('nama_desain'),
             'ukuran_shirt'          => $this->post('ukuran_shirt'),
-            'gambar'          => $this->post('gambar'),
-            'berat_satuan'          => $this->post('berat_satuan'),
-            'harga_satuan'    => $this->post('harga_satuan')
+            'gambar'          => $this->post('gambar')
+            // 'berat_satuan'          => $this->post('berat_satuan'),
+            // 'harga_satuan'    => $this->post('harga_satuan')
         );
         $insert = $this->db->insert('desain_pengguna', $data);
         if ($insert) {
@@ -45,14 +45,14 @@ class Desain_postputdel extends REST_Controller
     {
         $id_desain = $this->put('id_desain');
         $data = array(
-            'id_desain'          => $this->post('id_desain'),
-            'id_pengguna'           => $this->post('id_pengguna'),
-            'id_item'          => $this->post('id_item'),
-            'nama_desain'          => $this->post('nama_desain'),
-            'ukuran_shirt'          => $this->post('ukuran_shirt'),
-            'gambar'          => $this->post('gambar'),
-            'berat_satuan'          => $this->post('berat_satuan'),
-            'harga_satuan'    => $this->post('harga_satuan')
+            'id_desain'          => $this->put('id_desain'),
+            'id_pengguna'           => $this->put('id_pengguna'),
+            'id_item'          => $this->put('id_item'),
+            'nama_desain'          => $this->put('nama_desain'),
+            'ukuran_shirt'          => $this->put('ukuran_shirt'),
+            'gambar'          => $this->put('gambar'),
+            'berat_satuan'          => $this->put('berat_satuan'),
+            'harga_satuan'    => $this->put('harga_satuan')
         );
         $this->db->where('id_desain', $id_desain);
         $update = $this->db->update('desain_pengguna', $data);
