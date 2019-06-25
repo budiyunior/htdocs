@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -125,7 +124,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             startActivity(DetailItemFragment);
         }
         if(v == filterjeniskain){
-            Intent loginActivity = new Intent(getActivity(), MainActivity.class);
+            Intent loginActivity = new Intent(getActivity(), PengirimanActivity.class);
             startActivity(loginActivity);
 
         }

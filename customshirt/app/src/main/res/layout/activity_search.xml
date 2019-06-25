@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_circle_indicator_stroke_color"
+    android:background="@color/colorLight"
     tools:context=".SearchActivity">
 
     <LinearLayout
@@ -27,7 +27,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Cari Kaos"
+                android:hint="Cari Kaos"
+                android:textColorHint="@color/colorGrey"
                 android:textColor="@color/colorGrey" />
 
             <Button
@@ -76,7 +77,8 @@
                 android:layout_margin="5dp"
                 android:scrollbars="vertical"
                 android:layout_row="0"
-                android:layout_column="0">
+                android:layout_column="0"
+                android:background="@color/colorLight">
 
             </android.support.v7.widget.RecyclerView>
 

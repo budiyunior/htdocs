@@ -32,7 +32,7 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    public static MainActivity ma;
+    public static PengirimanActivity ma;
 
     private List<Item> itemList;
     ProgressBar progressBar;

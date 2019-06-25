@@ -13,13 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity
-            android:name=".Pengiriman"
-            android:label="@string/title_activity_pengiriman"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AlamatActivity"></activity>
+        <activity android:name=".PengirimanActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".SearchActivity"
-            android:theme="@style/NoActionBar"/>
+        <activity
+            android:name=".SearchActivity"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/NoActionBar">
@@ -34,11 +33,12 @@
         <activity
             android:name=".ButtonNav"
             android:label="Beranda" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"
-            android:theme="@style/NoActionBar"/>
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/NoActionBar"/>
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/NoActionBar" />
     </application>
 
 </manifest>

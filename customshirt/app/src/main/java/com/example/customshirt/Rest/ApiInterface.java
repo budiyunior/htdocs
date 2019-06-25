@@ -5,13 +5,18 @@ import com.example.customshirt.Model.Keranjang.GetKeranjang;
 import com.example.customshirt.Model.Keranjang.PostPutDelKeranjang;
 import com.example.customshirt.Model.User.PostPutDelUser;
 import com.example.customshirt.Model.User.ResponseLogin;
+import com.example.customshirt.Model.city.ItemCity;
+import com.example.customshirt.Model.cost.ItemCost;
+import com.example.customshirt.Model.province.ItemProvince;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -57,4 +62,23 @@ public interface ApiInterface {
                                             @Field("gambar")String gambar,
                                             @Field("berat_satuan")String berat_satuan,
                                             @Field("harga_satuan")String harga_satuan);
+
+    // Province
+    @GET("province")
+    @Headers("key:66277c2fe0a72d6dcbf96b55fbf3c3cf")
+    Call<ItemProvince> getProvince ();
+
+    // City
+    @GET("city")
+    @Headers("key:66277c2fe0a72d6dcbf96b55fbf3c3cf")
+    Call<ItemCity> getCity (@Query("province") String province);
+
+    // Cost
+    @FormUrlEncoded
+    @POST("cost")
+    Call<ItemCost> getCost (@Field("key") String Token,
+                            @Field("origin") String origin,
+                            @Field("destination") String destination,
+                            @Field("weight") String weight,
+                            @Field("courier") String courier);
 }

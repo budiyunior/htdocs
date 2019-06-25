@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:id="@+id/activity_main"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:paddingBottom="@dimen/activity_vertical_margin"--><!--android:paddingLeft="@dimen/activity_horizontal_margin"--><!--android:paddingRight="@dimen/activity_horizontal_margin"--><!--android:paddingTop="@dimen/activity_vertical_margin"--><!--tools:context="com.example.kontak.MainActivity">-->
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:id="@+id/activity_main"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:paddingBottom="@dimen/activity_vertical_margin"--><!--android:paddingLeft="@dimen/activity_horizontal_margin"--><!--android:paddingRight="@dimen/activity_horizontal_margin"--><!--android:paddingTop="@dimen/activity_vertical_margin"--><!--tools:context="com.example.kontak.PengirimanActivity">-->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -39,7 +39,7 @@
                     android:layout_marginTop="200dp"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
-                    tools:context=".MainActivity">
+                    tools:context=".PengirimanActivity">
 
                     <Button
                         android:id="@+id/filterjenisbaju"
@@ -103,7 +103,6 @@
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="5dp"
                         android:scrollbars="vertical"
                         android:layout_row="0"
                         android:layout_column="1">

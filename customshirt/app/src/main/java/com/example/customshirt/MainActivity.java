@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    public static MainActivity ma;
+    public static PengirimanActivity ma;
 
     CarouselView carouselView;
 
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLayoutManager = new GridLayoutManager(this,2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        ma=this;
         refresh();
 
         carouselView = (CarouselView) findViewById(R.id.carouselView);

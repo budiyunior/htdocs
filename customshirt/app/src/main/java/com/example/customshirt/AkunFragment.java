@@ -29,6 +29,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
     private FrameLayout mMainFrame;
     private Button btn_profil;
     private Button btn_cs;
+    private Button btn_cost;
 
     SharedPreferences sharedPreferences;
     private TextView user_profile_name;
@@ -53,6 +54,9 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
 
         btn_cs = (Button) myFragmentView.findViewById(R.id.btn_cs);
         btn_cs.setOnClickListener(this);
+
+        btn_cost = (Button) myFragmentView.findViewById(R.id.btn_cost);
+        btn_cost.setOnClickListener(this);
 
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
 
@@ -79,6 +83,11 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         if (v == btn_profil) {
             Intent ProfileActivity = new Intent(getActivity(), ProfileActivity.class);
             startActivity(ProfileActivity);
+        };
+
+        if (v == btn_cost) {
+            Intent PengirimanActivity = new Intent(getActivity(), PengirimanActivity.class);
+            startActivity(PengirimanActivity);
         };
 
         if (v == btn_cs){
