@@ -14,11 +14,8 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-<<<<<<< HEAD
 import retrofit2.http.Headers;
-=======
 import retrofit2.http.HTTP;
->>>>>>> 00c54d9e7c6c18a905e0f3d5f8780c748fa2bc59
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
@@ -58,7 +55,6 @@ public interface ApiInterface {
     Call<GetKeranjang> getKeranjang();
 
     @FormUrlEncoded
-<<<<<<< HEAD
     @POST("kontak")
     Call<PostPutDelKeranjang> postKeranjang(@Field("id_desain") String id_desain,
                                             @Field("id_pengguna") String id_pengguna,
@@ -87,7 +83,7 @@ public interface ApiInterface {
                             @Field("destination") String destination,
                             @Field("weight") String weight,
                             @Field("courier") String courier);
-=======
+
     @POST("api/desain_postputdel")
     Call<PostPutDelDesainPengguna> postDesainPengguna(@Field("id_desain") String id_desain,
                                                       @Field("id_pengguna") String id_pengguna,
@@ -111,5 +107,5 @@ public interface ApiInterface {
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "api/desain_postputdel", hasBody = true)
     Call<PostPutDelDesainPengguna> deleteDesainPengguna(@Field("id_desain") String id_desain);
->>>>>>> 00c54d9e7c6c18a905e0f3d5f8780c748fa2bc59
+
 }
