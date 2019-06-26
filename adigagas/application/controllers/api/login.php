@@ -26,18 +26,7 @@ class Login extends REST_Controller
         $pengguna = $this->db->get('pengguna')->result();
         $this->response(array("result" => $pengguna, 200));
     }
-    // function index_get()
-    // {
-    //     $id_jenis_item = $this->get('id_jenis_item');
-    //     if ($id_jenis_item == '') {
-    //         $jenis_item = $this->db->get('jenis_item')->result();
-    //     } else {
-    //         $this->db->where('id_jenis_item', $id_jenis_item);
-    //         $jenis_item = $this->db->get('jenis_item')->result();
-    //     }
-    //     $this->response($jenis_item, 200);
-    // }
-
+  
 
     function index_post()
     {
