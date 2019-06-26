@@ -25,7 +25,7 @@
 							<th>ID Pengguna</th>
 							<th>Nama Pengguna</th>
 							<th>Tanggal Lahir</th>
-							<th>ID Akses</th>
+							<th>Hak Akses</th>
 							<th>Email</th>
 							<th>Nomor Telp</th>
 							<th>Foto</th>
@@ -45,7 +45,7 @@
 									<?php echo $pegawai->tanggal_lahir ?>
 								</td>
 								<td>
-									<?php echo $pegawai->id_akses ?>
+									<?php echo $pegawai->nama_akses ?>
 								</td>
 								<td>
 									<?php echo $pegawai->email ?>
