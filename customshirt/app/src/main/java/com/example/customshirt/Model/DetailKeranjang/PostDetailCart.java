@@ -1,17 +1,14 @@
-package com.example.customshirt.Model.Desain;
+package com.example.customshirt.Model.DetailKeranjang;
 
 import com.example.customshirt.Model.Desain.DesainPengguna;
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PostPutDelDesainPengguna {
-
+public class PostDetailCart {
     @SerializedName("status")
     Boolean status;
 
     @SerializedName("result")
-    DesainPengguna mDesainPengguna;
-
+    DetailCart mDetailCart;
     @SerializedName("message")
     String message;
 
@@ -27,11 +24,10 @@ public class PostPutDelDesainPengguna {
     public void setMessage(String message) {
         this.message = message;
     }
-    public DesainPengguna getDesainPengguna() {
-        return mDesainPengguna;
+    public DetailCart getDetail_cart() {
+        return mDetailCart;
     }
-    public void setDesainPengguna(DesainPengguna Desainpengguna) {
-        mDesainPengguna = Desainpengguna;
+    public void setDetailCart(DetailCart DetailCart) {
+        mDetailCart = DetailCart;
     }
-
 }

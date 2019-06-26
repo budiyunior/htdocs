@@ -5,9 +5,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class DesainPengguna {
 
+    @SerializedName("id_desain")
+    private String id_desain;
 
     @SerializedName("id_pengguna")
     private String id_pengguna;
+
+    @SerializedName("id_cart")
+    private String id_cart;
 
     @SerializedName("id_item")
     private String id_item;
@@ -20,29 +25,40 @@ public class DesainPengguna {
 
     @SerializedName("gambar")
     private String gambar;
+    @SerializedName("jumlah")
+    private String jumlah;
 
-    @SerializedName("berat_satuan")
-    private String berat_satuan;
 
-    @SerializedName("harga_satuan")
-    private String harga_satuan;
+    @SerializedName("subtotal_berat")
+    private String subtotal_berat;
+
+    @SerializedName("subtotal_harga")
+    private String subtotal_harga;
 
     public DesainPengguna(){}
 
-    public DesainPengguna(String id_pengguna,
-                          String id_item, String nama_desain, String ukuran_shirt,
-                          String gambar, String berat_satuan, String harga_satuan) {
 
+    public DesainPengguna(String id_desain, String id_pengguna, String id_cart, String id_item, String nama_desain, String ukuran_shirt, String gambar,String jumlah, String subtotal_berat, String subtotal_harga) {
+        this.id_desain = id_desain;
         this.id_pengguna = id_pengguna;
+        this.id_cart = id_cart;
         this.id_item = id_item;
         this.nama_desain = nama_desain;
         this.ukuran_shirt = ukuran_shirt;
         this.gambar = gambar;
-        this.berat_satuan = berat_satuan;
-        this.harga_satuan = harga_satuan;
+        this.jumlah = jumlah;
+        this.subtotal_berat = subtotal_berat;
+        this.subtotal_harga = subtotal_harga;
+
     }
 
+    public String getId_desain() {
+        return id_desain;
+    }
 
+    public void setId_desain(String id_desain) {
+        this.id_desain = id_desain;
+    }
 
     public String getId_pengguna() {
         return id_pengguna;
@@ -50,6 +66,14 @@ public class DesainPengguna {
 
     public void setId_pengguna(String id_pengguna) {
         this.id_pengguna = id_pengguna;
+    }
+
+    public String getId_cart() {
+        return id_cart;
+    }
+
+    public void setId_cart(String id_cart) {
+        this.id_cart = id_cart;
     }
 
     public String getId_item() {
@@ -84,19 +108,27 @@ public class DesainPengguna {
         this.gambar = gambar;
     }
 
-    public String getBerat_satuan() {
-        return berat_satuan;
+    public String getJumlah() {
+        return jumlah;
     }
 
-    public void setBerat_satuan(String berat_satuan) {
-        this.berat_satuan = berat_satuan;
+    public void setJumlah(String jumlah) {
+        this.jumlah = jumlah;
     }
 
-    public String getHarga_satuan() {
-        return harga_satuan;
+    public String getSubtotal_berat() {
+        return subtotal_berat;
     }
 
-    public void setHarga_satuan(String harga_satuan) {
-        this.harga_satuan = harga_satuan;
+    public void setSubtotal_berat(String subtotal_berat) {
+        this.subtotal_berat = subtotal_berat;
+    }
+
+    public String getSubtotal_harga() {
+        return subtotal_harga;
+    }
+
+    public void setSubtotal_harga(String subtotal_harga) {
+        this.subtotal_harga = subtotal_harga;
     }
 }

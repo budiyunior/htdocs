@@ -81,7 +81,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
 
-
         carouselView = (CarouselView) myFragmentView.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
 

@@ -3,6 +3,7 @@ package com.example.customshirt;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.DeadObjectException;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
+import com.example.customshirt.Model.DetailKeranjang.PostDetailCart;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 
@@ -48,18 +50,19 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
         Bundle bd = mIntent.getExtras();
 
-
-
-        tvNama.setText(mIntent.getStringExtra("Nama"));
-        tvHarga.setText(mIntent.getStringExtra("Harga"));
-        tvDeskripsi.setText(mIntent.getStringExtra("Deskripsi"));
+        tvNama.setText( mIntent.getStringExtra("Nama"));
+        tvHarga.setText( mIntent.getStringExtra("Harga"));
+//        tvDeskripsi.setText(mIntent.getStringExtra("Deskripsi"));
 //        String id_item = (String) bd.get("Id_item");
         if(bd != null)
         {
             String id_item = (String) bd.get("Id_item");
-            String getName = (String) bd.get("name");
-            Log.e("Berhasil", "berhasil"+id_item);
+            String getName = (String) bd.get("Nama");
+            Log.e("Berhasil", "berhasil"+id_item+getName);
 //            txtView.setText(getName);
+            String harga_satuan = (String) bd.get("Harga");
+            String berat_satuan = (String) bd.get("Berat");
+            Log.e("Berhasil", "berhasil"+harga_satuan+berat_satuan);
         }
 //        String id_item = (String) bd.get("Id_item");
 
@@ -77,28 +80,38 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         btn_masukcart = (Button) findViewById(R.id.btn_masukcart);
         btn_masukcart.setOnClickListener(this);
         String uniqueID = UUID.randomUUID().toString();
+
+
     }
 
     public void PostDesain() {
         spref = new Spref(this);
         String id_pengguna = spref.getSP_id_pengguna();
         sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
-        String uniqueID = UUID.randomUUID().toString();
+//        String id_desain = ;
+        String id_detail_cart = UUID.randomUUID().toString();
         Intent mIntent = getIntent();
         Bundle bd = mIntent.getExtras();
         String id_item = (String) bd.get("Id_item");
-
-
-        Call<PostPutDelDesainPengguna> postDesain = mApiInterface.postDesainPengguna(UUID.randomUUID().toString(),id_pengguna,
-                id_item,tvNama.getText().toString(),
-                tvHarga.getText().toString(),tvDeskripsi.getText().toString(),
-                tvHarga.getText().toString(),tvHarga.getText().toString());
+        String harga_satuan = (String) bd.get("Harga");
+        String berat_satuan = (String) bd.get("Berat");
+        Double harga_satuan2 = Double.parseDouble(harga_satuan);
+        Double berat_satuan2 = Double.parseDouble(berat_satuan);
+        String tvHargaOld = tvHarga.getText().toString();
+        Double tvHargaNew = Double.parseDouble(tvHargaOld);
+        String tvHargaOld2 = tvHarga.getText().toString();
+        Double tvHargaNew2 = Double.parseDouble(tvHargaOld2);
+        final Double subHarga = harga_satuan2 * tvHargaNew2;
+        final Double subBerat = berat_satuan2 * tvHargaNew;
+        Log.e("Berhasil", "berhasil"+harga_satuan+berat_satuan);
+        Call<PostPutDelDesainPengguna> postDesain = mApiInterface.postDesainPengguna(UUID.randomUUID().toString(),id_pengguna,null,
+                id_item,tvNama.getText().toString(), null,null,tvHarga.getText().toString(),subBerat.toString()
+                ,subHarga.toString());
         postDesain.enqueue(new Callback<PostPutDelDesainPengguna>() {
             @Override
             public void onResponse(Call<PostPutDelDesainPengguna> call, Response<PostPutDelDesainPengguna> response) {
                 Toast.makeText(getApplicationContext(), "Berhasil ditambahkan", Toast.LENGTH_LONG).show();
-                Log.e("Berhasil", "berhasil");
-
+                Log.e("Berhasil", "berhasil"+subBerat+subHarga);
 //                finish();
             }
 
@@ -107,7 +120,11 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
                 Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
             }
         });
+
     }
+
+
+
 
 
     @Override

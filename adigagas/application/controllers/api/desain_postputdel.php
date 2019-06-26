@@ -26,16 +26,21 @@ class Desain_postputdel extends REST_Controller
         $data = array(
             'id_desain'          => $this->post('id_desain'),
             'id_pengguna'           => $this->post('id_pengguna'),
+            'id_cart'          => $this->post('id_cart'),
             'id_item'          => $this->post('id_item'),
             'nama_desain'          => $this->post('nama_desain'),
             'ukuran_shirt'          => $this->post('ukuran_shirt'),
-            'gambar'          => $this->post('gambar')
-            // 'berat_satuan'          => $this->post('berat_satuan'),
-            // 'harga_satuan'    => $this->post('harga_satuan')
+            'gambar'          => $this->post('gambar'),
+            'jumlah'          => $this->post('jumlah'),
+            'subtotal_berat'          => $this->post('subtotal_berat'),
+            'subtotal_harga'    => $this->post('subtotal_harga')
         );
-        $insert = $this->db->insert('desain_pengguna', $data);
+        $insert = $this->db->insert('desain_cart', $data);
         if ($insert) {
+            // $output['id_desain'] = $insert['id_desain'];
+
             $this->response($data, 200);
+            // $this->response($output, 200);
         } else {
             $this->response(array('status' => 'fail', 502));
         }

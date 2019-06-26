@@ -42,8 +42,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
                 mIntent.putExtra("Id_item", mItemList.get(position).getId_item());
                 mIntent.putExtra("Nama", mItemList.get(position).getNama_item());
                 mIntent.putExtra("Jenis_item", mItemList.get(position).getId_jenis_item());
-                mIntent.putExtra("Harga","Rp." + mItemList.get(position).getHarga_satuan());
-                mIntent.putExtra("Berat", mItemList.get(position).getBerat_satuan()+"Kg" );
+                mIntent.putExtra("Harga",mItemList.get(position).getHarga_satuan());
+                mIntent.putExtra("Berat", mItemList.get(position).getBerat_satuan() );
                 mIntent.putExtra("Deskripsi", mItemList.get(position).getDeskripsi());
                 view.getContext().startActivity(mIntent);
             }
