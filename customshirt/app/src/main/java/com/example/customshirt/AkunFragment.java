@@ -30,6 +30,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
     private Button btn_profil, btn_logout;
     private Button btn_cs;
     private Button btn_cost;
+    private Button btn_alamatsaya;
 
     SharedPreferences sharedPreferences;
     private TextView user_profile_name;
@@ -59,6 +60,10 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         btn_cost.setOnClickListener(this);
         btn_logout = (Button) myFragmentView.findViewById(R.id.btn_logout);
         btn_logout.setOnClickListener(this);
+
+        btn_alamatsaya = (Button) myFragmentView.findViewById(R.id.btn_alamatsaya);
+        btn_alamatsaya.setOnClickListener(this);
+
 
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
 
@@ -90,6 +95,11 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         if (v == btn_cost) {
             Intent PengirimanActivity = new Intent(getActivity(), PengirimanActivity.class);
             startActivity(PengirimanActivity);
+        }
+
+        if (v == btn_alamatsaya) {
+            Intent AlamatActivity = new Intent(getActivity(), AlamatActivity.class);
+            startActivity(AlamatActivity);
         }
 
         if (v == btn_cs){
