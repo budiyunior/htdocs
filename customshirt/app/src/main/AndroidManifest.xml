@@ -18,7 +18,7 @@
         <activity android:name=".PengirimanActivity" />
 
         <activity android:name=".TestInputDesain"></activity>
-]
+
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".SearchActivity"

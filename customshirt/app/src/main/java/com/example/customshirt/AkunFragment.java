@@ -27,13 +27,13 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
 
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
-    private Button btn_profil;
+    private Button btn_profil, btn_logout;
     private Button btn_cs;
     private Button btn_cost;
 
     SharedPreferences sharedPreferences;
     private TextView user_profile_name;
-
+    Spref spref;
     private BantuanFragment bantuanFragment;
 
     public AkunFragment() {
@@ -46,7 +46,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         getActivity().setTitle("Akun");
         View myFragmentView =  inflater.inflate(R.layout.fragment_akun, container, false);
-
+        spref = new Spref(this.getActivity());
         bantuanFragment = new BantuanFragment();
         btn_profil = (Button) myFragmentView.findViewById(R.id.btn_profil);
         btn_profil.setOnClickListener(this);
@@ -57,6 +57,8 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
 
         btn_cost = (Button) myFragmentView.findViewById(R.id.btn_cost);
         btn_cost.setOnClickListener(this);
+        btn_logout = (Button) myFragmentView.findViewById(R.id.btn_logout);
+        btn_logout.setOnClickListener(this);
 
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
 
@@ -83,21 +85,28 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         if (v == btn_profil) {
             Intent ProfileActivity = new Intent(getActivity(), ProfileActivity.class);
             startActivity(ProfileActivity);
-        };
+        }
 
         if (v == btn_cost) {
             Intent PengirimanActivity = new Intent(getActivity(), PengirimanActivity.class);
             startActivity(PengirimanActivity);
-        };
+        }
 
         if (v == btn_cs){
             String pesan = "Hi Admin, Saya butuh bantuan!";
-            String nomor = "6282232961301";
+            String nomor = "6285230737515";
             String kirimWA = "https://wa.me/"+nomor+"?text="+pesan;
 
             Intent i = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(kirimWA));
             startActivity(i);
+        }
+        if (v == btn_logout) {
+//            sharedPreferences.saveSPBoolean(SharedPreferences.SP_SUDAH_LOGIN, false);
+            spref.saveSPBoolean(spref.SP_Sukses_Login, false);
+            startActivity(new Intent(getActivity(), LoginActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
         }
     }
 }

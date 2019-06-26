@@ -145,9 +145,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
         if (v == btn_desain) {
-            Intent intent = new Intent(LoginActivity.this, TestInputDesain.class);
-            startActivity(intent);
 
+            spref.saveSPBoolean(spref.SP_Sukses_Login, false);
+            startActivity(new Intent(LoginActivity.this, ButtonNav.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
         }
     }
 
