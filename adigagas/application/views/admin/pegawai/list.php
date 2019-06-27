@@ -45,7 +45,7 @@
 									<?php echo $pegawai->tanggal_lahir ?>
 								</td>
 								<td>
-									<?php echo $pegawai->id_akses ?>
+									<?php echo $pegawai->nama_akses ?>
 								</td>
 								<td>
 									<?php echo $pegawai->email ?>
