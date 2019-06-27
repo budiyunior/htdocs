@@ -30,6 +30,7 @@
             <h6 class="collapse-header">Item:</h6>
             <a class="collapse-item" href="<?php echo site_url('admin/item/index') ?>">Item</a>
             <a class="collapse-item" href="<?php echo site_url('admin/jenisitem/index') ?>">Jenis Item</a>
+            <a class="collapse-item" href="<?php echo site_url('admin/gambaritem/index') ?>">Gambar Item</a>
           </div>
         </div>
       </li>

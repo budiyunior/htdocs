@@ -21,7 +21,7 @@ class GambarItem extends CI_Controller
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
         $data["gambaritem"] = $this->gambaritem_model->getAll();
-        $this->load->view("admin/gambaritem/new_form", $data);
+        $this->load->view("admin/gambaritem/list", $data);
     }
 
     public function add()
