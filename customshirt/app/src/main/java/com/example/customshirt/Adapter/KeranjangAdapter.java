@@ -22,14 +22,14 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     }
 
     @Override
-    public KeranjangAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.keranjang_list, parent, false);
         MyViewHolder mViewHolder = new MyViewHolder(mView);
         return mViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(KeranjangAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
 //        holder.mTextViewId.setText(mKeranjangList.get(position).getId_pengguna());
         holder.mTextViewWarna.setText(mKeranjangList.get(position).getNama_desain());
         holder.mTextViewHarga.setText( mKeranjangList.get(position).getTotal_harga());

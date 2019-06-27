@@ -81,8 +81,15 @@ public interface ApiInterface {
                                                       @Field("subtotal_harga") String subtotal_harga);
 
     @FormUrlEncoded
-    @POST("api/desain_postputdel")
-    Call<GetKeranjang> showcart(@Field("id_pengguna") String id_pengguna);
+    @POST("api/cart")
+    Call<GetShowCart> showcart(@Field("id_pengguna") String id_pengguna);
+
+    @FormUrlEncoded
+    @POST("api/total_harga")
+    Call<GetShowCart> total_harga(@Field("id_pengguna") String id_pengguna);
+
+    @GET("api/cart")
+    Call<GetShowCart> showcart2();
 
     @FormUrlEncoded
     @POST("api/desain_postputdel")

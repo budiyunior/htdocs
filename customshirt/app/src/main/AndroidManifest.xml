@@ -13,12 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-
-        <activity android:name=".AlamatActivity"></activity>
+        <activity android:name=".CheckoutActivity"></activity>
+        <activity android:name=".AlamatActivity" />
         <activity android:name=".PengirimanActivity" />
-
-        <activity android:name=".TestInputDesain"></activity>
-
+        <activity android:name=".TestInputDesain" />
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".SearchActivity"
@@ -37,9 +35,7 @@
         <activity
             android:name=".ButtonNav"
             android:label="Beranda" />
-
         <activity android:name=".MainActivity" />
-
         <activity
             android:name=".LoginActivity"
             android:theme="@style/NoActionBar" />

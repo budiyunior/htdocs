@@ -34,11 +34,14 @@ public class DesainPengguna {
 
     @SerializedName("subtotal_harga")
     private String subtotal_harga;
+    @SerializedName("total_harga")
+    private String total_harga;
 
     public DesainPengguna(){}
 
 
-    public DesainPengguna(String id_desain, String id_pengguna, String id_cart, String id_item, String nama_desain, String ukuran_shirt, String gambar,String jumlah, String subtotal_berat, String subtotal_harga) {
+
+    public DesainPengguna(String id_desain, String id_pengguna, String id_cart, String id_item, String nama_desain, String ukuran_shirt, String gambar, String jumlah, String subtotal_berat, String subtotal_harga,String total_harga) {
         this.id_desain = id_desain;
         this.id_pengguna = id_pengguna;
         this.id_cart = id_cart;
@@ -49,7 +52,7 @@ public class DesainPengguna {
         this.jumlah = jumlah;
         this.subtotal_berat = subtotal_berat;
         this.subtotal_harga = subtotal_harga;
-
+        this.total_harga = total_harga;
     }
 
     public String getId_desain() {
@@ -130,5 +133,13 @@ public class DesainPengguna {
 
     public void setSubtotal_harga(String subtotal_harga) {
         this.subtotal_harga = subtotal_harga;
+    }
+
+    public String getTotal_harga() {
+        return total_harga;
+    }
+
+    public void setTotal_harga(String total_harga) {
+        this.total_harga = total_harga;
     }
 }

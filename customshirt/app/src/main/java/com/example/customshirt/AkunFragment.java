@@ -11,6 +11,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,6 +69,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
 
         String email=sharedPreferences.getString("email","1");
+        Log.e("Berhasil", "berhasil"+email);
         user_profile_name= myFragmentView.findViewById(R.id.user_profile_name);
         user_profile_name.setText(email);
 

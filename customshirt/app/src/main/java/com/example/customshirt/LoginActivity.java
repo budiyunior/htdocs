@@ -120,7 +120,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         spref.saveSPString(spref.SP_tanggal_lahir, tanggal_lahir);
                         spref.saveSPString(spref.SP_id_akses, id_akses);
                         spref.saveSPString(spref.SP_nomor_telp, nomor_telp);
-
                         spref.saveSPBoolean(spref.SP_Sukses_Login, true);
 
                     }

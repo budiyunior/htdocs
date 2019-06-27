@@ -11,6 +11,7 @@ public class GetKeranjang {
     List<Keranjang> listDataKeranjang;
     @SerializedName("message")
     String message;
+
     public String getStatus() {
         return status;
     }

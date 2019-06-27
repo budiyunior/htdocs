@@ -19,15 +19,23 @@ class Cart extends REST_Controller
 
     function index_get()
     {
-        $cart = $this->db->get('cart')->result();
-        $this->response(array("result" => $cart, 200));
+        $id = $this->input->post('id_desain');
+        if ($id == '') {
+            $desain_cart = $this->db->get('desain_cart')->result();
+        } else {
+            $this->db->where('id_pengguna', $id);
+            $desain_cart = $this->db->get('desain_cart')->result();
+        }
+        $this->response($desain_cart, 200);
     }
 
 
     function index_post()
     {
         $id_pengguna = $this->input->post('id_pengguna');
-        $keranjang = $this->db->query("SELECT * FROM keranjang where id_pengguna = $id_pengguna ")->result();
+        $keranjang = $this->db->query("SELECT * FROM desain_cart where id_pengguna = $id_pengguna")->result();
+        // $keranjang = $this->db->query("SELECT SUM(subtotal_harga) FROM desain_cart where id_pengguna = $id_pengguna")->result();
+        
         //$perbaikan = $this->db->get_where('perbaikan',['id_user'=>$id_user])->result();
         $this->response(array("result" => $keranjang, 200));
     }

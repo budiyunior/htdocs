@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.DetailKeranjang.PostDetailCart;
 import com.example.customshirt.Rest.ApiClient;
@@ -29,7 +30,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
     TextView tvNama, tvHarga, tvDeskripsi;
     SharedPreferences sharedPreferences;
-
+    ElegantNumberButton jumlah_item;
 
 
     private KeranjangFragment keranjangFragment;
@@ -45,6 +46,8 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         tvNama = findViewById(R.id.tvNama);
         tvHarga = findViewById(R.id.tvHarga);
         tvDeskripsi = findViewById(R.id.tvDeskripsi);
+
+        jumlah_item = (ElegantNumberButton) findViewById(R.id.jumlah_item);
 
         Intent mIntent = getIntent();
 
@@ -97,21 +100,21 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         String berat_satuan = (String) bd.get("Berat");
         Double harga_satuan2 = Double.parseDouble(harga_satuan);
         Double berat_satuan2 = Double.parseDouble(berat_satuan);
-        String tvHargaOld = tvHarga.getText().toString();
+        String tvHargaOld = jumlah_item.getNumber();
         Double tvHargaNew = Double.parseDouble(tvHargaOld);
-        String tvHargaOld2 = tvHarga.getText().toString();
+        String tvHargaOld2 = jumlah_item.getNumber();
         Double tvHargaNew2 = Double.parseDouble(tvHargaOld2);
         final Double subHarga = harga_satuan2 * tvHargaNew2;
         final Double subBerat = berat_satuan2 * tvHargaNew;
         Log.e("Berhasil", "berhasil"+harga_satuan+berat_satuan);
         Call<PostPutDelDesainPengguna> postDesain = mApiInterface.postDesainPengguna(UUID.randomUUID().toString(),id_pengguna,null,
-                id_item,tvNama.getText().toString(), null,null,tvHarga.getText().toString(),subBerat.toString()
+                id_item,tvNama.getText().toString(), null,null,jumlah_item.getNumber(),subBerat.toString()
                 ,subHarga.toString());
         postDesain.enqueue(new Callback<PostPutDelDesainPengguna>() {
             @Override
             public void onResponse(Call<PostPutDelDesainPengguna> call, Response<PostPutDelDesainPengguna> response) {
                 Toast.makeText(getApplicationContext(), "Berhasil ditambahkan", Toast.LENGTH_LONG).show();
-                Log.e("Berhasil", "berhasil"+subBerat+subHarga);
+                Log.e("Berhasil", "berhasil"+subBerat+subHarga+jumlah_item.getNumber());
 //                finish();
             }
 

@@ -12,6 +12,7 @@ import com.example.customshirt.Model.User.PostPutDelUser;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 
+import java.util.Date;
 import java.util.UUID;
 
 import retrofit2.Call;
@@ -45,7 +46,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v == btn_register) {
-            Call<PostPutDelUser> postUserCall = mApiInterface.postUser(UUID.randomUUID().toString(),txt_username.getText().toString(),"ctm",null,
+            String id_pengguna= String.valueOf(((new Date().getTime() / 1000L) % Integer.MAX_VALUE));
+            Call<PostPutDelUser> postUserCall = mApiInterface.postUser(id_pengguna,txt_username.getText().toString(),"ctm",null,
                     txt_email.getText().toString(),txt_password.getText().toString(), txt_nohp.getText().toString());
 //            postUserCall.enqueue(new Callback<PostPutDelUser>() {
 //                @Override
