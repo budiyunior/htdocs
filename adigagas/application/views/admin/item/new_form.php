@@ -37,12 +37,6 @@
 
           <!-- Page Heading -->
 
-          <div class="input-group-append">
-                <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#tambah">
-                    <i class="fas fa-plus fa-sm"></i>
-                </button>
-            </div> <br>
-
           <h1 class="h3 mb-2 text-gray-800">Tambah Data Item</h1>
 
           <!-- add form -->
