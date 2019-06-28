@@ -26,6 +26,7 @@ import com.example.customshirt.Model.Item.GetItem;
 import com.example.customshirt.Model.Item.Item;
 import com.example.customshirt.Model.Keranjang.GetKeranjang;
 import com.example.customshirt.Model.Keranjang.GetShowCart;
+import com.example.customshirt.Model.Keranjang.GetTotalHarga;
 import com.example.customshirt.Model.Keranjang.Keranjang;
 import com.example.customshirt.Model.User.ResponseLogin;
 import com.example.customshirt.Rest.ApiClient;
@@ -49,7 +50,8 @@ public class KeranjangFragment extends Fragment implements View.OnClickListener 
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     SharedPreferences sharedPreferences;
-    TextView total_harga;
+    TextView tvtotal_harga;
+
     public KeranjangFragment() {
         // Required empty public constructor
     }
@@ -62,36 +64,57 @@ public class KeranjangFragment extends Fragment implements View.OnClickListener 
         getActivity().setTitle("Keranjang");
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        View myFragmentView  = inflater.inflate(R.layout.fragment_keranjang, container, false);
+        final View myFragmentView = inflater.inflate(R.layout.fragment_keranjang, container, false);
 
         btn_checkout = (Button) myFragmentView.findViewById(R.id.btn_checkout);
         btn_checkout.setOnClickListener(this);
 
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
-        String id_pengguna = sharedPreferences.getString("id_pengguna","0");
+        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
 
-        Log.e("Berhasil", "berhasil"+id_pengguna);
+        Log.e("Berhasil", "berhasil" + id_pengguna);
 
         mRecyclerView = (RecyclerView) myFragmentView.findViewById(R.id.recyclerKeranjang);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 //        refresh();
-showcart();
-total_harga();
+        showcart();
+        total_harga();
 
-        String email=sharedPreferences.getString("total_harga","10");
-        total_harga= myFragmentView.findViewById(R.id.total_harga);
-        total_harga.setText(email);
+//        String total_harga = sharedPreferences.getString("total_harga", "10");
+        tvtotal_harga = myFragmentView.findViewById(R.id.total_harga);
+        btn_checkout = (Button) myFragmentView.findViewById(R.id.btn_checkout);
+        btn_checkout.setOnClickListener(this);
+
+//        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
+        sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
+        Call<GetTotalHarga> user = mApiInterface.total_harga(id_pengguna);
+//        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
+        user.enqueue(new Callback<GetTotalHarga>() {
+            @Override
+            public void onResponse(Call<GetTotalHarga> call, Response<GetTotalHarga> response) {
+//                String id_pengguna = response.body().getId_pengguna();
+                String total_harga = response.body().getTotal_harga();
+                tvtotal_harga = myFragmentView.findViewById(R.id.total_harga);
+                Log.e("Berhasil", "berhasil" + id_pengguna + total_harga);
+            }
+
+            @Override
+            public void onFailure(Call<GetTotalHarga> call, Throwable t) {
+                Log.e("gagal", "gagal" + t);
+                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         return myFragmentView;
     }
 
-    public  void showcart(){
-        final String id_pengguna=sharedPreferences.getString("id_pengguna","0");
+    public void showcart() {
+        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
-        Call<GetShowCart> user = mApiInterface.showcart(id_pengguna) ;
+        Call<GetShowCart> user = mApiInterface.showcart(id_pengguna);
 //        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
         user.enqueue(new Callback<GetShowCart>() {
             @Override
@@ -99,10 +122,10 @@ total_harga();
 //                String id_pengguna = response.body().getId_pengguna();
 
                 List<Keranjang> keranjangList = response.body().getListDataKeranjang();
-                Log.d("Retrofit Get", "Jumlah data Keranjang:"+String.valueOf(keranjangList.size()));
+                Log.d("Retrofit Get", "Jumlah data Keranjang:" + String.valueOf(keranjangList.size()));
                 mAdapter = new KeranjangAdapter(keranjangList);
                 mRecyclerView.setAdapter(mAdapter);
-                Log.e("Berhasil", "berhasil"+id_pengguna);
+                Log.e("Berhasil", "berhasil" + id_pengguna);
             }
 
             @Override
@@ -116,37 +139,37 @@ total_harga();
 
     }
 
-    public  void total_harga(){
-        final String id_pengguna=sharedPreferences.getString("id_pengguna","0");
-        sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
-        Call<GetShowCart> user = mApiInterface.total_harga(id_pengguna) ;
-//        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
-        user.enqueue(new Callback<GetShowCart>() {
-            @Override
-            public void onResponse(Call<GetShowCart> call, Response<GetShowCart> response) {
-//                String id_pengguna = response.body().getId_pengguna();
-                String total_harga = response.body().getTotal_harga();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("total_harga", total_harga);
-                editor.apply();
-                Log.e("Berhasil", "berhasil"+id_pengguna+total_harga);
-            }
-
-            @Override
-            public void onFailure(Call<GetShowCart> call, Throwable t) {
-                Log.e("gagal", "gagal" + t);
-                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_LONG).show();
-            }
-
-        });
-
+    public void total_harga() {
+//        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
+//        sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
+//        Call<GetTotalHarga> user = mApiInterface.total_harga(id_pengguna);
+////        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
+//        user.enqueue(new Callback<GetTotalHarga>() {
+//            @Override
+//            public void onResponse(Call<GetTotalHarga> call, Response<GetTotalHarga> response) {
+////                String id_pengguna = response.body().getId_pengguna();
+//                String total_harga = response.body().getTotal_harga();
+//                tvtotal_harga = myFragmentView.findViewById(R.id.total_harga);
+//                Log.e("Berhasil", "berhasil" + id_pengguna + total_harga);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<GetTotalHarga> call, Throwable t) {
+//                Log.e("gagal", "gagal" + t);
+//                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_LONG).show();
+//            }
+//
+//        });
 
 
     }
+
+
     public void onClick(View v) {
         if (v == btn_checkout) {
             Intent intent = new Intent(getActivity(), CheckoutActivity.class);
             startActivity(intent);
+
         }
     }
 

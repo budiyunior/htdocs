@@ -110,6 +110,17 @@
             android:layout_toRightOf="@id/tv_warna"
             android:hint="Harga"
             android:textSize="@dimen/text1" />
+        <TextView
+            android:id="@+id/txt_jumlah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_harga"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@id/tv_warna"
+            android:hint="Harga"
+            android:textSize="@dimen/text1" />
 
 
         <Button

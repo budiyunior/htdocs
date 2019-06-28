@@ -39,10 +39,8 @@ class Logintest extends REST_Controller
             'email' => $email,
             'password' => $password
         );
-
         // $cek=$this->m_login->cek_login_biasa($username,$password)->num_rows();
         $cek = $this->m_logintest->cek_login($email, $password);
-
         // echo $cek;
         /* if ($cek) {
             $this->response(array('status'=> 'oke','id'=>$cek['id_user']));

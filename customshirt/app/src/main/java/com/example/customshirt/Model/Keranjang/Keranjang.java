@@ -19,12 +19,14 @@ public class Keranjang {
     private String gambar;
     @SerializedName("jumlah")
     private String jumlah;
-    @SerializedName("total_berat")
-    private String total_berat;
+    @SerializedName("subtotal_berat")
+    private String subtotal_berat;
+    @SerializedName("subtotal_harga")
+    private String subtotal_harga;
     @SerializedName("total_harga")
-    private String total_harga;
+    String total_harga;
 
-    public Keranjang(String id_desain, String id_pengguna, String id_cart, String id_item, String nama_desain, String ukuran_shirt, String gambar, String jumlah, String total_berat, String total_harga) {
+    public Keranjang(String id_desain, String id_pengguna, String id_cart, String id_item, String nama_desain, String ukuran_shirt, String gambar, String jumlah, String subtotal_berat, String subtotal_harga, String total_harga) {
         this.id_desain = id_desain;
         this.id_pengguna = id_pengguna;
         this.id_cart = id_cart;
@@ -33,7 +35,8 @@ public class Keranjang {
         this.ukuran_shirt = ukuran_shirt;
         this.gambar = gambar;
         this.jumlah = jumlah;
-        this.total_berat = total_berat;
+        this.subtotal_berat = subtotal_berat;
+        this.subtotal_harga = subtotal_harga;
         this.total_harga = total_harga;
     }
 
@@ -101,12 +104,20 @@ public class Keranjang {
         this.jumlah = jumlah;
     }
 
-    public String getTotal_berat() {
-        return total_berat;
+    public String getSubtotal_berat() {
+        return subtotal_berat;
     }
 
-    public void setTotal_berat(String total_berat) {
-        this.total_berat = total_berat;
+    public void setSubtotal_berat(String subtotal_berat) {
+        this.subtotal_berat = subtotal_berat;
+    }
+
+    public String getSubtotal_harga() {
+        return subtotal_harga;
+    }
+
+    public void setSubtotal_harga(String subtotal_harga) {
+        this.subtotal_harga = subtotal_harga;
     }
 
     public String getTotal_harga() {
@@ -117,3 +128,4 @@ public class Keranjang {
         this.total_harga = total_harga;
     }
 }
+

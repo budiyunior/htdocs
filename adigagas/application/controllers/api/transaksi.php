@@ -36,7 +36,7 @@ class transaksi extends REST_Controller
         $id_pengguna = $this->input->post('id_pengguna');
         $where = array(
             'id_pengguna' => $id_pengguna,
-            
+
         );
 
         // $cek=$this->m_login->cek_login_biasa($username,$password)->num_rows();
@@ -120,4 +120,3 @@ class transaksi extends REST_Controller
     //     }
     // }
 }
-

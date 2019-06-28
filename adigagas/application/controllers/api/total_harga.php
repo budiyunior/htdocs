@@ -19,8 +19,8 @@ class Total_harga extends REST_Controller
     {
         $id_pengguna = $this->input->post('id_pengguna');
         // $keranjang = $this->db->query("SELECT * FROM desain_cart where id_pengguna = $id_pengguna")->result();
-        $keranjang = $this->db->query("SELECT SUM(subtotal_harga) FROM desain_cart where id_pengguna = $id_pengguna")->result();
-
+        $keranjang = $this->db->query("SELECT SUM(subtotal_harga) as total_harga FROM desain_cart where id_pengguna = $id_pengguna")->result();
+        // $keranjang = $this->db->query("SELECT * FROM `total_harga` WHERE id_pengguna = $id_pengguna")->result();
         //$perbaikan = $this->db->get_where('perbaikan',['id_user'=>$id_user])->result();
         $this->response(array("result" => $keranjang, 200));
     }

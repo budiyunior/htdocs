@@ -12,6 +12,7 @@ import com.example.customshirt.Model.Item.Item;
 import com.example.customshirt.Model.Keranjang.Keranjang;
 import com.example.customshirt.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyViewHolder>{
@@ -32,19 +33,17 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 //        holder.mTextViewId.setText(mKeranjangList.get(position).getId_pengguna());
         holder.mTextViewWarna.setText(mKeranjangList.get(position).getNama_desain());
-        holder.mTextViewHarga.setText( mKeranjangList.get(position).getTotal_harga());
-        holder.mTextViewUkuran.setText( mKeranjangList.get(position).getTotal_berat());
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent mIntent = new Intent(view.getContext(), DetailItem.class);
-//                mIntent.putExtra("cart", mKeranjangList.get(position).getId_cart());
-//                mIntent.putExtra("item","Rp." + mKeranjangList.get(position).getId_item());
-//                mIntent.putExtra("pegnguna", mKeranjangList.get(position).getId_pengguna());
-//                view.getContext().startActivity(mIntent);
-//            }
-//        });
+        holder.mTextViewHarga.setText( mKeranjangList.get(position).getSubtotal_harga());
+        holder.mTextViewUkuran.setText( mKeranjangList.get(position).getSubtotal_berat());
+        holder.mTextViewJumlah.setText( mKeranjangList.get(position).getJumlah());
+
+
+//        int overTotalPrice=0;
+//        int oneTyprProductTprice = (Integer.valueOf(mKeranjangList.get(position).getSubtotal_harga()) * Integer.valueOf(mKeranjangList.get(position).getJumlah()));
+//        overTotalPrice = overTotalPrice + oneTyprProductTprice;
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -52,7 +51,7 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewId, mTextViewNama, mTextViewHarga,mTextViewWarna,mTextViewUkuran;
+        public TextView mTextViewId, mTextViewNama, mTextViewHarga,mTextViewWarna,mTextViewUkuran,mTextViewJumlah;
 
         public MyViewHolder(View keranjangView) {
             super(keranjangView);
@@ -60,6 +59,7 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
             mTextViewNama = (TextView) keranjangView.findViewById(R.id.tv_nama_item);
             mTextViewWarna = (TextView) keranjangView.findViewById(R.id.txt_warna);
             mTextViewUkuran = (TextView) keranjangView.findViewById(R.id.txt_ukuran);
+            mTextViewJumlah = (TextView) keranjangView.findViewById(R.id.txt_jumlah);
             mTextViewHarga = (TextView) keranjangView.findViewById(R.id.txt_harga);
         }
     }

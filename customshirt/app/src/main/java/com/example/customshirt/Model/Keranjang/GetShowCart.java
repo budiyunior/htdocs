@@ -15,8 +15,6 @@ public class GetShowCart {
         @SerializedName("id_pengguna")
         String id_pengguna;
 
-    @SerializedName("total_harga")
-    String total_harga;
 
     @SerializedName("result")
     List<Keranjang> listDataKeranjang;
@@ -45,13 +43,6 @@ public class GetShowCart {
         this.id_pengguna = id_pengguna;
     }
 
-    public String getTotal_harga() {
-        return total_harga;
-    }
-
-    public void setTotal_harga(String total_harga) {
-        this.total_harga = total_harga;
-    }
 
     public List<Keranjang> getListDataKeranjang() {
         return listDataKeranjang;

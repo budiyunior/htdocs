@@ -39,8 +39,6 @@ public class DesainPengguna {
 
     public DesainPengguna(){}
 
-
-
     public DesainPengguna(String id_desain, String id_pengguna, String id_cart, String id_item, String nama_desain, String ukuran_shirt, String gambar, String jumlah, String subtotal_berat, String subtotal_harga,String total_harga) {
         this.id_desain = id_desain;
         this.id_pengguna = id_pengguna;

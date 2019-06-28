@@ -4,12 +4,15 @@ import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.Item.GetItem;
 import com.example.customshirt.Model.Keranjang.GetKeranjang;
 import com.example.customshirt.Model.Keranjang.GetShowCart;
+import com.example.customshirt.Model.Keranjang.GetTotalHarga;
 import com.example.customshirt.Model.Keranjang.PostPutDelKeranjang;
+import com.example.customshirt.Model.Transaksi.PostTransaksi;
 import com.example.customshirt.Model.User.PostPutDelUser;
 import com.example.customshirt.Model.User.ResponseLogin;
 import com.example.customshirt.Model.city.ItemCity;
 import com.example.customshirt.Model.cost.ItemCost;
 import com.example.customshirt.Model.province.ItemProvince;
+import com.google.gson.annotations.SerializedName;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -81,12 +84,23 @@ public interface ApiInterface {
                                                       @Field("subtotal_harga") String subtotal_harga);
 
     @FormUrlEncoded
+    @POST("api/posttransaksi")
+    Call<PostTransaksi> postTransaksi(@Field("id_transaksi")String id_transaksi,
+                                      @Field("id_pengguna")String id_pengguna,
+                                      @Field("tanggal_transaksi")String tanggal_transaksi,
+                                      @Field("total_harga")String total_harga,
+                                      @Field("total_berat")String total_berat,
+                                      @Field("id_alamat_kirim")String id_alamat_kirim,
+                                      @Field("id_pengirim")String id_pengirim,
+                                      @Field("id_status")String id_status);
+
+    @FormUrlEncoded
     @POST("api/cart")
     Call<GetShowCart> showcart(@Field("id_pengguna") String id_pengguna);
 
     @FormUrlEncoded
     @POST("api/total_harga")
-    Call<GetShowCart> total_harga(@Field("id_pengguna") String id_pengguna);
+    Call<GetTotalHarga> total_harga(@Field("id_pengguna") String id_pengguna);
 
     @GET("api/cart")
     Call<GetShowCart> showcart2();
