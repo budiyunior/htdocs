@@ -43,10 +43,10 @@
 									<?php echo $gambaritem->nama_gambar ?>
 								</td>
 								<td>
-									<?php echo $gambaritem->gambar ?>
+									<img src="<?php echo base_url('upload/product/' . $gambaritem->gambar) ?>" width="64" />
 								</td>
 								<td width="250">
-									<a href="<?php echo site_url('admin/item/edit/' . $gambaritem->id_gambar) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+									<a href="<?php echo site_url('admin/gambaritem/edit/' . $gambaritem->id_gambar) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 									<a onclick="deleteConfirm('<?php echo site_url('admin/gambaritem/delete/' . $gambaritem->id_gambar) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 								</td>
 							</tr>

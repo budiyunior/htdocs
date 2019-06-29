@@ -43,7 +43,7 @@
                         $conn = mysqli_connect($servername, $username, $password, $database);
                         $sql_item = mysqli_query($conn, "SELECT * FROM item") or die(mysqli_error($conn));
                         while ($data_item = mysqli_fetch_array($sql_item)) {
-                            echo '<option value="' . $data_item['id_item'] . '">' . $data_item['nama_pengguna'] . '</option>';
+                            echo '<option value="' . $data_item['id_item'] . '">' . $data_item['nama_item'] . '</option>';
                         }
                         ?>
                     </select>                    

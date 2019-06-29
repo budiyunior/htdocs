@@ -7,7 +7,7 @@ class Gambaritem_model extends CI_Model
     public $id_gambar;
     public $id_item;
     public $nama_gambar;
-    public $gambar;
+    public $gambar = "default.jpg";
  
 
     public function rules()
@@ -35,7 +35,7 @@ class Gambaritem_model extends CI_Model
         $this->id_gambar = $post["id_gambar"];
         $this->id_item = $post["id_item"];
         $this->nama_gambar = $post["nama_gambar"];
-        $this->gambar = $post["gambar"];
+        $this->gambar = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -45,13 +45,45 @@ class Gambaritem_model extends CI_Model
         $this->id_gambar = $post["id_gambar"];
         $this->id_item = $post["id_item"];
         $this->nama_gambar = $post["nama_gambar"];
-        $this->gambar = $post["gambar"];
+        if (!empty($_FILES["gambar"]["name"])) {
+            $this->gambar = $this->_uploadImage();
+        } else {
+            $this->gambar = $post["old_image"];
+        }
         $this->db->update($this->_table, $this, array('id_gambar' => $post['id_gambar']));
     }
 
     public function delete($id_gambar)
     {
         return $this->db->delete($this->_table, array("id_gambar" => $id_gambar));
+    }
+
+    private function _uploadImage()
+    {
+        $config['upload_path']          = './upload/product/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']            = $this->id_gambar;
+        $config['overwrite']            = true;
+        $config['max_size']             = 1024; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('gambar')) {
+            return $this->upload->data("file_name");
+        }
+
+        print_r($this->upload->display_errors());
+    }
+
+    private function _deleteImage($id_gambar)
+    {
+        $gambaritem = $this->getById($id_gambar);
+        if ($gambaritem->gambar != "01.jpg") {
+            $filename = explode(".", $gambaritem->gambar)[0];
+            return array_map('unlink', glob(FCPATH . "upload/product/$filename.*"));
+        }
     }
 
 }
