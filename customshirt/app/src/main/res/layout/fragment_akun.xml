@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -69,23 +70,38 @@
             <Button
                 android:id="@+id/btn_pesanansaya"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
                 android:layout_margin="5dp"
-                android:background="@drawable/btn_myorder" />
+                android:background="@color/transparent"
+                android:text="Pesanan Saya"
+                android:textAlignment="textStart"
+                android:drawableRight="@drawable/ic_featured_play_list_black_24dp"
+                android:textColor="@color/colorPrimary"/>
 
             <Button
                 android:id="@+id/btn_alamatsaya"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
                 android:layout_margin="5dp"
-                android:background="@drawable/btn_myaddress" />
+                android:background="@color/transparent"
+                android:text="Alamat Saya"
+                android:textAlignment="textStart"
+                android:drawableRight="@drawable/ic_location_on_black_24dp"
+                android:textColor="@color/colorAccent"/>
 
             <Button
                 android:id="@+id/btn_ubahpassword"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
                 android:layout_margin="5dp"
-                android:background="@drawable/btn_pwchange" />
+                android:background="@color/transparent"
+                android:drawableRight="@drawable/ic_vpn_key_black_24dp"
+                android:text="Ubah Password"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrey" />
 
             <View
                 android:id="@+id/divider"
@@ -98,16 +114,25 @@
             <Button
                 android:id="@+id/btn_bantuan"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/btn_help" />
+                android:layout_gravity="start"
+                android:text="FAQ (Frequently Asked Question)"
+                android:textAlignment="textStart"
+                android:background="@color/transparent"
+                android:drawableRight="@drawable/ic_help"/>
 
             <Button
                 android:id="@+id/btn_cs"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@drawable/btn_cs" />
+                android:layout_gravity="start"
+                android:textAlignment="textStart"
+                android:background="@color/transparent"
+                android:text="Hubungi CS"
+                android:textColor="@color/colorSecondary"
+                android:drawableRight="@drawable/ic_wa"/>
 
             <Button
                 android:id="@+id/btn_cost"
