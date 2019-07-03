@@ -10,6 +10,7 @@ class Admin extends CI_Controller
         if (!$this->session->userdata('email')) {
             redirect('login');
         }
+
         $this->load->model("pegawai_model");
         $this->load->library('form_validation');
     }
@@ -20,8 +21,17 @@ class Admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["pegawai"] = $this->pegawai_model->getUserId();
-        $this->load->view("admin/pegawai_list", $data);
+        $email = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')]);
+        $id_akses = $this->db->get_where('pengguna', ['id_akses' =>
+        $this->session->userdata('id_akses')]);
+        $cek_id_akses = $this->pegawai_model->cek_akses_su($email, $id_akses);
+        if ($cek_id_akses == 1) {
+            redirect('admin/pegawai');
+        } else {
+            $data["pegawai"] = $this->pegawai_model->getUserId();
+            $this->load->view("admin/pegawai_list", $data);
+        }
     }
 
     public function add()

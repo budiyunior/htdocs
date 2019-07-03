@@ -42,7 +42,7 @@ class Pegawai_model extends CI_Model
         return $query->result();
     }
 
-    public function cek_akses($email, $id_akses)
+    public function cek_akses_adm($email, $id_akses)
     {
 
         $periksa = $this->db->get_where('pengguna', array('email' =>
@@ -53,6 +53,19 @@ class Pegawai_model extends CI_Model
             return 0;
         }
     }
+
+    public function cek_akses_su($email, $id_akses)
+    {
+
+        $periksa = $this->db->get_where('pengguna', array('email' =>
+        $this->session->userdata('email'), 'id_akses' => ('su')));
+        if ($periksa->num_rows() > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
 
     public function save()
     {
