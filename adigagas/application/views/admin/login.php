@@ -39,9 +39,7 @@
 
 									</form>
 									<hr>
-									<div class="text-center">
-										<a class="small" href="<?php echo site_url('forgot-password') ?>">Forgot Password?</a>
-									</div>
+
 								</div>
 							</div>
 						</div>
