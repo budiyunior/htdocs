@@ -10,7 +10,7 @@
     $subtotal = $biayaadmin + $nominal;
     $status_transaksi;
 
-    $ip = "192.168.1.3";
+    $ip = "192.168.137.165";
     $port = "8989";
 
     //ping server SMSGateway
@@ -36,29 +36,8 @@
 
     if ($status_transaksi == "BERHASIL"){
 
-        if(isset($_SESSION['detail_transaksi'])){
-            $_SESSION['detail_transaksi'][] = [
-                'id_transaksi' => $id_transaksi,
-                'operator' => $op,
-                'nominal' => $nominal,
-                'nomor' => $nomor,
-                'biaya_admin' => $biayaadmin,
-                'subtotal' => $subtotal
-            ];
-        } else {
-            $_SESSION['detail_transaksi'] = array([
-                'id_transaksi' => $id_transaksi,
-                'operator' => $_POST['operator'],
-                'nominal' => $nominal,
-                'nomor' => $nomor,
-                'biaya_admin' => $biayaadmin,
-                'subtotal' => $subtotal
-            ]);
-            
-        }
 
-        $additem = mysqli_query($conn, "INSERT INTO td_transaksi VALUES(NULL,'$id_transaksi','$op','$nominal','$nominal','$biayaadmin','$subtotal')");
-
+        
         $ch = curl_init('http://'.$ip.':'.$port.'');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");    
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -68,6 +47,32 @@
         );
         
         $result = curl_exec($ch);
+
+        if($result == "SUKSES"){
+            if(isset($_SESSION['detail_transaksi'])){
+                $_SESSION['detail_transaksi'][] = [
+                    'id_transaksi' => $id_transaksi,
+                    'operator' => $op,
+                    'nominal' => $nominal,
+                    'nomor' => $nomor,
+                    'biaya_admin' => $biayaadmin,
+                    'subtotal' => $subtotal
+                ];
+                $additem = mysqli_query($conn, "INSERT INTO td_transaksi VALUES(NULL,'$id_transaksi','$op','$nominal','$nominal','$biayaadmin','$subtotal')");
+
+            } else {
+                $_SESSION['detail_transaksi'] = array([
+                    'id_transaksi' => $id_transaksi,
+                    'operator' => $_POST['operator'],
+                    'nominal' => $nominal,
+                    'nomor' => $nomor,
+                    'biaya_admin' => $biayaadmin,
+                    'subtotal' => $subtotal
+                ]);
+                $additem = mysqli_query($conn, "INSERT INTO td_transaksi VALUES(NULL,'$id_transaksi','$op','$nominal','$nominal','$biayaadmin','$subtotal')");
+
+            }
+        }
     }
 
     $_SESSION['status'] = $status_transaksi;
