@@ -4,6 +4,9 @@
 
     unset($_SESSION['detail_transaksi']);
     unset($_SESSION['status']);
+    unset($_SESSION['save']);
+    unset($_SESSION['savenotif']);
+    // unset($_SESSION['kembali']);
 
     $id = uniqid(15);
     $tgl = date('Y-m-d');

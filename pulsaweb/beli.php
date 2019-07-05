@@ -41,13 +41,19 @@
       <!-- Main Content -->
       <div id="content">
 
-        
-
         <!-- Begin Page Content -->
         <div class="container-fluid mt-5">
 
           <!-- Page Heading -->
+
           <h1 class="h3 mb-2 text-gray-800">Beli Pulsa</h1>
+          
+          <?php if(isset($_SESSION['save'])) :?>
+            <div class="alert alert-<?php echo $_SESSION['save']?>" role="alert">
+              <?php echo $_SESSION['savenotif']; ?>
+            </div>
+          <?php else : ?>
+          <?php endif ?>
           
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -201,7 +207,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="submit" name="save">save</button> 
+                                <button class="btn btn-primary" type="submit" name="save">save</button> 
                             </td>
                         </tr>
                     </table>
