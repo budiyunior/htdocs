@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include 'koneksi.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,35 +59,47 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>No</th>
+                      <th>ID_Transaksi</th>
+                      <th>Tanggal</th>
+                      <th>Total</th>
+                      <th>Bayar date</th>
+                      <th>Kembali</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>No</th>
+                      <th>ID_Transaksi</th>
+                      <th>Tanggal</th>
+                      <th>Total</th>
+                      <th>Bayar date</th>
+                      <th>Kembali</th>
+                      <th>Aksi</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
+                    <?php 
+                      $list = mysqli_query($conn ,"SELECT * FROM tm_transaksi")or die(mysql_error());
+                      $nomor = 1;
+                      while($data = mysqli_fetch_array($list)){
+                      ?>
+                      <tr>
+                        <td><?php echo $nomor++; ?></td>
+                        <td><?php echo $data['id_transaksi']; ?></td>
+                        <td><?php echo $data['tanggal']; ?></td>
+                        <td><?php echo $data['total']; ?></td>
+                        <td><?php echo $data['bayar']; ?></td>
+                        <td><?php echo $data['kembali']; ?></td>
+                        <td>
+                          <a class="text-primary" href="edit.php?id=<?php echo $data['id']; ?>">View</a>				
+                        </td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>

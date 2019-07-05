@@ -76,20 +76,22 @@
                     <tr>
                         <td>Kode Transaksi</td>
                         <td>:</td>
-                        <td>
+                        <td class="text-primary">
+                          <strong>
                             <?php echo $_SESSION['transaksi']['id_transaksi']; ?>
+                          </strong>
                         </td>
                     </tr>
                     <tr>
                         <td>Tanggal</td>
                         <td>:</td>
-                        <td>
+                        <td class="text-success">
                             <?php echo $tgl = date('Y-m-d'); ?>
                         </td>
                     </tr>
                 </table>
-
-                <strong class="text-success">Tambah pulsa</strong>
+                <br>
+                <strong class="text-dark">Tambah pulsa</strong>
                 <form action="addpulsa.php" method="post">
                     <input type="hidden" name="id_transaksi" value="<?php echo $_SESSION['transaksi']['id_transaksi']; ?>">
                     <table>
