@@ -10,8 +10,8 @@
     $subtotal = $biayaadmin + $nominal;
     $status_transaksi;
 
-    $ip = "192.168.137.165";
-    $port = "8989";
+    $ip = "192.168.43.239";
+    $port = "8000";
 
     //ping server SMSGateway
     exec("ping -n 3 $ip", $output, $status);

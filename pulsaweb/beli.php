@@ -194,7 +194,7 @@
                     </tbody>
                   </table>
                 </div>
-                <form action="save.php" method="post">
+                <form action="print.php" method="post">
                     <table>
                         <input type="hidden" name="id_transaksi" value="<?php echo $_SESSION['transaksi']['id_transaksi']; ?>">
                         <input type="hidden" name="total" value="<?php echo $trans[0]; ?>">
@@ -209,7 +209,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button class="btn btn-primary" type="submit" name="save">save</button> 
+                              <button class="btn btn-success" type="submit" name="print">Print</button>
                             </td>
                         </tr>
                     </table>

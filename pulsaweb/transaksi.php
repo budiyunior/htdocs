@@ -96,7 +96,7 @@
                         <td><?php echo $data['bayar']; ?></td>
                         <td><?php echo $data['kembali']; ?></td>
                         <td>
-                          <a class="text-primary" href="edit.php?id=<?php echo $data['id']; ?>">View</a>				
+                          <a class="text-primary" href="view_trans.php?id=<?php echo $data['id_transaksi']; ?>">View</a>				
                         </td>
                       </tr>
                     <?php } ?>
