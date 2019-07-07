@@ -20,7 +20,7 @@ class Item extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["item"] = $this->item_model->getAll();
+        $data["item"] = $this->item_model->getJenisId();
         $this->load->view("admin/item/list", $data);
     }
 

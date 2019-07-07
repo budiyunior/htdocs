@@ -23,13 +23,11 @@
 					<thead>
 						<tr>
 							<th>ID Item</th>
-							<th>ID Pengguna</th>
 							<th>Nama Item</th>
-							<th>ID Jenis Item</th>
+							<th>Jenis</th>
 							<th>Harga Satuan</th>
 							<th>Berat Satuan</th>
 							<th>Deskripsi</th>
-
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -40,13 +38,10 @@
 									<?php echo $item->id_item ?>
 								</td>
 								<td>
-									<?php echo $item->id_pengguna ?>
-								</td>
-								<td>
 									<?php echo $item->nama_item ?>
 								</td>
 								<td>
-									<?php echo $item->id_jenis_item ?>
+									<?php echo $item->nama_jenis ?>
 								</td>
 								<td>
 									<?php echo $item->harga_satuan ?>
