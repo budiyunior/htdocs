@@ -89,23 +89,23 @@ public class KeranjangFragment extends Fragment implements View.OnClickListener 
 
 //        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
-        Call<GetTotalHarga> user = mApiInterface.total_harga(id_pengguna);
-//        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
-        user.enqueue(new Callback<GetTotalHarga>() {
-            @Override
-            public void onResponse(Call<GetTotalHarga> call, Response<GetTotalHarga> response) {
-//                String id_pengguna = response.body().getId_pengguna();
-                String total_harga = response.body().getTotal_harga();
-                tvtotal_harga = myFragmentView.findViewById(R.id.total_harga);
-                Log.e("Berhasil", "berhasil" + id_pengguna + total_harga);
-            }
-
-            @Override
-            public void onFailure(Call<GetTotalHarga> call, Throwable t) {
-                Log.e("gagal", "gagal" + t);
-                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_LONG).show();
-            }
-        });
+//        Call<GetTotalHarga> user = mApiInterface.total_harga(id_pengguna);
+////        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
+//        user.enqueue(new Callback<GetTotalHarga>() {
+//            @Override
+//            public void onResponse(Call<GetTotalHarga> call, Response<GetTotalHarga> response) {
+////                String id_pengguna = response.body().getId_pengguna();
+//                String total_harga = response.body().getTotal_harga();
+//                tvtotal_harga = myFragmentView.findViewById(R.id.total_harga);
+//                Log.e("Berhasil", "berhasil" + id_pengguna + total_harga);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<GetTotalHarga> call, Throwable t) {
+//                Log.e("gagal", "gagal" + t);
+//                Toast.makeText(getActivity(), "Koneksi Gagal", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
 
         return myFragmentView;
