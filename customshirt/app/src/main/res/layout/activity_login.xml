@@ -51,7 +51,7 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
-                android:textSize="13dp" />
+                android:textSize="18dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,7 +74,7 @@
                 android:singleLine="true"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
-                android:textSize="13dp" />
+                android:textSize="18dp" />
         </LinearLayout>
 
         <Button
@@ -84,6 +84,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_lightgreen"
+            android:textSize="20dp"
             android:text="Login"
             android:textColor="#fff"
             android:textStyle="bold" />
@@ -95,6 +96,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_navy"
+            android:textSize="20dp"
             android:text="@string/register"
             android:textColor="@color/colorWhite"
             android:textStyle="bold" />
@@ -106,6 +108,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_light"
+            android:textSize="20dp"
+            android:textColor="@color/colorBlack"
             android:text="no login"
             android:textStyle="bold" />
 
@@ -116,6 +120,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_light"
+            android:textSize="20dp"
+            android:textColor="@color/colorBlack"
             android:text="testdesain"
             android:textStyle="bold" />
 
