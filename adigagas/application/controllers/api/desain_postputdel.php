@@ -26,7 +26,6 @@ class Desain_postputdel extends REST_Controller
         $data = array(
             'id_desain'          => $this->post('id_desain'),
             'id_pengguna'           => $this->post('id_pengguna'),
-            'id_cart'          => $this->post('id_cart'),
             'id_item'          => $this->post('id_item'),
             'nama_desain'          => $this->post('nama_desain'),
             'ukuran_shirt'          => $this->post('ukuran_shirt'),
@@ -35,7 +34,7 @@ class Desain_postputdel extends REST_Controller
             'subtotal_berat'          => $this->post('subtotal_berat'),
             'subtotal_harga'    => $this->post('subtotal_harga')
         );
-        $insert = $this->db->insert('desain_cart', $data);
+        $insert = $this->db->insert('detail_cart', $data);
         if ($insert) {
             // $output['id_desain'] = $insert['id_desain'];
 

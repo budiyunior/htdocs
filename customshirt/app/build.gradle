@@ -48,6 +48,6 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.mikepenz:itemanimators:1.0.0@aar'
-
+    implementation 'com.nex3z:toggle-button-group:1.1.9'
 
 }

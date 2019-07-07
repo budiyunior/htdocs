@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.DetailKeranjang.PostDetailCart;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
+import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
+import com.nex3z.togglebuttongroup.button.CircularToggle;
 
 import java.util.UUID;
 
@@ -31,12 +35,17 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
     TextView tvNama, tvHarga, tvDeskripsi;
     SharedPreferences sharedPreferences;
     ElegantNumberButton jumlah_item;
+    SingleSelectToggleGroup single;
 
 
     private KeranjangFragment keranjangFragment;
     private Button btn_masukcart;
     ApiInterface mApiInterface;
     private Spref spref;
+    private RadioGroup radioSize;
+    private RadioButton radioBtnSize;
+    private Button btnDisplay;
+    private String selectedId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +55,22 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         tvNama = findViewById(R.id.tvNama);
         tvHarga = findViewById(R.id.tvHarga);
         tvDeskripsi = findViewById(R.id.tvDeskripsi);
+
+
+//        single = (SingleSelectToggleGroup) findViewById(R.id.radioSize);
+//        single.setOnCheckedChangeListener(new SingleSelectToggleGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(SingleSelectToggleGroup group, int checkedId) {
+//                int selectedId = single.getCheckedId();
+//
+//                // find the radiobutton by returned id
+//                select = () findViewById(selectedId);
+//
+//                Toast.makeText(MyAndroidAppActivity.this,
+//                        radioButton.getText(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
 
         jumlah_item = (ElegantNumberButton) findViewById(R.id.jumlah_item);
 
@@ -84,7 +109,28 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         btn_masukcart.setOnClickListener(this);
         String uniqueID = UUID.randomUUID().toString();
 
+        RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radioSize);
+//        RadioGroup.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                // Get the checked Radio Button ID from Radio Grou[
+////                int selectedRadioButtonID = rg.getCheckedRadioButtonId();
+////
+////                // If nothing is selected from Radio Group, then it return -1
+////                if (selectedRadioButtonID != -1) {
+////
+////                    RadioButton selectedRadioButton = (RadioButton) findViewById(selectedRadioButtonID);
+////                    String selectedRadioButtonText = selectedRadioButton.getText().toString();
+////
+////                    tv_result.setText(selectedRadioButtonText + " selected.");
+////                }
+////                else{
+////                    tv_result.setText("Nothing selected from Radio Group.");
+////                }
+////            }
+////        });
 
+//
     }
 
     public void PostDesain() {
@@ -108,7 +154,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         final Double subBerat = berat_satuan2 * tvHargaNew;
         Log.e("Berhasil", "berhasil"+harga_satuan+berat_satuan);
         Call<PostPutDelDesainPengguna> postDesain = mApiInterface.postDesainPengguna(UUID.randomUUID().toString(),id_pengguna,null,
-                id_item,tvNama.getText().toString(), null,null,jumlah_item.getNumber(),subBerat.toString()
+                id_item,tvNama.getText().toString(),null,null,jumlah_item.getNumber(),subBerat.toString()
                 ,subHarga.toString());
         postDesain.enqueue(new Callback<PostPutDelDesainPengguna>() {
             @Override
@@ -134,6 +180,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         if (v == btn_masukcart){
            PostDesain();
+
         }
 
 

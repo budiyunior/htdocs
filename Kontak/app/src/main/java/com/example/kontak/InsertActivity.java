@@ -2,6 +2,7 @@ package com.example.kontak;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +45,7 @@ public class InsertActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                     }
                 });
+                sendSmsByManager();
             }
         });
 
@@ -55,5 +57,22 @@ public class InsertActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void sendSmsByManager() {
+        try {
+            // Get the default instance of the SmsManager
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(edtNomor.getText().toString(),
+                    null,
+                    edtNama.getText().toString()+edtNomor.getText().toString(),
+                    null,
+                    null);
+            Toast.makeText(getApplicationContext(), "SMS Berhasil Dikirim!",
+                    Toast.LENGTH_LONG).show();
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(),"Pengiriman SMS Gagal...",
+                    Toast.LENGTH_LONG).show();
+            ex.printStackTrace();
+        }
     }
 }

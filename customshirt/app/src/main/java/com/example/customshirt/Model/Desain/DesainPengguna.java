@@ -28,7 +28,6 @@ public class DesainPengguna {
     @SerializedName("jumlah")
     private String jumlah;
 
-
     @SerializedName("subtotal_berat")
     private String subtotal_berat;
 

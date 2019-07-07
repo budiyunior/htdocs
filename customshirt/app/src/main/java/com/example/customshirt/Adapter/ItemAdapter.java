@@ -5,12 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 //import com.example.customshirt.EditActivity;
 import com.example.customshirt.DetailItem;
 import com.example.customshirt.Model.Item.Item;
 import com.example.customshirt.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.UUID;
@@ -35,6 +37,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         //holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_item());
         holder.mTextViewNama.setText(mItemList.get(position).getNama_item());
         holder.mTextViewHarga.setText("Rp." + mItemList.get(position).getHarga_satuan());
+//        final String urlGambar = "http://192.168.1.6/adigagas/upload/img/barang/" + mItemList.get(position).getGambar();
+//        Picasso.with(context).load(urlGambar).into(holder.imageView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,12 +62,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextViewId, mTextViewNama, mTextViewHarga;
+        public ImageView imageView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 //            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
             mTextViewHarga = (TextView) itemView.findViewById(R.id.tvHarga);
+            imageView = (ImageView) itemView.findViewById(R.id.item);
         }
     }
 }
