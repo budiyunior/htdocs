@@ -67,26 +67,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="id_akses">Divisi</label><br>
-                        <select class="form-control" name ="id_akses" id ="id_akses"  required>
-                          <option value="">--Pilih ID Akses--</option>
-                          <?php
-                          $servername = "localhost";
-                          $database = "custom_shirt";
-                          $username = "root";
-                          $password = "";
-                          $conn = mysqli_connect($servername, $username, $password, $database);
-                          $sql_akses = mysqli_query($conn, "SELECT * FROM hak_akses WHERE id_akses = 'ctm'") or die (mysqli_error($conn));
-                          while($data_akses = mysqli_fetch_array($sql_akses)){
-                            echo '<option value="'.$data_akses['id_akses'].'">'.$data_akses['nama_akses'].'</option>';
-                          }
-                          ?></select>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('id_akses') ?>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label for="email">Email</label>
                         <input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>"type="text" name="email" placeholder="Email" maxlength ="64" />
                         <div class="invalid-feedback">

@@ -7,7 +7,6 @@ class Pelanggan_model extends CI_Model
     public $id_pengguna;
     public $nama_pengguna;
     public $tanggal_lahir;
-    public $id_akses;
     public $email;
     public $password;
     public $nomor_telp;
@@ -38,20 +37,17 @@ class Pelanggan_model extends CI_Model
 
     public function getUserId()
     {
-        $query = $this->db->query("SELECT * FROM list_pengguna WHERE id_akses ='cus'");
+        $query = $this->db->query("SELECT * FROM v_pengguna WHERE id_akses ='cus'");
         return $query->result();
     }
 
     public function save()
     {
         $post = $this->input->post();
-        if (isset($_POST['id_akses'])) {
-            $id_pengguna = $_POST['id_akses'];
-        }
-        $this->id_pengguna = uniqid($id_pengguna);
+        $this->id_pengguna = uniqid("cus");
         $this->nama_pengguna = $post["nama_pengguna"];
         $this->tanggal_lahir = $post["tanggal_lahir"];
-        $this->id_akses = $post["id_akses"];
+        $this->id_akses = "cus";
         $this->email = $post["email"];
         $this->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $this->nomor_telp = $post["nomor_telp"];
