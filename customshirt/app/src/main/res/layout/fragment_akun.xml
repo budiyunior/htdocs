@@ -53,7 +53,9 @@
                 android:layout_alignParentEnd="true"
                 android:text=""
                 android:layout_margin="20dp"
-                android:background="@drawable/ic_btn_edit"
+                android:drawableRight="@drawable/ic_edit"
+                android:drawableTint="@color/colorGrey"
+                android:background="@color/transparent"
                 android:layout_alignParentRight="true" />
 
 
@@ -77,6 +79,7 @@
                 android:text="Pesanan Saya"
                 android:textAlignment="textStart"
                 android:drawableRight="@drawable/ic_featured_play_list_black_24dp"
+                android:drawableTint="@color/colorPrimary"
                 android:textColor="@color/colorPrimary"/>
 
             <Button
@@ -89,6 +92,7 @@
                 android:text="Alamat Saya"
                 android:textAlignment="textStart"
                 android:drawableRight="@drawable/ic_location_on_black_24dp"
+                android:drawableTint="@color/colorAccent"
                 android:textColor="@color/colorAccent"/>
 
             <Button
@@ -99,6 +103,7 @@
                 android:layout_margin="5dp"
                 android:background="@color/transparent"
                 android:drawableRight="@drawable/ic_vpn_key_black_24dp"
+                android:drawableTint="@color/colorGrey"
                 android:text="Ubah Password"
                 android:textAlignment="textStart"
                 android:textColor="@color/colorGrey" />
@@ -132,7 +137,9 @@
                 android:background="@color/transparent"
                 android:text="Hubungi CS"
                 android:textColor="@color/colorSecondary"
+                android:drawableTint="@color/colorSecondary"
                 android:drawableRight="@drawable/ic_wa"/>
+
 
             <Button
                 android:id="@+id/btn_cost"
