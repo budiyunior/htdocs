@@ -84,7 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             pDialog.setCancelable(false);
             // pDialog.setIndeterminate(false);
             pDialog.show();
-            Call<ResponseLogin> user = mApiInterface.login(txt_username.getText().toString(), txt_password.getText().toString());
+
+            Call<ResponseLogin> user = mApiInterface.login(txt_username.getText().toString(),txt_password.getText().toString());
 //        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
             user.enqueue(new Callback<ResponseLogin>() {
                 @Override
@@ -97,6 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     String tanggal_lahir = response.body().getTanggal_lahir();
                     String nomor_telp = response.body().getNomor_telp();
                     String password = response.body().getPassword();
+
                     if (TextUtils.isEmpty(id_pengguna)) {
                         Toast.makeText(LoginActivity.this, "Username atau Password Salah", Toast.LENGTH_SHORT).show();
                     } else {

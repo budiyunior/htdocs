@@ -24,6 +24,7 @@
 						<tr>
 							<th>ID Pengguna</th>
 							<th>Nama Pengguna</th>
+							<th>Cetak</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -35,6 +36,9 @@
 								</td>
 								<td>
 									<?php echo $jenisitem->nama_jenis ?>
+								</td>
+								<td>
+									<?php echo $jenisitem->cetak ?>
 								</td>
 								<td width="250">
 									<a href="<?php echo site_url('admin/jenisitem/edit/' . $jenisitem->id_jenis_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>

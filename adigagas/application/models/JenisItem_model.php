@@ -6,12 +6,17 @@ class JenisItem_model extends CI_Model
 
     public $id_jenis_item;
     public $nama_jenis;
+    public $cetak;
 
     public function rules()
     {
         return [
             ['field' => 'nama_jenis',
             'label' => 'nama_jenis',
+            'rules' => 'required'],
+
+            ['field' => 'cetak',
+            'label' => 'cetak',
             'rules' => 'required']
         ];
     }

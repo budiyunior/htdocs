@@ -13,7 +13,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">">
+      <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-wallet"></i>
           <span>Transaksi</span></a>

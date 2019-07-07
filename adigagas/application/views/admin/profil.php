@@ -36,13 +36,13 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <div class="col-xl-8 col-lg-7">
+                        <div class="col-xl-6">
 
                             <!-- Area Chart -->
-                            <div class="card mb-3" style="max-width: 540px;">
+                            <div class="card mb-3" style="">
                                 <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <img src="<?php echo base_url('upload/profil/') . $pengguna['foto']; ?>" class="card-img" alt="...">
+                                    <div class="col-md-3 my-4 mx-4">
+                                        <img src="<?php echo base_url('upload/profil/') . $pengguna['foto']; ?>" class="card-img" alt="" >
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -50,8 +50,8 @@
                                             <p class="card-text">Email: <?= $pengguna['email']; ?></p>
                                             <p class="card-text">Tanggal Lahir: <small class="text-muted"><?= $pengguna['tanggal_lahir']; ?></small></p>
                                             <p class="card-text">Nomer Telepon: <small class="text-muted"><?= $pengguna['nomor_telp']; ?></small></p>
-                                            <div class="card-header">
-                                                <a href="<?php echo site_url('admin/profil/edit/' . $pengguna['id_pengguna']) ?>"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                                            <div class="card-header ">
+                                                <a class="text-primary" href="<?php echo site_url('admin/profil/edit/' . $pengguna['id_pengguna']) ?>"><i class="fas fa-user-edit"></i> Edit Profile</a>
                                             </div>
                                         </div>
                                     </div>
