@@ -44,7 +44,7 @@ class Pelanggan_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->id_pengguna = uniqid("cus");
+        $this->id_pengguna = "cus".uniqid(15);
         $this->nama_pengguna = $post["nama_pengguna"];
         $this->tanggal_lahir = $post["tanggal_lahir"];
         $this->id_akses = "cus";
