@@ -63,6 +63,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
        View myFragmentView = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
         hf=this;
         filterjenisbaju = (Button) myFragmentView.findViewById(R.id.filterjenisbaju);
         filterjenisbaju.setOnClickListener(this);
@@ -113,6 +115,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
         });
     }
+
+
 
     @Override
     public void onClick(View v) {

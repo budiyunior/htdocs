@@ -110,7 +110,7 @@ class Cost extends REST_Controller
 		echo "cURL Error #:" . $err;
 		} else {
 		// echo $response;
-			$cost
+			// $cost
 		}
 		
 		
