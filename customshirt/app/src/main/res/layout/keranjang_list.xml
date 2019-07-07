@@ -48,11 +48,11 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
 
             android:layout_toRightOf="@id/img_item"
-            android:hint="Warna"
+            android:hint="Jumlah"
             android:textSize="@dimen/text0" />
 
         <TextView
-            android:id="@+id/txt_warna"
+            android:id="@+id/txt_jumlah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_nama_item"
@@ -60,7 +60,7 @@
 
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_toRightOf="@id/tv_warna"
-            android:hint="Warna"
+            android:hint="Jumlah"
             android:textSize="@dimen/text0" />
 
         <TextView
@@ -81,7 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_warna"
             android:layout_marginTop="5dp"
-
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_toRightOf="@id/tv_warna"
             android:hint="Ukuran"
@@ -94,7 +93,6 @@
             android:layout_below="@id/tv_ukuran"
             android:layout_marginTop="5dp"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-
             android:layout_toRightOf="@id/img_item"
             android:hint="Harga"
             android:textSize="@dimen/text1" />
@@ -105,18 +103,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_ukuran"
             android:layout_marginTop="5dp"
-
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_toRightOf="@id/tv_warna"
-            android:hint="Harga"
-            android:textSize="@dimen/text1" />
-        <TextView
-            android:id="@+id/txt_jumlah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_harga"
-            android:layout_marginTop="5dp"
-
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_toRightOf="@id/tv_warna"
             android:hint="Harga"
@@ -130,19 +116,9 @@
             android:layout_below="@id/img_item"
             android:layout_marginLeft="10dp"
             android:background="@color/transparent"
-            android:text="Edit"
-            android:textSize="@dimen/text1" />
-
-        <Button
-            android:id="@+id/btn_hapus"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_below="@id/img_item"
-            android:layout_toRightOf="@id/btn_edit"
-
-            android:background="@color/transparent"
             android:text="Hapus"
             android:textSize="@dimen/text1" />
+
 
         <Button
             android:id="@+id/btn_pesanlagi"
@@ -155,15 +131,6 @@
             android:text="Pesan Lagi"
             android:textSize="@dimen/text2" />
 
-
-        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-            android:layout_width="70dp"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
-            card_view:backGroundColor="@color/colorSecondary"
-            android:layout_above="@id/txt_total"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            card_view:textColor="@color/colorWhite"></com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
         <TextView
             android:id="@+id/txt_total"

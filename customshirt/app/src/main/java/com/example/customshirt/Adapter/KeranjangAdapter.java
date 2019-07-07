@@ -32,10 +32,12 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 //        holder.mTextViewId.setText(mKeranjangList.get(position).getId_pengguna());
-        holder.mTextViewWarna.setText(mKeranjangList.get(position).getNama_desain());
-        holder.mTextViewHarga.setText( mKeranjangList.get(position).getSubtotal_harga());
-        holder.mTextViewUkuran.setText( mKeranjangList.get(position).getSubtotal_berat());
+        holder.mTextViewNama.setText(mKeranjangList.get(position).getNama_desain());
+//        holder.mTextViewHarga.setText(mKeranjangList.get(position).getNama_desain());
+        holder.mTextViewTotal.setText( "Rp. "+mKeranjangList.get(position).getSubtotal_harga());
+        holder.mTextViewUkuran.setText( mKeranjangList.get(position).getUkuran_shirt());
         holder.mTextViewJumlah.setText( mKeranjangList.get(position).getJumlah());
+
 
 
 //        int overTotalPrice=0;
@@ -51,16 +53,18 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewId, mTextViewNama, mTextViewHarga,mTextViewWarna,mTextViewUkuran,mTextViewJumlah;
+        public TextView mTextViewId, mTextViewNama, mTextViewHarga,mTextViewWarna,mTextViewUkuran,mTextViewJumlah,
+                    mTextViewTotal;
 
         public MyViewHolder(View keranjangView) {
             super(keranjangView);
 //            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
             mTextViewNama = (TextView) keranjangView.findViewById(R.id.tv_nama_item);
-            mTextViewWarna = (TextView) keranjangView.findViewById(R.id.txt_warna);
+//            mTextViewWarna = (TextView) keranjangView.findViewById(R.id.txt_warna);
             mTextViewUkuran = (TextView) keranjangView.findViewById(R.id.txt_ukuran);
             mTextViewJumlah = (TextView) keranjangView.findViewById(R.id.txt_jumlah);
             mTextViewHarga = (TextView) keranjangView.findViewById(R.id.txt_harga);
+            mTextViewTotal = (TextView) keranjangView.findViewById(R.id.txt_total);
         }
     }
 }
