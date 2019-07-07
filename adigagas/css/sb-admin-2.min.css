@@ -2341,7 +2341,7 @@ select.form-control:focus::-ms-value {
 .form-control-file,
 .form-control-range {
 	display: block;
-	width: 100%
+	width: 100%;
 }
 
 .col-form-label {
@@ -11444,8 +11444,9 @@ button.bg-dark:hover {
 }
 
 .text-primary {
-	color: #4e73df !important
+	color: #297E7B !important
 }
+
 
 a.text-primary:focus,
 a.text-primary:hover {
