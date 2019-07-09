@@ -20,7 +20,7 @@ class GambarItem extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["gambaritem"] = $this->gambaritem_model->getAll();
+        $data["gambaritem"] = $this->gambaritem_model->getUserId();
         $this->load->view("admin/gambaritem/list", $data);
     }
 

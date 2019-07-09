@@ -29,6 +29,12 @@ class Gambaritem_model extends CI_Model
         return $this->db->get_where($this->_table, ["id_gambar" => $id])->row();
     }
 
+    public function getUserId()
+    {
+        $query = $this->db->query("SELECT gambar_shirt.id_gambar, item.id_item, gambar_shirt.nama_gambar, gambar_shirt.gambar FROM gambar_shirt INNER JOIN item ON gambar_shirt.id_item=item.id_item GROUP BY item.id_item");
+        return $query->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();

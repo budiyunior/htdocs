@@ -44,7 +44,7 @@
             <div class="col-lg-6">
             <div class="card mb-3">
                 <div class="card-header">
-                <a href="<?php echo site_url('admin/gambaritem/') ?>"><i class="fas fa-arrow-left"></i>Kembali</a>
+                <a href="<?php echo site_url('admin/item/') ?>"><i class="fas fa-arrow-left"></i>Kembali</a>
             </div>
             <div class="card-body">
 

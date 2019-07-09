@@ -14,7 +14,9 @@
 	<!-- DataTales Example -->
 	<div class="card mb-3">
 		<div class="card-header">
-			<a href="<?php echo site_url('admin/item/add') ?>"><i class="fas fa-plus"></i> Tambah Item</a>	
+			<a href="<?php echo site_url('admin/item/add') ?>"><i class="fas fa-plus"></i> Tambah Item</a>
+			<a href="<?php echo site_url('admin/gambaritem/add') ?>"><span style="float: right"><i class="fas fa-plus"></i> Tambah Gambar</a>
+
 		</div>
 		<div class="card-body">
 
@@ -53,7 +55,8 @@
 									<?php echo $item->deskripsi ?>
 								</td>
 								<td width="250">
-									<a href="<?php echo site_url('admin/item/edit/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+									<a href="<?php echo site_url('admin/item/edit/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit Item</a><br>
+									<a href="<?php echo site_url('admin/gambaritem/index/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i>View Gambar</a><br>		
 									<a onclick="deleteConfirm('<?php echo site_url('admin/item/delete/' . $item->id_item) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 								</td>
 							</tr>

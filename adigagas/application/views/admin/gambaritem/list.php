@@ -14,7 +14,8 @@
 	<!-- DataTales Example -->
 	<div class="card mb-3">
 		<div class="card-header">
-			<a href="<?php echo site_url('admin/gambaritem/add') ?>"><i class="fas fa-plus"></i> Tambah Gambar Item</a>	
+		<a href="<?php echo site_url('admin/item/') ?>"><i class="fas fa-arrow-left"></i>
+                Back</a>	
 		</div>
 		<div class="card-body">
 

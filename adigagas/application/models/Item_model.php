@@ -3,6 +3,7 @@
 class Item_model extends CI_Model
 {
     private $_table = "item";
+    private $_table1 = "gambar_shirt";
 
     public $id_item;
     public $nama_item;
@@ -64,6 +65,7 @@ class Item_model extends CI_Model
     public function delete($id_item)
     {
         return $this->db->delete($this->_table, array("id_item" => $id_item));
+        
     }
 
 }
