@@ -4,7 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.DeadObjectException;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +30,7 @@ import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.DetailKeranjang.PostDetailCart;
 import com.example.customshirt.Model.Image.ServerResponse;
 import com.example.customshirt.Rest.ApiClient;
+import com.example.customshirt.Rest.ApiConfig;
 import com.example.customshirt.Rest.ApiInterface;
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
 import com.nex3z.togglebuttongroup.button.CircularToggle;
@@ -44,7 +49,7 @@ import retrofit2.Response;
 
 public class DetailItem extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvNama, tvHarga, tvDeskripsi,tvNamaDesain;
+    TextView tvNama, tvHarga, tvDeskripsi,tvNamaDesain, tvfileimage,tvimage;
     SharedPreferences sharedPreferences;
     ElegantNumberButton jumlah_item;
     SingleSelectToggleGroup single;
@@ -72,6 +77,8 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         tvNamaDesain = findViewById(R.id.txt_nama_desain);
         tvHarga = findViewById(R.id.tvHarga);
         tvDeskripsi = findViewById(R.id.tvDeskripsi);
+        tvfileimage = findViewById(R.id.id_file);
+        tvimage = findViewById(R.id.id_upload);
         spinner=(Spinner)findViewById(R.id.ukuran);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.ukuran, android.R.layout.simple_spinner_item);
@@ -180,7 +187,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         final Double subBerat = berat_satuan2 * tvHargaNew;
         Log.e("Berhasil", "berhasil desain cart"+harga_satuan+berat_satuan);
         Call<PostPutDelDesainPengguna> postDesain = mApiInterface.postDesainPengguna(UUID.randomUUID().toString(),id_pengguna,null,
-                id_item,tvNamaDesain.getText().toString(),spinner.getSelectedItem().toString(),null,jumlah_item.getNumber(),subBerat.toString()
+                id_item,tvNamaDesain.getText().toString(),spinner.getSelectedItem().toString(),tvimage.getText().toString(),jumlah_item.getNumber(),subBerat.toString()
                 ,subHarga.toString());
         postDesain.enqueue(new Callback<PostPutDelDesainPengguna>() {
             @Override
@@ -226,7 +233,45 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         });
 
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            // When an Image is picked
+            if (requestCode == 0 && resultCode == RESULT_OK && null != data) {
+
+                // Get the Image from data
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                assert cursor != null;
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                mediaPath = cursor.getString(columnIndex);
+//                tvfileimage.setText(mediaPath);
+                String filename=mediaPath.substring(mediaPath.lastIndexOf("/")+1);
+                tvimage.setText(filename);
+                // Set the Image in ImageView for Previewing the Media
+//                imgView.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
+                cursor.close();
+
+
+            } else {
+                Toast.makeText(this, "You haven't picked Image/Video", Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
     private void uploadFile() {
+        progressDialog.show();
+
         // Map is used to multipart the file using okhttp3.RequestBody
         File file = new File(mediaPath);
 
@@ -235,27 +280,24 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
         RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
 
-        ApiInterface getResponse = ApiClient.getClient().create(ApiInterface.class);
-        Call call = getResponse.uploadFile(fileToUpload, filename);
-        call.enqueue(new Callback() {
+        ApiConfig getResponse = ApiClient.getRetrofit().create(ApiConfig.class);
+        Call<ServerResponse> call = getResponse.uploadFile(fileToUpload, filename);
+        call.enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onResponse(Call call, Response response) {
-                ServerResponse serverResponse = (ServerResponse) response.body();
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                ServerResponse serverResponse = response.body();
                 if (serverResponse != null) {
                     if (serverResponse.getSuccess()) {
-                        Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), serverResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), serverResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    assert serverResponse != null;
-                    Log.v("Response", serverResponse.toString());
                 }
                 progressDialog.dismiss();
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
 
             }
         });

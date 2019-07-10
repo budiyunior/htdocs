@@ -1,5 +1,5 @@
 <?php
-$target_dir = "upload/";
+$target_dir = "upload/product";
 $target_file_name = $target_dir . basename($_FILES["file"]["name"]);
 $response = array();
 

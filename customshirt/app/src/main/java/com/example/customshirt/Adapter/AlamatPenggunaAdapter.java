@@ -28,28 +28,20 @@ public class AlamatPenggunaAdapter extends RecyclerView.Adapter<AlamatPenggunaAd
 
     @Override
     public AlamatPenggunaAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.keranjang_list, parent, false);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_alamat, parent, false);
         AlamatPenggunaAdapter.MyViewHolder mViewHolder = new AlamatPenggunaAdapter.MyViewHolder(mView);
         return mViewHolder;
     }
 
     @Override
     public void onBindViewHolder(AlamatPenggunaAdapter.MyViewHolder holder, final int position) {
-//        holder.mTextViewId.setText(mAlamatPenggunaList.get(position).getId_desain());
-//        holder.mTextViewNama.setText(mAlamatPenggunaList.get(position).getNama_desain());
-////        holder.mTextViewHarga.setText(mKeranjangList.get(position).getNama_desain());
-//        holder.mTextViewTotal.setText( mAlamatPenggunaList.get(position).getSubtotal_harga());
-//        holder.mTextViewUkuran.setText( mAlamatPenggunaList.get(position).getUkuran_shirt());
-//        holder.mTextViewJumlah.setText( mAlamatPenggunaList.get(position).getJumlah());
-//        holder.mTextViewJumlah.setText( mAlamatPenggunaList.get(position).getJumlah());
-//        holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent mIntent = new Intent(v.getContext(), PopupDeleteCart.class);
-//                mIntent.putExtra("id_desain", mAlamatPenggunaList.get(position).getId_desain());
-//                v.getContext().startActivity(mIntent);
-//            }
-//        });
+        holder.mTextViewId.setText(mAlamatPenggunaList.get(position).getId_alamat());
+        holder.mTextViewProvinsi.setText(mAlamatPenggunaList.get(position).getNama_provinsi());
+//        holder.mTextViewHarga.setText(mKeranjangList.get(position).getNama_desain());
+        holder.mTextViewKota.setText( mAlamatPenggunaList.get(position).getNama_kota());
+        holder.mTextViewKodepos.setText( mAlamatPenggunaList.get(position).getKode_pos());
+        holder.mTextViewAlamat.setText( mAlamatPenggunaList.get(position).getAlamat_lengkap());
+
 
     }
 
@@ -60,19 +52,17 @@ public class AlamatPenggunaAdapter extends RecyclerView.Adapter<AlamatPenggunaAd
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewId, mTextViewNama, mTextViewHarga,mTextViewWarna,mTextViewUkuran,mTextViewJumlah,
+        public TextView mTextViewId, mTextViewProvinsi, mTextViewKota,mTextViewKodepos,mTextViewAlamat,mTextViewJumlah,
                 mTextViewTotal;
         public Button btn_hapus;
 
         public MyViewHolder(View keranjangView) {
             super(keranjangView);
-            mTextViewId = (TextView) itemView.findViewById(R.id.id_desain);
-            mTextViewNama = (TextView) keranjangView.findViewById(R.id.tv_nama_item);
-            mTextViewUkuran = (TextView) keranjangView.findViewById(R.id.txt_ukuran);
-            mTextViewJumlah = (TextView) keranjangView.findViewById(R.id.txt_jumlah);
-            mTextViewHarga = (TextView) keranjangView.findViewById(R.id.txt_harga);
-            mTextViewTotal = (TextView) keranjangView.findViewById(R.id.txt_total);
-            btn_hapus = (Button) keranjangView.findViewById(R.id.btn_edit);
+            mTextViewId = (TextView) itemView.findViewById(R.id.tv_id_alamat);
+            mTextViewProvinsi = (TextView) keranjangView.findViewById(R.id.tv_provinsi);
+            mTextViewKota = (TextView) keranjangView.findViewById(R.id.tv_kota);
+            mTextViewKodepos = (TextView) keranjangView.findViewById(R.id.tv_kode_pos);
+            mTextViewAlamat = (TextView) keranjangView.findViewById(R.id.tv_alamat_lengkap);
         }
     }
 

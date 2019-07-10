@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.synnapps.carouselview.CarouselView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".EditAlamatActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/tv_id_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:visibility="invisible"
+            android:hint="id alamat" />
+        <TextView
+            android:id="@+id/tv_provinsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Provinsi" />
+
+        <TextView
+            android:id="@+id/tv_kota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Kabupaten/Kota" />
+
+        <TextView
+            android:id="@+id/tv_kode_pos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Kode Pos"/>
+
+        <TextView
+            android:id="@+id/tv_alamat_lengkap"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Alamat Lengkap"/>
+
+
+    </LinearLayout>
+</com.synnapps.carouselview.CarouselView>

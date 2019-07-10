@@ -15,7 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -69,10 +72,15 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
 
         sharedPreferences = this.getActivity().getSharedPreferences("remember", Context.MODE_PRIVATE);
 
-        String email=sharedPreferences.getString("email","1");
-        Log.e("Berhasil", "berhasil"+email);
+//        String email=sharedPreferences.getString("email","1");
+//        Log.e("Berhasil", "berhasil"+email);
+//        user_profile_name= myFragmentView.findViewById(R.id.user_profile_name);
+//        user_profile_name.setText(email);
+
+        String id=sharedPreferences.getString("id_pengguna","2");
+        Log.e("Berhasil", "berhasil"+id);
         user_profile_name= myFragmentView.findViewById(R.id.user_profile_name);
-        user_profile_name.setText(email);
+        user_profile_name.setText(id);
 
         btn_bantuan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +109,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         }
 
         if (v == btn_alamatsaya) {
-            Intent AlamatActivity = new Intent(getActivity(), EditAlamatActivity.class);
+            Intent AlamatActivity = new Intent(getActivity(), AlamatActivity.class);
             startActivity(AlamatActivity);
         }
 
