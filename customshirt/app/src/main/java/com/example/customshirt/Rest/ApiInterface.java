@@ -12,8 +12,8 @@ import com.example.customshirt.Model.User.PostPutDelUser;
 import com.example.customshirt.Model.User.ResponseLogin;
 import com.example.customshirt.Model.city.ItemCity;
 import com.example.customshirt.Model.cost.ItemCost;
+import com.example.customshirt.Model.origin.Origin;
 import com.example.customshirt.Model.province.ItemProvince;
-import com.google.gson.annotations.SerializedName;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -46,6 +46,10 @@ public interface ApiInterface {
                                   @Field("email") String email,
                                   @Field("password") String password,
                                   @Field("nomor_telp") String nomor_telp);
+
+    @FormUrlEncoded
+    @POST("api/origin")
+    Call<Origin> getOrigin();
 
     @FormUrlEncoded
     @PUT("api/users")
