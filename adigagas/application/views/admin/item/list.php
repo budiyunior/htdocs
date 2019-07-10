@@ -15,7 +15,7 @@
 	<div class="card mb-3">
 		<div class="card-header">
 			<a href="<?php echo site_url('admin/item/add') ?>"><i class="fas fa-plus"></i> Tambah Item</a>
-			<a href="<?php echo site_url('admin/gambaritem/add') ?>"><span style="float: right"><i class="fas fa-plus"></i> Tambah Gambar</a>
+			
 
 		</div>
 		<div class="card-body">
@@ -30,6 +30,7 @@
 							<th>Harga Satuan</th>
 							<th>Berat Satuan</th>
 							<th>Deskripsi</th>
+							<th>Gambar</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -54,9 +55,12 @@
 								<td>
 									<?php echo $item->deskripsi ?>
 								</td>
+								<td>
+									<img src="<?php echo base_url('upload/product/' . $item->foto) ?>" width="64" />
+								</td>
+
 								<td width="250">
-									<a href="<?php echo site_url('admin/item/edit/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit Item</a><br>
-									<a href="<?php echo site_url('admin/gambaritem/index/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i>View Gambar</a><br>		
+									<a href="<?php echo site_url('admin/item/edit/' . $item->id_item) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 									<a onclick="deleteConfirm('<?php echo site_url('admin/item/delete/' . $item->id_item) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 								</td>
 							</tr>
