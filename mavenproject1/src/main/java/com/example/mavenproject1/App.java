@@ -27,7 +27,7 @@ public class App extends javax.swing.JFrame implements WebSocketListener {
         initComponents();
         
         try{
-            client = new SmsGatewayClient(new URI("ws://192.168.43.1:8989"),this);
+            client = new SmsGatewayClient(new URI("ws://192.168.43.1:8080"),this);
             client.connectBlocking();
         }catch(URISyntaxException e){
             e.printStackTrace();

@@ -41,7 +41,7 @@ public class pulsa extends javax.swing.JFrame {
         Gson gson = new Gson();
         String json = gson.toJson(object);
         HttpClient httpClient = HttpClients.createDefault();
-        HttpPost post = new HttpPost("http://192.168.43.1:8000");
+        HttpPost post = new HttpPost("http://192.168.43.239:8000");
         post.setEntity(new StringEntity(json));
         httpClient.execute(post);
     } catch (IOException ex){
@@ -341,6 +341,7 @@ public class pulsa extends javax.swing.JFrame {
        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Perubahan Data Gagal"+e.getMessage());
         }
+        SendPesan();
         load_table();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -364,7 +365,6 @@ public class pulsa extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("id_detail_transaksi");
         model.addColumn("tgl_transaksi");
-        model.addColumn("id_transaksi");
         model.addColumn("operator");
         model.addColumn("nominal");
         model.addColumn("harga_jual");
@@ -372,23 +372,28 @@ public class pulsa extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            java.sql.Connection conn=(Connection)Pulsadesktop.ConfigDB();
-            String sql = "Select * from transaksi where id_transaksi like '%" + jTextField2.getText() + "%'" +
-            "or tgl_transaksi like '%" + jDateChooser1.getDate() +"%'";
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet res=stm.executeQuery(sql);
-            String sql1 = "Select * from detail_transaksi where id_detail_transaksi like '%" + jTextField4.getText() + "%'" +
-            "or operator like '%" + jComboBox1.getSelectedItem() +"%'"+  
-            "or nominal like '%" + jComboBox2.getSelectedItem() +"%'"+  
-            "or harga_jual like '%" + jTextField3.getText() +"%'"+  
-            "or no_tujuan like '%" + jTextField7.getText() +"%'";  
-            java.sql.Statement stm1=conn.createStatement();
-            java.sql.ResultSet res1=stm1.executeQuery(sql1);
-            while(res.next() & (res1.next())){
-                model.addRow(new Object[]{res.getString(0),res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
+//            java.sql.Connection conn=(Connection)Pulsadesktop.ConfigDB();
+//            String sql = "Select id_detail_transaksi from transaksi where ";
+//            java.sql.Statement stm=conn.createStatement();
+//            java.sql.ResultSet res=stm.executeQuery(sql);
+//            String sql1 = "Select * from detail_transaksi where id_detail_transaksi like '%" + jTextField4.getText() + "%'" +
+//            "or operator like '%" + jComboBox1.getSelectedItem() +"%'"+  
+//            "or nominal like '%" + jComboBox2.getSelectedItem() +"%'"+  
+//            "or harga_jual like '%" + jTextField3.getText() +"%'"+  
+//            "or no_tujuan like '%" + jTextField7.getText() +"%'";  
+            
+            String sql1 = "Select dt.id_detail_transaksi, t.tgl_transaksi,dt.operator, dt.nominal, dt.harga_jual,dt.no_tujuan from detail_transaksi as dt, transaksi as t where dt.id_transaksi = t.id_transaksi";  
+            java.sql.Connection con = (java.sql.Connection) Pulsadesktop.ConfigDB();
+            java.sql.Statement ps = con.createStatement();
+            java.sql.ResultSet res = ps.executeQuery(sql1);
+            
+            while(res.next()){
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
             }
             jTable1.setModel(model);
         } catch (Exception e) {
+                        JOptionPane.showMessageDialog(this, e.getMessage());
+
         }
 }
     /**
