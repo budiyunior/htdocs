@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2019 at 12:26 PM
+-- Generation Time: Jul 10, 2019 at 02:05 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.0.32
 
@@ -35,14 +35,15 @@ CREATE TABLE `item` (
   `harga_satuan` int(11) DEFAULT NULL,
   `berat_satuan` int(11) DEFAULT NULL,
   `deskripsi` text,
-  `foto` varchar(64) NOT NULL
+  `gambar` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id_item`, `nama_item`, `id_jenis_item`, `harga_satuan`, `berat_satuan`, `deskripsi`, `foto`) VALUES
+INSERT INTO `item` (`id_item`, `nama_item`, `id_jenis_item`, `harga_satuan`, `berat_satuan`, `deskripsi`, `gambar`) VALUES
+('4', 'Kaos Futsal', 'hyget', 50000, 1, 'Tidak ada', '4.jpg'),
 ('item0002', 'Kaos Oblong O-Neck L-Pendek', 'combed', 90000, 150, 'Kaos oblong, O-neck, Lengan Pendek, Bahan Katun Combed, Sablon', 'item0002.jpg'),
 ('item0003', 'Kaos Oblong V-Neck L-Pendek', 'combed', 100000, 150, 'Kaos Oblong, V-neck, Sablon', 'item0003.jpg'),
 ('item0004', 'Kaos Oblong V-Neck L-Panjang', 'combed', 110000, 150, 'Kaos Oblong Print, Lengan Panjang, V-Neck', 'item0004.jpg');
