@@ -20,7 +20,7 @@ class Laporan extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-        $data["laporan"] = $this->laporan_model->getDetTrans();
+        $data["laporan"] = $this->laporan_model->getUserId();
         $this->load->view("admin/laporan/list", $data);
     }
 
