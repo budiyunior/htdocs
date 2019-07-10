@@ -85,11 +85,11 @@
                 </div>
 
                 <div class="form-group">
-					<label for="foto">Foto</label>
-					<input class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>" type="file" name="foto" />
-					<input type="hidden" name="old_image" value="<?php echo $item->foto ?>" />
+					<label for="gambar">Foto</label>
+					<input class="form-control-file <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar" />
+					<input type="hidden" name="old_image" value="<?php echo $item->gambar ?>" />
 					<div class="invalid-feedback">
-						<?php echo form_error('foto') ?>
+						<?php echo form_error('gambar') ?>
 					</div>
 				</div>
 

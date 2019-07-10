@@ -131,10 +131,10 @@
                     </div>
 
                     <div class="form-group">
-								        <label for="foto">Gambar</label>
-								        <input class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>" type="file" name="foto" />
+								        <label for="gambar">Gambar</label>
+								        <input class="form-control-file <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar" />
 							        	<div class="invalid-feedback">
-								          	<?php echo form_error('foto') ?>
+								          	<?php echo form_error('gambar') ?>
 								        </div>
 						      	</div>
 

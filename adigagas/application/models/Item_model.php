@@ -10,7 +10,7 @@ class Item_model extends CI_Model
     public $harga_satuan;
     public $berat_satuan;
     public $deskripsi;
-    public $foto = "default.jpg";
+    public $gambar = "default.jpg";
  
 
     public function rules()
@@ -47,7 +47,7 @@ class Item_model extends CI_Model
         $this->harga_satuan = $post["harga_satuan"];
         $this->berat_satuan = $post["berat_satuan"];
         $this->deskripsi = $post["deskripsi"];
-        $this->foto = $this->_uploadImage();
+        $this->gambar = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
     }
 
@@ -60,10 +60,10 @@ class Item_model extends CI_Model
         $this->harga_satuan = $post["harga_satuan"];
         $this->berat_satuan = $post["berat_satuan"];
         $this->deskripsi = $post["deskripsi"];
-        if (!empty($_FILES["foto"]["name"])) {
-            $this->foto = $this->_uploadImage();
+        if (!empty($_FILES["gambar"]["name"])) {
+            $this->gambar = $this->_uploadImage();
         } else {
-            $this->foto = $post["old_image"];
+            $this->gambar = $post["old_image"];
         }
         $this->db->update($this->_table, $this, array('id_item' => $post['id_item']));
     }
@@ -87,7 +87,7 @@ class Item_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('foto')) {
+        if ($this->upload->do_upload('gambar')) {
             return $this->upload->data("file_name");
         }
 
@@ -97,8 +97,8 @@ class Item_model extends CI_Model
     private function _deleteImage($id_item)
     {
         $item = $this->getById($id_item);
-        if ($item->foto != "01.jpg") {
-            $filename = explode(".", $item->foto)[0];
+        if ($item->gambar!= "01.jpg") {
+            $filename = explode(".", $item->gambar)[0];
             return array_map('unlink', glob(FCPATH . "upload/product/$filename.*"));
         }
     }

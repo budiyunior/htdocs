@@ -56,7 +56,7 @@
 									<?php echo $item->deskripsi ?>
 								</td>
 								<td>
-									<img src="<?php echo base_url('upload/product/' . $item->foto) ?>" width="64" />
+									<img src="<?php echo base_url('upload/product/' . $item->gambar) ?>" width="64" />
 								</td>
 
 								<td width="250">
