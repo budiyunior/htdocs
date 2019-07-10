@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailItem">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/person_photo"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Nama"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:id="@+id/btn_lyt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+
+                        <Button
+                            android:id="@+id/btn_download"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Download" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <View
+                        android:id="@+id/View2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#448AFF" />
+
+                    <TextView
+                        android:id="@+id/tvdeskripsi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="left"
+                        android:hint="Deskripsi"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_Buat_Custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Buat Custom" />
+    </RelativeLayout>
+</RelativeLayout>
