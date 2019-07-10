@@ -32,27 +32,6 @@
                 <input type="hidden" name="id_item" value="<?php echo $item->id_item ?>" />
 
                 <div class="form-group">
-                    <label for="id_pengguna">ID Pengguna</label>
-                    <select class="form-control" <?php echo form_error('id_pengguna') ? 'is-invalid' : '' ?> name="id_pengguna" id="id_pengguna" value="<?php echo $item->id_pengguna ?>" required>
-                        <option value="">--Pilih ID Pengguna--</option>
-                        <?php
-                        $servername = "localhost";
-                        $database = "custom_shirt";
-                        $username = "root";
-                        $password = "";
-                        $conn = mysqli_connect($servername, $username, $password, $database);
-                        $sql_pengguna = mysqli_query($conn, "SELECT * FROM pengguna") or die(mysqli_error($conn));
-                        while ($data_pengguna = mysqli_fetch_array($sql_pengguna)) {
-                            echo '<option value="' . $data_pengguna['id_pengguna'] . '">' . $data_pengguna['nama_pengguna'] . '</option>';
-                        }
-                        ?>
-                    </select>                    
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_pengguna') ?>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label for="nama_item">Nama Item</label>
                     <input class="form-control <?php echo form_error('nama_item') ? 'is-invalid' : '' ?>" type="text" name="nama_item" placeholder="" value="<?php echo $item->nama_item ?>" maxlength="13" />
                     <div class="invalid-feedback">
@@ -104,6 +83,15 @@
                         <?php echo form_error('deskripsi') ?>
                     </div>
                 </div>
+
+                <div class="form-group">
+					<label for="gambar">Foto</label>
+					<input class="form-control-file <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar" />
+					<input type="hidden" name="old_image" value="<?php echo $item->gambar ?>" />
+					<div class="invalid-feedback">
+						<?php echo form_error('gambar') ?>
+					</div>
+				</div>
 
 
                 <input class="btn btn-success" type="submit" name="btn" value="Save" />

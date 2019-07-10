@@ -130,7 +130,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         final String id_transaksi= String.valueOf(((new Date().getTime() / 1000L) % Integer.MAX_VALUE));
         Call<PostTransaksi> postTrans = mApiInterface.postTransaksi(id_transaksi,id_pengguna,date,
-                null,null, null,"1","maked");
+                "0","0", id_pengguna,"0","maked");
         postTrans.enqueue(new Callback<PostTransaksi>() {
             @Override
             public void onResponse(Call<PostTransaksi> call, Response<PostTransaksi> response) {

@@ -130,6 +130,14 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+								        <label for="gambar">Gambar</label>
+								        <input class="form-control-file <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar" />
+							        	<div class="invalid-feedback">
+								          	<?php echo form_error('gambar') ?>
+								        </div>
+						      	</div>
+
                     <input class="btn btn-success" type="submit" name="btn" value="Save" />
                 </form>
             </div>

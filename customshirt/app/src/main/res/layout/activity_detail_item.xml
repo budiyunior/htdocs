@@ -77,24 +77,45 @@
 
                 <LinearLayout
                     android:id="@+id/btn_lyt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ukuran"
                     android:layout_centerInParent="true"
                     android:orientation="horizontal">
 
                     <Button
+                        android:gravity="start"
                         android:id="@+id/btn_upload"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/activity_horizontal_margin"
                         android:text="Upload" />
+                    <TextView
+                        android:id="@+id/id_upload"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/id_file"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/btn_dowm"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_lyt"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
 
                     <Button
+                        android:gravity="start"
                         android:id="@+id/btn_download"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Download" />
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:text="Upload" />
+
                 </LinearLayout>
 
 
@@ -102,7 +123,7 @@
                     android:id="@+id/View1"
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@id/btn_lyt"
+                    android:layout_below="@id/btn_dowm"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"

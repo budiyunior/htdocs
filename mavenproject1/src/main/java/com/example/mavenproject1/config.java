@@ -17,7 +17,7 @@ public class config {
     private static Connection connect;
     public static Connection configDB()throws SQLException{
         try {
-            String url="jdbc:mysql://localhost:3306/tokopulsa"; //url database
+            String url="jdbc:mysql://localhost:3306/pulsamrdody"; //url database
             String user="root"; //user database
             String pass=""; //password database
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
