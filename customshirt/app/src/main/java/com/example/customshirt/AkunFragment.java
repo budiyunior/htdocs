@@ -18,7 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -32,7 +35,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
     private Button btn_cs;
     private Button btn_cost;
     private Button btn_alamatsaya;
-
+    Context mcontext;
     SharedPreferences sharedPreferences;
     private TextView user_profile_name;
     Spref spref;
@@ -53,6 +56,10 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         btn_profil = (Button) myFragmentView.findViewById(R.id.btn_profil);
         btn_profil.setOnClickListener(this);
         Button btn_bantuan=(Button) myFragmentView.findViewById(R.id.btn_bantuan);
+        //this.mcontext = context;
+        String imageUri = "http://192.168.43.153/adigagas/assets/profil/ctm5d0c97582efbd.jpg";
+        ImageView img_profile = (ImageView) myFragmentView.findViewById(R.id.user_profile_photo);
+        Picasso.with(mcontext).load(imageUri).into(img_profile);
 
         btn_cs = (Button) myFragmentView.findViewById(R.id.btn_cs);
         btn_cs.setOnClickListener(this);

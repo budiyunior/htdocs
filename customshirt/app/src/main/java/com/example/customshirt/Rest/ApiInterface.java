@@ -1,5 +1,6 @@
 package com.example.customshirt.Rest;
 
+import com.example.customshirt.Model.Desain.PostDesainSaya;
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.Item.GetItem;
 import com.example.customshirt.Model.Keranjang.GetKeranjang;
@@ -128,6 +129,17 @@ public interface ApiInterface {
                                                   @Field("jumlah") String jumlah,
                                                   @Field("subtotal_berat") String subtotal_berat,
                                                   @Field("subtotal_harga") String subtotal_harga);
+
+    @FormUrlEncoded
+    @POST("api/desain_post")
+    Call<PostDesainSaya> postDesainSaya(@Field("id_desain") String id_desain,
+                                        @Field("id_pengguna") String id_pengguna,
+                                        @Field("id_item") String id_item,
+                                        @Field("nama_desain") String nama_desain,
+                                        @Field("ukuran_shirt") String ukuran_shirt,
+                                        @Field("gambar") String gambar,
+                                        @Field("berat_satuan") String berat_satuan,
+                                        @Field("harga_satuan") String harga_satuan);
 
     // Province
     @GET("province")

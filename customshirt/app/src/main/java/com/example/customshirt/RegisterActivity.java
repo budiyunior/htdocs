@@ -47,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v == btn_register) {
             String id_pengguna= String.valueOf(((new Date().getTime() / 1000L) % Integer.MAX_VALUE));
-            Call<PostPutDelUser> postUserCall = mApiInterface.postUser(id_pengguna,txt_username.getText().toString(),"ctm",null,
+            Call<PostPutDelUser> postUserCall = mApiInterface.postUser(id_pengguna,txt_username.getText().toString(),"cus",null,
                     txt_email.getText().toString(),txt_password.getText().toString(), txt_nohp.getText().toString());
 //            postUserCall.enqueue(new Callback<PostPutDelUser>() {
 //                @Override

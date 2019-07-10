@@ -19,7 +19,7 @@ public class ButtonNav extends AppCompatActivity {
     private NotifFragment notifFragment;
     private KeranjangFragment keranjangFragment;
     private AkunFragment akunFragment;
-
+    public static ButtonNav bn;
 
 
     @Override
@@ -33,7 +33,7 @@ public class ButtonNav extends AppCompatActivity {
         notifFragment = new NotifFragment();
         keranjangFragment = new KeranjangFragment();
         akunFragment = new AkunFragment();
-
+bn=this;
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_frame, new HomeFragment())
                 .commit();

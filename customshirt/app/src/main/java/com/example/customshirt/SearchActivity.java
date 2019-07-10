@@ -63,8 +63,8 @@ public class SearchActivity extends AppCompatActivity {
                 Log.d("Retrofit Get", "Jumlah data Item: " +
                         String.valueOf(itemList.size()));
                 progressBar.setVisibility(View.GONE);
-                mAdapter = new ItemAdapter(itemList);
-                mRecyclerView.setAdapter(mAdapter);
+//                mAdapter = new ItemAdapter(itemList, getContext());
+//                mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override

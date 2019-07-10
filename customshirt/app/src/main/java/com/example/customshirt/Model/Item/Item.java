@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Item  {
+public class Item {
     @SerializedName("id_item")
     private String id_item;
     @SerializedName("nama_item")
@@ -19,15 +19,18 @@ public class Item  {
     private String berat_satuan;
     @SerializedName("deskripsi")
     private String deskripsi;
+    @SerializedName("gambar")
+    private String gambar;
 
 
-    public Item(String id_item, String nama_item, String id_jenis_item,String harga_satuan,String berat_satuan,String deskripsi) {
+    public Item(String id_item, String nama_item, String id_jenis_item, String harga_satuan, String berat_satuan, String deskripsi, String gambar) {
         this.id_item = id_item;
         this.nama_item = nama_item;
         this.id_jenis_item = id_jenis_item;
         this.harga_satuan = harga_satuan;
         this.berat_satuan = berat_satuan;
         this.deskripsi = deskripsi;
+        this.gambar = gambar;
     }
 
     public String getId_item() {
@@ -78,4 +81,11 @@ public class Item  {
         this.deskripsi = deskripsi;
     }
 
+    public String getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(String gambar) {
+        this.gambar = gambar;
+    }
 }

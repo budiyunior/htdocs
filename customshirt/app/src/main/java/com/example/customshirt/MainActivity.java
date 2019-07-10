@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 List<Item> itemList = response.body().getListDataItem();
                 Log.d("Retrofit Get", "Jumlah data Item: " +
                         String.valueOf(itemList.size()));
-                mAdapter = new ItemAdapter(itemList);
-                mRecyclerView.setAdapter(mAdapter);
+//                mAdapter = new ItemAdapter(itemList,getContext());
+//                mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override

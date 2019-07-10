@@ -105,7 +105,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     response) {
                 List<Item> itemList = response.body().getListDataItem();
                 Log.d("Retrofit Get", "Jumlah data Item: " +   String.valueOf(itemList.size()));
-                mAdapter = new ItemAdapter(itemList);
+                mAdapter = new ItemAdapter(itemList,getContext());
                 mRecyclerView.setAdapter(mAdapter);
             }
 

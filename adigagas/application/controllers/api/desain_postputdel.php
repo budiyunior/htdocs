@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('NO direct script access aloowed');
 
 require APPPATH . '/libraries/REST_Controller.php';
+
 use Restserver\Libraries\REST_Controller;
 
 require APPPATH . 'libraries/Format.php';
@@ -45,33 +46,12 @@ class Desain_postputdel extends REST_Controller
         }
     }
 
-    function index_put()
-    {
-        $id_desain = $this->put('id_desain');
-        $data = array(
-            'id_desain'          => $this->put('id_desain'),
-            'id_pengguna'           => $this->put('id_pengguna'),
-            'id_item'          => $this->put('id_item'),
-            'nama_desain'          => $this->put('nama_desain'),
-            'ukuran_shirt'          => $this->put('ukuran_shirt'),
-            'gambar'          => $this->put('gambar'),
-            'berat_satuan'          => $this->put('berat_satuan'),
-            'harga_satuan'    => $this->put('harga_satuan')
-        );
-        $this->db->where('id_desain', $id_desain);
-        $update = $this->db->update('desain_pengguna', $data);
-        if ($update) {
-            $this->response($data, 200);
-        } else {
-            $this->response(array('status' => 'fail', 502));
-        }
-    }
 
     function index_delete()
     {
         $id_desain = $this->delete('id_desain');
         $this->db->where('id_desain', $id_desain);
-        $delete = $this->db->delete('desain_pengguna');
+        $delete = $this->db->delete('detail_cart');
         if ($delete) {
             $this->response(array('status' => 'success'), 201);
         } else {

@@ -6,7 +6,7 @@ use Restserver\Libraries\REST_Controller;
 
 require APPPATH . 'libraries/Format.php';
 
-class transaksi extends REST_Controller
+class Transaksi extends REST_Controller
 {
 
     function __construct($config = 'rest')

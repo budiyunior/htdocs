@@ -19,15 +19,11 @@
 
 
         <ImageView
-            android:id="@+id/item"
+            android:id="@+id/item_gambar"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_below="@+id/tvNama"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_item" />
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"/>
 
         <!--<TextView-->
         <!--android:id="@+id/tvId"-->
@@ -78,6 +74,5 @@
             tools:ignore="RtlCompat" />
 
     </LinearLayout>
-
 
 </android.support.v7.widget.CardView>

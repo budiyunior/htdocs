@@ -6,7 +6,7 @@ use Restserver\Libraries\REST_Controller;
 
 require APPPATH . 'libraries/Format.php';
 
-class detail_cart extends REST_Controller
+class Detail_cart extends REST_Controller
 {
 
     function __construct($config = 'rest')

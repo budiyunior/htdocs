@@ -23,15 +23,10 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/person_photo"
+                android:id="@+id/image_item"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_below="@+id/tvNama"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:background="@color/colorPrimary" />
+                android:layout_gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
@@ -52,6 +47,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
             <EditText
+                android:id="@+id/txt_nama_desain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -72,50 +68,18 @@
                     android:text="Ukuran"
                     android:textSize="@dimen/text2" />
 
-                <RadioGroup
-                    android:id="@+id/radioSize"
+                <Spinner
+                    android:id="@+id/ukuran"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@id/tv_ukuran"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/sizeS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="S" />
-
-                    <RadioButton
-                        android:id="@+id/sizeM"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="M" />
-
-                    <RadioButton
-                        android:id="@+id/sizeL"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="L" />
-
-                    <RadioButton
-                        android:id="@+id/sizeXL"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="XL" />
-
-                    <RadioButton
-                        android:id="@+id/sizeXXL"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="XXL" />
-                </RadioGroup>
+                    android:layout_height="wrap_content" />
 
 
                 <LinearLayout
                     android:id="@+id/btn_lyt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/radioSize"
+                    android:layout_below="@id/ukuran"
                     android:layout_centerInParent="true"
                     android:orientation="horizontal">
 
@@ -172,14 +136,16 @@
 
     </LinearLayout>
 </ScrollView>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/btn_masukcart"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Masukan Keranjang"
-        android:layout_alignParentBottom="true"/>
-</RelativeLayout>
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_masukcart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Masukan Keranjang" />
+    </RelativeLayout>
 </RelativeLayout>

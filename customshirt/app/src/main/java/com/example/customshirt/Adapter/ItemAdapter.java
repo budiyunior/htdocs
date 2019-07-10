@@ -1,5 +1,6 @@
 package com.example.customshirt.Adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,9 +21,10 @@ import java.util.UUID;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
     List<Item> mItemList;
-
-    public ItemAdapter(List<Item> ItemList) {
+    Context context;
+    public ItemAdapter(List<Item> ItemList, Context context) {
         mItemList = ItemList;
+        this.context=context;
     }
 
     @Override
@@ -37,8 +39,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         //holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_item());
         holder.mTextViewNama.setText(mItemList.get(position).getNama_item());
         holder.mTextViewHarga.setText("Rp." + mItemList.get(position).getHarga_satuan());
-//        final String urlGambar = "http://192.168.1.6/adigagas/upload/img/barang/" + mItemList.get(position).getGambar();
-//        Picasso.with(context).load(urlGambar).into(holder.imageView);
+       final String urlGambar = "http://192.168.43.153/adigagas/upload/profil/"+mItemList.get(position).getGambar();
+        Picasso.with(this.context).load(urlGambar).into(holder.imageGambar);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,10 +51,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
                 mIntent.putExtra("Harga",mItemList.get(position).getHarga_satuan());
                 mIntent.putExtra("Berat", mItemList.get(position).getBerat_satuan() );
                 mIntent.putExtra("Deskripsi", mItemList.get(position).getDeskripsi());
+                mIntent.putExtra("Gambar", mItemList.get(position).getGambar());
                 view.getContext().startActivity(mIntent);
             }
         });
-
     }
 
     @Override
@@ -62,14 +64,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextViewId, mTextViewNama, mTextViewHarga;
-        public ImageView imageView;
+        public ImageView imageGambar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 //            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
             mTextViewHarga = (TextView) itemView.findViewById(R.id.tvHarga);
-            imageView = (ImageView) itemView.findViewById(R.id.item);
+            imageGambar = (ImageView) itemView.findViewById(R.id.item_gambar);
         }
     }
 }

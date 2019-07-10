@@ -29,7 +29,7 @@
 
         <android.support.v7.widget.RecyclerView
 
-            android:id="@+id/recyclerKeranjang"
+            android:id="@+id/recyclerCheckout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
@@ -73,6 +73,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txthargatotal"
-            android:text="Cheakout" />
+            android:text="Checkout" />
     </RelativeLayout>
 </RelativeLayout>

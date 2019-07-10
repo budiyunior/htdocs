@@ -13,7 +13,7 @@ public class Keranjang {
     private String id_item;
     @SerializedName("nama_desain")
     private String nama_desain;
-    @SerializedName("ukuran shirt")
+    @SerializedName("ukuran_shirt")
     private String ukuran_shirt;
     @SerializedName("gambar")
     private String gambar;

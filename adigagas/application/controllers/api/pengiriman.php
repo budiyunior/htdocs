@@ -6,7 +6,7 @@ use Restserver\Libraries\REST_Controller;
 
 require APPPATH . 'libraries/Format.php';
 
-class pengiriman extends REST_Controller
+class Pengiriman extends REST_Controller
 {
 
     function __construct($config = 'rest')

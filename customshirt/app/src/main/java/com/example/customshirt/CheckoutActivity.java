@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.customshirt.Adapter.CheckoutAdapter;
 import com.example.customshirt.Adapter.KeranjangAdapter;
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.Keranjang.GetShowCart;
@@ -57,7 +58,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
         final String id_pengguna = sharedPreferences.getString("id_pengguna","0");
         Log.e("Berhasil", "berhasil"+id_pengguna);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerKeranjang);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCheckout);
         mLayoutManager = new LinearLayoutManager(CheckoutActivity.this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -80,7 +81,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
 //                String id_pengguna = response.body().getId_pengguna();
                 List<Keranjang> keranjangList = response.body().getListDataKeranjang();
                 Log.d("Retrofit Get", "Jumlah data Keranjang:"+String.valueOf(keranjangList.size()));
-                mAdapter = new KeranjangAdapter(keranjangList);
+                mAdapter = new CheckoutAdapter(keranjangList);
                 mRecyclerView.setAdapter(mAdapter);
                 Log.e("Berhasil", "berhasil"+id_pengguna);
             }
