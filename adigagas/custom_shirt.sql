@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2019 at 06:14 PM
+-- Generation Time: Jul 10, 2019 at 08:03 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -383,7 +383,7 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_pengguna`, `tanggal_transaksi`, `to
 ('1562748829', '1562748752', '2019-07-10', NULL, NULL, NULL, NULL, 'maked'),
 ('1562748830', '1562748752', '2019-07-10', NULL, NULL, NULL, NULL, 'maked'),
 ('1562748831', '1562748752', '2019-07-10', NULL, NULL, NULL, NULL, 'maked'),
-('trans0001', 'cus5d21546c61851', '2019-07-07', 1320000, 1800, 'sentadd0001', 'sent0001', 'payed'),
+('trans0001', 'cus5d21546c61851', '2019-07-07', 1320000, 1800, 'sentadd0001', 'sent0001', 'done'),
 ('trans0002', 'cus5d21546c61851', '2019-07-07', 550000, 750, 'sentadd0001', 'sent0002', 'maked');
 
 -- --------------------------------------------------------
@@ -401,6 +401,7 @@ CREATE TABLE `v_item` (
 ,`id_jenis_item` varchar(10)
 ,`nama_jenis` varchar(30)
 ,`cetak` varchar(10)
+,`gambar` varchar(128)
 );
 
 -- --------------------------------------------------------
@@ -459,7 +460,7 @@ CREATE TABLE `v_trans` (
 --
 DROP TABLE IF EXISTS `v_item`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_item`  AS  select `item`.`id_item` AS `id_item`,`item`.`nama_item` AS `nama_item`,`item`.`harga_satuan` AS `harga_satuan`,`item`.`berat_satuan` AS `berat_satuan`,`item`.`deskripsi` AS `deskripsi`,`jenis_item`.`id_jenis_item` AS `id_jenis_item`,`jenis_item`.`nama_jenis` AS `nama_jenis`,`jenis_item`.`cetak` AS `cetak` from (`item` join `jenis_item`) where (`item`.`id_jenis_item` = `jenis_item`.`id_jenis_item`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_item`  AS  select `item`.`id_item` AS `id_item`,`item`.`nama_item` AS `nama_item`,`item`.`harga_satuan` AS `harga_satuan`,`item`.`berat_satuan` AS `berat_satuan`,`item`.`deskripsi` AS `deskripsi`,`jenis_item`.`id_jenis_item` AS `id_jenis_item`,`jenis_item`.`nama_jenis` AS `nama_jenis`,`jenis_item`.`cetak` AS `cetak`,`item`.`gambar` AS `gambar` from (`item` join `jenis_item`) where (`item`.`id_jenis_item` = `jenis_item`.`id_jenis_item`) ;
 
 -- --------------------------------------------------------
 
