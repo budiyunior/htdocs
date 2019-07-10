@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".DeskripsiItemActivity"></activity>
+        <activity android:name=".PembayaranActivity"></activity>
+        <activity android:name=".DeskripsiItemActivity" />
         <activity android:name=".AlamatActivity" />
         <activity android:name=".KurirActivity" />
         <activity
