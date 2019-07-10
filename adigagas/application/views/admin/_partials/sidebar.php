@@ -12,12 +12,12 @@
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo site_url('admin/transaksi/index') ?>">
-          <i class="fas fa-fw fa-wallet"></i>
-          <span>Transaksi</span></a>
-      </li>
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?php echo site_url('admin/transaksi/index') ?>">
+      <i class="fas fa-fw fa-wallet"></i>
+      <span>Transaksi</span></a>
+  </li>
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
@@ -50,20 +50,10 @@
   </li>
 
   <!-- Nav Item - Utilities Collapse Menu -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Laporan" aria-expanded="true" aria-controls="Laporan">
+  <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active' : '' ?>">
+    <a class="nav-link" href="<?php echo site_url('admin/laporan/index') ?>">
       <i class="fas fa-fw fa-print"></i>
-      <span>Laporan</span>
-    </a>
-    <div id="Laporan" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Laporan Penjualan:</h6>
-        <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-color' ? 'active' : '' ?>" href="<?php echo site_url('admin/laporan/index') ?>">ALL</a>
-        <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-border' ? 'active' : '' ?>" href="#">Tahunan</a>
-        <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-color' ? 'active' : '' ?>" href="#">Bulanan</a>
-        <a class="collapse-item <?php echo $this->uri->segment(2) == 'utilities-border' ? 'active' : '' ?>" href="#">Mingguan</a>
-      </div>
-    </div>
+      <span>Laporan</span></a>
   </li>
 
   <!-- Divider -->

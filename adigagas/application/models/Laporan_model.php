@@ -37,7 +37,7 @@ class Laporan_model extends CI_Model
 
     public function getUserId()
     {
-        $query = $this->db->query("SELECT * FROM v_pengguna WHERE id_akses ='cus'");
+        $query = $this->db->query("SELECT * FROM V_trans WHERE id_status ='done'");
         return $query->result();
     }
 

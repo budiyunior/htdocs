@@ -1,57 +1,74 @@
 <!-- Load View head, sidebar, dan navbar ada di Controler gaess -->
 <!-- Tepatnya di _partials/spesialtop -->
 <!-- saya pisah biar nama yang login tercantum di navabr gaes -->
+
 <!-- End of Topbar -->
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-	<h1 class="h3 mb-2 text-gray-800">Data Laporan</h1>
+	<h1 class="h3 mb-2 text-gray-800">Data Transaksi</h1>
 
 
 	<!-- DataTales Example -->
 	<div class="card mb-3">
-
+		<div class="card-header">
+			List Laporan
+		</div>
 		<div class="card-body">
 
 			<div class="table-responsive">
 				<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
-							<th>ID Pengguna</th>
-							<th>Nama Pengguna</th>
-							<th>Tanggal Lahir</th>
-
-							<th>Email</th>
-							<th>Nomor Telp</th>
-							<th>Foto</th>
+							<th>ID Transaksi</th>
+							<th>Pengguna</th>
+							<th>Tanggal</th>
+							<th>Dibayar</th>
+							<th>Alamat</th>
+							<th>Ekspedisi</th>
+							<th>Status</th>
+							<!-- <th>Action</th> -->
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($pelanggan as $pelanggan) : ?>
+						<?php foreach ($laporan as $laporan) : ?>
 							<tr>
 								<td>
-									<?php echo $pelanggan->id_pengguna ?>
-								</td>
-								<td width="150">
-									<?php echo $pelanggan->nama_pengguna ?>
+									<?php echo $laporan->id_transaksi ?>
 								</td>
 								<td>
-									<?php echo $pelanggan->tanggal_lahir ?>
+									<?php echo $laporan->nama_pengguna ?>
+								</td>
+								<td>
+									<?php echo $laporan->tanggal_transaksi ?>
+								</td>
+								<td>
+									<?php echo 'Rp. ' . number_format($laporan->total_harga, 2, ',', '.') ?>
+								</td>
+								<td>
+									<?php echo $laporan->nama_provinsi . ", " . $laporan->nama_kota . " (" . $laporan->kode_pos . ")" ?>
+								</td>
+								<td>
+									<?php echo $laporan->nama_ekspedis ?>
+								</td>
+								<td>
+									<?php echo $laporan->nama_status ?>
 								</td>
 
-								<td>
-									<?php echo $pelanggan->email ?>
+								<!-- <td width="120">
+										<a href="<?php echo site_url('admin/transaksi/view/' . $transaksi->id_transaksi) ?>" class="btn btn-small text-primary"><i class="fas fa-info-circle"></i> Detail</a>
+										<?php if ($transaksi->id_status == "maked") : ?>
+												<i class="text-warning fas fa-exclamation-circle"></i>
+										<?php elseif ($transaksi->id_status == "fail") : ?>
+												<i class="text-danger fas fa-times-circle"></i>
+										<?php elseif ($transaksi->id_status == "done") : ?>
+												<i class="text-success fas fa-check-circle"></i>
+										<?php else : ?>
+												<i class="text-gray-500 fas fa-spinner"></i>
+										<?php endif ?> -->
 								</td>
-								<td>
-									<?php echo $pelanggan->nomor_telp ?>
-								</td>
-								<td>
-									<img src="<?php echo base_url('upload/profil/' . $pelanggan->foto) ?>" width="64" />
-								</td>
-
-
 							</tr>
 						<?php endforeach; ?>
 
