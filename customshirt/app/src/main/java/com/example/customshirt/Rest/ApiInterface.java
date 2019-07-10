@@ -1,12 +1,15 @@
 package com.example.customshirt.Rest;
 
+import com.example.customshirt.Model.AlamatPengguna.GetAlamatPengguna;
 import com.example.customshirt.Model.Desain.PostDesainSaya;
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
+import com.example.customshirt.Model.Image.ServerResponse;
 import com.example.customshirt.Model.Item.GetItem;
 import com.example.customshirt.Model.Keranjang.GetKeranjang;
 import com.example.customshirt.Model.Keranjang.GetShowCart;
 import com.example.customshirt.Model.Keranjang.GetTotalHarga;
 import com.example.customshirt.Model.Keranjang.PostPutDelKeranjang;
+
 import com.example.customshirt.Model.Transaksi.PostTransaksi;
 import com.example.customshirt.Model.User.PostPutDelUser;
 import com.example.customshirt.Model.User.ResponseLogin;
@@ -15,14 +18,18 @@ import com.example.customshirt.Model.cost.ItemCost;
 import com.example.customshirt.Model.origin.Origin;
 import com.example.customshirt.Model.province.ItemProvince;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.HTTP;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -104,6 +111,10 @@ public interface ApiInterface {
     Call<GetShowCart> showcart(@Field("id_pengguna") String id_pengguna);
 
     @FormUrlEncoded
+    @POST("api/alamat_pengguna")
+    Call<GetAlamatPengguna> getAlamatPengguna(@Field("id_pengguna") String id_pengguna);
+
+    @FormUrlEncoded
     @POST("api/total_harga")
     Call<GetTotalHarga> total_harga(@Field("id_pengguna") String id_pengguna);
 
@@ -144,6 +155,11 @@ public interface ApiInterface {
                                         @Field("gambar") String gambar,
                                         @Field("berat_satuan") String berat_satuan,
                                         @Field("harga_satuan") String harga_satuan);
+
+    @Multipart
+    @POST("api/upload_image")
+    Call<ServerResponse> uploadFile(@Part MultipartBody.Part file,
+                                    @Part("file") RequestBody name);
 
     // Province
     @GET("province")

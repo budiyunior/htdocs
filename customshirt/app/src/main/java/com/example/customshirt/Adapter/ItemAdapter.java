@@ -39,7 +39,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         //holder.mTextViewId.setText("Id = " + mItemList.get(position).getId_item());
         holder.mTextViewNama.setText(mItemList.get(position).getNama_item());
         holder.mTextViewHarga.setText("Rp." + mItemList.get(position).getHarga_satuan());
-       final String urlGambar = "http://192.168.43.153/adigagas/upload/profil/"+mItemList.get(position).getGambar();
+       final String urlGambar = "http://192.168.0.112/adigagas/upload/profil/"+mItemList.get(position).getGambar();
         Picasso.with(this.context).load(urlGambar).into(holder.imageGambar);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

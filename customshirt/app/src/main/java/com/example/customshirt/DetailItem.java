@@ -1,5 +1,6 @@
 package com.example.customshirt;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +24,7 @@ import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.customshirt.Model.Desain.PostDesainSaya;
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.DetailKeranjang.PostDetailCart;
+import com.example.customshirt.Model.Image.ServerResponse;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
@@ -30,8 +32,12 @@ import com.nex3z.togglebuttongroup.button.CircularToggle;
 import com.squareup.picasso.Picasso;
 
 
+import java.io.File;
 import java.util.UUID;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,10 +48,13 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
     SharedPreferences sharedPreferences;
     ElegantNumberButton jumlah_item;
     SingleSelectToggleGroup single;
-
+    ProgressDialog progressDialog;
+    String mediaPath;
     Spinner spinner;
     private KeranjangFragment keranjangFragment;
     private Button btn_masukcart;
+    private Button btn_upload;
+    private Button btn_download;
     ApiInterface mApiInterface;
     private Spref spref;
     private RadioGroup radioSize;
@@ -57,7 +66,8 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_item);
-
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Uploading...");
         tvNama = findViewById(R.id.tvNama);
         tvNamaDesain = findViewById(R.id.txt_nama_desain);
         tvHarga = findViewById(R.id.tvHarga);
@@ -67,7 +77,10 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
                 R.array.ukuran, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
+        btn_upload = (Button) findViewById(R.id.btn_upload);
+        btn_upload.setOnClickListener(this);
+        btn_download = (Button) findViewById(R.id.btn_download);
+        btn_download.setOnClickListener(this);
 
 //        single = (SingleSelectToggleGroup) findViewById(R.id.radioSize);
 //        single.setOnCheckedChangeListener(new SingleSelectToggleGroup.OnCheckedChangeListener() {
@@ -109,7 +122,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
         ImageView image_item= (ImageView) findViewById(R.id.image_item);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        String imageUri = "http://192.168.43.153/adigagas/assets/profil/"+mIntent.getStringExtra("Gambar");
+        String imageUri = "http://192.168.0.112/adigagas/upload/profil/"+mIntent.getStringExtra("Gambar");
         Picasso.with(this).load(imageUri).into(image_item);
         Log.e("Berhasil", "berhasil"+imageUri);
 //        sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
@@ -213,15 +226,55 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
         });
 
     }
+    private void uploadFile() {
+        // Map is used to multipart the file using okhttp3.RequestBody
+        File file = new File(mediaPath);
+
+        // Parsing any Media type file
+        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+        RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
+
+        ApiInterface getResponse = ApiClient.getClient().create(ApiInterface.class);
+        Call call = getResponse.uploadFile(fileToUpload, filename);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                ServerResponse serverResponse = (ServerResponse) response.body();
+                if (serverResponse != null) {
+                    if (serverResponse.getSuccess()) {
+                        Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    assert serverResponse != null;
+                    Log.v("Response", serverResponse.toString());
+                }
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
 
     @Override
     public void onClick(View v) {
         if (v == btn_masukcart){
            PostDesain();
            PostDesainSaya();
-
         }
-
+        if (v == btn_download){
+         uploadFile();
+        }
+        if (v == btn_upload){
+            Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galleryIntent, 0);
+        }
 
     }
 
