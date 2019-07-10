@@ -4,52 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlamatActivity">
+    tools:context=".AlamatActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edit_provinsi"
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Provinsi" />
+            android:layout_height="509dp">
 
-        <EditText
-            android:id="@+id/edit_kota"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Kabupaten/Kota" />
-
-        <EditText
-            android:id="@+id/edit_kode_pos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPostalAddress"
-            android:hint="Kode Pos"/>
-
-        <EditText
-            android:id="@+id/edit_alamat_lengkap"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:hint="Alamat Lengkap"/>
+        </android.support.v7.widget.RecyclerView>
 
         <Button
             android:id="@+id/btn_addalamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simpan" />
-
+            android:layout_gravity="start"
+            android:text="Tambah Alamat" />
     </LinearLayout>
+
 </RelativeLayout>

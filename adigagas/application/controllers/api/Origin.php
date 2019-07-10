@@ -32,29 +32,33 @@ class Origin extends REST_Controller
     //     }
     // }
     function index_post()
-    {
-        $id = "1";
-        $where = array(
-            'id_alamat_origin' => $id
-        );
-        // $cek=$this->m_login->cek_login_biasa($username,$password)->num_rows();
-        $cek = $this->m_origin->get_origin();
-        // echo $cek;
-        /* if ($cek) {
-            $this->response(array('status'=> 'oke','id'=>$cek['id_user']));
-        }*/
-        if ($cek) {
-            $output['id_alamat_origin'] = $cek['id_alamat_origin'];
-            $output['id_provinsi'] = $cek['id_provinsi'];
-            $output['nama_provinsi'] = $cek['nama_provinsi'];
-            $output['id_kota'] = $cek['id_kota'];
-            $output['nama_kota'] = $cek['nama_kota'];
-            $output['kode_pos'] = $cek['kode_pos'];
+    {   
+        
+        $origin = $this->db->query("SELECT * FROM alamat_origin where id_alamat_origin = 1")->result();
 
-            $this->response($output, 200);
-        } else {
-            $this->response(array('status' => 'fail', 502));
-        }
+        $this->response(array("result" => $origin, 200));
+        // $id = "1";
+        // $where = array(
+        //     'id_alamat_origin' => $id
+        // );
+        // // $cek=$this->m_login->cek_login_biasa($username,$password)->num_rows();
+        // $cek = $this->m_origin->get_origin();
+        // // echo $cek;
+        // /* if ($cek) {
+        //     $this->response(array('status'=> 'oke','id'=>$cek['id_user']));
+        // }*/
+        // if ($cek) {
+        //     $output['id_alamat_origin'] = $cek['id_alamat_origin'];
+        //     $output['id_provinsi'] = $cek['id_provinsi'];
+        //     $output['nama_provinsi'] = $cek['nama_provinsi'];
+        //     $output['id_kota'] = $cek['id_kota'];
+        //     $output['nama_kota'] = $cek['nama_kota'];
+        //     $output['kode_pos'] = $cek['kode_pos'];
+
+        //     $this->response($output, 200);
+        // } else {
+        //     $this->response(array('status' => 'fail', 502));
+        // }
     }
     // function index_get()
     // {

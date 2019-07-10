@@ -2,11 +2,14 @@ package com.example.customshirt;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,8 +24,11 @@ import android.widget.Toast;
 import com.example.customshirt.Adapter.CityAdapter;
 import com.example.customshirt.Adapter.ExpedisiAdapter;
 import com.example.customshirt.Adapter.ProvinceAdapter;
+import com.example.customshirt.Model.User.ResponseLogin;
 import com.example.customshirt.Rest.ApiInterface;
 import com.example.customshirt.Rest.ApiClient;
+import com.example.customshirt.Model.origin.GetOrigin;
+import com.example.customshirt.Model.origin.Origin;
 import com.example.customshirt.Model.city.ItemCity;
 import com.example.customshirt.Model.cost.ItemCost;
 import com.example.customshirt.Model.expedisi.ItemExpedisi;
@@ -59,6 +65,9 @@ public class PengirimanActivity extends AppCompatActivity implements View.OnClic
     private ExpedisiAdapter adapter_expedisi;
     private List<ItemExpedisi> listItemExpedisi = new ArrayList<ItemExpedisi>();
 
+    ApiInterface mApiInterface;
+    SharedPreferences sharedPreferences;
+
     private ProgressDialog progressDialog;
 
     @Override
@@ -66,6 +75,7 @@ public class PengirimanActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengiriman);
 
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         etFromProvince = (EditText) findViewById(R.id.etFromProvince);
         etFromCity = (EditText) findViewById(R.id.etFromCity);
         etToProvince = (EditText) findViewById(R.id.etToProvince);
@@ -137,14 +147,11 @@ public class PengirimanActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View v) {
 
-                String Origin = etFromCity.getText().toString();
                 String destination = etToCity.getText().toString();
                 String Weight = etWeight.getText().toString();
                 String expedisi = etCourier.getText().toString();
 
-                if (Origin.equals("")){
-                    etFromCity.setError("Please input your origin");
-                } else if (destination.equals("")){
+                if (destination.equals("")){
                     etToCity.setError("Please input your destination");
                 } else if (Weight.equals("")){
                     etWeight.setError("Please input your Weight");
@@ -156,17 +163,20 @@ public class PengirimanActivity extends AppCompatActivity implements View.OnClic
                     progressDialog.setMessage("Please wait..");
                     progressDialog.show();
 
+
                     getCoast(
-                            etFromCity.getTag().toString(),
+                            "86",
                             etToCity.getTag().toString(),
                             etWeight.getText().toString(),
                             etCourier.getText().toString()
                     );
+
                 }
 
             }
         });
     }
+
 
     public void popUpProvince(final EditText etProvince, final EditText etCity ) {
 

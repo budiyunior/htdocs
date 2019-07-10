@@ -6,22 +6,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 
 /**
@@ -57,9 +51,9 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         btn_profil.setOnClickListener(this);
         Button btn_bantuan=(Button) myFragmentView.findViewById(R.id.btn_bantuan);
         //this.mcontext = context;
-        String imageUri = "http://192.168.43.153/adigagas/assets/profil/ctm5d0c97582efbd.jpg";
-        ImageView img_profile = (ImageView) myFragmentView.findViewById(R.id.user_profile_photo);
-        Picasso.with(mcontext).load(imageUri).into(img_profile);
+//        String imageUri = "http://192.168.0.141/adigagas/assets/profil/ctm5d0c97582efbd.jpg";
+//        ImageView img_profile = (ImageView) myFragmentView.findViewById(R.id.user_profile_photo);
+//        Picasso.with(mcontext).load(imageUri).into(img_profile);
 
         btn_cs = (Button) myFragmentView.findViewById(R.id.btn_cs);
         btn_cs.setOnClickListener(this);
@@ -107,7 +101,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         }
 
         if (v == btn_alamatsaya) {
-            Intent AlamatActivity = new Intent(getActivity(), AlamatActivity.class);
+            Intent AlamatActivity = new Intent(getActivity(), EditAlamatActivity.class);
             startActivity(AlamatActivity);
         }
 
