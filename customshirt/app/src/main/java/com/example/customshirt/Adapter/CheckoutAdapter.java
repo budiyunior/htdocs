@@ -37,22 +37,6 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.MyView
 //        holder.mTextViewHarga.setText(mKeranjangList.get(position).getNama_desain());
         holder.mTextViewTotal.setText( "Rp. "+mKeranjangList.get(position).getSubtotal_harga());
 
-//        holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent mIntent = new Intent(v.getContext(), PopupDeleteCart.class);
-//                mIntent.putExtra("id_desain", mKeranjangList.get(position).getId_desain());
-//                v.getContext().startActivity(mIntent);
-//
-//            }
-//        });
-//        btn_hapus.setOnClickListener(this);
-
-
-//        int overTotalPrice=0;
-//        int oneTyprProductTprice = (Integer.valueOf(mKeranjangList.get(position).getSubtotal_harga()) * Integer.valueOf(mKeranjangList.get(position).getJumlah()));
-//        overTotalPrice = overTotalPrice + oneTyprProductTprice;
-
     }
 
 

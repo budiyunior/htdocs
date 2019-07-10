@@ -51,9 +51,9 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         btn_profil.setOnClickListener(this);
         Button btn_bantuan=(Button) myFragmentView.findViewById(R.id.btn_bantuan);
         //this.mcontext = context;
-//        String imageUri = "http://192.168.0.141/adigagas/assets/profil/ctm5d0c97582efbd.jpg";
-//        ImageView img_profile = (ImageView) myFragmentView.findViewById(R.id.user_profile_photo);
-//        Picasso.with(mcontext).load(imageUri).into(img_profile);
+        String imageUri = "http://192.168.0.112/adigagas/upload/profil/ctm5d0c97582efbd.jpg";
+        ImageView img_profile = (ImageView) myFragmentView.findViewById(R.id.user_profile_photo);
+        Picasso.with(this.mcontext).load(imageUri).into(img_profile);
 
         btn_cs = (Button) myFragmentView.findViewById(R.id.btn_cs);
         btn_cs.setOnClickListener(this);
