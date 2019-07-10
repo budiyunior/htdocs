@@ -20,11 +20,7 @@ class Transaksi_model extends CI_Model
             [
                 'field' => 'id_pengguna',
                 'label' => 'id_pengguna',
-                'rules' => 'required',
-
-                'field' => 'tanggal_transaksi',
-                'label' => 'tanggal_transaksi',
-                'rules' => 'date'
+                'rules' => 'required'
             ],
 
         ];
@@ -63,6 +59,26 @@ class Transaksi_model extends CI_Model
         $query = $this->db->query("SELECT * FROM konfirmasi_pembayaran WHERE id_transaksi = '$id' ");
         return $query->result();
     }
+
+    // public function update()
+    // {
+    //     $post = $this->input->post();
+    //     $this->id_transaksi = $post["id_transaksi"];
+    //     $this->id_pengguna = $post["id_pengguna"];
+    //     $this->tanggal_transaksi = $post["tanggal_transaksi"];
+    //     $this->total_harga = $post["total_harga"];
+    //     $this->total_berat = $post["total_berat"];
+    //     $this->id_alamat_kirim = $post["id_alamat_kirim"];
+    //     $this->id_pengiriman = $post["id_pengiriman"];
+    //     $this->id_status = $post["id_status"];
+        
+    //     $this->db->update($this->_table, $this, array('id_transaksi' => $post['id_transaksi']));
+    // }
+
+    function update_data($where,$data,$_table){
+		$this->db->where($where);
+		$this->db->update($_table,$data);
+	}	
 
     
     // public function cek_akses_adm($email, $id_akses)
@@ -107,23 +123,7 @@ class Transaksi_model extends CI_Model
     //     $this->db->insert($this->_table, $this);
     // }
 
-    // public function update()
-    // {
-    //     $post = $this->input->post();
-    //     $this->id_pengguna = $post["id_pengguna"];
-    //     $this->nama_pengguna = $post["nama_pengguna"];
-    //     $this->tanggal_lahir = $post["tanggal_lahir"];
-    //     $this->id_akses = $post["id_akses"];
-    //     $this->email = $post["email"];
-    //     $this->password = $post["password"];
-    //     $this->nomor_telp = $post["nomor_telp"];
-    //     if (!empty($_FILES["foto"]["name"])) {
-    //         $this->foto = $this->_uploadImage();
-    //     } else {
-    //         $this->foto = $post["old_image"];
-    //     }
-    //     $this->db->update($this->_table, $this, array('id_pengguna' => $post['id_pengguna']));
-    // }
+    
 
     // public function delete($id_pengguna)
     // {
