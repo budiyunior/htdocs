@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2019 at 07:34 AM
+-- Generation Time: Jul 10, 2019 at 06:14 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -114,6 +114,7 @@ CREATE TABLE `desain_pengguna` (
 --
 
 INSERT INTO `desain_pengguna` (`id_desain`, `id_pengguna`, `id_item`, `nama_desain`, `ukuran_shirt`, `gambar`, `berat_satuan`, `harga_satuan`) VALUES
+('0a1c7441-7d17-405f-9aa3-b83edb', '1562748752', 'item0001', '', 'S', NULL, 150, 100000),
 ('desain00001', 'cus5d21546c61851', 'item0004', 'Kaos Tim Kelas A SMP 2 Banyuwangi', 'L', 'kaostimkelasasmp2bwi.jpg', 150, 110000),
 ('desain00002', 'cus5d21546c61851', 'item0004', 'Kaos Tim Kelas A SMP 2 Banyuwangi', 'XL', 'kaostimkelasasmp2bwi.jpg', 150, 110000),
 ('desain00003', 'cus5d21546c61851', 'item0004', 'Jersey ML FNDC', 'L', 'jerseymlfndc.jpg', 150, 110000),
@@ -142,7 +143,7 @@ CREATE TABLE `detail_cart` (
 --
 
 INSERT INTO `detail_cart` (`id_desain`, `id_pengguna`, `id_item`, `nama_desain`, `ukuran_shirt`, `gambar`, `jumlah`, `subtotal_berat`, `subtotal_harga`) VALUES
-('desain00004', 'cus5d21546c61851', 'item0002', 'Kaos Pribadi Setia', 'L', 'kaospribadisetia.jpg', 1, 150, 110000);
+('6348472e-1d99-4f87-aa2f-bb1872', '1562748752', 'item0001', '', 'S', NULL, 1, 150, 100000);
 
 --
 -- Triggers `detail_cart`
@@ -163,9 +164,15 @@ DELIMITER ;
 --
 
 CREATE TABLE `detail_transaksi` (
-  `id_detail_transaksi` int(11) NOT NULL,
+  `id_detail_transaksi` bigint(20) NOT NULL,
   `id_transaksi` varchar(30) DEFAULT NULL,
-  `id_desain` varchar(30) DEFAULT NULL,
+  `nama_desain` varchar(64) NOT NULL,
+  `ukuran_shirt` varchar(3) NOT NULL,
+  `gambar` varchar(128) NOT NULL,
+  `nama_item` varchar(64) NOT NULL,
+  `nama_jenis` varchar(30) NOT NULL,
+  `cetak` varchar(10) NOT NULL,
+  `harga_satuan` int(11) NOT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `subtotal_berat` int(11) DEFAULT NULL,
   `subtotal_harga` int(11) DEFAULT NULL
@@ -175,23 +182,10 @@ CREATE TABLE `detail_transaksi` (
 -- Dumping data for table `detail_transaksi`
 --
 
-INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_desain`, `jumlah`, `subtotal_berat`, `subtotal_harga`) VALUES
-(1, 'trans0001', 'desain00001', 10, 1500, 1100000),
-(2, 'trans0001', 'desain00002', 2, 300, 220000),
-(3, 'trans0002', 'desain00003', 5, 750, 550000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gambar_shirt`
---
-
-CREATE TABLE `gambar_shirt` (
-  `id_gambar` varchar(30) NOT NULL,
-  `id_item` varchar(10) DEFAULT NULL,
-  `nama_gambar` varchar(64) DEFAULT NULL,
-  `gambar` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `nama_desain`, `ukuran_shirt`, `gambar`, `nama_item`, `nama_jenis`, `cetak`, `harga_satuan`, `jumlah`, `subtotal_berat`, `subtotal_harga`) VALUES
+(1, 'trans0001', '', '0', '', '', '', '', 0, 10, 1500, 1100000),
+(2, 'trans0001', '', '0', '', '', '', '', 0, 2, 300, 220000),
+(3, 'trans0002', '', '0', '', '', '', '', 0, 5, 750, 550000);
 
 -- --------------------------------------------------------
 
@@ -225,18 +219,19 @@ CREATE TABLE `item` (
   `id_jenis_item` varchar(10) DEFAULT NULL,
   `harga_satuan` int(11) DEFAULT NULL,
   `berat_satuan` int(11) DEFAULT NULL,
-  `deskripsi` text
+  `deskripsi` text,
+  `gambar` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id_item`, `nama_item`, `id_jenis_item`, `harga_satuan`, `berat_satuan`, `deskripsi`) VALUES
-('item0001', 'Jersey Futsal Lengan Pendek', 'Dryfit', 100000, 150, 'Jersey Futsal Lengan Pendek, V Neck'),
-('item0002', 'Kaos Oblong O-Neck L-Pendek', 'combed', 90000, 150, 'Kaos oblong, O-neck, Lengan Pendek, Bahan Katun Combed, Sablon'),
-('item0003', 'Kaos Oblong V-Neck L-Pendek', 'polyester', 100000, 150, 'Kaos Oblong, V-neck, Sablon'),
-('item0004', 'Kaos Oblong V-Neck L-Panjang', 'hyget', 110000, 150, 'Kaos Oblong Print, Lengan Panjang, V-Neck');
+INSERT INTO `item` (`id_item`, `nama_item`, `id_jenis_item`, `harga_satuan`, `berat_satuan`, `deskripsi`, `gambar`) VALUES
+('item0001', 'Jersey Futsal Lengan Pendek', 'Dryfit', 100000, 150, 'Jersey Futsal Lengan Pendek, V Neck', ''),
+('item0002', 'Kaos Oblong O-Neck L-Pendek', 'combed', 90000, 150, 'Kaos oblong, O-neck, Lengan Pendek, Bahan Katun Combed, Sablon', ''),
+('item0003', 'Kaos Oblong V-Neck L-Pendek', 'polyester', 100000, 150, 'Kaos Oblong, V-neck, Sablon', ''),
+('item0004', 'Kaos Oblong V-Neck L-Panjang', 'hyget', 110000, 150, 'Kaos Oblong Print, Lengan Panjang, V-Neck', '');
 
 -- --------------------------------------------------------
 
@@ -283,7 +278,7 @@ CREATE TABLE `konfirmasi_pembayaran` (
 --
 
 INSERT INTO `konfirmasi_pembayaran` (`id_konfirmasi`, `id_transaksi`, `harus_dibayar`, `bank_tujuan`, `bank_asal`, `atas_nama`, `no_rek_asal`, `total_pembayaran`, `bukti_pembayaran`) VALUES
-(1, 'trans0001', 1320000, 'BRI', 'MANDIRI', 'Pelanggan Setia', '1234567890123', 1320000, 'buktipembayaran001.jpg');
+(1, 'trans0001', 1320000, 'BRI', 'MANDIRI', 'Pelanggan Setia', '1234567890123', 1320000, 'buktipembayaran001.png');
 
 -- --------------------------------------------------------
 
@@ -307,8 +302,11 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `tanggal_lahir`, `id_akses`, `email`, `password`, `nomor_telp`, `foto`) VALUES
+('11', 'adigagas', '2019-07-20', 'cus', 'adigagas@gmail.com', 'adigagas', '081111111111', 'cus155d2206c92f585.jpg'),
+('1562748752', 'bahtiar', NULL, 'cus', 'bahtiar@gmail.com', 'bahtiar', '082234495676', ''),
 ('adm5d148186b2d0e', 'Admin', '1111-11-11', 'adm', 'admin@gmail.com', '$2y$10$d2b3XLqYxIix8PO6.HXKIOGjVOjEqbIyphwCY.KkL4v1Gz0oU0Amu', '12345678', 'adm5d148186b2d0e.jpg'),
 ('cus5d21546c61851', 'Pelanggan Setia', '1999-06-15', 'cus', 'pelanggan@gmail.com', 'pelanggan', '082123123123', '5d21546c61851.jpg'),
+('cusb1urz', 'budi', '2019-07-02', 'cus', 'budi@gmail.com', 'budi', '081111111111', 'cusb1urzbnt4n.PNG'),
 ('su5d1482494444b', 'Super User', '2000-02-22', 'su', 'superuser@gmail.com', '$2y$10$u6XcyS4K4GDu1VT2zLyX9uc19GWiT74op1KJZlxGCokFKSHAUgbv2', '12345670', 'su5d1482494444b.png');
 
 -- --------------------------------------------------------
@@ -351,6 +349,7 @@ CREATE TABLE `status_transaksi` (
 
 INSERT INTO `status_transaksi` (`id_status`, `nama_status`) VALUES
 ('done', 'SELESAI'),
+('fail', 'DITOLAK'),
 ('maked', 'DIBUAT'),
 ('payed', 'DIBAYAR'),
 ('pcked', 'DIKEMAS'),
@@ -379,6 +378,11 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_pengguna`, `tanggal_transaksi`, `total_harga`, `total_berat`, `id_alamat_kirim`, `id_pengiriman`, `id_status`) VALUES
+('1562511243', '11', '2019-07-07', NULL, NULL, NULL, NULL, 'maked'),
+('1562511246', '11', '2019-07-07', NULL, NULL, NULL, NULL, 'maked'),
+('1562748829', '1562748752', '2019-07-10', NULL, NULL, NULL, NULL, 'maked'),
+('1562748830', '1562748752', '2019-07-10', NULL, NULL, NULL, NULL, 'maked'),
+('1562748831', '1562748752', '2019-07-10', NULL, NULL, NULL, NULL, 'maked'),
 ('trans0001', 'cus5d21546c61851', '2019-07-07', 1320000, 1800, 'sentadd0001', 'sent0001', 'payed'),
 ('trans0002', 'cus5d21546c61851', '2019-07-07', 550000, 750, 'sentadd0001', 'sent0002', 'maked');
 
@@ -420,6 +424,37 @@ CREATE TABLE `v_pengguna` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `v_trans`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_trans` (
+`id_transaksi` varchar(30)
+,`tanggal_transaksi` date
+,`total_harga` int(11)
+,`total_berat` int(11)
+,`id_pengguna` varchar(20)
+,`nama_pengguna` varchar(64)
+,`nomor_telp` varchar(13)
+,`id_alamat_kirim` varchar(30)
+,`id_provinsi` varchar(2)
+,`nama_provinsi` varchar(64)
+,`id_kota` varchar(3)
+,`nama_kota` varchar(64)
+,`kode_pos` varchar(5)
+,`alamat_langkap` text
+,`id_pengiriman` varchar(30)
+,`nama_ekspedis` varchar(30)
+,`servis` varchar(30)
+,`catatan` varchar(64)
+,`harga` int(11)
+,`etd` varchar(10)
+,`id_status` varchar(5)
+,`nama_status` varchar(10)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `v_item`
 --
 DROP TABLE IF EXISTS `v_item`;
@@ -434,6 +469,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_pengguna`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_pengguna`  AS  select `pengguna`.`id_pengguna` AS `id_pengguna`,`pengguna`.`nama_pengguna` AS `nama_pengguna`,`pengguna`.`tanggal_lahir` AS `tanggal_lahir`,`pengguna`.`email` AS `email`,`pengguna`.`password` AS `password`,`pengguna`.`nomor_telp` AS `nomor_telp`,`pengguna`.`foto` AS `foto`,`hak_akses`.`id_akses` AS `id_akses`,`hak_akses`.`nama_akses` AS `nama_akses` from (`pengguna` join `hak_akses`) where (`pengguna`.`id_akses` = `hak_akses`.`id_akses`) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_trans`
+--
+DROP TABLE IF EXISTS `v_trans`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_trans`  AS  select `transaksi`.`id_transaksi` AS `id_transaksi`,`transaksi`.`tanggal_transaksi` AS `tanggal_transaksi`,`transaksi`.`total_harga` AS `total_harga`,`transaksi`.`total_berat` AS `total_berat`,`pengguna`.`id_pengguna` AS `id_pengguna`,`pengguna`.`nama_pengguna` AS `nama_pengguna`,`pengguna`.`nomor_telp` AS `nomor_telp`,`alamat_kirim`.`id_alamat_kirim` AS `id_alamat_kirim`,`alamat_kirim`.`id_provinsi` AS `id_provinsi`,`alamat_kirim`.`nama_provinsi` AS `nama_provinsi`,`alamat_kirim`.`id_kota` AS `id_kota`,`alamat_kirim`.`nama_kota` AS `nama_kota`,`alamat_kirim`.`kode_pos` AS `kode_pos`,`alamat_kirim`.`alamat_langkap` AS `alamat_langkap`,`pengiriman`.`id_pengiriman` AS `id_pengiriman`,`pengiriman`.`nama_ekspedis` AS `nama_ekspedis`,`pengiriman`.`servis` AS `servis`,`pengiriman`.`catatan` AS `catatan`,`pengiriman`.`harga` AS `harga`,`pengiriman`.`etd` AS `etd`,`status_transaksi`.`id_status` AS `id_status`,`status_transaksi`.`nama_status` AS `nama_status` from ((((`transaksi` join `pengguna`) join `alamat_kirim`) join `pengiriman`) join `status_transaksi`) where ((`transaksi`.`id_pengguna` = `pengguna`.`id_pengguna`) and (`transaksi`.`id_alamat_kirim` = `alamat_kirim`.`id_alamat_kirim`) and (`transaksi`.`id_pengiriman` = `pengiriman`.`id_pengiriman`) and (`transaksi`.`id_status` = `status_transaksi`.`id_status`)) ;
 
 --
 -- Indexes for dumped tables
@@ -477,15 +521,7 @@ ALTER TABLE `detail_cart`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail_transaksi`),
-  ADD KEY `id_transaksi` (`id_transaksi`),
-  ADD KEY `id_desain` (`id_desain`);
-
---
--- Indexes for table `gambar_shirt`
---
-ALTER TABLE `gambar_shirt`
-  ADD PRIMARY KEY (`id_gambar`),
-  ADD KEY `id_item` (`id_item`);
+  ADD KEY `id_transaksi` (`id_transaksi`);
 
 --
 -- Indexes for table `hak_akses`
@@ -556,7 +592,7 @@ ALTER TABLE `alamat_origin`
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_detail_transaksi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `konfirmasi_pembayaran`
@@ -585,14 +621,7 @@ ALTER TABLE `desain_pengguna`
 -- Constraints for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`),
-  ADD CONSTRAINT `detail_transaksi_ibfk_2` FOREIGN KEY (`id_desain`) REFERENCES `desain_pengguna` (`id_desain`);
-
---
--- Constraints for table `gambar_shirt`
---
-ALTER TABLE `gambar_shirt`
-  ADD CONSTRAINT `gambar_shirt_ibfk_1` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`);
+  ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`);
 
 --
 -- Constraints for table `item`

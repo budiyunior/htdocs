@@ -68,28 +68,28 @@ class Transaksi extends CI_Controller
     //     $this->load->view("admin/pegawai/new_form", $datas);
     // }
 
-    // public function edit($id_pengguna = null)
-    // {
-    //     if (!isset($id_pengguna)) redirect('admin/pegawai');
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('admin/transaksi');
 
-    //     $pegawai = $this->pegawai_model;
-    //     $validation = $this->form_validation;
-    //     $validation->set_rules($pegawai->rules());
+        $transaksi = $this->transaksi_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($transaksi->rules());
 
-    //     if ($validation->run()) {
-    //         $pegawai->update();
-    //         $this->session->set_flashdata('success', 'Berhasil disimpan');
-    //     }
+        if ($validation->run()) {
+            $transaksi->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
 
-    //     $data["pegawai"] = $pegawai->getById($id_pengguna);
-    //     if (!$data["pegawai"]) show_404();
+        $data["transaksi"] = $transaksi->getById($id_pengguna);
+        if (!$data["transaksi"]) show_404();
 
-    //     $datas['pengguna'] = $this->db->get_where('pengguna', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $this->load->view("admin/_partials/spesialtop.php", $datas);
+        $datas['pengguna'] = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view("admin/_partials/spesialtop.php", $datas);
 
-    //     $this->load->view("admin/pegawai/edit_form", $data);
-    // }
+        $this->load->view("admin/transaksi/edit_form", $data);
+    }
 
     // public function delete($id_pengguna = null)
     // {
