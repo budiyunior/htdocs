@@ -12,18 +12,30 @@
         android:layout_margin="16dp"
         android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="509dp">
+            android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btn_addalamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="Tambah Alamat" />
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <Button
+                    android:id="@+id/btn_newalamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Tambah Alamat" />
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -15,7 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -101,7 +104,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
         }
 
         if (v == btn_alamatsaya) {
-            Intent AlamatActivity = new Intent(getActivity(), EditAlamatActivity.class);
+            Intent AlamatActivity = new Intent(getActivity(), AlamatActivity.class);
             startActivity(AlamatActivity);
         }
 

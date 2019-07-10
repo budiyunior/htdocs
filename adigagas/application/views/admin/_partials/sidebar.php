@@ -14,7 +14,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?php echo $this->uri->segment(2) == 'overview' ? 'active': '' ?>">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo site_url('admin/transaksi/index') ?>">
           <i class="fas fa-fw fa-wallet"></i>
           <span>Transaksi</span></a>
       </li>
