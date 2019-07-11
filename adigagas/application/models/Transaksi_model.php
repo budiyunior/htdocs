@@ -60,25 +60,25 @@ class Transaksi_model extends CI_Model
         return $query->result();
     }
 
-    // public function update()
-    // {
-    //     $post = $this->input->post();
-    //     $this->id_transaksi = $post["id_transaksi"];
-    //     $this->id_pengguna = $post["id_pengguna"];
-    //     $this->tanggal_transaksi = $post["tanggal_transaksi"];
-    //     $this->total_harga = $post["total_harga"];
-    //     $this->total_berat = $post["total_berat"];
-    //     $this->id_alamat_kirim = $post["id_alamat_kirim"];
-    //     $this->id_pengiriman = $post["id_pengiriman"];
-    //     $this->id_status = $post["id_status"];
+    public function update()
+    {
+        $post = $this->input->post();
+        $this->id_transaksi = $post["id_transaksi"];
+        $this->id_pengguna = $post["id_pengguna"];
+        $this->tanggal_transaksi = $post["tanggal_transaksi"];
+        $this->total_harga = $post["total_harga"];
+        $this->total_berat = $post["total_berat"];
+        $this->id_alamat_kirim = $post["id_alamat_kirim"];
+        $this->id_pengiriman = $post["id_pengiriman"];
+        $this->id_status = $post["id_status"];
         
-    //     $this->db->update($this->_table, $this, array('id_transaksi' => $post['id_transaksi']));
-    // }
+        $this->db->update($this->_table, $this, array('id_transaksi' => $post['id_transaksi']));
+    }
 
-    function update_data($where,$data,$_table){
-		$this->db->where($where);
-		$this->db->update($_table,$data);
-	}	
+    // function update_data($where,$data,$_table){
+	// 	$this->db->where($where);
+	// 	$this->db->update($_table,$data);
+	// }	
 
     
     // public function cek_akses_adm($email, $id_akses)

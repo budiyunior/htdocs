@@ -11,7 +11,7 @@ class Transaksi extends CI_Controller
             redirect('login');
         }
         $this->load->model("transaksi_model");
-        $this->load->library('form_validation');
+        $this->load->library("form_validation");
     }
 
     public function index()
@@ -80,9 +80,9 @@ class Transaksi extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["transaksi"] = $transaksi->getById($id_pengguna);
-        if (!$data["transaksi"]) show_404();
-
+        $data["trans"] = $transaksi->getById($id);
+        if (!$data["trans"]) show_404();
+        
         $datas['pengguna'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view("admin/_partials/spesialtop.php", $datas);
