@@ -18,92 +18,59 @@
 
     <!-- add form -->
     <div class="row">
-            <div class="col-lg-6">
+        <div class="col-lg-6">
             <div class="card mb-3">
                 <div class="card-header">
 
-            <a href="<?php echo site_url('admin/pegawai/') ?>"><i class="fas fa-arrow-left"></i>
-                Back</a>
-        </div>
-        <div class="card-body">
-
-            <form action="<?php base_url('admin/pegawai/edit') ?>" method="post" enctype="multipart/form-data">
-
-                <input type="hidden" name="id_pengguna" value="<?php echo $pegawai->id_pengguna ?>" />
-
-                <div class="form-group">
-                    <label for="nama_pengguna">Nama Pengguna</label>
-                    <input class="form-control <?php echo form_error('nama_pengguna') ? 'is-invalid' : '' ?>" type="text" name="nama_pengguna" placeholder="Nama Pengguna" value="<?php echo $pegawai->nama_pengguna ?>" />
-                    <div class="invalid-feedback">
-                        <?php echo form_error('nama_pengguna') ?>
-                    </div>
+                    <a href="<?php echo site_url('admin/transaksi/view/'. $trans->id_transaksi) ?>"><i class="fas fa-arrow-left"></i>
+                        Back</a>
                 </div>
+                <div class="card-body">
 
-                <div class="form-group">
-                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input class="form-control <?php echo form_error('tanggal_lahir') ? 'is-invalid' : '' ?>" type="date" name="tanggal_lahir" placeholder="" value="<?php echo $pegawai->tanggal_lahir ?>" />
-                    <div class="invalid-feedback">
-                        <?php echo form_error('tanggal_lahir') ?>
-                    </div>
+                    <form action="<?php base_url('admin/transaksi/edit') ?>" method="post" enctype="multipart/form-data">
+                            <input class="<?php echo form_error('id_transaksi') ? 'is-invalid' : '' ?>" type="hidden" name="id_transaksi" value="<?= $trans->id_transaksi; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('id_transaksi') ?>
+                            </div>
+                            <input class="<?php echo form_error('id_pengguna') ? 'is-invalid' : '' ?>" type="hidden" name="id_pengguna" value="<?= $trans->id_pengguna; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('id_pengguna') ?>
+                            </div>
+                            <input class="<?php echo form_error('tanggal_transaksi') ? 'is-invalid' : '' ?>" type="hidden" name="tanggal_transaksi" value="<?= $trans->tanggal_transaksi; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('tanggal_transaksi') ?>
+                            </div>
+                            <input class="<?php echo form_error('total_harga') ? 'is-invalid' : '' ?>" type="hidden" name="total_harga" value="<?= $trans->total_harga; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('total_harga') ?>
+                            </div>
+                            <input class="<?php echo form_error('total_berat') ? 'is-invalid' : '' ?>" type="hidden" name="total_berat" value="<?= $trans->total_berat; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('total_berat') ?>
+                            </div>
+                            <input class="<?php echo form_error('id_alamat_kirim') ? 'is-invalid' : '' ?>" type="hidden" name="id_alamat_kirim" value="<?= $trans->id_alamat_kirim; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('id_alamat_kirim') ?>
+                            </div>
+                            <input class="<?php echo form_error('id_pengiriman') ? 'is-invalid' : '' ?>" type="hidden" name="id_pengiriman" value="<?= $trans->id_pengiriman; ?>">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('id_pengiriman') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="id_status">Divisi</label><br>
+                                <select class="form-control" name ="id_status" id ="id_status"  required>
+                                    <option value="print">Terima Konfirmasi</option>
+                                    <option value="fail">Tolak Konfirmasi</option>
+                                    </select>
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('id_status') ?>
+                                </div>
+                            </div>
+                            
+                            <input class="btn btn-success mr-3" type="submit" name="btn" value="Save" />
+                            
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <label for="id_akses">ID Akses</label><br>
-                    <select class="form-control" <?php echo form_error('id_akses') ? 'is-invalid' : '' ?> name="id_akses" id="id_akses" value="<?php echo $pegawai->id_akses ?>" required>
-                        <option value="">--Pilih ID Akses--</option>
-                        <?php
-                        $servername = "localhost";
-                        $database = "custom_shirt";
-                        $username = "root";
-                        $password = "";
-                        $conn = mysqli_connect($servername, $username, $password, $database);
-                        $sql_akses = mysqli_query($conn, "SELECT * FROM hak_akses WHERE id_akses != 'ctm'") or die(mysqli_error($conn));
-                        while ($data_akses = mysqli_fetch_array($sql_akses)) {
-                            echo '<option value="' . $data_akses['id_akses'] . '">' . $data_akses['nama_akses'] . '</option>';
-                        }
-                        ?>
-                    </select>
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_akses') ?>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="text" name="email" placeholder="" readonly value="<?php echo $pegawai->email ?>" maxlength="13" />
-                    <div class="invalid-feedback">
-                        <?php echo form_error('email') ?>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="" readonly value="<?php echo $pegawai->password ?>" maxlength="13" />
-                    <div class="invalid-feedback">
-                        <?php echo form_error('password') ?>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="nomor_telp">Nomor Telp</label>
-                    <input class="form-control <?php echo form_error('nomor_telp') ? 'is-invalid' : '' ?>" type="text" name="nomor_telp" placeholder="" value="<?php echo $pegawai->nomor_telp ?>" maxlength="13" />
-                    <div class="invalid-feedback">
-                        <?php echo form_error('nomor_telp') ?>
-                    </div>
-                </div>
-
-                <div class="form-group">
-					<label for="foto">Foto</label>
-					<input class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>" type="file" name="foto" />
-					<input type="hidden" name="old_image" value="<?php echo $pegawai->foto ?>" />
-					<div class="invalid-feedback">
-						<?php echo form_error('foto') ?>
-					</div>
-				</div>
-
-                <input class="btn btn-success" type="submit" name="btn" value="Save" />
-            </form>
-
         </div>
         <!-- end add form -->
 

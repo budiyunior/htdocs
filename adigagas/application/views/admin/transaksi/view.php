@@ -163,80 +163,9 @@
 			</div>
 
 			<div class="row mx-2 mt-3">
-				<form action="<?php base_url('admin/transaksi/update') ?>" method="post" enctype="multipart/form-data">
-					<input class="<?php echo form_error('id_transaksi') ? 'is-invalid' : '' ?>" type="hidden" name="id_transaksi" value="<?= $trans->id_transaksi; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_transaksi') ?>
-					</div>
-					<input class="<?php echo form_error('id_pengguna') ? 'is-invalid' : '' ?>" type="hidden" name="id_pengguna" value="<?= $trans->id_pengguna; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_pengguna') ?>
-					</div>
-					<input class="<?php echo form_error('tanggal_transaksi') ? 'is-invalid' : '' ?>" type="hidden" name="tanggal_transaksi" value="<?= $trans->tanggal_transaksi; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('tanggal_transaksi') ?>
-					</div>
-					<input class="<?php echo form_error('total_harga') ? 'is-invalid' : '' ?>" type="hidden" name="total_harga" value="<?= $trans->total_harga; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('total_harga') ?>
-					</div>
-					<input class="<?php echo form_error('total_berat') ? 'is-invalid' : '' ?>" type="hidden" name="total_berat" value="<?= $trans->total_berat; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('total_berat') ?>
-					</div>
-					<input class="<?php echo form_error('id_alamat_kirim') ? 'is-invalid' : '' ?>" type="hidden" name="id_alamat_kirim" value="<?= $trans->id_alamat_kirim; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_alamat_kirim') ?>
-					</div>
-					<input class="<?php echo form_error('id_pengiriman') ? 'is-invalid' : '' ?>" type="hidden" name="id_pengiriman" value="<?= $trans->id_pengiriman; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_pengiriman') ?>
-					</div>
-					<input class="<?php echo form_error('id_status') ? 'is-invalid' : '' ?>" type="hidden" name="id_status" value="print">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_status') ?>
-					</div>
-					<?php if($trans->nama_status == "DIBAYAR") : ?>
-						<input class="btn btn-success mr-3" type="submit" name="btn" value="Konfirmasi" />
-					<?php endif ?>
-				</form>
-				<form action="<?php base_url('admin/transaksi/update') ?>" method="post" enctype="multipart/form-data">
-					<input class="<?php echo form_error('id_transaksi') ? 'is-invalid' : '' ?>" type="hidden" name="id_transaksi" value="<?= $trans->id_transaksi; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_transaksi') ?>
-					</div>
-					<input class="<?php echo form_error('id_pengguna') ? 'is-invalid' : '' ?>" type="hidden" name="id_pengguna" value="<?= $trans->id_pengguna; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_pengguna') ?>
-					</div>
-					<input class="<?php echo form_error('tanggal_transaksi') ? 'is-invalid' : '' ?>" type="hidden" name="tanggal_transaksi" value="<?= $trans->tanggal_transaksi; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('tanggal_transaksi') ?>
-					</div>
-					<input class="<?php echo form_error('total_harga') ? 'is-invalid' : '' ?>" type="hidden" name="total_harga" value="<?= $trans->total_harga; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('total_harga') ?>
-					</div>
-					<input class="<?php echo form_error('total_berat') ? 'is-invalid' : '' ?>" type="hidden" name="total_berat" value="<?= $trans->total_berat; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('total_berat') ?>
-					</div>
-					<input class="<?php echo form_error('id_alamat_kirim') ? 'is-invalid' : '' ?>" type="hidden" name="id_alamat_kirim" value="<?= $trans->id_alamat_kirim; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_alamat_kirim') ?>
-					</div>
-					<input class="<?php echo form_error('id_pengiriman') ? 'is-invalid' : '' ?>" type="hidden" name="id_pengiriman" value="<?= $trans->id_pengiriman; ?>">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_pengiriman') ?>
-					</div>
-					<input class="<?php echo form_error('id_status') ? 'is-invalid' : '' ?>" type="hidden" name="id_status" value="fail">
-                    <div class="invalid-feedback">
-                        <?php echo form_error('id_status') ?>
-					</div>
-					<?php if($trans->nama_status == "DIBAYAR") : ?>
-						<input class="btn btn-danger" type="submit" name="btn" value="Tolak" />
-					<?php endif ?>
-				</form>
+				<?php if($trans->nama_status == "DIBAYAR") : ?>
+					<a href="<?php echo site_url('admin/transaksi/edit/' . $trans->id_transaksi) ?>" class="btn btn-small"><i class="fas fa-edit"></i>Konfirmasi</a>
+				<?php endif ?>
 			</div>
 
 		</div>
