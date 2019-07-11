@@ -9,7 +9,7 @@ import okhttp3.Response;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "http://192.168.0.112/adigagas/index.php/";
+    public static final String BASE_URL = "http://customshirt.webtif.com/index.php/";
     public static final String URL_ROOT_HTTPS = "https://api.rajaongkir.com/starter/";
 
     private static Retrofit retrofit = null;

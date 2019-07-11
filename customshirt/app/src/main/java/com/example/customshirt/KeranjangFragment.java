@@ -53,7 +53,9 @@ public class KeranjangFragment extends Fragment implements View.OnClickListener 
     private RecyclerView.LayoutManager mLayoutManager;
     SharedPreferences sharedPreferences;
     TextView tvtotal_harga,tvnama_item;
+
     public static KeranjangFragment kf;
+
     public KeranjangFragment() {
         // Required empty public constructor
     }
@@ -126,7 +128,7 @@ tvnama_item = (TextView) myFragmentView.findViewById(R.id.txt_nama_desain);
 
                 List<Keranjang> keranjangList = response.body().getListDataKeranjang();
                 Log.d("Retrofit Get", "Jumlah data Keranjang:" + String.valueOf(keranjangList.size()));
-                mAdapter = new KeranjangAdapter(keranjangList);
+                mAdapter = new KeranjangAdapter(keranjangList,getContext());
                 mRecyclerView.setAdapter(mAdapter);
                 Log.e("Berhasil", "berhasil" + id_pengguna);
             }
@@ -184,7 +186,7 @@ tvnama_item = (TextView) myFragmentView.findViewById(R.id.txt_nama_desain);
 
     public void onClick(View v) {
         if (v == btn_checkout) {
-            Intent intent = new Intent(getActivity(), CheckoutActivity.class);
+            Intent intent = new Intent(getActivity(), PilihAlamatActivity.class);
             startActivity(intent);
         }
 //        if (v == btn_hapus) {

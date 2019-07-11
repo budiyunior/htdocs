@@ -1,5 +1,6 @@
 package com.example.customshirt.Adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.example.customshirt.PopupDeleteCart;
 import com.example.customshirt.R;
 import com.example.customshirt.Rest.ApiClient;
 import com.example.customshirt.Rest.ApiInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +34,10 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     List<Keranjang> mKeranjangList;
     ApiInterface mApiInterface;
     public TextView mTextViewId;
-    public KeranjangAdapter(List<Keranjang> KeranjangList) {
+    Context context;
+    public KeranjangAdapter(List<Keranjang> KeranjangList,Context context) {
         mKeranjangList = KeranjangList;
+        this.context=context;
     }
 
     @Override
@@ -50,6 +55,9 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
         holder.mTextViewTotal.setText( "Rp. "+mKeranjangList.get(position).getSubtotal_harga());
         holder.mTextViewUkuran.setText( mKeranjangList.get(position).getUkuran_shirt());
         holder.mTextViewJumlah.setText( mKeranjangList.get(position).getJumlah());
+        final String urlGambar = "http://customshirt.webtif.com/upload/product/"+mKeranjangList.get(position).getGambar();
+        Picasso.with(this.context).load(urlGambar).into(holder.imageGambar);
+        Log.e("Berhasil", "berhasil" + urlGambar);
         holder.mTextViewJumlah.setText( mKeranjangList.get(position).getJumlah());
         holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +86,7 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextViewId, mTextViewNama, mTextViewHarga,mTextViewWarna,mTextViewUkuran,mTextViewJumlah,
                     mTextViewTotal;
+        public ImageView imageGambar;
         public Button btn_hapus;
         ApiInterface mApiInterface;
         public MyViewHolder(View keranjangView) {
@@ -90,23 +99,10 @@ public class KeranjangAdapter extends RecyclerView.Adapter<KeranjangAdapter.MyVi
             mTextViewHarga = (TextView) keranjangView.findViewById(R.id.txt_harga);
             mTextViewTotal = (TextView) keranjangView.findViewById(R.id.txt_total);
             btn_hapus = (Button) keranjangView.findViewById(R.id.btn_edit);
+            imageGambar = (ImageView) keranjangView.findViewById(R.id.img_item);
             mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         }
     }
 
-    public void hapusdesain() {
 
-        Call<PostPutDelDesainPengguna> deleteKontak = mApiInterface.deleteDesainPengguna(mTextViewId.getText().toString());
-        deleteKontak.enqueue(new Callback<PostPutDelDesainPengguna>() {
-            @Override
-            public void onResponse(Call<PostPutDelDesainPengguna> call, Response<PostPutDelDesainPengguna> response) {
-                Log.e("Berhasil", "berhasil" );
-            }
-            @Override
-            public void onFailure(Call<PostPutDelDesainPengguna> call, Throwable t) {
-                Log.e("Gagal", "gagal" );
-            }
-        });
-
-    }
 }

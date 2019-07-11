@@ -343,7 +343,7 @@ public class PengirimanActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private class MyTextWatcherCity implements TextWatcher {
+    public class MyTextWatcherCity implements TextWatcher {
 
         private View view;
 
