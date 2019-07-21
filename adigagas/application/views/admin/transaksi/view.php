@@ -22,16 +22,17 @@
 	<h1 class="h3 mb-2 text-gray-800">Detail Transaksi</h1>
 
 
-	<!-- DataTales Example -->
+	<!-- DataView Transaksi -->
 	<div class="card mb-3">
 		<div class="card-header">
             <a href="<?php echo site_url('admin/transaksi/') ?>"><i class="fas fa-arrow-left"></i>Kembali</a>
 		</div>
 		<div class="card-body">
-
+			
 			<div class="row mx-2">
 				<table>
 					<?php foreach ($trans as $trans) : ?>
+						<?php //$jmlh = $trans->total_harga; ?>
 						<tr>
 							<td>ID Transaksi</td>
 							<td> : </td>
@@ -50,11 +51,12 @@
 							<td>Status</td>
 							<td> : </td>
 							<td>
-								<?php echo $trans->nama_status ?>
+							<?php echo $trans->nama_status ?>
 							</td>
 						</tr>
-					
+					<?php //endforeach ?>
 				</table>
+				
 			</div>
 
 			<div class="table-responsive">
@@ -71,42 +73,48 @@
 							<th>Subtotal</th>
 						</tr>
 					</thead>
+					<tfoot>
+
+					</tfoot>
 					<tbody>
 						<?php $no=0; ?>
 						<?php foreach ($detailtrans as $detailtrans) : ?>
 							<tr>
 								<td>
 									<?php $no++ ?>
-									<?php echo $no ?>
+									<?= $no ?>
 								</td>
 								<td>
-									<?php echo $detailtrans->gambar ?>
+									<?= $detailtrans->gambar ?>
 								</td>
 								<td>
-									<?php echo $detailtrans->nama_desain ?>
+									<?= $detailtrans->nama_desain ?>
 								</td>
 								<td>
-									<?php echo $detailtrans->nama_desain.", ".$detailtrans->nama_jenis.", ".$detailtrans->cetak ?>
+									<?= $detailtrans->nama_desain.", ".$detailtrans->nama_jenis.", ".$detailtrans->cetak ?>
 								</td>
 								<td>
-									<?php echo $detailtrans->ukuran_shirt ?>
+									<?= $detailtrans->ukuran_shirt ?>
 								</td>
 								<td>
-									<?php echo 'Rp. '.number_format($detailtrans->harga_satuan,2,',','.') ?>
+									<?= 'Rp. '.number_format($detailtrans->harga_satuan,2,',','.') ?>
 								</td>
 								<td>
-									<?php echo $detailtrans->jumlah ?>
+									<?= $detailtrans->jumlah ?>
 								</td>
 								<td>
-									<?php echo 'Rp. '.number_format($detailtrans->subtotal_harga,2,',','.') ?>
+									<?= 'Rp. '.number_format($detailtrans->subtotal_harga,2,',','.') ?>
 								</td>
 							</tr>
 						<?php endforeach; ?>
+
 						<tr>
 							<th colspan="7">Total </th>
 							<th>
+								<?php //echo 'Rp. '.number_format($jmlh,2,',','.') ?>
+
 									<?php echo 'Rp. '.number_format($trans->total_harga,2,',','.') ?>
-								<?php endforeach ?>
+								<?php endforeach; ?>
 							</th>
 						</tr>
 					</tbody>
@@ -126,7 +134,7 @@
 						</tr>
 						<tr>
 							<td>
-								<?php echo $konfirm->bank_asal?>
+								From : <?php echo $konfirm->bank_asal?>
 							</td>
 							<td>
 								To : <?php echo $konfirm->bank_tujuan ?>
@@ -134,7 +142,7 @@
 						</tr>
 						<tr>
 							<td>
-								<?php echo $konfirm->no_rek_asal.' a/n '.$konfirm->atas_nama ?>
+								no. rek : <?php echo $konfirm->no_rek_asal.' a/n '.$konfirm->atas_nama ?>
 							</td>
 						</tr>
 						<tr>
@@ -170,7 +178,7 @@
 
 		</div>
 	</div>
-
+	<!-- END DataView Transaksi -->
 </div>
 <!-- /.container-fluid -->
 

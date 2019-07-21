@@ -56,7 +56,6 @@
 								<td>
 									<?php echo $transaksi->nama_status ?>
 								</td>
-
 								<td width="120">
 									<a href="<?php echo site_url('admin/transaksi/view/' . $transaksi->id_transaksi) ?>" class="btn btn-small text-primary"><i class="fas fa-info-circle"></i> Detail</a>
 									<?php if($transaksi->id_status == "maked" ) : ?>
