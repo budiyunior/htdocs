@@ -13,8 +13,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.customshirt.Adapter.AlamatPenggunaAdapter;
 import com.example.customshirt.Adapter.CheckoutAdapter;
 import com.example.customshirt.Adapter.KeranjangAdapter;
+import com.example.customshirt.Model.AlamatPengguna.AlamatPengguna;
+import com.example.customshirt.Model.AlamatPengguna.GetAlamatPengguna;
 import com.example.customshirt.Model.Desain.PostPutDelDesainPengguna;
 import com.example.customshirt.Model.Keranjang.GetShowCart;
 import com.example.customshirt.Model.Keranjang.GetTotalHarga;
@@ -34,15 +37,20 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CheckoutActivity extends AppCompatActivity implements View.OnClickListener {
-//    private Button btn_checkout;
+    //    private Button btn_checkout;
     SharedPreferences sharedPreferences;
     ApiInterface mApiInterface;
+    ApiInterface m2ApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView m2RecyclerView;
+    private RecyclerView.Adapter m2Adapter;
+    private RecyclerView.LayoutManager m2LayoutManager;
     TextView tvtotal_harga;
     private Spref spref;
     private Button btn_checkout;
+    TextView txt_nama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,35 +63,41 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
         btn_checkout.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
-        final String id_pengguna = sharedPreferences.getString("id_pengguna","0");
-        Log.e("Berhasil", "berhasil"+id_pengguna);
+        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
+        Log.e("Berhasil", "berhasil" + id_pengguna);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerCheckout);
         mLayoutManager = new LinearLayoutManager(CheckoutActivity.this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        String total_harga=sharedPreferences.getString("total_harga","10");
-        tvtotal_harga= findViewById(R.id.total_harga);
+
+        String total_harga = sharedPreferences.getString("total_harga", "10");
+        tvtotal_harga = findViewById(R.id.total_harga);
 //        tvtotal_harga.setText(total_harga);
         showcart();
 
+        SharedPreferences sharedPreferences = this.getSharedPreferences("remember", Context.MODE_PRIVATE);
+        String nama_pengguna = sharedPreferences.getString("id_pengguna", "2");
+        txt_nama = findViewById(R.id.txt_nama);
+        txt_nama.setText(nama_pengguna);
+        Log.e("Berhasil", "berhasil" + nama_pengguna);
     }
 
 
-    public  void showcart(){
-        final String id_pengguna=sharedPreferences.getString("id_pengguna","0");
+    public void showcart() {
+        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
         sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
-        Call<GetShowCart> user = mApiInterface.showcart(id_pengguna) ;
+        Call<GetShowCart> user = mApiInterface.showcart(id_pengguna);
 //        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
         user.enqueue(new Callback<GetShowCart>() {
             @Override
             public void onResponse(Call<GetShowCart> call, Response<GetShowCart> response) {
 //                String id_pengguna = response.body().getId_pengguna();
                 List<Keranjang> keranjangList = response.body().getListDataKeranjang();
-                Log.d("Retrofit Get", "Jumlah data Keranjang:"+String.valueOf(keranjangList.size()));
+                Log.d("Retrofit Get", "Jumlah data Keranjang:" + String.valueOf(keranjangList.size()));
                 mAdapter = new CheckoutAdapter(keranjangList);
                 mRecyclerView.setAdapter(mAdapter);
-                Log.e("Berhasil", "berhasil"+id_pengguna);
+                Log.e("Berhasil", "berhasil" + id_pengguna);
             }
 
             @Override
@@ -96,10 +110,11 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
 
 
     }
-    public  void total_harga(){
-        final String id_pengguna=sharedPreferences.getString("id_pengguna","0");
+
+    public void total_harga() {
+        final String id_pengguna = sharedPreferences.getString("id_pengguna", "0");
         sharedPreferences = this.getSharedPreferences("remember", Context.MODE_PRIVATE);
-        Call<GetTotalHarga> user = mApiInterface.total_harga(id_pengguna) ;
+        Call<GetTotalHarga> user = mApiInterface.total_harga(id_pengguna);
 //        Call<ResponseLogin> user=ApiClient.getApi().auth(txt_username.getText().toString(),txt_password.getText().toString());
         user.enqueue(new Callback<GetTotalHarga>() {
             @Override
@@ -109,7 +124,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("total_harga", total_harga);
                 editor.apply();
-                Log.e("Berhasil", "berhasil"+id_pengguna+total_harga);
+                Log.e("Berhasil", "berhasil" + id_pengguna + total_harga);
             }
 
             @Override
@@ -117,9 +132,7 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
                 Log.e("gagal", "gagal" + t);
                 Toast.makeText(CheckoutActivity.this, "Koneksi Gagal", Toast.LENGTH_LONG).show();
             }
-
         });
-
     }
 
     public void PostTransaksi() {
@@ -128,17 +141,18 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
         sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);
 //        String id_desain = ;
         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-        final String id_transaksi= String.valueOf(((new Date().getTime() / 1000L) % Integer.MAX_VALUE));
-        Call<PostTransaksi> postTrans = mApiInterface.postTransaksi(id_transaksi,id_pengguna,date,
-                "0","0", id_pengguna,"0","maked");
+        final String id_transaksi = String.valueOf(((new Date().getTime() / 1000L) % Integer.MAX_VALUE));
+        Call<PostTransaksi> postTrans = mApiInterface.postTransaksi(id_transaksi, id_pengguna, date,
+                "0", "0", id_pengguna, "0", "maked");
         postTrans.enqueue(new Callback<PostTransaksi>() {
             @Override
             public void onResponse(Call<PostTransaksi> call, Response<PostTransaksi> response) {
                 Toast.makeText(getApplicationContext(), "Berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 Log.e("Berhasil", "berhasil");
-                Log.e("Berhasil", "berhasil"+id_transaksi+id_pengguna);
+                Log.e("Berhasil", "berhasil" + id_transaksi + id_pengguna);
 //                finish();
             }
+
             @Override
             public void onFailure(Call<PostTransaksi> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
@@ -146,11 +160,12 @@ public class CheckoutActivity extends AppCompatActivity implements View.OnClickL
         });
 
     }
-    public void onClick(View v) {
-            if (v == btn_checkout) {
-                PostTransaksi();
 
-            }
+    public void onClick(View v) {
+        if (v == btn_checkout) {
+//                PostTransaksi();
+            PostTransaksi();
+        }
 
     }
 

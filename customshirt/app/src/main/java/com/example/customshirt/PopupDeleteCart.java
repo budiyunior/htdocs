@@ -66,4 +66,7 @@ btn_hapus = (Button) findViewById(R.id.btn_hapus);
         });
 
     }
+
+    public void ada(View view) {
+    }
 }

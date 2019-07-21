@@ -129,7 +129,7 @@ public class DetailItem extends AppCompatActivity implements View.OnClickListene
 
         ImageView image_item= (ImageView) findViewById(R.id.image_item);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        String imageUri = "http://192.168.0.112/adigagas/upload/profil/"+mIntent.getStringExtra("Gambar");
+        String imageUri = "http://customshirt.webtif.com/upload/product/"+mIntent.getStringExtra("Gambar");
         Picasso.with(this).load(imageUri).into(image_item);
         Log.e("Berhasil", "berhasil"+imageUri);
 //        sharedPreferences = getSharedPreferences("remember", Context.MODE_PRIVATE);

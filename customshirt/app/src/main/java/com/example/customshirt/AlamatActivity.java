@@ -59,10 +59,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AlamatActivity extends AppCompatActivity {
 
     private Button btn_newalamat;
-
-
-public class AlamatActivity extends AppCompatActivity {
-
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -73,9 +69,7 @@ TextView txt_nama;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alamat);
-
         btn_newalamat = (Button) findViewById(R.id.btn_newalamat);
-
         btn_newalamat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
